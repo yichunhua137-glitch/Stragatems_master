@@ -41,6 +41,11 @@ function ChallengePage({
   challengeStatus,
   challengeCompleted,
   setChallengeLevelAndStartNext,
+  challengeInterferenceEnabled,
+  setChallengeInterferenceEnabled,
+  challengeInterferenceMs,
+  setChallengeInterferenceMs,
+  challengeInterferenceLeftMs,
 }) {
   return (
     <section className="section challenge-section">
@@ -111,6 +116,51 @@ function ChallengePage({
                   >
                     +
                   </button>
+                </div>
+              </div>
+            </div>
+            <div className="challenge-row">
+              <div>
+                <label>Illuminate Interference</label>
+                <div className="toggle-row">
+                  <button
+                    type="button"
+                    className={`toggle-chip ${
+                      challengeInterferenceEnabled ? 'active' : ''
+                    }`}
+                    onClick={() =>
+                      setChallengeInterferenceEnabled((prev) => !prev)
+                    }
+                  >
+                    {challengeInterferenceEnabled ? 'Enabled' : 'Off'}
+                  </button>
+                  <div className="count-control">
+                    <input
+                      type="range"
+                      min="3000"
+                      max="12000"
+                      step="500"
+                      value={challengeInterferenceMs}
+                      disabled={!challengeInterferenceEnabled}
+                      onChange={(event) =>
+                        setChallengeInterferenceMs(Number(event.target.value))
+                      }
+                    />
+                    <span>{(challengeInterferenceMs / 1000).toFixed(1)}s</span>
+                  </div>
+                </div>
+              </div>
+              <div className="challenge-metrics">
+                <div>
+                  <span>Code Shift</span>
+                  <strong>
+                    {challengeInterferenceEnabled
+                      ? `${Math.max(
+                          0,
+                          challengeInterferenceLeftMs / 1000
+                        ).toFixed(1)}s`
+                      : 'Off'}
+                  </strong>
                 </div>
               </div>
             </div>

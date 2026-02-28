@@ -24,6 +24,7 @@ const shufflePick = (items, count) => {
   }
   return copy.slice(0, Math.min(count, copy.length));
 };
+const RANDOM_DIRS = ['up', 'down', 'left', 'right'];
 
 function App() {
   const [showSplash, setShowSplash] = useState(true);
@@ -77,9 +78,15 @@ function App() {
   const [challengeBestStreak, setChallengeBestStreak] = useState(0);
   const [challengeRetries, setChallengeRetries] = useState(0);
   const [challengeSessionStartMs, setChallengeSessionStartMs] = useState(null);
+  const [challengeInterferenceEnabled, setChallengeInterferenceEnabled] =
+    useState(false);
+  const [challengeInterferenceMs, setChallengeInterferenceMs] = useState(6000);
+  const [challengeInterferenceLeftMs, setChallengeInterferenceLeftMs] =
+    useState(0);
   const challengeActiveStartRef = useRef(null);
   const challengeEndRef = useRef(null);
   const challengeMistakesRef = useRef(0);
+  const challengeInterferenceNextRef = useRef(null);
   const [weaponData] = useState(weaponJson);
   const [weaponQuery, setWeaponQuery] = useState('');
   const [weaponSlot, setWeaponSlot] = useState('all');
@@ -368,6 +375,8 @@ function App() {
       challengeActiveStartRef.current = null;
       challengeMistakesRef.current = 0;
       challengeEndRef.current = null;
+      challengeInterferenceNextRef.current = null;
+      setChallengeInterferenceLeftMs(0);
       setChallengeTimeLeft(durationMs);
     },
     [
@@ -379,6 +388,20 @@ function App() {
       getChallengeTargetCount,
     ]
   );
+
+  const scrambleChallengeCodes = useCallback(() => {
+    setChallengeSet((prev) =>
+      prev.map((item) => ({
+        ...item,
+        code: item.code.map(
+          () => RANDOM_DIRS[Math.floor(Math.random() * RANDOM_DIRS.length)]
+        ),
+      }))
+    );
+    setChallengeInputSeq([]);
+    challengeActiveStartRef.current = null;
+    setChallengeStatus('Interference detected! Code shifted, restart command.');
+  }, []);
 
   useEffect(() => {
     refreshTrainingSet();
@@ -423,6 +446,44 @@ function App() {
     }, 100);
     return () => clearInterval(timer);
   }, [page, challengeFailed, challengeLevelComplete, challengeStarted]);
+
+  useEffect(() => {
+    if (page !== 'challenge') return undefined;
+    if (!challengeInterferenceEnabled || !challengeStarted) {
+      challengeInterferenceNextRef.current = null;
+      setChallengeInterferenceLeftMs(0);
+      return undefined;
+    }
+    if (challengeFailed || challengeLevelComplete || !challengeSet.length) {
+      challengeInterferenceNextRef.current = null;
+      setChallengeInterferenceLeftMs(0);
+      return undefined;
+    }
+    if (!challengeInterferenceNextRef.current) {
+      challengeInterferenceNextRef.current = Date.now() + challengeInterferenceMs;
+    }
+    const timer = setInterval(() => {
+      if (!challengeInterferenceNextRef.current) return;
+      const remaining = challengeInterferenceNextRef.current - Date.now();
+      if (remaining <= 0) {
+        scrambleChallengeCodes();
+        challengeInterferenceNextRef.current = Date.now() + challengeInterferenceMs;
+        setChallengeInterferenceLeftMs(challengeInterferenceMs);
+        return;
+      }
+      setChallengeInterferenceLeftMs(remaining);
+    }, 100);
+    return () => clearInterval(timer);
+  }, [
+    page,
+    challengeInterferenceEnabled,
+    challengeStarted,
+    challengeFailed,
+    challengeLevelComplete,
+    challengeSet.length,
+    challengeInterferenceMs,
+    scrambleChallengeCodes,
+  ]);
 
   useEffect(() => {
     if (page !== 'random' || !randomStartRef.current) return undefined;
@@ -492,6 +553,10 @@ function App() {
         if (!challengeStarted) {
           const durationMs = getChallengeDurationMs(challengeMode, challengeLevel);
           challengeEndRef.current = Date.now() + durationMs;
+          if (challengeInterferenceEnabled) {
+            challengeInterferenceNextRef.current = Date.now() + challengeInterferenceMs;
+            setChallengeInterferenceLeftMs(challengeInterferenceMs);
+          }
           setChallengeTimeLeft(durationMs);
           setChallengeStarted(true);
           setChallengeStatus('Awaiting WASD input');
@@ -720,6 +785,8 @@ function App() {
       challengeInputSeq,
       challengeSessionStartMs,
       challengeStreak,
+      challengeInterferenceEnabled,
+      challengeInterferenceMs,
       getChallengeTargetCount,
       getChallengeDurationMs,
       sessionStartMs,
@@ -748,11 +815,21 @@ function App() {
       startChallengeLevel(next, challengeMode);
       const durationMs = getChallengeDurationMs(challengeMode, next);
       challengeEndRef.current = Date.now() + durationMs;
+      if (challengeInterferenceEnabled) {
+        challengeInterferenceNextRef.current = Date.now() + challengeInterferenceMs;
+        setChallengeInterferenceLeftMs(challengeInterferenceMs);
+      }
       setChallengeTimeLeft(durationMs);
       setChallengeStarted(true);
       return next;
     });
-  }, [challengeMode, getChallengeDurationMs, startChallengeLevel]);
+  }, [
+    challengeMode,
+    challengeInterferenceEnabled,
+    challengeInterferenceMs,
+    getChallengeDurationMs,
+    startChallengeLevel,
+  ]);
 
   return (
     <div className="app">
@@ -884,6 +961,11 @@ function App() {
             challengeStatus={challengeStatus}
             challengeCompleted={challengeCompleted}
             setChallengeLevelAndStartNext={setChallengeLevelAndStartNext}
+            challengeInterferenceEnabled={challengeInterferenceEnabled}
+            setChallengeInterferenceEnabled={setChallengeInterferenceEnabled}
+            challengeInterferenceMs={challengeInterferenceMs}
+            setChallengeInterferenceMs={setChallengeInterferenceMs}
+            challengeInterferenceLeftMs={challengeInterferenceLeftMs}
           />
         )}
 
