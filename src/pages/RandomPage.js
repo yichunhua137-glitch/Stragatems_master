@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { DIR_ICON } from '../constants/directions';
 
 // Free-form random arrow sequence trainer.

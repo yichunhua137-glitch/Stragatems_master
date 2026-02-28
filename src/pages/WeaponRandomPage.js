@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 
 // Randomized weapon loadout generator by slot.
 function WeaponRandomPage({

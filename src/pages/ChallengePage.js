@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import StratagemSelector from '../components/StratagemSelector';
 import { DIR_ICON } from '../constants/directions';
 
