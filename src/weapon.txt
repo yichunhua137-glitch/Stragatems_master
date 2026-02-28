@@ -1,0 +1,350 @@
+{{Breadcrumb Auto}}
+{{Tabs
+|name1=Helldivers 2
+|link1=Weapons
+|name2=Helldivers 1
+|link2=Helldivers 1:Weapons
+}}
+<small>''{{Hatnote|Looking for something that isn't here? Visit the [[:Category:Weapons|category]] for all weapon-related pages.}}''</small>
+
+'''Weapons''' can be equipped at the [[Armory]] or in a [[Hellpod]] on the [[Bridge]] before [[missions]] in ''[[Helldivers 2]]''.
+==Overview==
+Weapons have different [[Damage#Damage Types|damage types]]. Most have [[recoil]].
+
+==Acquisition==
+Most personal weapons are unlocked through [[Warbonds]] using {{Currency|Medals}}, with 10 exceptions.<ref name=wpnexc />
+
+Most [[#Support Weapons|support weapons]] are purchased through the [[Patriotic Administration Center#Ship Management|Ship Management]] with {{Currency|Requisition Slips}}, with 12 exceptions.<ref name=supexc />
+
+==Weaponry==<!--——————————
+Div Custom Class: Custom_weapon_gallery   
+———————————————————————————————————————
+Variable Default Values:
+--image-width: 758
+--image-height: 406
+--image-size-adjustment: .33
+--image-size-adjustment-mobile: .22
+———————————————————————————————————
+Custom Value Instructions:
+—————————————————————————
+Use variables via in-line style to customize div class
+"Custom_weapon_gallery" for whatever ratio of image-
+-you want to put in a gallery at full quality.
+—————————————————————————————————————————————
+Example:
+————————
+<div class="Custom_weapon_gallery" style="--image-width:492; --image-height:492; --image-size-adjustment:.5; --image-size-adjustment-mobile:.35;">
+
+Use the pixel dimensions of the original image(s) for width and height,
+selecting the largest image to ensure proper functionality.
+
+Size adjustments may require some trial and error.
+A rough ratio of 1:1.5 between mobile and desktop
+often works as a starting point, but results can vary.
+Best of luck!
+——————————-->
+<tabber>
+Primary=
+[[Levels#Unlocks|Sergeants]] (level 10) and higher can unlock then purchase [[attachments]] and [[Cosmetics#Weapon-0|patterns]] by acquiring weapon experience then spending Requisition Slips.
+{{#tag:tabber|
+Assault Rifle=
+<div class="Custom_gallery" style="--image-width:3840; --image-height:2160; --image-size-adjustment:.1; --image-size-adjustment-mobile:.03;">
+<gallery mode="nolines" widths="3840px" heights="2160px">
+AR-23 Liberator Primary Render.png|link=AR-23 Liberator|<big>[[AR-23 Liberator]]</big> <ref name=wpnexc /><br>{{armor|2|ap}}
+AR-23P Liberator Penetrator Primary Render.png|link=AR-23P Liberator Penetrator|<big>[[AR-23P Liberator Penetrator]]</big><br>{{armor|3|ap}}
+AR-23C Liberator Concussive Primary Render.png|link=AR-23C Liberator Concussive|<big>[[AR-23C Liberator Concussive]]</big><br>{{armor|2|ap}}
+StA-52 Assault Rifle Primary Render.png|link=StA-52 Assault Rifle|<big>[[StA-52 Assault Rifle]]</big><br>{{armor|2|ap}}
+AR-32 Pacifier Primary Render.png|link=AR-32 Pacifier|<big>[[AR-32 Pacifier]]</big><br>{{armor|3|ap}}
+AR-2 Coyote Primary Render.png|link=AR-2 Coyote|<big>[[AR-2 Coyote]]</big><br>{{armor|3|ap}}
+MA5C Assault Rifle Primary Render.png|link=MA5C Assault Rifle|<big>[[MA5C Assault Rifle]]</big><br>{{armor|3|ap}}
+AR-23A Liberator Carbine Primary Render.png|link=AR-23A Liberator Carbine|<big>[[AR-23A Liberator Carbine]]</big><br>{{armor|2|ap}}
+AR-61 Tenderizer Primary Render.png|link=AR-61 Tenderizer|<big>[[AR-61 Tenderizer]]</big><br>{{armor|2|ap}}
+BR-14 Adjudicator Primary Render.png|link=BR-14 Adjudicator|<big>[[BR-14 Adjudicator]]</big><br>{{armor|3|ap}}
+AR-GL-21 One Two Primary Render.png|link=AR/GL-21 One-Two|<big>[[AR/GL-21 One-Two]]</big><br>{{armor|2|ap}} to {{Armor|3|AP}}
+AR-59 Suppressor Primary Render.png|link=AR-59 Suppressor|<big>[[AR-59 Suppressor]]</big><br>{{armor|2|ap}}
+
+</gallery>
+</div>
+{{!}}-{{!}}
+Marksman Rifle=
+<div class="Custom_gallery" style="--image-width:3840; --image-height:2160; --image-size-adjustment:.1; --image-size-adjustment-mobile:.03;">
+<gallery mode="nolines" widths="3840px" heights="2160px">
+R-2 Amendment Primary Render.png|link=R-2 Amendment|<big>[[R-2 Amendment]]</big><br>{{armor|2|ap}}
+R-2124 Constitution Primary Render.png|link=R-2124 Constitution|<big>[[R-2124 Constitution]]</big> <ref name=wpnexc /><br>{{armor|3|ap}}
+R-6 Deadeye Primary Render.png|link=R-6 Deadeye|<big>[[R-6 Deadeye]]</big><br>{{armor|3|ap}}
+R-63 Diligence Primary Render.png|link=R-63 Diligence|<big>[[R-63 Diligence]]</big><br>{{armor|2|ap}}
+R-63CS Diligence Counter Sniper Primary Render.png|link=R-63CS Diligence Counter Sniper|<big>[[R-63CS Diligence Counter Sniper]]</big><br>{{armor|3|ap}}
+R-72 Censor Primary Render.png|link=R-72 Censor|<big>[[R-72 Censor]]</big><br>{{armor|2|ap}}
+
+</gallery>
+</div>
+{{!}}-{{!}}
+Submachine Gun=
+<div class="Custom_gallery" style="--image-width:3840; --image-height:2160; --image-size-adjustment:.1; --image-size-adjustment-mobile:.03;">
+<gallery mode="nolines" widths="3840px" heights="2160px">
+MP-98 Knight Primary Render.png|link=MP-98 Knight|<big>[[MP-98 Knight]]</big> <ref name=wpnexc /><br>{{armor|2|ap}}
+StA-11 SMG Primary Render.png|link=StA-11 SMG|<big>[[StA-11 SMG]]</big><br>{{armor|2|ap}}
+M7S SMG Primary Render.png|link=M7S SMG|<big>[[M7S SMG]]</big><br>{{armor|2|ap}}
+SMG-32 Reprimand Primary Render.png|link=SMG-32 Reprimand|<big>[[SMG-32 Reprimand]]</big><br>{{armor|3|ap}}
+SMG-37 Defender Primary Render.png|link=SMG-37 Defender|<big>[[SMG-37 Defender]]</big><br>{{armor|2|ap}}
+SMG-72 Pummeler Primary Render.png|link=SMG-72 Pummeler|<big>[[SMG-72 Pummeler]]</big><br>{{armor|2|ap}}
+</gallery>
+</div>
+{{!}}-{{!}}
+Shotgun=
+<div class="Custom_gallery" style="--image-width:3840; --image-height:2160; --image-size-adjustment:.1; --image-size-adjustment-mobile:.03;">
+<gallery mode="nolines" widths="3840px" heights="2160px">
+SG-8 Punisher Primary Render.png|link=SG-8 Punisher|<big>[[SG-8 Punisher]]</big><br>{{armor|2|ap}}
+SG-8S Slugger Primary Render.png|link=SG-8S Slugger|<big>[[SG-8S Slugger]]</big><br>{{armor|3|ap}}
+SG-20 Halt Primary Render.png|link=SG-20 Halt|<big>[[SG-20 Halt]]</big><br>{{armor|2|ap}} to {{armor|3|ap}}
+SG-451 Cookout Primary Render.png|link=SG-451 Cookout|<big>[[SG-451 Cookout]]</big><br>{{armor|2|ap}}
+DBS-2 Shotgun Primary Render.png|link=DBS-2 Double Freedom|<big>[[DBS-2 Double Freedom]] <ref name=wpnexc /></big><br>{{armor|3|ap}}
+M90A Shotgun Primary Render.png|link=M90A Shotgun|<big>[[M90A Shotgun]]</big><br>{{armor|2|ap}}
+SG-225 Breaker Primary Render.png|link=SG-225 Breaker|<big>[[SG-225 Breaker]]</big><br>{{armor|2|ap}}
+SG-225SP Breaker Spray&Pray Primary Render.png|link=SG-225SP Breaker Spray&Pray|<big>[[SG-225SP Breaker Spray&Pray]]</big><br>{{armor|2|ap}}
+SG-225IE Breaker Incendiary Primary Render.png|link=SG-225IE Breaker Incendiary|<big>[[SG-225IE Breaker Incendiary]]</big><br>{{armor|2|ap}}
+</gallery>
+</div>
+{{!}}-{{!}}
+Explosive=
+<div class="Custom_gallery" style="--image-width:3840; --image-height:2160; --image-size-adjustment:.1; --image-size-adjustment-mobile:.03;">
+<gallery mode="nolines" widths="3840px" heights="2160px">
+CB-9 Exploding Crossbow Primary Render.png|link=CB-9 Exploding Crossbow|<big>[[CB-9 Exploding Crossbow]]</big><br>{{armor|3|ap}}
+R-36 Eruptor Primary Render.png|link=R-36 Eruptor|<big>[[R-36 Eruptor]]</big><br>{{armor|4|ap}}
+</gallery>
+</div>
+{{!}}-{{!}}
+Energy-Based=
+<div class="Custom_gallery" style="--image-width:3840; --image-height:2160; --image-size-adjustment:.1; --image-size-adjustment-mobile:.03;">
+<gallery mode="nolines" widths="3840px" heights="2160px">
+SG-8P Punisher Plasma Primary Render.png|link=SG-8P Punisher Plasma|<big>[[SG-8P Punisher Plasma]]</big><br>{{armor|3|ap}}
+PLAS-39 Accelerator Rifle Primary Render.png|link=PLAS-39 Accelerator Rifle|<big>[[PLAS-39 Accelerator Rifle]]</big><br>{{armor|3|ap}}
+ARC-12 Blitzer Primary Render.png|link=ARC-12 Blitzer|<big>[[ARC-12 Blitzer]]</big><br>{{armor|3|ap}}
+LAS-5 Scythe Primary Render.png|link=LAS-5 Scythe|<big>[[LAS-5 Scythe]]</big><br>{{armor|2|ap}}
+LAS-16 Sickle Primary Render.png|link=LAS-16 Sickle|<big>[[LAS-16 Sickle]]</big><br>{{armor|2|ap}}
+LAS-17 Double-Edge Sickle Primary Render.png|link=LAS-17 Double-Edge Sickle|<big>[[LAS-17 Double-Edge Sickle]]</big><br>{{armor|2|ap}} to {{Armor|4|AP}}
+PLAS-1 Scorcher Primary Render.png|link=PLAS-1 Scorcher|<big>[[PLAS-1 Scorcher]]</big><br>{{armor|3|ap}}
+PLAS-101 Purifier Primary Render.png|link=PLAS-101 Purifier|<big>[[PLAS-101 Purifier]]</big><br>{{armor|3|ap}}
+</gallery>
+</div>
+{{!}}-{{!}}
+Special=
+<div class="Custom_gallery" style="--image-width:3840; --image-height:2160; --image-size-adjustment:.1; --image-size-adjustment-mobile:.03;">
+<gallery mode="nolines" widths="3840px" heights="2160px">
+VG-70 Variable Primary Render.png|link=VG-70 Variable|<big>[[VG-70 Variable]]</big><br>{{Armor|2|ap}}
+FLAM-66 Torcher Primary Render.png|link=FLAM-66 Torcher|<big>[[FLAM-66 Torcher]]</big><br>{{armor|4|ap}}
+JAR-5 Dominator Primary Render.png|link=JAR-5 Dominator|<big>[[JAR-5 Dominator]]</big><br>{{armor|3|ap}}
+</gallery>
+</div>
+}}
+|-|Secondary=
+{{#tag:tabber|Pistol=
+<div class="Custom_gallery" style="--image-width:3840; --image-height:2160; --image-size-adjustment:.1; --image-size-adjustment-mobile:.03;">
+<gallery mode="nolines" widths="3840px" heights="2160px">
+P-92 Warrant Secondary Render.png|link=P-92 Warrant|<big>[[P-92 Warrant]]</big> <ref name=wpnexc /><br>{{armor|3|AP}}
+P-2 Peacemaker Secondary Render.png|link=P-2 Peacemaker|<big>[[P-2 Peacemaker]]</big> <ref name=wpnexc /><br>{{armor|2|AP}}
+P-19 Redeemer Secondary Render.png|link=P-19 Redeemer|<big>[[P-19 Redeemer]]</big><br>{{armor|2|AP}}
+P-113 Verdict Secondary Render.png|link=P-113 Verdict|<big>[[P-113 Verdict]]</big><br>{{armor|3|AP}}
+M6C_SOCOM Pistol Secondary Render.png|link=M6C/SOCOM Pistol|<big>[[M6C/SOCOM Pistol]]</big><br>{{armor|2|AP}}
+P-4 Senator Secondary Render.png|link=P-4 Senator|<big>[[P-4 Senator]]</big><br>{{armor|4|AP}}
+</gallery>
+</div>
+{{!}}-{{!}}
+Melee=
+<div class="Custom_gallery" style="--image-width:3840; --image-height:2160; --image-size-adjustment:.1; --image-size-adjustment-mobile:.03;">
+<gallery mode="nolines" widths="3840px" heights="2160px">
+CQC-19 Stun Lance Secondary Render.png|link=CQC-19 Stun Lance|<big>[[CQC-19 Stun Lance]]</big><br>{{armor|3|AP}}
+CQC-2 Saber Secondary Render.png|link=CQC-2 Saber|<big>[[CQC-2 Saber]]</big><br>{{armor|3|AP}}
+CQC-30 Stun Baton Secondary Render.png|link=CQC-30 Stun Baton|<big>[[CQC-30 Stun Baton]]</big> <ref name=wpnexc /><br>{{armor|3|AP}}
+CQC-5 Combat Hatchet Secondary Render.png|link=CQC-5 Combat Hatchet|<big>[[CQC-5 Combat Hatchet]]</big> <ref name=wpnexc /><br>{{armor|3|AP}}
+CQC-42 Machete Secondary Render.png|link=CQC-42 Machete|<big>[[CQC-42 Machete]]</big> <ref name=wpnexc /><br>{{armor|3|AP}}
+</gallery>
+</div>
+{{!}}-{{!}}
+Special=
+<div class="Custom_gallery" style="--image-width:3840; --image-height:2160; --image-size-adjustment:.1; --image-size-adjustment-mobile:.03;">
+<gallery mode="nolines" widths="3840px" heights="2160px">
+P-11 Stim Pistol Secondary Render.png|link=P-11 Stim Pistol|<big>[[P-11 Stim Pistol]]</big><br>{{armor|-1|AP|notext}} No Penetration
+SG-22 Bushwhacker Secondary Render.png|link=SG-22 Bushwhacker|<big>[[SG-22 Bushwhacker]]</big><br>{{armor|2|AP}}
+LAS-58 Talon Secondary Render.png|link=LAS-58 Talon|<big>[[LAS-58 Talon]]</big><br>{{armor|3|AP}}
+P-72 Crisper Secondary Render.png|link=P-72 Crisper|<big>[[P-72 Crisper]]</big><br>{{armor|4|ap}}
+GP-31 Grenade Pistol Secondary Render.png|link=GP-31 Grenade Pistol|<big>[[GP-31 Grenade Pistol]]</big><br>{{armor|3|AP}}
+LAS-7 Dagger Secondary Render.png|link=LAS-7 Dagger|<big>[[LAS-7 Dagger]]</big><br>{{armor|2|AP}}
+GP-20 Ultimatum Secondary Render.png|link=GP-20 Ultimatum|<big>[[GP-20 Ultimatum]]</big><br>{{armor|6|AP}}
+PLAS-15 Loyalist Secondary Render.png|link=PLAS-15 Loyalist|<big>[[PLAS-15 Loyalist]]</big><br>{{armor|2|AP}} to {{Armor|3|AP}}
+P-35 Re-Educator Secondary Render.png|link=P-35 Re-Educator|<big>[[P-35 Re-Educator]]</big><br>{{armor|4|AP}}
+</gallery>
+</div>
+}}
+|-|Throwable=
+{{#tag:tabber|Standard=
+<div class="Custom_gallery" style="--image-width:2160; --image-height:2160; --image-size-adjustment:.1; --image-size-adjustment-mobile:.03;">
+<gallery mode="nolines" widths="2160px" heights="2160px">
+TED-63 Dynamite Throwable Render.png|link=TED-63 Dynamite|<big>[[TED-63 Dynamite]]</big><br>{{armor|4|AP}}
+G-6 Frag Throwable Render.png|link=G-6 Frag|<big>[[G-6 Frag]]</big><br>{{armor|3|AP}}
+G-12 High Explosive Throwable Render.png|link=G-12 High Explosive|<big>[[G-12 High Explosive]]</big> <ref name=wpnexc /><br>{{armor|4|AP}}
+G-10 Incendiary Throwable Render.png|link=G-10 Incendiary|<big>[[G-10 Incendiary]]</big><br>{{armor|3|AP}}
+G-7 Pineapple Throwable Render.png|link=G-7 Pineapple|<big>[[G-7 Pineapple]]</big><br>{{armor|3|AP}}
+</gallery>
+</div>
+{{!}}-{{!}}
+Special=
+<div class="Custom_gallery" style="--image-width:2160; --image-height:2160; --image-size-adjustment:.1; --image-size-adjustment-mobile:.03;">
+<gallery mode="nolines" widths="2160px" heights="2160px">
+G-16 Impact Throwable Render.png|link=G-16 Impact|<big>[[G-16 Impact]]</big><br>{{armor|4|AP}}
+G-13 Incendiary Impact Throwable Render.png|link=G-13 Incendiary Impact|<big>[[G-13 Incendiary Impact]]</big><br>{{armor|3|AP}}
+G-23 Stun Throwable Render.png|link=G-23 Stun|<big>[[G-23 Stun]]</big><br>{{armor|6|AP}}
+G-4 Gas Throwable Render.png|link=G-4 Gas|<big>[[G-4 Gas]]</big><br>{{armor|6|AP}}
+G-50 Seeker Throwable Render.png|link=G-50 Seeker|<big>[[G-50 Seeker]]</big><br>{{armor|4|AP}}
+G-3 Smoke Throwable Render.png|link=G-3 Smoke|<big>[[G-3 Smoke]]</big><br>{{armor|-1|AP}}
+G-123 Thermite Throwable Render.png|link=G-123 Thermite|<big>[[G-123 Thermite]]</big><br>{{armor|7|AP}}
+K-2 Throwing Knife Throwable Render.png|link=K-2 Throwing Knife|<big>[[K-2 Throwing Knife]]</big><br>{{armor|3|AP}}
+G-142 Pyrotech Throwable Render.png|link=G-142 Pyrotech|<big>[[G-142 Pyrotech]]</big><br>{{armor|3|AP}}
+G-109 Urchin Throwable Render.png|link=G-109 Urchin|<big>[[G-109 Urchin]]</big><br>{{Armor|6|AP}}
+G-31 ARC Throwable Render.png|link=G-31 Arc|<big>[[G-31 Arc]]</big><br>{{Armor|4|AP}}
+TM-1 Lure Mine Throwable Render.png|link=TM-1 Lure Mine|<big>[[TM-1 Lure Mine]]</big><br>{{Armor|5|AP}}
+G-89 Smokescreen Throwable Render.png|link=Smokescreen|<big>[[G-89 Smokescreen]]</big><br>{{Armor|-1|AP}}
+
+</gallery>
+</div>
+}}
+</tabber>
+
+==Support Weapons==
+Support weapons are selected as part of your loadout during deployment. Once on the battlefield, [[Helldiver]]s can summon these weapons by inputting a unique [[Stratagems|stratagem]] code and throwing a beacon on the ground. They are then delivered from the [[Super Destroyer|Destroyer]] to the [[Planets and Sectors|planet's]] surface via [[Hellpod]]s. Certain supports are either [[#Civilian-0|exclusive]] to or also available at various [[Minor Place of Interest|POIs]].
+<tabber>
+Patriotic Administration Center=
+<div class="Custom_gallery" style="--image-width:3840; --image-height:2160; --image-size-adjustment:.1; --image-size-adjustment-mobile:.03;">
+<gallery mode="nolines" widths="3840px" heights="2160px">
+MG-43 Machine Gun Support Render.png|link=MG-43 Machine Gun|<big>[[MG-43 Machine Gun]]</big><br>{{Armor|3|AP}}
+APW-1 Anti-Materiel Rifle Support Render.png|link=APW-1 Anti-Materiel Rifle|<big>[[APW-1 Anti-Materiel Rifle]]</big><br>{{Armor|4|AP}}
+M-105 Stalwart Support Render.png|link=M-105 Stalwart|<big>[[M-105 Stalwart]]</big><br>{{Armor|2|AP}}
+EAT-17 Expendable Anti-Tank Support Render.png|link=EAT-17 Expendable Anti-Tank|<big>[[EAT-17 Expendable Anti-Tank]]</big><br>{{Armor|6|AP}}
+GR-8 Recoilless Rifle Support Render.png|link=GR-8 Recoilless Rifle|<big>[[GR-8 Recoilless Rifle]]</big><br>{{Armor|5|AP}} to {{Armor|6|AP}}
+FLAM-40 Flamethrower Support Render.png|link=FLAM-40 Flamethrower|<big>[[FLAM-40 Flamethrower]]</big><br>{{Armor|4|AP}}
+AC-8 Autocannon Support Render.png|link=AC-8 Autocannon|<big>[[AC-8 Autocannon]]</big><br>{{Armor|4|AP}}
+MG-206 Heavy Machine Gun Support Render.png|link=MG-206 Heavy Machine Gun|<big>[[MG-206 Heavy Machine Gun]]</big><br>{{Armor|4|AP}}
+RL-77 Airburst Rocket Launcher Support Render.png|link=RL-77 Airburst Rocket Launcher|<big>[[RL-77 Airburst Rocket Launcher]]</big><br>{{Armor|3|AP}}
+MLS-4X Commando Support Render.png|link=MLS-4X Commando|<big>[[MLS-4X Commando]]</big><br>{{Armor|6|AP}}
+RS-422 Railgun Support Render.png|link=RS-422 Railgun|<big>[[RS-422 Railgun]]</big><br>{{Armor|5|AP}}
+FAF-14 Spear Support Render.png|link=FAF-14 Spear|<big>[[FAF-14 Spear]]</big><br>{{Armor|7|AP}}
+StA-X3 W.A.S.P. Launcher Support Render.png|link=StA-X3 W.A.S.P. Launcher|<big>[[StA-X3 W.A.S.P. Launcher]]</big><br>{{Armor|6|AP}}
+</gallery>
+</div>
+|-|
+Engineering Bay=
+<div class="Custom_gallery" style="--image-width:3840; --image-height:2160; --image-size-adjustment:.1; --image-size-adjustment-mobile:.03;">
+<gallery mode="nolines" widths="3840px" heights="2160px">
+GL-21 Grenade Launcher Support Render.png|link=GL-21 Grenade Launcher|<big>[[GL-21 Grenade Launcher]]</big><br>{{Armor|3|AP}}
+LAS-98 Laser Cannon Support Render.png|link=LAS-98 Laser Cannon|<big>[[LAS-98 Laser Cannon]]</big><br>{{Armor|4|AP}}
+ARC-3 Arc Thrower Support Render.png|link=ARC-3 Arc Thrower|<big>[[ARC-3 Arc Thrower]]</big><br>{{Armor|7|AP}}
+LAS-99 Quasar Cannon Support Render.png|link=LAS-99 Quasar Cannon|<big>[[LAS-99 Quasar Cannon]]</big><br>{{Armor|6|AP}}
+</gallery>
+</div>
+|-|
+Civilian=
+Civilian-grade support weapons are only found on the ground and cannot be called in.
+<div class="Custom_gallery" style="--image-width:3840; --image-height:2160; --image-size-adjustment:.1; --image-size-adjustment-mobile:.03;">
+<gallery mode="nolines" widths="3840px" heights="2160px">
+SG-88 Break-Action Shotgun Support Render.png|link=SG-88 Break-Action Shotgun|<big>[[SG-88 Break-Action Shotgun]]</big> <ref name=supexc /><br>{{Armor|2|AP}}
+Entrenchment Tool Support Render.png|link=Entrenchment Tool|<big>[[CQC-72 Entrenchment Tool]]</big> <ref name=supexc /><br>{{Armor|3|AP}}
+</gallery>
+</div>
+|-|
+Warbonds=
+{{#tag:tabber|Chemical Agents=
+<div class="Custom_gallery" style="--image-width:3840; --image-height:2160; --image-size-adjustment:.1; --image-size-adjustment-mobile:.08;">
+<gallery mode="nolines" widths="3840px" heights="2160px">
+TX-41 Sterilizer Support Render.png|link=TX-41 Sterilizer|<big>[[TX-41 Sterilizer]]</big> <ref name=supexc /><br>{{Armor|5|AP}}
+</gallery>
+</div>
+{{!}}-{{!}}
+Masters of Ceremony=
+<div class="Custom_gallery" style="--image-width:3840; --image-height:2160; --image-size-adjustment:.1; --image-size-adjustment-mobile:.08;">
+<gallery mode="nolines" widths="3840px" heights="2160px">
+CQC-1 One True Flag Support Render.png|link=CQC-1 One True Flag|<big>[[CQC-1 One True Flag]]</big> <ref name=supexc /><br>{{Armor|3|AP}}
+</gallery>
+</div>
+{{!}}-{{!}}
+Force of Law=
+<div class="Custom_gallery" style="--image-width:3840; --image-height:2160; --image-size-adjustment:.1; --image-size-adjustment-mobile:.08;">
+<gallery mode="nolines" widths="3840px" heights="2160px">
+GL-52 De-Escalator Support Render.png|link=GL-52 De-Escalator|<big>[[GL-52 De-Escalator]]</big> <ref name=supexc /><br>{{Armor|4|AP}}
+</gallery>
+</div>
+{{!}}-{{!}}
+Control Group=
+<div class="Custom_gallery" style="--image-width:3840; --image-height:2160; --image-size-adjustment:.1; --image-size-adjustment-mobile:.08;">
+<gallery mode="nolines" widths="3840px" heights="2160px">
+PLAS-45 Epoch Support Render.png|link=PLAS-45 Epoch|<big>[[PLAS-45 Epoch]]</big> <ref name=supexc /><br>{{Armor|4|AP}} to {{Armor|5|AP}}
+</gallery>
+</div>
+{{!}}-{{!}}
+Dust Devils=
+<div class="Custom_gallery" style="--image-width:3840; --image-height:2160; --image-size-adjustment:.1; --image-size-adjustment-mobile:.08;">
+<gallery mode="nolines" widths="3840px" heights="2160px">
+S-11 Speargun Support Render.png|link=S-11 Speargun|<big>[[S-11 Speargun]]</big> <ref name=supexc /><br>{{Armor|5|AP}}
+EAT-700 Expendable Napalm Support Render.png|link=EAT-700 Expendable Napalm|<big>[[EAT-700 Expendable Napalm]]</big> <ref name=supexc /><br>{{Armor|6|AP}}
+MS-11 Solo Silo Support Render.png|link=MS-11 Solo Silo|<big>[[MS-11 Solo Silo]]</big> <ref name=supexc /><br>{{Armor|9|AP}}
+</gallery>
+</div>
+{{!}}-{{!}}
+Python Commandos=
+<div class="Custom_gallery" style="--image-width:3840; --image-height:2160; --image-size-adjustment:.1; --image-size-adjustment-mobile:.08;">
+<gallery mode="nolines" widths="3840px" heights="2160px">
+M-1000 Maxigun Support Render.png|link=M-1000 Maxigun|<big>[[M-1000 Maxigun]]</big> <ref name=supexc /><br>{{Armor|3|AP}}
+CQC-9 Defoliation Tool Support Render.png|link=CQC-9 Defoliation Tool|<big>[[CQC-9 Defoliation Tool]]</big> <ref name=supexc /><br>{{Armor|3|AP}} to {{Armor|5|AP}}
+</gallery>
+</div>
+{{!}}-{{!}}
+Redacted Regiment=
+<div class="Custom_gallery" style="--image-width:3840; --image-height:2160; --image-size-adjustment:.1; --image-size-adjustment-mobile:.08;">
+<gallery mode="nolines" widths="3840px" heights="2160px">
+B MD C4 Pack Support Render.png|link=B/MD C4 Pack|<big>[[B/MD C4 Pack]]</big> <ref name=supexc /><br>{{Armor|7|AP}}
+
+</gallery>
+</div>
+}}
+</tabber>
+
+==Change History==
+{{Change History Head}}
+{{Change History Update|1.003.000|changes=
+Addition
+*Added Weapon Customization
+{{#ev:youtube|A7TURE5p5Ik|360|inline|Weapon Customization||autoplay=false}}
+}}
+
+==References==
+<references>
+<ref name="wpnexc"><br />
+<u><big>Weapon Exceptions:</big></u>
+# [[AR-23 Liberator]]
+# [[P-2 Peacemaker]]
+# [[G-12 High Explosive]]
+# [[MP-98 Knight]]
+# [[R-2124 Constitution]]
+# [[CQC-30 Stun Baton]]
+# [[CQC-5 Combat Hatchet]]
+# [[P-92 Warrant]]
+# [[CQC-42 Machete]]
+# [[DBS-2 Double Freedom]]
+</ref>
+<ref name="supexc"><br />
+<u><big>Support Weapon Exceptions:</big></u>
+# [[SG-88 Break-Action Shotgun]]
+# [[TX-41 Sterilizer]]
+# [[Entrenchment Tool]]
+# [[CQC-1 One True Flag]]
+# [[GL-52 De-Escalator]]
+# [[PLAS-45 Epoch]]
+# [[S-11 Speargun]]
+# [[EAT-700 Expendable Napalm]]
+# [[MS-11 Solo Silo]]
+# [[M-1000 Maxigun]]
+#[[CQC-9 Defoliation Tool]]
+#[[B/MD C4 Pack]]
+</ref>
+</references>
+[[Category:Weapons|!]]
+__FORCETOC__

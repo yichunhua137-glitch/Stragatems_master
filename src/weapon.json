@@ -1,0 +1,2085 @@
+{
+  "source": "Helldivers 2",
+  "count": 113,
+  "weapons": [
+    {
+      "id": "ar-23-liberator",
+      "name": "AR-23 Liberator",
+      "link": "AR-23 Liberator",
+      "slot": "Primary",
+      "category": "Assault Rifle",
+      "image": "AR-23 Liberator Primary Render.png",
+      "armor": [
+        {
+          "raw": "{{armor|2|ap}}",
+          "value": "2",
+          "type": "ap",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "AR-23 Liberator Primary Render.png|link=AR-23 Liberator|<big>[[AR-23 Liberator]]</big> <ref name=wpnexc /><br>{{armor|2|ap}}"
+    },
+    {
+      "id": "ar-23p-liberator-penetrator",
+      "name": "AR-23P Liberator Penetrator",
+      "link": "AR-23P Liberator Penetrator",
+      "slot": "Primary",
+      "category": "Assault Rifle",
+      "image": "AR-23P Liberator Penetrator Primary Render.png",
+      "armor": [
+        {
+          "raw": "{{armor|3|ap}}",
+          "value": "3",
+          "type": "ap",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "AR-23P Liberator Penetrator Primary Render.png|link=AR-23P Liberator Penetrator|<big>[[AR-23P Liberator Penetrator]]</big><br>{{armor|3|ap}}"
+    },
+    {
+      "id": "ar-23c-liberator-concussive",
+      "name": "AR-23C Liberator Concussive",
+      "link": "AR-23C Liberator Concussive",
+      "slot": "Primary",
+      "category": "Assault Rifle",
+      "image": "AR-23C Liberator Concussive Primary Render.png",
+      "armor": [
+        {
+          "raw": "{{armor|2|ap}}",
+          "value": "2",
+          "type": "ap",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "AR-23C Liberator Concussive Primary Render.png|link=AR-23C Liberator Concussive|<big>[[AR-23C Liberator Concussive]]</big><br>{{armor|2|ap}}"
+    },
+    {
+      "id": "sta-52-assault-rifle",
+      "name": "StA-52 Assault Rifle",
+      "link": "StA-52 Assault Rifle",
+      "slot": "Primary",
+      "category": "Assault Rifle",
+      "image": "StA-52 Assault Rifle Primary Render.png",
+      "armor": [
+        {
+          "raw": "{{armor|2|ap}}",
+          "value": "2",
+          "type": "ap",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "StA-52 Assault Rifle Primary Render.png|link=StA-52 Assault Rifle|<big>[[StA-52 Assault Rifle]]</big><br>{{armor|2|ap}}"
+    },
+    {
+      "id": "ar-32-pacifier",
+      "name": "AR-32 Pacifier",
+      "link": "AR-32 Pacifier",
+      "slot": "Primary",
+      "category": "Assault Rifle",
+      "image": "AR-32 Pacifier Primary Render.png",
+      "armor": [
+        {
+          "raw": "{{armor|3|ap}}",
+          "value": "3",
+          "type": "ap",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "AR-32 Pacifier Primary Render.png|link=AR-32 Pacifier|<big>[[AR-32 Pacifier]]</big><br>{{armor|3|ap}}"
+    },
+    {
+      "id": "ar-2-coyote",
+      "name": "AR-2 Coyote",
+      "link": "AR-2 Coyote",
+      "slot": "Primary",
+      "category": "Assault Rifle",
+      "image": "AR-2 Coyote Primary Render.png",
+      "armor": [
+        {
+          "raw": "{{armor|3|ap}}",
+          "value": "3",
+          "type": "ap",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "AR-2 Coyote Primary Render.png|link=AR-2 Coyote|<big>[[AR-2 Coyote]]</big><br>{{armor|3|ap}}"
+    },
+    {
+      "id": "ma5c-assault-rifle",
+      "name": "MA5C Assault Rifle",
+      "link": "MA5C Assault Rifle",
+      "slot": "Primary",
+      "category": "Assault Rifle",
+      "image": "MA5C Assault Rifle Primary Render.png",
+      "armor": [
+        {
+          "raw": "{{armor|3|ap}}",
+          "value": "3",
+          "type": "ap",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "MA5C Assault Rifle Primary Render.png|link=MA5C Assault Rifle|<big>[[MA5C Assault Rifle]]</big><br>{{armor|3|ap}}"
+    },
+    {
+      "id": "ar-23a-liberator-carbine",
+      "name": "AR-23A Liberator Carbine",
+      "link": "AR-23A Liberator Carbine",
+      "slot": "Primary",
+      "category": "Assault Rifle",
+      "image": "AR-23A Liberator Carbine Primary Render.png",
+      "armor": [
+        {
+          "raw": "{{armor|2|ap}}",
+          "value": "2",
+          "type": "ap",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "AR-23A Liberator Carbine Primary Render.png|link=AR-23A Liberator Carbine|<big>[[AR-23A Liberator Carbine]]</big><br>{{armor|2|ap}}"
+    },
+    {
+      "id": "ar-61-tenderizer",
+      "name": "AR-61 Tenderizer",
+      "link": "AR-61 Tenderizer",
+      "slot": "Primary",
+      "category": "Assault Rifle",
+      "image": "AR-61 Tenderizer Primary Render.png",
+      "armor": [
+        {
+          "raw": "{{armor|2|ap}}",
+          "value": "2",
+          "type": "ap",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "AR-61 Tenderizer Primary Render.png|link=AR-61 Tenderizer|<big>[[AR-61 Tenderizer]]</big><br>{{armor|2|ap}}"
+    },
+    {
+      "id": "br-14-adjudicator",
+      "name": "BR-14 Adjudicator",
+      "link": "BR-14 Adjudicator",
+      "slot": "Primary",
+      "category": "Assault Rifle",
+      "image": "BR-14 Adjudicator Primary Render.png",
+      "armor": [
+        {
+          "raw": "{{armor|3|ap}}",
+          "value": "3",
+          "type": "ap",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "BR-14 Adjudicator Primary Render.png|link=BR-14 Adjudicator|<big>[[BR-14 Adjudicator]]</big><br>{{armor|3|ap}}"
+    },
+    {
+      "id": "ar-gl-21-one-two",
+      "name": "AR/GL-21 One-Two",
+      "link": "AR/GL-21 One-Two",
+      "slot": "Primary",
+      "category": "Assault Rifle",
+      "image": "AR-GL-21 One Two Primary Render.png",
+      "armor": [
+        {
+          "raw": "{{armor|2|ap}}",
+          "value": "2",
+          "type": "ap",
+          "flags": []
+        },
+        {
+          "raw": "{{Armor|3|AP}}",
+          "value": "3",
+          "type": "AP",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "AR-GL-21 One Two Primary Render.png|link=AR/GL-21 One-Two|<big>[[AR/GL-21 One-Two]]</big><br>{{armor|2|ap}} to {{Armor|3|AP}}"
+    },
+    {
+      "id": "ar-59-suppressor",
+      "name": "AR-59 Suppressor",
+      "link": "AR-59 Suppressor",
+      "slot": "Primary",
+      "category": "Assault Rifle",
+      "image": "AR-59 Suppressor Primary Render.png",
+      "armor": [
+        {
+          "raw": "{{armor|2|ap}}",
+          "value": "2",
+          "type": "ap",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "AR-59 Suppressor Primary Render.png|link=AR-59 Suppressor|<big>[[AR-59 Suppressor]]</big><br>{{armor|2|ap}}"
+    },
+    {
+      "id": "r-2-amendment",
+      "name": "R-2 Amendment",
+      "link": "R-2 Amendment",
+      "slot": "Primary",
+      "category": "Marksman Rifle",
+      "image": "R-2 Amendment Primary Render.png",
+      "armor": [
+        {
+          "raw": "{{armor|2|ap}}",
+          "value": "2",
+          "type": "ap",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "R-2 Amendment Primary Render.png|link=R-2 Amendment|<big>[[R-2 Amendment]]</big><br>{{armor|2|ap}}"
+    },
+    {
+      "id": "r-2124-constitution",
+      "name": "R-2124 Constitution",
+      "link": "R-2124 Constitution",
+      "slot": "Primary",
+      "category": "Marksman Rifle",
+      "image": "R-2124 Constitution Primary Render.png",
+      "armor": [
+        {
+          "raw": "{{armor|3|ap}}",
+          "value": "3",
+          "type": "ap",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "R-2124 Constitution Primary Render.png|link=R-2124 Constitution|<big>[[R-2124 Constitution]]</big> <ref name=wpnexc /><br>{{armor|3|ap}}"
+    },
+    {
+      "id": "r-6-deadeye",
+      "name": "R-6 Deadeye",
+      "link": "R-6 Deadeye",
+      "slot": "Primary",
+      "category": "Marksman Rifle",
+      "image": "R-6 Deadeye Primary Render.png",
+      "armor": [
+        {
+          "raw": "{{armor|3|ap}}",
+          "value": "3",
+          "type": "ap",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "R-6 Deadeye Primary Render.png|link=R-6 Deadeye|<big>[[R-6 Deadeye]]</big><br>{{armor|3|ap}}"
+    },
+    {
+      "id": "r-63-diligence",
+      "name": "R-63 Diligence",
+      "link": "R-63 Diligence",
+      "slot": "Primary",
+      "category": "Marksman Rifle",
+      "image": "R-63 Diligence Primary Render.png",
+      "armor": [
+        {
+          "raw": "{{armor|2|ap}}",
+          "value": "2",
+          "type": "ap",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "R-63 Diligence Primary Render.png|link=R-63 Diligence|<big>[[R-63 Diligence]]</big><br>{{armor|2|ap}}"
+    },
+    {
+      "id": "r-63cs-diligence-counter-sniper",
+      "name": "R-63CS Diligence Counter Sniper",
+      "link": "R-63CS Diligence Counter Sniper",
+      "slot": "Primary",
+      "category": "Marksman Rifle",
+      "image": "R-63CS Diligence Counter Sniper Primary Render.png",
+      "armor": [
+        {
+          "raw": "{{armor|3|ap}}",
+          "value": "3",
+          "type": "ap",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "R-63CS Diligence Counter Sniper Primary Render.png|link=R-63CS Diligence Counter Sniper|<big>[[R-63CS Diligence Counter Sniper]]</big><br>{{armor|3|ap}}"
+    },
+    {
+      "id": "r-72-censor",
+      "name": "R-72 Censor",
+      "link": "R-72 Censor",
+      "slot": "Primary",
+      "category": "Marksman Rifle",
+      "image": "R-72 Censor Primary Render.png",
+      "armor": [
+        {
+          "raw": "{{armor|2|ap}}",
+          "value": "2",
+          "type": "ap",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "R-72 Censor Primary Render.png|link=R-72 Censor|<big>[[R-72 Censor]]</big><br>{{armor|2|ap}}"
+    },
+    {
+      "id": "mp-98-knight",
+      "name": "MP-98 Knight",
+      "link": "MP-98 Knight",
+      "slot": "Primary",
+      "category": "Submachine Gun",
+      "image": "MP-98 Knight Primary Render.png",
+      "armor": [
+        {
+          "raw": "{{armor|2|ap}}",
+          "value": "2",
+          "type": "ap",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "MP-98 Knight Primary Render.png|link=MP-98 Knight|<big>[[MP-98 Knight]]</big> <ref name=wpnexc /><br>{{armor|2|ap}}"
+    },
+    {
+      "id": "sta-11-smg",
+      "name": "StA-11 SMG",
+      "link": "StA-11 SMG",
+      "slot": "Primary",
+      "category": "Submachine Gun",
+      "image": "StA-11 SMG Primary Render.png",
+      "armor": [
+        {
+          "raw": "{{armor|2|ap}}",
+          "value": "2",
+          "type": "ap",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "StA-11 SMG Primary Render.png|link=StA-11 SMG|<big>[[StA-11 SMG]]</big><br>{{armor|2|ap}}"
+    },
+    {
+      "id": "m7s-smg",
+      "name": "M7S SMG",
+      "link": "M7S SMG",
+      "slot": "Primary",
+      "category": "Submachine Gun",
+      "image": "M7S SMG Primary Render.png",
+      "armor": [
+        {
+          "raw": "{{armor|2|ap}}",
+          "value": "2",
+          "type": "ap",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "M7S SMG Primary Render.png|link=M7S SMG|<big>[[M7S SMG]]</big><br>{{armor|2|ap}}"
+    },
+    {
+      "id": "smg-32-reprimand",
+      "name": "SMG-32 Reprimand",
+      "link": "SMG-32 Reprimand",
+      "slot": "Primary",
+      "category": "Submachine Gun",
+      "image": "SMG-32 Reprimand Primary Render.png",
+      "armor": [
+        {
+          "raw": "{{armor|3|ap}}",
+          "value": "3",
+          "type": "ap",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "SMG-32 Reprimand Primary Render.png|link=SMG-32 Reprimand|<big>[[SMG-32 Reprimand]]</big><br>{{armor|3|ap}}"
+    },
+    {
+      "id": "smg-37-defender",
+      "name": "SMG-37 Defender",
+      "link": "SMG-37 Defender",
+      "slot": "Primary",
+      "category": "Submachine Gun",
+      "image": "SMG-37 Defender Primary Render.png",
+      "armor": [
+        {
+          "raw": "{{armor|2|ap}}",
+          "value": "2",
+          "type": "ap",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "SMG-37 Defender Primary Render.png|link=SMG-37 Defender|<big>[[SMG-37 Defender]]</big><br>{{armor|2|ap}}"
+    },
+    {
+      "id": "smg-72-pummeler",
+      "name": "SMG-72 Pummeler",
+      "link": "SMG-72 Pummeler",
+      "slot": "Primary",
+      "category": "Submachine Gun",
+      "image": "SMG-72 Pummeler Primary Render.png",
+      "armor": [
+        {
+          "raw": "{{armor|2|ap}}",
+          "value": "2",
+          "type": "ap",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "SMG-72 Pummeler Primary Render.png|link=SMG-72 Pummeler|<big>[[SMG-72 Pummeler]]</big><br>{{armor|2|ap}}"
+    },
+    {
+      "id": "sg-8-punisher",
+      "name": "SG-8 Punisher",
+      "link": "SG-8 Punisher",
+      "slot": "Primary",
+      "category": "Shotgun",
+      "image": "SG-8 Punisher Primary Render.png",
+      "armor": [
+        {
+          "raw": "{{armor|2|ap}}",
+          "value": "2",
+          "type": "ap",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "SG-8 Punisher Primary Render.png|link=SG-8 Punisher|<big>[[SG-8 Punisher]]</big><br>{{armor|2|ap}}"
+    },
+    {
+      "id": "sg-8s-slugger",
+      "name": "SG-8S Slugger",
+      "link": "SG-8S Slugger",
+      "slot": "Primary",
+      "category": "Shotgun",
+      "image": "SG-8S Slugger Primary Render.png",
+      "armor": [
+        {
+          "raw": "{{armor|3|ap}}",
+          "value": "3",
+          "type": "ap",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "SG-8S Slugger Primary Render.png|link=SG-8S Slugger|<big>[[SG-8S Slugger]]</big><br>{{armor|3|ap}}"
+    },
+    {
+      "id": "sg-20-halt",
+      "name": "SG-20 Halt",
+      "link": "SG-20 Halt",
+      "slot": "Primary",
+      "category": "Shotgun",
+      "image": "SG-20 Halt Primary Render.png",
+      "armor": [
+        {
+          "raw": "{{armor|2|ap}}",
+          "value": "2",
+          "type": "ap",
+          "flags": []
+        },
+        {
+          "raw": "{{armor|3|ap}}",
+          "value": "3",
+          "type": "ap",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "SG-20 Halt Primary Render.png|link=SG-20 Halt|<big>[[SG-20 Halt]]</big><br>{{armor|2|ap}} to {{armor|3|ap}}"
+    },
+    {
+      "id": "sg-451-cookout",
+      "name": "SG-451 Cookout",
+      "link": "SG-451 Cookout",
+      "slot": "Primary",
+      "category": "Shotgun",
+      "image": "SG-451 Cookout Primary Render.png",
+      "armor": [
+        {
+          "raw": "{{armor|2|ap}}",
+          "value": "2",
+          "type": "ap",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "SG-451 Cookout Primary Render.png|link=SG-451 Cookout|<big>[[SG-451 Cookout]]</big><br>{{armor|2|ap}}"
+    },
+    {
+      "id": "dbs-2-double-freedom",
+      "name": "DBS-2 Double Freedom",
+      "link": "DBS-2 Double Freedom",
+      "slot": "Primary",
+      "category": "Shotgun",
+      "image": "DBS-2 Shotgun Primary Render.png",
+      "armor": [
+        {
+          "raw": "{{armor|3|ap}}",
+          "value": "3",
+          "type": "ap",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "DBS-2 Shotgun Primary Render.png|link=DBS-2 Double Freedom|<big>[[DBS-2 Double Freedom]] <ref name=wpnexc /></big><br>{{armor|3|ap}}"
+    },
+    {
+      "id": "m90a-shotgun",
+      "name": "M90A Shotgun",
+      "link": "M90A Shotgun",
+      "slot": "Primary",
+      "category": "Shotgun",
+      "image": "M90A Shotgun Primary Render.png",
+      "armor": [
+        {
+          "raw": "{{armor|2|ap}}",
+          "value": "2",
+          "type": "ap",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "M90A Shotgun Primary Render.png|link=M90A Shotgun|<big>[[M90A Shotgun]]</big><br>{{armor|2|ap}}"
+    },
+    {
+      "id": "sg-225-breaker",
+      "name": "SG-225 Breaker",
+      "link": "SG-225 Breaker",
+      "slot": "Primary",
+      "category": "Shotgun",
+      "image": "SG-225 Breaker Primary Render.png",
+      "armor": [
+        {
+          "raw": "{{armor|2|ap}}",
+          "value": "2",
+          "type": "ap",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "SG-225 Breaker Primary Render.png|link=SG-225 Breaker|<big>[[SG-225 Breaker]]</big><br>{{armor|2|ap}}"
+    },
+    {
+      "id": "sg-225sp-breaker-spray-pray",
+      "name": "SG-225SP Breaker Spray&Pray",
+      "link": "SG-225SP Breaker Spray&Pray",
+      "slot": "Primary",
+      "category": "Shotgun",
+      "image": "SG-225SP Breaker Spray&Pray Primary Render.png",
+      "armor": [
+        {
+          "raw": "{{armor|2|ap}}",
+          "value": "2",
+          "type": "ap",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "SG-225SP Breaker Spray&Pray Primary Render.png|link=SG-225SP Breaker Spray&Pray|<big>[[SG-225SP Breaker Spray&Pray]]</big><br>{{armor|2|ap}}"
+    },
+    {
+      "id": "sg-225ie-breaker-incendiary",
+      "name": "SG-225IE Breaker Incendiary",
+      "link": "SG-225IE Breaker Incendiary",
+      "slot": "Primary",
+      "category": "Shotgun",
+      "image": "SG-225IE Breaker Incendiary Primary Render.png",
+      "armor": [
+        {
+          "raw": "{{armor|2|ap}}",
+          "value": "2",
+          "type": "ap",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "SG-225IE Breaker Incendiary Primary Render.png|link=SG-225IE Breaker Incendiary|<big>[[SG-225IE Breaker Incendiary]]</big><br>{{armor|2|ap}}"
+    },
+    {
+      "id": "cb-9-exploding-crossbow",
+      "name": "CB-9 Exploding Crossbow",
+      "link": "CB-9 Exploding Crossbow",
+      "slot": "Primary",
+      "category": "Explosive",
+      "image": "CB-9 Exploding Crossbow Primary Render.png",
+      "armor": [
+        {
+          "raw": "{{armor|3|ap}}",
+          "value": "3",
+          "type": "ap",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "CB-9 Exploding Crossbow Primary Render.png|link=CB-9 Exploding Crossbow|<big>[[CB-9 Exploding Crossbow]]</big><br>{{armor|3|ap}}"
+    },
+    {
+      "id": "r-36-eruptor",
+      "name": "R-36 Eruptor",
+      "link": "R-36 Eruptor",
+      "slot": "Primary",
+      "category": "Explosive",
+      "image": "R-36 Eruptor Primary Render.png",
+      "armor": [
+        {
+          "raw": "{{armor|4|ap}}",
+          "value": "4",
+          "type": "ap",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "R-36 Eruptor Primary Render.png|link=R-36 Eruptor|<big>[[R-36 Eruptor]]</big><br>{{armor|4|ap}}"
+    },
+    {
+      "id": "sg-8p-punisher-plasma",
+      "name": "SG-8P Punisher Plasma",
+      "link": "SG-8P Punisher Plasma",
+      "slot": "Primary",
+      "category": "Energy-Based",
+      "image": "SG-8P Punisher Plasma Primary Render.png",
+      "armor": [
+        {
+          "raw": "{{armor|3|ap}}",
+          "value": "3",
+          "type": "ap",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "SG-8P Punisher Plasma Primary Render.png|link=SG-8P Punisher Plasma|<big>[[SG-8P Punisher Plasma]]</big><br>{{armor|3|ap}}"
+    },
+    {
+      "id": "plas-39-accelerator-rifle",
+      "name": "PLAS-39 Accelerator Rifle",
+      "link": "PLAS-39 Accelerator Rifle",
+      "slot": "Primary",
+      "category": "Energy-Based",
+      "image": "PLAS-39 Accelerator Rifle Primary Render.png",
+      "armor": [
+        {
+          "raw": "{{armor|3|ap}}",
+          "value": "3",
+          "type": "ap",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "PLAS-39 Accelerator Rifle Primary Render.png|link=PLAS-39 Accelerator Rifle|<big>[[PLAS-39 Accelerator Rifle]]</big><br>{{armor|3|ap}}"
+    },
+    {
+      "id": "arc-12-blitzer",
+      "name": "ARC-12 Blitzer",
+      "link": "ARC-12 Blitzer",
+      "slot": "Primary",
+      "category": "Energy-Based",
+      "image": "ARC-12 Blitzer Primary Render.png",
+      "armor": [
+        {
+          "raw": "{{armor|3|ap}}",
+          "value": "3",
+          "type": "ap",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "ARC-12 Blitzer Primary Render.png|link=ARC-12 Blitzer|<big>[[ARC-12 Blitzer]]</big><br>{{armor|3|ap}}"
+    },
+    {
+      "id": "las-5-scythe",
+      "name": "LAS-5 Scythe",
+      "link": "LAS-5 Scythe",
+      "slot": "Primary",
+      "category": "Energy-Based",
+      "image": "LAS-5 Scythe Primary Render.png",
+      "armor": [
+        {
+          "raw": "{{armor|2|ap}}",
+          "value": "2",
+          "type": "ap",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "LAS-5 Scythe Primary Render.png|link=LAS-5 Scythe|<big>[[LAS-5 Scythe]]</big><br>{{armor|2|ap}}"
+    },
+    {
+      "id": "las-16-sickle",
+      "name": "LAS-16 Sickle",
+      "link": "LAS-16 Sickle",
+      "slot": "Primary",
+      "category": "Energy-Based",
+      "image": "LAS-16 Sickle Primary Render.png",
+      "armor": [
+        {
+          "raw": "{{armor|2|ap}}",
+          "value": "2",
+          "type": "ap",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "LAS-16 Sickle Primary Render.png|link=LAS-16 Sickle|<big>[[LAS-16 Sickle]]</big><br>{{armor|2|ap}}"
+    },
+    {
+      "id": "las-17-double-edge-sickle",
+      "name": "LAS-17 Double-Edge Sickle",
+      "link": "LAS-17 Double-Edge Sickle",
+      "slot": "Primary",
+      "category": "Energy-Based",
+      "image": "LAS-17 Double-Edge Sickle Primary Render.png",
+      "armor": [
+        {
+          "raw": "{{armor|2|ap}}",
+          "value": "2",
+          "type": "ap",
+          "flags": []
+        },
+        {
+          "raw": "{{Armor|4|AP}}",
+          "value": "4",
+          "type": "AP",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "LAS-17 Double-Edge Sickle Primary Render.png|link=LAS-17 Double-Edge Sickle|<big>[[LAS-17 Double-Edge Sickle]]</big><br>{{armor|2|ap}} to {{Armor|4|AP}}"
+    },
+    {
+      "id": "plas-1-scorcher",
+      "name": "PLAS-1 Scorcher",
+      "link": "PLAS-1 Scorcher",
+      "slot": "Primary",
+      "category": "Energy-Based",
+      "image": "PLAS-1 Scorcher Primary Render.png",
+      "armor": [
+        {
+          "raw": "{{armor|3|ap}}",
+          "value": "3",
+          "type": "ap",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "PLAS-1 Scorcher Primary Render.png|link=PLAS-1 Scorcher|<big>[[PLAS-1 Scorcher]]</big><br>{{armor|3|ap}}"
+    },
+    {
+      "id": "plas-101-purifier",
+      "name": "PLAS-101 Purifier",
+      "link": "PLAS-101 Purifier",
+      "slot": "Primary",
+      "category": "Energy-Based",
+      "image": "PLAS-101 Purifier Primary Render.png",
+      "armor": [
+        {
+          "raw": "{{armor|3|ap}}",
+          "value": "3",
+          "type": "ap",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "PLAS-101 Purifier Primary Render.png|link=PLAS-101 Purifier|<big>[[PLAS-101 Purifier]]</big><br>{{armor|3|ap}}"
+    },
+    {
+      "id": "vg-70-variable",
+      "name": "VG-70 Variable",
+      "link": "VG-70 Variable",
+      "slot": "Primary",
+      "category": "Special",
+      "image": "VG-70 Variable Primary Render.png",
+      "armor": [
+        {
+          "raw": "{{Armor|2|ap}}",
+          "value": "2",
+          "type": "ap",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "VG-70 Variable Primary Render.png|link=VG-70 Variable|<big>[[VG-70 Variable]]</big><br>{{Armor|2|ap}}"
+    },
+    {
+      "id": "flam-66-torcher",
+      "name": "FLAM-66 Torcher",
+      "link": "FLAM-66 Torcher",
+      "slot": "Primary",
+      "category": "Special",
+      "image": "FLAM-66 Torcher Primary Render.png",
+      "armor": [
+        {
+          "raw": "{{armor|4|ap}}",
+          "value": "4",
+          "type": "ap",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "FLAM-66 Torcher Primary Render.png|link=FLAM-66 Torcher|<big>[[FLAM-66 Torcher]]</big><br>{{armor|4|ap}}"
+    },
+    {
+      "id": "jar-5-dominator",
+      "name": "JAR-5 Dominator",
+      "link": "JAR-5 Dominator",
+      "slot": "Primary",
+      "category": "Special",
+      "image": "JAR-5 Dominator Primary Render.png",
+      "armor": [
+        {
+          "raw": "{{armor|3|ap}}",
+          "value": "3",
+          "type": "ap",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "JAR-5 Dominator Primary Render.png|link=JAR-5 Dominator|<big>[[JAR-5 Dominator]]</big><br>{{armor|3|ap}}"
+    },
+    {
+      "id": "p-92-warrant",
+      "name": "P-92 Warrant",
+      "link": "P-92 Warrant",
+      "slot": "Secondary",
+      "category": "Pistol",
+      "image": "P-92 Warrant Secondary Render.png",
+      "armor": [
+        {
+          "raw": "{{armor|3|AP}}",
+          "value": "3",
+          "type": "AP",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "P-92 Warrant Secondary Render.png|link=P-92 Warrant|<big>[[P-92 Warrant]]</big> <ref name=wpnexc /><br>{{armor|3|AP}}"
+    },
+    {
+      "id": "p-2-peacemaker",
+      "name": "P-2 Peacemaker",
+      "link": "P-2 Peacemaker",
+      "slot": "Secondary",
+      "category": "Pistol",
+      "image": "P-2 Peacemaker Secondary Render.png",
+      "armor": [
+        {
+          "raw": "{{armor|2|AP}}",
+          "value": "2",
+          "type": "AP",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "P-2 Peacemaker Secondary Render.png|link=P-2 Peacemaker|<big>[[P-2 Peacemaker]]</big> <ref name=wpnexc /><br>{{armor|2|AP}}"
+    },
+    {
+      "id": "p-19-redeemer",
+      "name": "P-19 Redeemer",
+      "link": "P-19 Redeemer",
+      "slot": "Secondary",
+      "category": "Pistol",
+      "image": "P-19 Redeemer Secondary Render.png",
+      "armor": [
+        {
+          "raw": "{{armor|2|AP}}",
+          "value": "2",
+          "type": "AP",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "P-19 Redeemer Secondary Render.png|link=P-19 Redeemer|<big>[[P-19 Redeemer]]</big><br>{{armor|2|AP}}"
+    },
+    {
+      "id": "p-113-verdict",
+      "name": "P-113 Verdict",
+      "link": "P-113 Verdict",
+      "slot": "Secondary",
+      "category": "Pistol",
+      "image": "P-113 Verdict Secondary Render.png",
+      "armor": [
+        {
+          "raw": "{{armor|3|AP}}",
+          "value": "3",
+          "type": "AP",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "P-113 Verdict Secondary Render.png|link=P-113 Verdict|<big>[[P-113 Verdict]]</big><br>{{armor|3|AP}}"
+    },
+    {
+      "id": "m6c-socom-pistol",
+      "name": "M6C/SOCOM Pistol",
+      "link": "M6C/SOCOM Pistol",
+      "slot": "Primary",
+      "category": "Special",
+      "image": "M6C_SOCOM Pistol Secondary Render.png",
+      "armor": [
+        {
+          "raw": "{{armor|2|AP}}",
+          "value": "2",
+          "type": "AP",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "M6C_SOCOM Pistol Secondary Render.png|link=M6C/SOCOM Pistol|<big>[[M6C/SOCOM Pistol]]</big><br>{{armor|2|AP}}"
+    },
+    {
+      "id": "p-4-senator",
+      "name": "P-4 Senator",
+      "link": "P-4 Senator",
+      "slot": "Secondary",
+      "category": "Pistol",
+      "image": "P-4 Senator Secondary Render.png",
+      "armor": [
+        {
+          "raw": "{{armor|4|AP}}",
+          "value": "4",
+          "type": "AP",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "P-4 Senator Secondary Render.png|link=P-4 Senator|<big>[[P-4 Senator]]</big><br>{{armor|4|AP}}"
+    },
+    {
+      "id": "cqc-19-stun-lance",
+      "name": "CQC-19 Stun Lance",
+      "link": "CQC-19 Stun Lance",
+      "slot": "Secondary",
+      "category": "Melee",
+      "image": "CQC-19 Stun Lance Secondary Render.png",
+      "armor": [
+        {
+          "raw": "{{armor|3|AP}}",
+          "value": "3",
+          "type": "AP",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "CQC-19 Stun Lance Secondary Render.png|link=CQC-19 Stun Lance|<big>[[CQC-19 Stun Lance]]</big><br>{{armor|3|AP}}"
+    },
+    {
+      "id": "cqc-2-saber",
+      "name": "CQC-2 Saber",
+      "link": "CQC-2 Saber",
+      "slot": "Secondary",
+      "category": "Melee",
+      "image": "CQC-2 Saber Secondary Render.png",
+      "armor": [
+        {
+          "raw": "{{armor|3|AP}}",
+          "value": "3",
+          "type": "AP",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "CQC-2 Saber Secondary Render.png|link=CQC-2 Saber|<big>[[CQC-2 Saber]]</big><br>{{armor|3|AP}}"
+    },
+    {
+      "id": "cqc-30-stun-baton",
+      "name": "CQC-30 Stun Baton",
+      "link": "CQC-30 Stun Baton",
+      "slot": "Secondary",
+      "category": "Melee",
+      "image": "CQC-30 Stun Baton Secondary Render.png",
+      "armor": [
+        {
+          "raw": "{{armor|3|AP}}",
+          "value": "3",
+          "type": "AP",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "CQC-30 Stun Baton Secondary Render.png|link=CQC-30 Stun Baton|<big>[[CQC-30 Stun Baton]]</big> <ref name=wpnexc /><br>{{armor|3|AP}}"
+    },
+    {
+      "id": "cqc-5-combat-hatchet",
+      "name": "CQC-5 Combat Hatchet",
+      "link": "CQC-5 Combat Hatchet",
+      "slot": "Secondary",
+      "category": "Melee",
+      "image": "CQC-5 Combat Hatchet Secondary Render.png",
+      "armor": [
+        {
+          "raw": "{{armor|3|AP}}",
+          "value": "3",
+          "type": "AP",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "CQC-5 Combat Hatchet Secondary Render.png|link=CQC-5 Combat Hatchet|<big>[[CQC-5 Combat Hatchet]]</big> <ref name=wpnexc /><br>{{armor|3|AP}}"
+    },
+    {
+      "id": "cqc-42-machete",
+      "name": "CQC-42 Machete",
+      "link": "CQC-42 Machete",
+      "slot": "Secondary",
+      "category": "Melee",
+      "image": "CQC-42 Machete Secondary Render.png",
+      "armor": [
+        {
+          "raw": "{{armor|3|AP}}",
+          "value": "3",
+          "type": "AP",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "CQC-42 Machete Secondary Render.png|link=CQC-42 Machete|<big>[[CQC-42 Machete]]</big> <ref name=wpnexc /><br>{{armor|3|AP}}"
+    },
+    {
+      "id": "p-11-stim-pistol",
+      "name": "P-11 Stim Pistol",
+      "link": "P-11 Stim Pistol",
+      "slot": "Secondary",
+      "category": "Pistol",
+      "image": "P-11 Stim Pistol Secondary Render.png",
+      "armor": [
+        {
+          "raw": "{{armor|-1|AP|notext}}",
+          "value": "-1",
+          "type": "AP",
+          "flags": [
+            "notext"
+          ]
+        }
+      ],
+      "armorNote": "No Penetration",
+      "rawLine": "P-11 Stim Pistol Secondary Render.png|link=P-11 Stim Pistol|<big>[[P-11 Stim Pistol]]</big><br>{{armor|-1|AP|notext}} No Penetration"
+    },
+    {
+      "id": "sg-22-bushwhacker",
+      "name": "SG-22 Bushwhacker",
+      "link": "SG-22 Bushwhacker",
+      "slot": "Primary",
+      "category": "Special",
+      "image": "SG-22 Bushwhacker Secondary Render.png",
+      "armor": [
+        {
+          "raw": "{{armor|2|AP}}",
+          "value": "2",
+          "type": "AP",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "SG-22 Bushwhacker Secondary Render.png|link=SG-22 Bushwhacker|<big>[[SG-22 Bushwhacker]]</big><br>{{armor|2|AP}}"
+    },
+    {
+      "id": "las-58-talon",
+      "name": "LAS-58 Talon",
+      "link": "LAS-58 Talon",
+      "slot": "Primary",
+      "category": "Special",
+      "image": "LAS-58 Talon Secondary Render.png",
+      "armor": [
+        {
+          "raw": "{{armor|3|AP}}",
+          "value": "3",
+          "type": "AP",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "LAS-58 Talon Secondary Render.png|link=LAS-58 Talon|<big>[[LAS-58 Talon]]</big><br>{{armor|3|AP}}"
+    },
+    {
+      "id": "p-72-crisper",
+      "name": "P-72 Crisper",
+      "link": "P-72 Crisper",
+      "slot": "Secondary",
+      "category": "Pistol",
+      "image": "P-72 Crisper Secondary Render.png",
+      "armor": [
+        {
+          "raw": "{{armor|4|ap}}",
+          "value": "4",
+          "type": "ap",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "P-72 Crisper Secondary Render.png|link=P-72 Crisper|<big>[[P-72 Crisper]]</big><br>{{armor|4|ap}}"
+    },
+    {
+      "id": "gp-31-grenade-pistol",
+      "name": "GP-31 Grenade Pistol",
+      "link": "GP-31 Grenade Pistol",
+      "slot": "Primary",
+      "category": "Special",
+      "image": "GP-31 Grenade Pistol Secondary Render.png",
+      "armor": [
+        {
+          "raw": "{{armor|3|AP}}",
+          "value": "3",
+          "type": "AP",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "GP-31 Grenade Pistol Secondary Render.png|link=GP-31 Grenade Pistol|<big>[[GP-31 Grenade Pistol]]</big><br>{{armor|3|AP}}"
+    },
+    {
+      "id": "las-7-dagger",
+      "name": "LAS-7 Dagger",
+      "link": "LAS-7 Dagger",
+      "slot": "Primary",
+      "category": "Special",
+      "image": "LAS-7 Dagger Secondary Render.png",
+      "armor": [
+        {
+          "raw": "{{armor|2|AP}}",
+          "value": "2",
+          "type": "AP",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "LAS-7 Dagger Secondary Render.png|link=LAS-7 Dagger|<big>[[LAS-7 Dagger]]</big><br>{{armor|2|AP}}"
+    },
+    {
+      "id": "gp-20-ultimatum",
+      "name": "GP-20 Ultimatum",
+      "link": "GP-20 Ultimatum",
+      "slot": "Primary",
+      "category": "Special",
+      "image": "GP-20 Ultimatum Secondary Render.png",
+      "armor": [
+        {
+          "raw": "{{armor|6|AP}}",
+          "value": "6",
+          "type": "AP",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "GP-20 Ultimatum Secondary Render.png|link=GP-20 Ultimatum|<big>[[GP-20 Ultimatum]]</big><br>{{armor|6|AP}}"
+    },
+    {
+      "id": "plas-15-loyalist",
+      "name": "PLAS-15 Loyalist",
+      "link": "PLAS-15 Loyalist",
+      "slot": "Primary",
+      "category": "Special",
+      "image": "PLAS-15 Loyalist Secondary Render.png",
+      "armor": [
+        {
+          "raw": "{{armor|2|AP}}",
+          "value": "2",
+          "type": "AP",
+          "flags": []
+        },
+        {
+          "raw": "{{Armor|3|AP}}",
+          "value": "3",
+          "type": "AP",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "PLAS-15 Loyalist Secondary Render.png|link=PLAS-15 Loyalist|<big>[[PLAS-15 Loyalist]]</big><br>{{armor|2|AP}} to {{Armor|3|AP}}"
+    },
+    {
+      "id": "p-35-re-educator",
+      "name": "P-35 Re-Educator",
+      "link": "P-35 Re-Educator",
+      "slot": "Secondary",
+      "category": "Pistol",
+      "image": "P-35 Re-Educator Secondary Render.png",
+      "armor": [
+        {
+          "raw": "{{armor|4|AP}}",
+          "value": "4",
+          "type": "AP",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "P-35 Re-Educator Secondary Render.png|link=P-35 Re-Educator|<big>[[P-35 Re-Educator]]</big><br>{{armor|4|AP}}"
+    },
+    {
+      "id": "ted-63-dynamite",
+      "name": "TED-63 Dynamite",
+      "link": "TED-63 Dynamite",
+      "slot": "Slot 4",
+      "category": "Grenade",
+      "image": "TED-63 Dynamite Throwable Render.png",
+      "armor": [
+        {
+          "raw": "{{armor|4|AP}}",
+          "value": "4",
+          "type": "AP",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "TED-63 Dynamite Throwable Render.png|link=TED-63 Dynamite|<big>[[TED-63 Dynamite]]</big><br>{{armor|4|AP}}"
+    },
+    {
+      "id": "g-6-frag",
+      "name": "G-6 Frag",
+      "link": "G-6 Frag",
+      "slot": "Slot 4",
+      "category": "Grenade",
+      "image": "G-6 Frag Throwable Render.png",
+      "armor": [
+        {
+          "raw": "{{armor|3|AP}}",
+          "value": "3",
+          "type": "AP",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "G-6 Frag Throwable Render.png|link=G-6 Frag|<big>[[G-6 Frag]]</big><br>{{armor|3|AP}}"
+    },
+    {
+      "id": "g-12-high-explosive",
+      "name": "G-12 High Explosive",
+      "link": "G-12 High Explosive",
+      "slot": "Slot 4",
+      "category": "Grenade",
+      "image": "G-12 High Explosive Throwable Render.png",
+      "armor": [
+        {
+          "raw": "{{armor|4|AP}}",
+          "value": "4",
+          "type": "AP",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "G-12 High Explosive Throwable Render.png|link=G-12 High Explosive|<big>[[G-12 High Explosive]]</big> <ref name=wpnexc /><br>{{armor|4|AP}}"
+    },
+    {
+      "id": "g-10-incendiary",
+      "name": "G-10 Incendiary",
+      "link": "G-10 Incendiary",
+      "slot": "Slot 4",
+      "category": "Grenade",
+      "image": "G-10 Incendiary Throwable Render.png",
+      "armor": [
+        {
+          "raw": "{{armor|3|AP}}",
+          "value": "3",
+          "type": "AP",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "G-10 Incendiary Throwable Render.png|link=G-10 Incendiary|<big>[[G-10 Incendiary]]</big><br>{{armor|3|AP}}"
+    },
+    {
+      "id": "g-7-pineapple",
+      "name": "G-7 Pineapple",
+      "link": "G-7 Pineapple",
+      "slot": "Slot 4",
+      "category": "Grenade",
+      "image": "G-7 Pineapple Throwable Render.png",
+      "armor": [
+        {
+          "raw": "{{armor|3|AP}}",
+          "value": "3",
+          "type": "AP",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "G-7 Pineapple Throwable Render.png|link=G-7 Pineapple|<big>[[G-7 Pineapple]]</big><br>{{armor|3|AP}}"
+    },
+    {
+      "id": "g-16-impact",
+      "name": "G-16 Impact",
+      "link": "G-16 Impact",
+      "slot": "Slot 4",
+      "category": "Grenade",
+      "image": "G-16 Impact Throwable Render.png",
+      "armor": [
+        {
+          "raw": "{{armor|4|AP}}",
+          "value": "4",
+          "type": "AP",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "G-16 Impact Throwable Render.png|link=G-16 Impact|<big>[[G-16 Impact]]</big><br>{{armor|4|AP}}"
+    },
+    {
+      "id": "g-13-incendiary-impact",
+      "name": "G-13 Incendiary Impact",
+      "link": "G-13 Incendiary Impact",
+      "slot": "Slot 4",
+      "category": "Grenade",
+      "image": "G-13 Incendiary Impact Throwable Render.png",
+      "armor": [
+        {
+          "raw": "{{armor|3|AP}}",
+          "value": "3",
+          "type": "AP",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "G-13 Incendiary Impact Throwable Render.png|link=G-13 Incendiary Impact|<big>[[G-13 Incendiary Impact]]</big><br>{{armor|3|AP}}"
+    },
+    {
+      "id": "g-23-stun",
+      "name": "G-23 Stun",
+      "link": "G-23 Stun",
+      "slot": "Slot 4",
+      "category": "Grenade",
+      "image": "G-23 Stun Throwable Render.png",
+      "armor": [
+        {
+          "raw": "{{armor|6|AP}}",
+          "value": "6",
+          "type": "AP",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "G-23 Stun Throwable Render.png|link=G-23 Stun|<big>[[G-23 Stun]]</big><br>{{armor|6|AP}}"
+    },
+    {
+      "id": "g-4-gas",
+      "name": "G-4 Gas",
+      "link": "G-4 Gas",
+      "slot": "Slot 4",
+      "category": "Grenade",
+      "image": "G-4 Gas Throwable Render.png",
+      "armor": [
+        {
+          "raw": "{{armor|6|AP}}",
+          "value": "6",
+          "type": "AP",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "G-4 Gas Throwable Render.png|link=G-4 Gas|<big>[[G-4 Gas]]</big><br>{{armor|6|AP}}"
+    },
+    {
+      "id": "g-50-seeker",
+      "name": "G-50 Seeker",
+      "link": "G-50 Seeker",
+      "slot": "Slot 4",
+      "category": "Grenade",
+      "image": "G-50 Seeker Throwable Render.png",
+      "armor": [
+        {
+          "raw": "{{armor|4|AP}}",
+          "value": "4",
+          "type": "AP",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "G-50 Seeker Throwable Render.png|link=G-50 Seeker|<big>[[G-50 Seeker]]</big><br>{{armor|4|AP}}"
+    },
+    {
+      "id": "g-3-smoke",
+      "name": "G-3 Smoke",
+      "link": "G-3 Smoke",
+      "slot": "Slot 4",
+      "category": "Grenade",
+      "image": "G-3 Smoke Throwable Render.png",
+      "armor": [
+        {
+          "raw": "{{armor|-1|AP}}",
+          "value": "-1",
+          "type": "AP",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "G-3 Smoke Throwable Render.png|link=G-3 Smoke|<big>[[G-3 Smoke]]</big><br>{{armor|-1|AP}}"
+    },
+    {
+      "id": "g-123-thermite",
+      "name": "G-123 Thermite",
+      "link": "G-123 Thermite",
+      "slot": "Slot 4",
+      "category": "Grenade",
+      "image": "G-123 Thermite Throwable Render.png",
+      "armor": [
+        {
+          "raw": "{{armor|7|AP}}",
+          "value": "7",
+          "type": "AP",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "G-123 Thermite Throwable Render.png|link=G-123 Thermite|<big>[[G-123 Thermite]]</big><br>{{armor|7|AP}}"
+    },
+    {
+      "id": "k-2-throwing-knife",
+      "name": "K-2 Throwing Knife",
+      "link": "K-2 Throwing Knife",
+      "slot": "Slot 4",
+      "category": "Grenade",
+      "image": "K-2 Throwing Knife Throwable Render.png",
+      "armor": [
+        {
+          "raw": "{{armor|3|AP}}",
+          "value": "3",
+          "type": "AP",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "K-2 Throwing Knife Throwable Render.png|link=K-2 Throwing Knife|<big>[[K-2 Throwing Knife]]</big><br>{{armor|3|AP}}"
+    },
+    {
+      "id": "g-142-pyrotech",
+      "name": "G-142 Pyrotech",
+      "link": "G-142 Pyrotech",
+      "slot": "Slot 4",
+      "category": "Grenade",
+      "image": "G-142 Pyrotech Throwable Render.png",
+      "armor": [
+        {
+          "raw": "{{armor|3|AP}}",
+          "value": "3",
+          "type": "AP",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "G-142 Pyrotech Throwable Render.png|link=G-142 Pyrotech|<big>[[G-142 Pyrotech]]</big><br>{{armor|3|AP}}"
+    },
+    {
+      "id": "g-109-urchin",
+      "name": "G-109 Urchin",
+      "link": "G-109 Urchin",
+      "slot": "Slot 4",
+      "category": "Grenade",
+      "image": "G-109 Urchin Throwable Render.png",
+      "armor": [
+        {
+          "raw": "{{Armor|6|AP}}",
+          "value": "6",
+          "type": "AP",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "G-109 Urchin Throwable Render.png|link=G-109 Urchin|<big>[[G-109 Urchin]]</big><br>{{Armor|6|AP}}"
+    },
+    {
+      "id": "g-31-arc",
+      "name": "G-31 Arc",
+      "link": "G-31 Arc",
+      "slot": "Slot 4",
+      "category": "Grenade",
+      "image": "G-31 ARC Throwable Render.png",
+      "armor": [
+        {
+          "raw": "{{Armor|4|AP}}",
+          "value": "4",
+          "type": "AP",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "G-31 ARC Throwable Render.png|link=G-31 Arc|<big>[[G-31 Arc]]</big><br>{{Armor|4|AP}}"
+    },
+    {
+      "id": "tm-1-lure-mine",
+      "name": "TM-1 Lure Mine",
+      "link": "TM-1 Lure Mine",
+      "slot": "Slot 4",
+      "category": "Grenade",
+      "image": "TM-1 Lure Mine Throwable Render.png",
+      "armor": [
+        {
+          "raw": "{{Armor|5|AP}}",
+          "value": "5",
+          "type": "AP",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "TM-1 Lure Mine Throwable Render.png|link=TM-1 Lure Mine|<big>[[TM-1 Lure Mine]]</big><br>{{Armor|5|AP}}"
+    },
+    {
+      "id": "g-89-smokescreen",
+      "name": "G-89 Smokescreen",
+      "link": "Smokescreen",
+      "slot": "Slot 4",
+      "category": "Grenade",
+      "image": "G-89 Smokescreen Throwable Render.png",
+      "armor": [
+        {
+          "raw": "{{Armor|-1|AP}}",
+          "value": "-1",
+          "type": "AP",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "G-89 Smokescreen Throwable Render.png|link=Smokescreen|<big>[[G-89 Smokescreen]]</big><br>{{Armor|-1|AP}}"
+    },
+    {
+      "id": "mg-43-machine-gun",
+      "name": "MG-43 Machine Gun",
+      "link": "MG-43 Machine Gun",
+      "slot": "Support",
+      "category": "Patriotic Administration Center",
+      "image": "MG-43 Machine Gun Support Render.png",
+      "armor": [
+        {
+          "raw": "{{Armor|3|AP}}",
+          "value": "3",
+          "type": "AP",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "MG-43 Machine Gun Support Render.png|link=MG-43 Machine Gun|<big>[[MG-43 Machine Gun]]</big><br>{{Armor|3|AP}}"
+    },
+    {
+      "id": "apw-1-anti-materiel-rifle",
+      "name": "APW-1 Anti-Materiel Rifle",
+      "link": "APW-1 Anti-Materiel Rifle",
+      "slot": "Support",
+      "category": "Patriotic Administration Center",
+      "image": "APW-1 Anti-Materiel Rifle Support Render.png",
+      "armor": [
+        {
+          "raw": "{{Armor|4|AP}}",
+          "value": "4",
+          "type": "AP",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "APW-1 Anti-Materiel Rifle Support Render.png|link=APW-1 Anti-Materiel Rifle|<big>[[APW-1 Anti-Materiel Rifle]]</big><br>{{Armor|4|AP}}"
+    },
+    {
+      "id": "m-105-stalwart",
+      "name": "M-105 Stalwart",
+      "link": "M-105 Stalwart",
+      "slot": "Support",
+      "category": "Patriotic Administration Center",
+      "image": "M-105 Stalwart Support Render.png",
+      "armor": [
+        {
+          "raw": "{{Armor|2|AP}}",
+          "value": "2",
+          "type": "AP",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "M-105 Stalwart Support Render.png|link=M-105 Stalwart|<big>[[M-105 Stalwart]]</big><br>{{Armor|2|AP}}"
+    },
+    {
+      "id": "eat-17-expendable-anti-tank",
+      "name": "EAT-17 Expendable Anti-Tank",
+      "link": "EAT-17 Expendable Anti-Tank",
+      "slot": "Support",
+      "category": "Patriotic Administration Center",
+      "image": "EAT-17 Expendable Anti-Tank Support Render.png",
+      "armor": [
+        {
+          "raw": "{{Armor|6|AP}}",
+          "value": "6",
+          "type": "AP",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "EAT-17 Expendable Anti-Tank Support Render.png|link=EAT-17 Expendable Anti-Tank|<big>[[EAT-17 Expendable Anti-Tank]]</big><br>{{Armor|6|AP}}"
+    },
+    {
+      "id": "gr-8-recoilless-rifle",
+      "name": "GR-8 Recoilless Rifle",
+      "link": "GR-8 Recoilless Rifle",
+      "slot": "Support",
+      "category": "Patriotic Administration Center",
+      "image": "GR-8 Recoilless Rifle Support Render.png",
+      "armor": [
+        {
+          "raw": "{{Armor|5|AP}}",
+          "value": "5",
+          "type": "AP",
+          "flags": []
+        },
+        {
+          "raw": "{{Armor|6|AP}}",
+          "value": "6",
+          "type": "AP",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "GR-8 Recoilless Rifle Support Render.png|link=GR-8 Recoilless Rifle|<big>[[GR-8 Recoilless Rifle]]</big><br>{{Armor|5|AP}} to {{Armor|6|AP}}"
+    },
+    {
+      "id": "flam-40-flamethrower",
+      "name": "FLAM-40 Flamethrower",
+      "link": "FLAM-40 Flamethrower",
+      "slot": "Support",
+      "category": "Patriotic Administration Center",
+      "image": "FLAM-40 Flamethrower Support Render.png",
+      "armor": [
+        {
+          "raw": "{{Armor|4|AP}}",
+          "value": "4",
+          "type": "AP",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "FLAM-40 Flamethrower Support Render.png|link=FLAM-40 Flamethrower|<big>[[FLAM-40 Flamethrower]]</big><br>{{Armor|4|AP}}"
+    },
+    {
+      "id": "ac-8-autocannon",
+      "name": "AC-8 Autocannon",
+      "link": "AC-8 Autocannon",
+      "slot": "Support",
+      "category": "Patriotic Administration Center",
+      "image": "AC-8 Autocannon Support Render.png",
+      "armor": [
+        {
+          "raw": "{{Armor|4|AP}}",
+          "value": "4",
+          "type": "AP",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "AC-8 Autocannon Support Render.png|link=AC-8 Autocannon|<big>[[AC-8 Autocannon]]</big><br>{{Armor|4|AP}}"
+    },
+    {
+      "id": "mg-206-heavy-machine-gun",
+      "name": "MG-206 Heavy Machine Gun",
+      "link": "MG-206 Heavy Machine Gun",
+      "slot": "Support",
+      "category": "Patriotic Administration Center",
+      "image": "MG-206 Heavy Machine Gun Support Render.png",
+      "armor": [
+        {
+          "raw": "{{Armor|4|AP}}",
+          "value": "4",
+          "type": "AP",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "MG-206 Heavy Machine Gun Support Render.png|link=MG-206 Heavy Machine Gun|<big>[[MG-206 Heavy Machine Gun]]</big><br>{{Armor|4|AP}}"
+    },
+    {
+      "id": "rl-77-airburst-rocket-launcher",
+      "name": "RL-77 Airburst Rocket Launcher",
+      "link": "RL-77 Airburst Rocket Launcher",
+      "slot": "Support",
+      "category": "Patriotic Administration Center",
+      "image": "RL-77 Airburst Rocket Launcher Support Render.png",
+      "armor": [
+        {
+          "raw": "{{Armor|3|AP}}",
+          "value": "3",
+          "type": "AP",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "RL-77 Airburst Rocket Launcher Support Render.png|link=RL-77 Airburst Rocket Launcher|<big>[[RL-77 Airburst Rocket Launcher]]</big><br>{{Armor|3|AP}}"
+    },
+    {
+      "id": "mls-4x-commando",
+      "name": "MLS-4X Commando",
+      "link": "MLS-4X Commando",
+      "slot": "Support",
+      "category": "Patriotic Administration Center",
+      "image": "MLS-4X Commando Support Render.png",
+      "armor": [
+        {
+          "raw": "{{Armor|6|AP}}",
+          "value": "6",
+          "type": "AP",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "MLS-4X Commando Support Render.png|link=MLS-4X Commando|<big>[[MLS-4X Commando]]</big><br>{{Armor|6|AP}}"
+    },
+    {
+      "id": "rs-422-railgun",
+      "name": "RS-422 Railgun",
+      "link": "RS-422 Railgun",
+      "slot": "Support",
+      "category": "Patriotic Administration Center",
+      "image": "RS-422 Railgun Support Render.png",
+      "armor": [
+        {
+          "raw": "{{Armor|5|AP}}",
+          "value": "5",
+          "type": "AP",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "RS-422 Railgun Support Render.png|link=RS-422 Railgun|<big>[[RS-422 Railgun]]</big><br>{{Armor|5|AP}}"
+    },
+    {
+      "id": "faf-14-spear",
+      "name": "FAF-14 Spear",
+      "link": "FAF-14 Spear",
+      "slot": "Support",
+      "category": "Patriotic Administration Center",
+      "image": "FAF-14 Spear Support Render.png",
+      "armor": [
+        {
+          "raw": "{{Armor|7|AP}}",
+          "value": "7",
+          "type": "AP",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "FAF-14 Spear Support Render.png|link=FAF-14 Spear|<big>[[FAF-14 Spear]]</big><br>{{Armor|7|AP}}"
+    },
+    {
+      "id": "sta-x3-w-a-s-p-launcher",
+      "name": "StA-X3 W.A.S.P. Launcher",
+      "link": "StA-X3 W.A.S.P. Launcher",
+      "slot": "Support",
+      "category": "Patriotic Administration Center",
+      "image": "StA-X3 W.A.S.P. Launcher Support Render.png",
+      "armor": [
+        {
+          "raw": "{{Armor|6|AP}}",
+          "value": "6",
+          "type": "AP",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "StA-X3 W.A.S.P. Launcher Support Render.png|link=StA-X3 W.A.S.P. Launcher|<big>[[StA-X3 W.A.S.P. Launcher]]</big><br>{{Armor|6|AP}}"
+    },
+    {
+      "id": "gl-21-grenade-launcher",
+      "name": "GL-21 Grenade Launcher",
+      "link": "GL-21 Grenade Launcher",
+      "slot": "Support",
+      "category": "Engineering Bay",
+      "image": "GL-21 Grenade Launcher Support Render.png",
+      "armor": [
+        {
+          "raw": "{{Armor|3|AP}}",
+          "value": "3",
+          "type": "AP",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "GL-21 Grenade Launcher Support Render.png|link=GL-21 Grenade Launcher|<big>[[GL-21 Grenade Launcher]]</big><br>{{Armor|3|AP}}"
+    },
+    {
+      "id": "las-98-laser-cannon",
+      "name": "LAS-98 Laser Cannon",
+      "link": "LAS-98 Laser Cannon",
+      "slot": "Support",
+      "category": "Engineering Bay",
+      "image": "LAS-98 Laser Cannon Support Render.png",
+      "armor": [
+        {
+          "raw": "{{Armor|4|AP}}",
+          "value": "4",
+          "type": "AP",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "LAS-98 Laser Cannon Support Render.png|link=LAS-98 Laser Cannon|<big>[[LAS-98 Laser Cannon]]</big><br>{{Armor|4|AP}}"
+    },
+    {
+      "id": "arc-3-arc-thrower",
+      "name": "ARC-3 Arc Thrower",
+      "link": "ARC-3 Arc Thrower",
+      "slot": "Support",
+      "category": "Engineering Bay",
+      "image": "ARC-3 Arc Thrower Support Render.png",
+      "armor": [
+        {
+          "raw": "{{Armor|7|AP}}",
+          "value": "7",
+          "type": "AP",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "ARC-3 Arc Thrower Support Render.png|link=ARC-3 Arc Thrower|<big>[[ARC-3 Arc Thrower]]</big><br>{{Armor|7|AP}}"
+    },
+    {
+      "id": "las-99-quasar-cannon",
+      "name": "LAS-99 Quasar Cannon",
+      "link": "LAS-99 Quasar Cannon",
+      "slot": "Support",
+      "category": "Engineering Bay",
+      "image": "LAS-99 Quasar Cannon Support Render.png",
+      "armor": [
+        {
+          "raw": "{{Armor|6|AP}}",
+          "value": "6",
+          "type": "AP",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "LAS-99 Quasar Cannon Support Render.png|link=LAS-99 Quasar Cannon|<big>[[LAS-99 Quasar Cannon]]</big><br>{{Armor|6|AP}}"
+    },
+    {
+      "id": "sg-88-break-action-shotgun",
+      "name": "SG-88 Break-Action Shotgun",
+      "link": "SG-88 Break-Action Shotgun",
+      "slot": "Support",
+      "category": "Civilian",
+      "image": "SG-88 Break-Action Shotgun Support Render.png",
+      "armor": [
+        {
+          "raw": "{{Armor|2|AP}}",
+          "value": "2",
+          "type": "AP",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "SG-88 Break-Action Shotgun Support Render.png|link=SG-88 Break-Action Shotgun|<big>[[SG-88 Break-Action Shotgun]]</big> <ref name=supexc /><br>{{Armor|2|AP}}"
+    },
+    {
+      "id": "cqc-72-entrenchment-tool",
+      "name": "CQC-72 Entrenchment Tool",
+      "link": "Entrenchment Tool",
+      "slot": "Secondary",
+      "category": "Melee",
+      "image": "Entrenchment Tool Support Render.png",
+      "armor": [
+        {
+          "raw": "{{Armor|3|AP}}",
+          "value": "3",
+          "type": "AP",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "Entrenchment Tool Support Render.png|link=Entrenchment Tool|<big>[[CQC-72 Entrenchment Tool]]</big> <ref name=supexc /><br>{{Armor|3|AP}}"
+    },
+    {
+      "id": "tx-41-sterilizer",
+      "name": "TX-41 Sterilizer",
+      "link": "TX-41 Sterilizer",
+      "slot": "Support",
+      "category": "Warbonds",
+      "image": "TX-41 Sterilizer Support Render.png",
+      "armor": [
+        {
+          "raw": "{{Armor|5|AP}}",
+          "value": "5",
+          "type": "AP",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "TX-41 Sterilizer Support Render.png|link=TX-41 Sterilizer|<big>[[TX-41 Sterilizer]]</big> <ref name=supexc /><br>{{Armor|5|AP}}"
+    },
+    {
+      "id": "cqc-1-one-true-flag",
+      "name": "CQC-1 One True Flag",
+      "link": "CQC-1 One True Flag",
+      "slot": "Secondary",
+      "category": "Melee",
+      "image": "CQC-1 One True Flag Support Render.png",
+      "armor": [
+        {
+          "raw": "{{Armor|3|AP}}",
+          "value": "3",
+          "type": "AP",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "CQC-1 One True Flag Support Render.png|link=CQC-1 One True Flag|<big>[[CQC-1 One True Flag]]</big> <ref name=supexc /><br>{{Armor|3|AP}}"
+    },
+    {
+      "id": "gl-52-de-escalator",
+      "name": "GL-52 De-Escalator",
+      "link": "GL-52 De-Escalator",
+      "slot": "Support",
+      "category": "Force of Law",
+      "image": "GL-52 De-Escalator Support Render.png",
+      "armor": [
+        {
+          "raw": "{{Armor|4|AP}}",
+          "value": "4",
+          "type": "AP",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "GL-52 De-Escalator Support Render.png|link=GL-52 De-Escalator|<big>[[GL-52 De-Escalator]]</big> <ref name=supexc /><br>{{Armor|4|AP}}"
+    },
+    {
+      "id": "plas-45-epoch",
+      "name": "PLAS-45 Epoch",
+      "link": "PLAS-45 Epoch",
+      "slot": "Support",
+      "category": "Control Group",
+      "image": "PLAS-45 Epoch Support Render.png",
+      "armor": [
+        {
+          "raw": "{{Armor|4|AP}}",
+          "value": "4",
+          "type": "AP",
+          "flags": []
+        },
+        {
+          "raw": "{{Armor|5|AP}}",
+          "value": "5",
+          "type": "AP",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "PLAS-45 Epoch Support Render.png|link=PLAS-45 Epoch|<big>[[PLAS-45 Epoch]]</big> <ref name=supexc /><br>{{Armor|4|AP}} to {{Armor|5|AP}}"
+    },
+    {
+      "id": "s-11-speargun",
+      "name": "S-11 Speargun",
+      "link": "S-11 Speargun",
+      "slot": "Support",
+      "category": "Dust Devils",
+      "image": "S-11 Speargun Support Render.png",
+      "armor": [
+        {
+          "raw": "{{Armor|5|AP}}",
+          "value": "5",
+          "type": "AP",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "S-11 Speargun Support Render.png|link=S-11 Speargun|<big>[[S-11 Speargun]]</big> <ref name=supexc /><br>{{Armor|5|AP}}"
+    },
+    {
+      "id": "eat-700-expendable-napalm",
+      "name": "EAT-700 Expendable Napalm",
+      "link": "EAT-700 Expendable Napalm",
+      "slot": "Support",
+      "category": "Dust Devils",
+      "image": "EAT-700 Expendable Napalm Support Render.png",
+      "armor": [
+        {
+          "raw": "{{Armor|6|AP}}",
+          "value": "6",
+          "type": "AP",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "EAT-700 Expendable Napalm Support Render.png|link=EAT-700 Expendable Napalm|<big>[[EAT-700 Expendable Napalm]]</big> <ref name=supexc /><br>{{Armor|6|AP}}"
+    },
+    {
+      "id": "ms-11-solo-silo",
+      "name": "MS-11 Solo Silo",
+      "link": "MS-11 Solo Silo",
+      "slot": "Support",
+      "category": "Dust Devils",
+      "image": "MS-11 Solo Silo Support Render.png",
+      "armor": [
+        {
+          "raw": "{{Armor|9|AP}}",
+          "value": "9",
+          "type": "AP",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "MS-11 Solo Silo Support Render.png|link=MS-11 Solo Silo|<big>[[MS-11 Solo Silo]]</big> <ref name=supexc /><br>{{Armor|9|AP}}"
+    },
+    {
+      "id": "m-1000-maxigun",
+      "name": "M-1000 Maxigun",
+      "link": "M-1000 Maxigun",
+      "slot": "Support",
+      "category": "Python Commandos",
+      "image": "M-1000 Maxigun Support Render.png",
+      "armor": [
+        {
+          "raw": "{{Armor|3|AP}}",
+          "value": "3",
+          "type": "AP",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "M-1000 Maxigun Support Render.png|link=M-1000 Maxigun|<big>[[M-1000 Maxigun]]</big> <ref name=supexc /><br>{{Armor|3|AP}}"
+    },
+    {
+      "id": "cqc-9-defoliation-tool",
+      "name": "CQC-9 Defoliation Tool",
+      "link": "CQC-9 Defoliation Tool",
+      "slot": "Support",
+      "category": "Python Commandos",
+      "image": "CQC-9 Defoliation Tool Support Render.png",
+      "armor": [
+        {
+          "raw": "{{Armor|3|AP}}",
+          "value": "3",
+          "type": "AP",
+          "flags": []
+        },
+        {
+          "raw": "{{Armor|5|AP}}",
+          "value": "5",
+          "type": "AP",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "CQC-9 Defoliation Tool Support Render.png|link=CQC-9 Defoliation Tool|<big>[[CQC-9 Defoliation Tool]]</big> <ref name=supexc /><br>{{Armor|3|AP}} to {{Armor|5|AP}}"
+    },
+    {
+      "id": "b-md-c4-pack",
+      "name": "B/MD C4 Pack",
+      "link": "B/MD C4 Pack",
+      "slot": "Support",
+      "category": "Redacted Regiment",
+      "image": "B MD C4 Pack Support Render.png",
+      "armor": [
+        {
+          "raw": "{{Armor|7|AP}}",
+          "value": "7",
+          "type": "AP",
+          "flags": []
+        }
+      ],
+      "armorNote": null,
+      "rawLine": "B MD C4 Pack Support Render.png|link=B/MD C4 Pack|<big>[[B/MD C4 Pack]]</big> <ref name=supexc /><br>{{Armor|7|AP}}"
+    }
+  ],
+  "raw": "{{Breadcrumb Auto}}\n{{Tabs\n|name1=Helldivers 2\n|link1=Weapons\n|name2=Helldivers 1\n|link2=Helldivers 1:Weapons\n}}\n<small>''{{Hatnote|Looking for something that isn't here? Visit the [[:Category:Weapons|category]] for all weapon-related pages.}}''</small>\n\n'''Weapons''' can be equipped at the [[Armory]] or in a [[Hellpod]] on the [[Bridge]] before [[missions]] in ''[[Helldivers 2]]''.\n==Overview==\nWeapons have different [[Damage#Damage Types|damage types]]. Most have [[recoil]].\n\n==Acquisition==\nMost personal weapons are unlocked through [[Warbonds]] using {{Currency|Medals}}, with 10 exceptions.<ref name=wpnexc />\n\nMost [[#Support Weapons|support weapons]] are purchased through the [[Patriotic Administration Center#Ship Management|Ship Management]] with {{Currency|Requisition Slips}}, with 12 exceptions.<ref name=supexc />\n\n==Weaponry==<!--——————————\nDiv Custom Class: Custom_weapon_gallery\n———————————————————————————————————————\nVariable Default Values:\n--image-width: 758\n--image-height: 406\n--image-size-adjustment: .33\n--image-size-adjustment-mobile: .22\n———————————————————————————————————\nCustom Value Instructions:\n—————————————————————————\nUse variables via in-line style to customize div class\n\"Custom_weapon_gallery\" for whatever ratio of image-\n-you want to put in a gallery at full quality.\n—————————————————————————————————————————————\nExample:\n————————\n<div class=\"Custom_weapon_gallery\" style=\"--image-width:492; --image-height:492; --image-size-adjustment:.5; --image-size-adjustment-mobile:.35;\">\n\nUse the pixel dimensions of the original image(s) for width and height,\nselecting the largest image to ensure proper functionality.\n\nSize adjustments may require some trial and error.\nA rough ratio of 1:1.5 between mobile and desktop\noften works as a starting point, but results can vary.\nBest of luck!\n——————————-->\n<tabber>\nPrimary=\n[[Levels#Unlocks|Sergeants]] (level 10) and higher can unlock then purchase [[attachments]] and [[Cosmetics#Weapon-0|patterns]] by acquiring weapon experience then spending Requisition Slips.\n{{#tag:tabber|\nAssault Rifle=\n<div class=\"Custom_gallery\" style=\"--image-width:3840; --image-height:2160; --image-size-adjustment:.1; --image-size-adjustment-mobile:.03;\">\n<gallery mode=\"nolines\" widths=\"3840px\" heights=\"2160px\">\nAR-23 Liberator Primary Render.png|link=AR-23 Liberator|<big>[[AR-23 Liberator]]</big> <ref name=wpnexc /><br>{{armor|2|ap}}\nAR-23P Liberator Penetrator Primary Render.png|link=AR-23P Liberator Penetrator|<big>[[AR-23P Liberator Penetrator]]</big><br>{{armor|3|ap}}\nAR-23C Liberator Concussive Primary Render.png|link=AR-23C Liberator Concussive|<big>[[AR-23C Liberator Concussive]]</big><br>{{armor|2|ap}}\nStA-52 Assault Rifle Primary Render.png|link=StA-52 Assault Rifle|<big>[[StA-52 Assault Rifle]]</big><br>{{armor|2|ap}}\nAR-32 Pacifier Primary Render.png|link=AR-32 Pacifier|<big>[[AR-32 Pacifier]]</big><br>{{armor|3|ap}}\nAR-2 Coyote Primary Render.png|link=AR-2 Coyote|<big>[[AR-2 Coyote]]</big><br>{{armor|3|ap}}\nMA5C Assault Rifle Primary Render.png|link=MA5C Assault Rifle|<big>[[MA5C Assault Rifle]]</big><br>{{armor|3|ap}}\nAR-23A Liberator Carbine Primary Render.png|link=AR-23A Liberator Carbine|<big>[[AR-23A Liberator Carbine]]</big><br>{{armor|2|ap}}\nAR-61 Tenderizer Primary Render.png|link=AR-61 Tenderizer|<big>[[AR-61 Tenderizer]]</big><br>{{armor|2|ap}}\nBR-14 Adjudicator Primary Render.png|link=BR-14 Adjudicator|<big>[[BR-14 Adjudicator]]</big><br>{{armor|3|ap}}\nAR-GL-21 One Two Primary Render.png|link=AR/GL-21 One-Two|<big>[[AR/GL-21 One-Two]]</big><br>{{armor|2|ap}} to {{Armor|3|AP}}\nAR-59 Suppressor Primary Render.png|link=AR-59 Suppressor|<big>[[AR-59 Suppressor]]</big><br>{{armor|2|ap}}\n\n</gallery>\n</div>\n{{!}}-{{!}}\nMarksman Rifle=\n<div class=\"Custom_gallery\" style=\"--image-width:3840; --image-height:2160; --image-size-adjustment:.1; --image-size-adjustment-mobile:.03;\">\n<gallery mode=\"nolines\" widths=\"3840px\" heights=\"2160px\">\nR-2 Amendment Primary Render.png|link=R-2 Amendment|<big>[[R-2 Amendment]]</big><br>{{armor|2|ap}}\nR-2124 Constitution Primary Render.png|link=R-2124 Constitution|<big>[[R-2124 Constitution]]</big> <ref name=wpnexc /><br>{{armor|3|ap}}\nR-6 Deadeye Primary Render.png|link=R-6 Deadeye|<big>[[R-6 Deadeye]]</big><br>{{armor|3|ap}}\nR-63 Diligence Primary Render.png|link=R-63 Diligence|<big>[[R-63 Diligence]]</big><br>{{armor|2|ap}}\nR-63CS Diligence Counter Sniper Primary Render.png|link=R-63CS Diligence Counter Sniper|<big>[[R-63CS Diligence Counter Sniper]]</big><br>{{armor|3|ap}}\nR-72 Censor Primary Render.png|link=R-72 Censor|<big>[[R-72 Censor]]</big><br>{{armor|2|ap}}\n\n</gallery>\n</div>\n{{!}}-{{!}}\nSubmachine Gun=\n<div class=\"Custom_gallery\" style=\"--image-width:3840; --image-height:2160; --image-size-adjustment:.1; --image-size-adjustment-mobile:.03;\">\n<gallery mode=\"nolines\" widths=\"3840px\" heights=\"2160px\">\nMP-98 Knight Primary Render.png|link=MP-98 Knight|<big>[[MP-98 Knight]]</big> <ref name=wpnexc /><br>{{armor|2|ap}}\nStA-11 SMG Primary Render.png|link=StA-11 SMG|<big>[[StA-11 SMG]]</big><br>{{armor|2|ap}}\nM7S SMG Primary Render.png|link=M7S SMG|<big>[[M7S SMG]]</big><br>{{armor|2|ap}}\nSMG-32 Reprimand Primary Render.png|link=SMG-32 Reprimand|<big>[[SMG-32 Reprimand]]</big><br>{{armor|3|ap}}\nSMG-37 Defender Primary Render.png|link=SMG-37 Defender|<big>[[SMG-37 Defender]]</big><br>{{armor|2|ap}}\nSMG-72 Pummeler Primary Render.png|link=SMG-72 Pummeler|<big>[[SMG-72 Pummeler]]</big><br>{{armor|2|ap}}\n</gallery>\n</div>\n{{!}}-{{!}}\nShotgun=\n<div class=\"Custom_gallery\" style=\"--image-width:3840; --image-height:2160; --image-size-adjustment:.1; --image-size-adjustment-mobile:.03;\">\n<gallery mode=\"nolines\" widths=\"3840px\" heights=\"2160px\">\nSG-8 Punisher Primary Render.png|link=SG-8 Punisher|<big>[[SG-8 Punisher]]</big><br>{{armor|2|ap}}\nSG-8S Slugger Primary Render.png|link=SG-8S Slugger|<big>[[SG-8S Slugger]]</big><br>{{armor|3|ap}}\nSG-20 Halt Primary Render.png|link=SG-20 Halt|<big>[[SG-20 Halt]]</big><br>{{armor|2|ap}} to {{armor|3|ap}}\nSG-451 Cookout Primary Render.png|link=SG-451 Cookout|<big>[[SG-451 Cookout]]</big><br>{{armor|2|ap}}\nDBS-2 Shotgun Primary Render.png|link=DBS-2 Double Freedom|<big>[[DBS-2 Double Freedom]] <ref name=wpnexc /></big><br>{{armor|3|ap}}\nM90A Shotgun Primary Render.png|link=M90A Shotgun|<big>[[M90A Shotgun]]</big><br>{{armor|2|ap}}\nSG-225 Breaker Primary Render.png|link=SG-225 Breaker|<big>[[SG-225 Breaker]]</big><br>{{armor|2|ap}}\nSG-225SP Breaker Spray&Pray Primary Render.png|link=SG-225SP Breaker Spray&Pray|<big>[[SG-225SP Breaker Spray&Pray]]</big><br>{{armor|2|ap}}\nSG-225IE Breaker Incendiary Primary Render.png|link=SG-225IE Breaker Incendiary|<big>[[SG-225IE Breaker Incendiary]]</big><br>{{armor|2|ap}}\n</gallery>\n</div>\n{{!}}-{{!}}\nExplosive=\n<div class=\"Custom_gallery\" style=\"--image-width:3840; --image-height:2160; --image-size-adjustment:.1; --image-size-adjustment-mobile:.03;\">\n<gallery mode=\"nolines\" widths=\"3840px\" heights=\"2160px\">\nCB-9 Exploding Crossbow Primary Render.png|link=CB-9 Exploding Crossbow|<big>[[CB-9 Exploding Crossbow]]</big><br>{{armor|3|ap}}\nR-36 Eruptor Primary Render.png|link=R-36 Eruptor|<big>[[R-36 Eruptor]]</big><br>{{armor|4|ap}}\n</gallery>\n</div>\n{{!}}-{{!}}\nEnergy-Based=\n<div class=\"Custom_gallery\" style=\"--image-width:3840; --image-height:2160; --image-size-adjustment:.1; --image-size-adjustment-mobile:.03;\">\n<gallery mode=\"nolines\" widths=\"3840px\" heights=\"2160px\">\nSG-8P Punisher Plasma Primary Render.png|link=SG-8P Punisher Plasma|<big>[[SG-8P Punisher Plasma]]</big><br>{{armor|3|ap}}\nPLAS-39 Accelerator Rifle Primary Render.png|link=PLAS-39 Accelerator Rifle|<big>[[PLAS-39 Accelerator Rifle]]</big><br>{{armor|3|ap}}\nARC-12 Blitzer Primary Render.png|link=ARC-12 Blitzer|<big>[[ARC-12 Blitzer]]</big><br>{{armor|3|ap}}\nLAS-5 Scythe Primary Render.png|link=LAS-5 Scythe|<big>[[LAS-5 Scythe]]</big><br>{{armor|2|ap}}\nLAS-16 Sickle Primary Render.png|link=LAS-16 Sickle|<big>[[LAS-16 Sickle]]</big><br>{{armor|2|ap}}\nLAS-17 Double-Edge Sickle Primary Render.png|link=LAS-17 Double-Edge Sickle|<big>[[LAS-17 Double-Edge Sickle]]</big><br>{{armor|2|ap}} to {{Armor|4|AP}}\nPLAS-1 Scorcher Primary Render.png|link=PLAS-1 Scorcher|<big>[[PLAS-1 Scorcher]]</big><br>{{armor|3|ap}}\nPLAS-101 Purifier Primary Render.png|link=PLAS-101 Purifier|<big>[[PLAS-101 Purifier]]</big><br>{{armor|3|ap}}\n</gallery>\n</div>\n{{!}}-{{!}}\nSpecial=\n<div class=\"Custom_gallery\" style=\"--image-width:3840; --image-height:2160; --image-size-adjustment:.1; --image-size-adjustment-mobile:.03;\">\n<gallery mode=\"nolines\" widths=\"3840px\" heights=\"2160px\">\nVG-70 Variable Primary Render.png|link=VG-70 Variable|<big>[[VG-70 Variable]]</big><br>{{Armor|2|ap}}\nFLAM-66 Torcher Primary Render.png|link=FLAM-66 Torcher|<big>[[FLAM-66 Torcher]]</big><br>{{armor|4|ap}}\nJAR-5 Dominator Primary Render.png|link=JAR-5 Dominator|<big>[[JAR-5 Dominator]]</big><br>{{armor|3|ap}}\n</gallery>\n</div>\n}}\n|-|Secondary=\n{{#tag:tabber|Pistol=\n<div class=\"Custom_gallery\" style=\"--image-width:3840; --image-height:2160; --image-size-adjustment:.1; --image-size-adjustment-mobile:.03;\">\n<gallery mode=\"nolines\" widths=\"3840px\" heights=\"2160px\">\nP-92 Warrant Secondary Render.png|link=P-92 Warrant|<big>[[P-92 Warrant]]</big> <ref name=wpnexc /><br>{{armor|3|AP}}\nP-2 Peacemaker Secondary Render.png|link=P-2 Peacemaker|<big>[[P-2 Peacemaker]]</big> <ref name=wpnexc /><br>{{armor|2|AP}}\nP-19 Redeemer Secondary Render.png|link=P-19 Redeemer|<big>[[P-19 Redeemer]]</big><br>{{armor|2|AP}}\nP-113 Verdict Secondary Render.png|link=P-113 Verdict|<big>[[P-113 Verdict]]</big><br>{{armor|3|AP}}\nM6C_SOCOM Pistol Secondary Render.png|link=M6C/SOCOM Pistol|<big>[[M6C/SOCOM Pistol]]</big><br>{{armor|2|AP}}\nP-4 Senator Secondary Render.png|link=P-4 Senator|<big>[[P-4 Senator]]</big><br>{{armor|4|AP}}\n</gallery>\n</div>\n{{!}}-{{!}}\nMelee=\n<div class=\"Custom_gallery\" style=\"--image-width:3840; --image-height:2160; --image-size-adjustment:.1; --image-size-adjustment-mobile:.03;\">\n<gallery mode=\"nolines\" widths=\"3840px\" heights=\"2160px\">\nCQC-19 Stun Lance Secondary Render.png|link=CQC-19 Stun Lance|<big>[[CQC-19 Stun Lance]]</big><br>{{armor|3|AP}}\nCQC-2 Saber Secondary Render.png|link=CQC-2 Saber|<big>[[CQC-2 Saber]]</big><br>{{armor|3|AP}}\nCQC-30 Stun Baton Secondary Render.png|link=CQC-30 Stun Baton|<big>[[CQC-30 Stun Baton]]</big> <ref name=wpnexc /><br>{{armor|3|AP}}\nCQC-5 Combat Hatchet Secondary Render.png|link=CQC-5 Combat Hatchet|<big>[[CQC-5 Combat Hatchet]]</big> <ref name=wpnexc /><br>{{armor|3|AP}}\nCQC-42 Machete Secondary Render.png|link=CQC-42 Machete|<big>[[CQC-42 Machete]]</big> <ref name=wpnexc /><br>{{armor|3|AP}}\n</gallery>\n</div>\n{{!}}-{{!}}\nSpecial=\n<div class=\"Custom_gallery\" style=\"--image-width:3840; --image-height:2160; --image-size-adjustment:.1; --image-size-adjustment-mobile:.03;\">\n<gallery mode=\"nolines\" widths=\"3840px\" heights=\"2160px\">\nP-11 Stim Pistol Secondary Render.png|link=P-11 Stim Pistol|<big>[[P-11 Stim Pistol]]</big><br>{{armor|-1|AP|notext}} No Penetration\nSG-22 Bushwhacker Secondary Render.png|link=SG-22 Bushwhacker|<big>[[SG-22 Bushwhacker]]</big><br>{{armor|2|AP}}\nLAS-58 Talon Secondary Render.png|link=LAS-58 Talon|<big>[[LAS-58 Talon]]</big><br>{{armor|3|AP}}\nP-72 Crisper Secondary Render.png|link=P-72 Crisper|<big>[[P-72 Crisper]]</big><br>{{armor|4|ap}}\nGP-31 Grenade Pistol Secondary Render.png|link=GP-31 Grenade Pistol|<big>[[GP-31 Grenade Pistol]]</big><br>{{armor|3|AP}}\nLAS-7 Dagger Secondary Render.png|link=LAS-7 Dagger|<big>[[LAS-7 Dagger]]</big><br>{{armor|2|AP}}\nGP-20 Ultimatum Secondary Render.png|link=GP-20 Ultimatum|<big>[[GP-20 Ultimatum]]</big><br>{{armor|6|AP}}\nPLAS-15 Loyalist Secondary Render.png|link=PLAS-15 Loyalist|<big>[[PLAS-15 Loyalist]]</big><br>{{armor|2|AP}} to {{Armor|3|AP}}\nP-35 Re-Educator Secondary Render.png|link=P-35 Re-Educator|<big>[[P-35 Re-Educator]]</big><br>{{armor|4|AP}}\n</gallery>\n</div>\n}}\n|-|Throwable=\n{{#tag:tabber|Standard=\n<div class=\"Custom_gallery\" style=\"--image-width:2160; --image-height:2160; --image-size-adjustment:.1; --image-size-adjustment-mobile:.03;\">\n<gallery mode=\"nolines\" widths=\"2160px\" heights=\"2160px\">\nTED-63 Dynamite Throwable Render.png|link=TED-63 Dynamite|<big>[[TED-63 Dynamite]]</big><br>{{armor|4|AP}}\nG-6 Frag Throwable Render.png|link=G-6 Frag|<big>[[G-6 Frag]]</big><br>{{armor|3|AP}}\nG-12 High Explosive Throwable Render.png|link=G-12 High Explosive|<big>[[G-12 High Explosive]]</big> <ref name=wpnexc /><br>{{armor|4|AP}}\nG-10 Incendiary Throwable Render.png|link=G-10 Incendiary|<big>[[G-10 Incendiary]]</big><br>{{armor|3|AP}}\nG-7 Pineapple Throwable Render.png|link=G-7 Pineapple|<big>[[G-7 Pineapple]]</big><br>{{armor|3|AP}}\n</gallery>\n</div>\n{{!}}-{{!}}\nSpecial=\n<div class=\"Custom_gallery\" style=\"--image-width:2160; --image-height:2160; --image-size-adjustment:.1; --image-size-adjustment-mobile:.03;\">\n<gallery mode=\"nolines\" widths=\"2160px\" heights=\"2160px\">\nG-16 Impact Throwable Render.png|link=G-16 Impact|<big>[[G-16 Impact]]</big><br>{{armor|4|AP}}\nG-13 Incendiary Impact Throwable Render.png|link=G-13 Incendiary Impact|<big>[[G-13 Incendiary Impact]]</big><br>{{armor|3|AP}}\nG-23 Stun Throwable Render.png|link=G-23 Stun|<big>[[G-23 Stun]]</big><br>{{armor|6|AP}}\nG-4 Gas Throwable Render.png|link=G-4 Gas|<big>[[G-4 Gas]]</big><br>{{armor|6|AP}}\nG-50 Seeker Throwable Render.png|link=G-50 Seeker|<big>[[G-50 Seeker]]</big><br>{{armor|4|AP}}\nG-3 Smoke Throwable Render.png|link=G-3 Smoke|<big>[[G-3 Smoke]]</big><br>{{armor|-1|AP}}\nG-123 Thermite Throwable Render.png|link=G-123 Thermite|<big>[[G-123 Thermite]]</big><br>{{armor|7|AP}}\nK-2 Throwing Knife Throwable Render.png|link=K-2 Throwing Knife|<big>[[K-2 Throwing Knife]]</big><br>{{armor|3|AP}}\nG-142 Pyrotech Throwable Render.png|link=G-142 Pyrotech|<big>[[G-142 Pyrotech]]</big><br>{{armor|3|AP}}\nG-109 Urchin Throwable Render.png|link=G-109 Urchin|<big>[[G-109 Urchin]]</big><br>{{Armor|6|AP}}\nG-31 ARC Throwable Render.png|link=G-31 Arc|<big>[[G-31 Arc]]</big><br>{{Armor|4|AP}}\nTM-1 Lure Mine Throwable Render.png|link=TM-1 Lure Mine|<big>[[TM-1 Lure Mine]]</big><br>{{Armor|5|AP}}\nG-89 Smokescreen Throwable Render.png|link=Smokescreen|<big>[[G-89 Smokescreen]]</big><br>{{Armor|-1|AP}}\n\n</gallery>\n</div>\n}}\n</tabber>\n\n==Support Weapons==\nSupport weapons are selected as part of your loadout during deployment. Once on the battlefield, [[Helldiver]]s can summon these weapons by inputting a unique [[Stratagems|stratagem]] code and throwing a beacon on the ground. They are then delivered from the [[Super Destroyer|Destroyer]] to the [[Planets and Sectors|planet's]] surface via [[Hellpod]]s. Certain supports are either [[#Civilian-0|exclusive]] to or also available at various [[Minor Place of Interest|POIs]].\n<tabber>\nPatriotic Administration Center=\n<div class=\"Custom_gallery\" style=\"--image-width:3840; --image-height:2160; --image-size-adjustment:.1; --image-size-adjustment-mobile:.03;\">\n<gallery mode=\"nolines\" widths=\"3840px\" heights=\"2160px\">\nMG-43 Machine Gun Support Render.png|link=MG-43 Machine Gun|<big>[[MG-43 Machine Gun]]</big><br>{{Armor|3|AP}}\nAPW-1 Anti-Materiel Rifle Support Render.png|link=APW-1 Anti-Materiel Rifle|<big>[[APW-1 Anti-Materiel Rifle]]</big><br>{{Armor|4|AP}}\nM-105 Stalwart Support Render.png|link=M-105 Stalwart|<big>[[M-105 Stalwart]]</big><br>{{Armor|2|AP}}\nEAT-17 Expendable Anti-Tank Support Render.png|link=EAT-17 Expendable Anti-Tank|<big>[[EAT-17 Expendable Anti-Tank]]</big><br>{{Armor|6|AP}}\nGR-8 Recoilless Rifle Support Render.png|link=GR-8 Recoilless Rifle|<big>[[GR-8 Recoilless Rifle]]</big><br>{{Armor|5|AP}} to {{Armor|6|AP}}\nFLAM-40 Flamethrower Support Render.png|link=FLAM-40 Flamethrower|<big>[[FLAM-40 Flamethrower]]</big><br>{{Armor|4|AP}}\nAC-8 Autocannon Support Render.png|link=AC-8 Autocannon|<big>[[AC-8 Autocannon]]</big><br>{{Armor|4|AP}}\nMG-206 Heavy Machine Gun Support Render.png|link=MG-206 Heavy Machine Gun|<big>[[MG-206 Heavy Machine Gun]]</big><br>{{Armor|4|AP}}\nRL-77 Airburst Rocket Launcher Support Render.png|link=RL-77 Airburst Rocket Launcher|<big>[[RL-77 Airburst Rocket Launcher]]</big><br>{{Armor|3|AP}}\nMLS-4X Commando Support Render.png|link=MLS-4X Commando|<big>[[MLS-4X Commando]]</big><br>{{Armor|6|AP}}\nRS-422 Railgun Support Render.png|link=RS-422 Railgun|<big>[[RS-422 Railgun]]</big><br>{{Armor|5|AP}}\nFAF-14 Spear Support Render.png|link=FAF-14 Spear|<big>[[FAF-14 Spear]]</big><br>{{Armor|7|AP}}\nStA-X3 W.A.S.P. Launcher Support Render.png|link=StA-X3 W.A.S.P. Launcher|<big>[[StA-X3 W.A.S.P. Launcher]]</big><br>{{Armor|6|AP}}\n</gallery>\n</div>\n|-|\nEngineering Bay=\n<div class=\"Custom_gallery\" style=\"--image-width:3840; --image-height:2160; --image-size-adjustment:.1; --image-size-adjustment-mobile:.03;\">\n<gallery mode=\"nolines\" widths=\"3840px\" heights=\"2160px\">\nGL-21 Grenade Launcher Support Render.png|link=GL-21 Grenade Launcher|<big>[[GL-21 Grenade Launcher]]</big><br>{{Armor|3|AP}}\nLAS-98 Laser Cannon Support Render.png|link=LAS-98 Laser Cannon|<big>[[LAS-98 Laser Cannon]]</big><br>{{Armor|4|AP}}\nARC-3 Arc Thrower Support Render.png|link=ARC-3 Arc Thrower|<big>[[ARC-3 Arc Thrower]]</big><br>{{Armor|7|AP}}\nLAS-99 Quasar Cannon Support Render.png|link=LAS-99 Quasar Cannon|<big>[[LAS-99 Quasar Cannon]]</big><br>{{Armor|6|AP}}\n</gallery>\n</div>\n|-|\nCivilian=\nCivilian-grade support weapons are only found on the ground and cannot be called in.\n<div class=\"Custom_gallery\" style=\"--image-width:3840; --image-height:2160; --image-size-adjustment:.1; --image-size-adjustment-mobile:.03;\">\n<gallery mode=\"nolines\" widths=\"3840px\" heights=\"2160px\">\nSG-88 Break-Action Shotgun Support Render.png|link=SG-88 Break-Action Shotgun|<big>[[SG-88 Break-Action Shotgun]]</big> <ref name=supexc /><br>{{Armor|2|AP}}\nEntrenchment Tool Support Render.png|link=Entrenchment Tool|<big>[[CQC-72 Entrenchment Tool]]</big> <ref name=supexc /><br>{{Armor|3|AP}}\n</gallery>\n</div>\n|-|\nWarbonds=\n{{#tag:tabber|Chemical Agents=\n<div class=\"Custom_gallery\" style=\"--image-width:3840; --image-height:2160; --image-size-adjustment:.1; --image-size-adjustment-mobile:.08;\">\n<gallery mode=\"nolines\" widths=\"3840px\" heights=\"2160px\">\nTX-41 Sterilizer Support Render.png|link=TX-41 Sterilizer|<big>[[TX-41 Sterilizer]]</big> <ref name=supexc /><br>{{Armor|5|AP}}\n</gallery>\n</div>\n{{!}}-{{!}}\nMasters of Ceremony=\n<div class=\"Custom_gallery\" style=\"--image-width:3840; --image-height:2160; --image-size-adjustment:.1; --image-size-adjustment-mobile:.08;\">\n<gallery mode=\"nolines\" widths=\"3840px\" heights=\"2160px\">\nCQC-1 One True Flag Support Render.png|link=CQC-1 One True Flag|<big>[[CQC-1 One True Flag]]</big> <ref name=supexc /><br>{{Armor|3|AP}}\n</gallery>\n</div>\n{{!}}-{{!}}\nForce of Law=\n<div class=\"Custom_gallery\" style=\"--image-width:3840; --image-height:2160; --image-size-adjustment:.1; --image-size-adjustment-mobile:.08;\">\n<gallery mode=\"nolines\" widths=\"3840px\" heights=\"2160px\">\nGL-52 De-Escalator Support Render.png|link=GL-52 De-Escalator|<big>[[GL-52 De-Escalator]]</big> <ref name=supexc /><br>{{Armor|4|AP}}\n</gallery>\n</div>\n{{!}}-{{!}}\nControl Group=\n<div class=\"Custom_gallery\" style=\"--image-width:3840; --image-height:2160; --image-size-adjustment:.1; --image-size-adjustment-mobile:.08;\">\n<gallery mode=\"nolines\" widths=\"3840px\" heights=\"2160px\">\nPLAS-45 Epoch Support Render.png|link=PLAS-45 Epoch|<big>[[PLAS-45 Epoch]]</big> <ref name=supexc /><br>{{Armor|4|AP}} to {{Armor|5|AP}}\n</gallery>\n</div>\n{{!}}-{{!}}\nDust Devils=\n<div class=\"Custom_gallery\" style=\"--image-width:3840; --image-height:2160; --image-size-adjustment:.1; --image-size-adjustment-mobile:.08;\">\n<gallery mode=\"nolines\" widths=\"3840px\" heights=\"2160px\">\nS-11 Speargun Support Render.png|link=S-11 Speargun|<big>[[S-11 Speargun]]</big> <ref name=supexc /><br>{{Armor|5|AP}}\nEAT-700 Expendable Napalm Support Render.png|link=EAT-700 Expendable Napalm|<big>[[EAT-700 Expendable Napalm]]</big> <ref name=supexc /><br>{{Armor|6|AP}}\nMS-11 Solo Silo Support Render.png|link=MS-11 Solo Silo|<big>[[MS-11 Solo Silo]]</big> <ref name=supexc /><br>{{Armor|9|AP}}\n</gallery>\n</div>\n{{!}}-{{!}}\nPython Commandos=\n<div class=\"Custom_gallery\" style=\"--image-width:3840; --image-height:2160; --image-size-adjustment:.1; --image-size-adjustment-mobile:.08;\">\n<gallery mode=\"nolines\" widths=\"3840px\" heights=\"2160px\">\nM-1000 Maxigun Support Render.png|link=M-1000 Maxigun|<big>[[M-1000 Maxigun]]</big> <ref name=supexc /><br>{{Armor|3|AP}}\nCQC-9 Defoliation Tool Support Render.png|link=CQC-9 Defoliation Tool|<big>[[CQC-9 Defoliation Tool]]</big> <ref name=supexc /><br>{{Armor|3|AP}} to {{Armor|5|AP}}\n</gallery>\n</div>\n{{!}}-{{!}}\nRedacted Regiment=\n<div class=\"Custom_gallery\" style=\"--image-width:3840; --image-height:2160; --image-size-adjustment:.1; --image-size-adjustment-mobile:.08;\">\n<gallery mode=\"nolines\" widths=\"3840px\" heights=\"2160px\">\nB MD C4 Pack Support Render.png|link=B/MD C4 Pack|<big>[[B/MD C4 Pack]]</big> <ref name=supexc /><br>{{Armor|7|AP}}\n\n</gallery>\n</div>\n}}\n</tabber>\n\n==Change History==\n{{Change History Head}}\n{{Change History Update|1.003.000|changes=\nAddition\n*Added Weapon Customization\n{{#ev:youtube|A7TURE5p5Ik|360|inline|Weapon Customization||autoplay=false}}\n}}\n\n==References==\n<references>\n<ref name=\"wpnexc\"><br />\n<u><big>Weapon Exceptions:</big></u>\n# [[AR-23 Liberator]]\n# [[P-2 Peacemaker]]\n# [[G-12 High Explosive]]\n# [[MP-98 Knight]]\n# [[R-2124 Constitution]]\n# [[CQC-30 Stun Baton]]\n# [[CQC-5 Combat Hatchet]]\n# [[P-92 Warrant]]\n# [[CQC-42 Machete]]\n# [[DBS-2 Double Freedom]]\n</ref>\n<ref name=\"supexc\"><br />\n<u><big>Support Weapon Exceptions:</big></u>\n# [[SG-88 Break-Action Shotgun]]\n# [[TX-41 Sterilizer]]\n# [[Entrenchment Tool]]\n# [[CQC-1 One True Flag]]\n# [[GL-52 De-Escalator]]\n# [[PLAS-45 Epoch]]\n# [[S-11 Speargun]]\n# [[EAT-700 Expendable Napalm]]\n# [[MS-11 Solo Silo]]\n# [[M-1000 Maxigun]]\n#[[CQC-9 Defoliation Tool]]\n#[[B/MD C4 Pack]]\n</ref>\n</references>\n[[Category:Weapons|!]]\n__FORCETOC__\n"
+}

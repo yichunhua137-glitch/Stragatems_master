@@ -1,0 +1,760 @@
+{{Breadcrumb Auto}}
+{{Tabs
+ | name1 = Helldivers 2
+ | link1 = Stratagems
+ | name2 = Helldivers 1
+ | link2 = Helldivers 1:Stratagems
+}}{{Hatnote|Looking for something that isn't here? Check out [[:Category:Stratagems]] for all Stratagem related articles}}
+
+The following stratagems are found in ''[[Helldivers 2|Helldivers 2]].'' The player can select up to four different stratagems when defining their loadout for a [[Mission]].
+</br>
+== Current Stratagems ==
+{| class="wikitable sortable"
+! scope="col" width="5%" | Department
+! scope="col" width="3%" | Icon
+! scope="col" width="10%" | Stratagem
+! scope="col" width="17%" | Stratagem Codes
+! scope="col" width="10%" | Cooldown
+! scope="col" width="10%" | Cost
+! scope="col" width="5%" | Unlock Level
+! scope="col" width="40%" | Description
+|-
+! rowspan="13" | Patriotic Administration Center
+| [[File:Machine Gun Stratagem Icon.png|50px]]
+| [[MG-43 Machine Gun|MG-43 Machine Gun]]
+| {{Stratagem_code|down|left|down|up|right}}
+| 480 sec
+| Free
+| 1
+| <small>A machine gun designed for stationary use. Trades higher power for increased recoil and reduced accuracy.</small>
+|-
+| [[File:Anti-Materiel Rifle Stratagem Icon.png|50px]]
+| [[APW-1 Anti-Materiel Rifle]]
+| {{Stratagem_code|down|left|right|up|down}}
+| 480 sec
+| {{Currency|Requisition Slips|5,000|notext}}
+| 1
+| <small>A high-caliber sniper rifle effective over long distances against light vehicle armor. This rifle must be aimed downscope.</small>
+|-
+| [[File:Stalwart Stratagem Icon.png|50px]]
+| [[M-105 Stalwart|M-105 Stalwart]]
+| {{Stratagem_code|down|left|down|up|up|left}}
+| 480 sec
+| {{Currency|Requisition Slips|3,500|notext}}
+| 1
+| <small>A compact, low caliber machine gun. Trades power for ease of use, with faster reloading than heavier machine guns.</small>
+|-
+| [[File:Expendable Anti-Tank Stratagem Icon.png|50px]]
+| [[EAT-17 Expendable Anti-Tank|EAT-17 Expendable Anti-Tank]]
+| {{Stratagem_code|down|down|left|up|right}}
+| 70 sec
+| {{Currency|Requisition Slips|3,000|notext}}
+| 3
+| <small>A single-use weapon specialized for damaging vehicle armor. Discarded after every use.</small>
+|-
+| [[File:Recoilless Rifle Stratagem Icon.png|50px]]
+| [[GR-8 Recoilless Rifle|GR-8 Recoilless Rifle]]
+| {{Stratagem_code|down|left|right|right|left}}
+| 480 sec
+| {{Currency|Requisition Slips|6,000|notext}}
+| 5
+| <small>A recoilless rifle effective against vehicle armor. Includes support backpack required for reloading.</small>
+|-
+| [[File:Flamethrower Stratagem Icon.png|50px]]
+| [[FLAM-40 Flamethrower|FLAM-40 Flamethrower]]
+| {{Stratagem_code|down|left|up|down|up}}
+| 480 sec
+| {{Currency|Requisition Slips|6,000|notext}}
+| 10
+| <small>An incendiary weapon for close range. Will ignite targets, terrain, and any flammable teammates.</small>
+|-
+| [[File:Autocannon Stratagem Icon.png|50px]]
+| [[AC-8 Autocannon|AC-8 Autocannon]]
+| {{Stratagem code|down|left|down|up|up|right}}
+| 480 sec
+| {{Currency|Requisition Slips|7,000|notext}}
+| 10
+| <small>A fully-automatic cannon effective against light vehicle armor. Includes support backpack required for reloading.</small>
+|-
+| [[File:Heavy Machine Gun Stratagem Icon.png|50px|alt=Heavy Machine Gun Icon]]
+| [[MG-206 Heavy Machine Gun|MG-206 Heavy Machine Gun]]
+| {{Stratagem_code|down|left|up|down|down}}
+| 480 sec
+| {{Currency|Requisition Slips|6,000|notext}}
+| 12
+| <small>A very powerful but difficult-to-wield machine gun with intense recoil.</small>
+|-
+| [[File:RL-77 Airburst Rocket Launcher Stratagem Icon.png|50px|alt=Airburst Rocket Launcher Icon]]
+| [[RL-77 Airburst Rocket Launcher]]
+| {{Stratagem code|down|up|up|left|right}}
+| 480 sec
+| {{Currency|Requisition Slips|8,000|notext}}
+| 15
+| Fires a rocket that detonates within proximity of a target, and deploys a cluster of explosive bomblets.
+|-
+| [[File:Commando Stratagem Icon.png|50px|alt=Commando Stratagem Icon]]
+| [[MLS-4X Commando]]
+| {{Stratagem code|down|left|up|down|right}}
+| 120 sec
+| {{Currency|Requisition Slips|8,000|notext}}
+| 15
+| An expendable missile launcher equipped with four laser-guided missiles.
+|-
+| [[File:Railgun Stratagem Icon.png|50px]]
+| [[RS-422 Railgun|RS-422 Railgun]]
+| {{Stratagem_code|down|right|down|up|left|right}}
+| 480 sec
+| {{Currency|Requisition Slips|10,000|notext}}
+| 20
+| <small>An experimental weapon which prioritizes armor penetration. Must be charged between shots - choose targets carefully.</small>
+|-
+| [[File:Spear Stratagem Icon.png|50px]]
+| [[FAF-14 Spear|FAF-14 Spear]]
+| {{Stratagem_code|down|down|up|down|down}}
+| 480 sec
+| {{Currency|Requisition Slips|9,000|notext}}
+| 20
+| <small>An anti-tank homing missile which must lock onto its target before launch. Effective against large and armored enemies.</small>
+|-
+| [[File:StA-X3 W.A.S.P. Launcher Stratagem Icon.png|50px]]
+| [[StA-X3 W.A.S.P. Launcher]]
+| {{Stratagem_code|down|down|up|down|right}}
+| 480 sec
+| {{Currency|Requisition Slips|12,000|notext}}
+| 20
+| <small>A versatile missile launcher loaded with seven lock-on homing missiles. These can either be fired from the launcher directly or as an airburst. Includes support backpack required for reloading. Produced by Stål Arms.</small>
+|-
+! rowspan="8" |Orbital Cannons
+| [[File:Orbital Gatling Barrage Stratagem Icon.png|50px]]
+| [[Orbital Gatling Barrage|Orbital Gatling Barrage]]
+| {{Stratagem_code|right|down|left|up|up}}
+| 70 sec
+| {{Currency|Requisition Slips|1,500|notext}}
+| 1
+| <small>A barrage of high explosive rounds, fired from the Destroyer's high speed rotary autocannons.</small>
+|-
+| [[File:Orbital Airburst Strike Stratagem Icon.png|50px]]
+| [[Orbital Airburst Strike|Orbital Airburst Strike]]
+| {{Stratagem code|right|right|right}}
+| 100 sec
+| {{Currency|Requisition Slips|4,000|notext}}
+| 5
+| <small>A projectile which explodes while airborne, creating a deadly rain of shrapnel. Not effective against heavy armor.</small>
+|-
+| [[File:Orbital 120mm HE Barrage Stratagem Icon.png|50px]]
+| [[Orbital 120mm HE Barrage]]
+| {{Stratagem code|right|right|down|left|right|down}}
+| 180 sec
+| {{Currency|Requisition Slips|4,000|notext}}
+| 5
+| <small>A precision artillery salvo over a small area, perfect for taking out concentrated enemy units.</small>
+|-
+| [[File:Orbital 380mm HE Barrage Stratagem Icon.png|50px]]
+| [[Orbital 380mm HE Barrage]]
+| {{Stratagem code|right|down|up|up|left|down|down}}
+| 240 sec
+| {{Currency|Requisition Slips|7,500|notext}}
+| 8
+| <small>A prolonged barrage, wreaking extended destruction over a large area. Communication with teammates is advised.</small>
+|-
+| [[File:Orbital Walking Barrage Stratagem Icon.png|50px]]
+| [[Orbital Walking Barrage|Orbital Walking Barrage]]
+| {{Stratagem code|right|down|right|down|right|down}}
+| 240 sec
+| {{Currency|Requisition Slips|7,500|notext}}
+| 10
+| <small>A linear artillery barrage which moves at intervals, driving the enemy out from cover while allowing an advance.</small>
+|-
+| [[File:Orbital Laser Stratagem Icon.png|50px]]
+| [[Orbital Laser|Orbital Laser]]
+| {{Stratagem code|right|down|up|right|down}}
+| 300 sec
+| {{Currency|Requisition Slips|10,000|notext}}
+| 15
+| <small>The Destroyer's laser cannon will sweep over the designated area, vaporizing all targets within the effective radius.</small>
+|-
+| [[File:Orbital Napalm Barrage Stratagem Icon.png|50px]]
+| [[Orbital Napalm Barrage]]
+| {{Stratagem code|right|right|down|left|right|up}}
+| 240 sec
+| {{Currency|Requisition|10,000|notext}}
+| 18
+| <small>Launches a prolonged barrage of napalm shells over a wide area, setting a swath of land ablaze in mere moments.</small>
+|-
+| [[File:Orbital Railcannon Strike Stratagem Icon.png|50px]]
+| [[Orbital Railcannon Strike|Orbital Railcannon Strike]]
+| {{Stratagem code|right|up|down|down|right}}
+| 180 sec
+| {{Currency|Requisition Slips|10,000|notext}}
+| 20
+| <small>A high-velocity railcannon round fired at the largest target in close proximity to the beacon. Targeting is automatic.</small>
+|-
+! rowspan="9" | Hangar
+| [[File:Eagle Strafing Run Stratagem Icon.png|50px]]
+| [[Eagle Strafing Run|Eagle Strafing Run]]
+| {{Stratagem_code|up|right|right}}
+| 8 sec
+| {{Currency|Requisition Slips|1,500|notext}}
+| 1
+| <small>A strafing run of the battlefield to clear small targets, delivered almost instantly. When called, the strike will start from the beacon and go away from the direction you were facing when thrown.</small>
+|-
+| [[File:Eagle Airstrike Stratagem Icon.png|50px]]
+| [[Eagle Airstrike|Eagle Airstrike]]
+| {{Stratagem_code|up|right|down|right}}
+| 8 sec
+| {{Currency|Requisition Slips|4,000|notext}}
+| 1
+| <small>A barrage of bombs creating a non-targeted carpet of explosions. When called, the strike will be perpendicular from the direction you were facing when thrown.</small>
+|-
+| [[File:Eagle Cluster Bomb Stratagem Icon.png|50px]]
+| [[Eagle Cluster Bomb|Eagle Cluster Bomb]]
+| {{Stratagem code|up|right|down|down|right}}
+| 8 sec
+|{{Currency|Requisition Slips|4,000|notext}}
+| 3
+| <small>A targeted air strike unable to destroy buildings, but efficient at clearing smaller targets. When called, the strike will be perpendicular from the direction you were facing when thrown. </small>
+|-
+| [[File:Eagle Napalm Airstrike Stratagem Icon.png|50px]]
+| [[Eagle Napalm Airstrike|Eagle Napalm Airstrike]]
+| {{Stratagem_code|up|right|down|up}}
+| 8 sec
+| {{Currency|Requisition Slips|5,000|notext}}
+| 5
+| <small>A barrage of napalm bombs, creating a wall of fire which will stop the enemy in their tracks. When called, the strike will be perpendicular from the direction you were facing when thrown. </small>
+|-
+| [[File:Jump Pack Stratagem Icon.png|50px]]
+| [[LIFT-850 Jump Pack]]
+| {{Stratagem code|down|up|up|down|up}}
+| 480 sec
+| {{Currency|Requisition Slips|6,000|notext}}
+| 8
+| <small>Enables the user to jump higher than 'gravity' and 'safety' would normally allow. Must be charged before use.</small>
+|-
+| [[File:Eagle Smoke Strike Stratagem Icon.png|50px]]
+| [[Eagle Smoke Strike|Eagle Smoke Strike]]
+| {{Stratagem_code|up|right|up|down}}
+| 8 sec
+| {{Currency|Requisition Slips|4,000|notext}}
+| 8
+| <small>A barrage of smoke grenades, creating a thick smoke screen to block enemies' line of sight. When called the strike will be Perpendicular from the direction you were facing when thrown. </small>
+|-
+| [[File:Eagle 110mm Rocket Pods Stratagem Icon.png|50px]]
+| [[Eagle 110mm Rocket Pods|Eagle 110mm Rocket Pods]]
+| {{Stratagem code|up|right|up|left}}
+| 8 sec
+| {{Currency|Requisition Slips|7,500|notext}}
+| 10
+| <small>A barrage of rocket pods, which the Eagle pilot will release on the largest target near the stratagem beacon. </small>
+|-
+| [[File:Eagle 500kg Bomb Stratagem Icon.png|50px]]
+| [[Eagle 500kg Bomb]]
+| {{Stratagem_code|up|right|down|down|down}}
+| 8 sec
+| {{Currency|Requisition Slips|10,000|notext}}
+| 15
+| <small>A large bomb obliterating almost any target close to impact. Make sure to clear the area.</small>
+|-
+| [[File:Fast Recon Vehicle Stratagem Icon.png|50px]]
+| [[M-102 Fast Recon Vehicle]]
+| {{Stratagem code|left|down|right|down|right|down|up}}
+| 480 sec
+| {{Currency|Requisition|25,000|notext}}
+| 25
+| <small>A lightly-armored reconnaissance vehicle mounted with a heavy machinegun.</small>
+|-
+! rowspan="8" |Bridge
+| [[File:Orbital Precision Strike Stratagem Icon.png|50px]]
+| [[Orbital Precision Strike|Orbital Precision Strike]]
+| {{Stratagem code|right|right|up}}
+| 90 sec
+| Free
+| 1
+| <small>A single precision shot from the Destroyer's 'ATLAS' cannon.</small>
+|-
+| [[File:Orbital Gas Strike Stratagem Icon.png|50px]]
+| [[Orbital Gas Strike|Orbital Gas Strike]]
+| {{Stratagem code|right|right|down|right}}
+| 75 sec
+| {{Currency|Requisition Slips|4,000|notext}}
+| 1
+| <small>A projectile which releases a cloud of corrosive gas, harmful to both organic and robotic lifeforms.</small>
+|-
+| [[File:Orbital EMS Strike Stratagem Icon.png|50px]]
+| [[Orbital EMS Strike|Orbital EMS Strike]]
+| {{Stratagem code|right|right|left|down}}
+| 75 sec
+| {{Currency|Requisition Slips|6,000|notext}}
+| 5
+| <small>A "compliance weapon" to modify enemy behavior. The projectile temporarily stuns all targets within the strike radius.</small>
+|-
+| [[File:Orbital Smoke Strike Stratagem Icon.png|50px]]
+| [[Orbital Smoke Strike|Orbital Smoke Strike]]
+| {{Stratagem code|right|right|down|up}}
+| 100 sec
+| {{Currency|Requisition Slips|4,000|notext}}
+| 8
+| <small>Creates a large, thick smoke screen to block targets' line of sight.</small>
+|-
+| [[File:HMG Emplacement Stratagem Icon.png|50px]]
+| [[E/MG-101 HMG Emplacement|E/MG-101 HMG Emplacement]]
+| {{Stratagem code|down|up|left|right|right|left}}
+| 180 sec
+| {{Currency|Requisition Slips|10,000|notext}}
+| 10
+| <small>A manned fortification offering superior firepower against lightly armored targets. Slow to turn, so place it wisely.</small>
+|-
+| [[File:Shield Generator Relay Stratagem Icon.png|50px]]
+| [[FX-12 Shield Generator Relay|FX-12 Shield Generator Relay]]
+| {{Stratagem code|down|down|left|right|left|right}}
+| 90 sec
+| {{Currency|Requisition Slips|9,000|notext}}
+| 10
+| <small>A stationary energy shield which provides cover against projectiles. Has a limited lifetime once deployed.</small>
+|-
+| [[File:Tesla Tower Stratagem Icon.png|50px]]
+| [[A/ARC-3 Tesla Tower|A/ARC-3 Tesla Tower]]
+| {{Stratagem Code|down|up|right|up|left|right}}
+| 120 sec
+| {{Currency|Requisition Slips|8,000|notext}}
+| 15
+| <small>A turret which fires electrical charges at targets in close range. To avoid friendly fire, remain prone.</small>
+|-
+| [[File:GL-21 Grenadier Battlement Stratagem Icon.png|50px]]
+| [[E/GL-21 Grenadier Battlement|E/GL-21 Grenadier Battlement]]
+| {{Stratagem Code|down|right|down|left|right}}
+| 120 sec
+| {{Currency|Requisition Slips|10,000|notext}}
+| 15
+| <small>A stationary ballistic cover with a mounted grenade launcher. Can protect multiple Helldivers from small arms fire.</small>
+|-
+! rowspan="12" |Engineering Bay
+| [[File:Anti-Personnel Minefield Stratagem Icon.png|50px]]
+| [[MD-6 Anti-Personnel Minefield|MD-6 Anti-Personnel Minefield]]
+| {{Stratagem code|down|left|up|right}}
+| 120 sec
+| {{Currency|Requisition Slips|1,500|notext}}
+| 1
+| <small>Deploys a defensive anti-personnel minefield, to halt enemy advance.</small>
+|-
+| [[File:Supply Pack Stratagem Icon.png|50px]]
+| [[B-1 Supply Pack|B-1 Supply Pack]]
+| {{Stratagem code|down|left|down|up|up|down}}
+| 480 sec
+| {{Currency|Requisition Slips|4,000|notext}}
+| 1
+| <small>Supply boxes containing ammunition, with a backpack that allows the user to distribute boxes to fellow Helldivers.</small>
+|-
+| [[File:Grenade Launcher Stratagem Icon.png|50px]]
+| [[GL-21 Grenade Launcher|GL-21 Grenade Launcher]]
+| {{Stratagem code|down|left|up|left|down}}
+| 480 sec
+| {{Currency|Requisition Slips|6,000|notext}}
+| 5
+| <small>A grenade launcher effective against armored infantry. Not intended for use against vehicle armor or fortified buildings.</small>
+|-
+| [[File:Laser Cannon Stratagem Icon.png|50px]]
+| [[LAS-98 Laser Cannon|LAS-98 Laser Cannon]]
+| {{Stratagem code|down|left|down|up|left}}
+| 480 sec
+| {{Currency|Requisition Slips|4,000|notext}}
+| 5
+| <small>A laser weapon firing a continuous beam. Doesn't require ammunition, but will need heat sink replaced if it overheats.</small>
+|-
+| [[File:Incendiary Minefield Stratagem Icon.png|50px]]
+| [[MD-I4 Incendiary Mines|MD-I4 Incendiary Mines]]
+| {{Stratagem code|down|left|left|down}}
+| 120 sec
+| {{Currency|Requisition Slips|4,000|notext}}
+| 8
+| <small>Deploys a defensive incendiary minefield, which will set both terrain and targets alight when triggered.</small>
+|-
+| [[File:Guard Dog Rover Stratagem Icon.png|50px]]
+| [[AX/LAS-5 "Guard Dog" Rover|AX/LAS-5 "Guard Dog" Rover]]
+| {{Stratagem code|down|up|left|up|right|right}}
+| 480 sec
+| {{Currency|Requisition Slips|7,500|notext}}
+| 10
+| <small>An autonomous drone equipped with a laser rifle, providing 360° cover. Returns to backpack to cool down.</small>
+|-
+| [[File:Ballistic Shield Backpack Stratagem Icon.png|50px]]
+| [[SH-20 Ballistic Shield Backpack|SH-20 Ballistic Shield Backpack]]
+| {{Stratagem code|down|left|down|down|up|left}}
+| 300 sec
+| {{Currency|Requisition Slips|6,000|notext}}
+| 12
+| <small>A backpack which can be wielded as a one-handed ballistic shield, protecting against small arms fire.</small>
+|-
+| [[File:Arc Thrower Stratagem Icon.png|50px]]
+| [[ARC-3 Arc Thrower|ARC-3 Arc Thrower]]
+| {{Stratagem code|down|right|down|up|left|left}}
+| 480 sec
+| {{Currency|Requisition Slips|7,000|notext}}
+| 15
+| <small>Projects an arc of lightning at close range. Charges up to project bolts, and may discharge through multiple targets.</small>
+|-
+| [[File:MD-17 Anti-Tank Mines Stratagem Icon.png|50px]]
+| [[MD-17 Anti-Tank Mines]]
+| {{Stratagem code|down|left|up|up}}
+| 120 sec
+| {{Currency|Requisition Slips|7,000|notext}}
+| 15
+| <small>Scatters powerful anti-tank mines that deal heavy, armor-penetrating damage. Minefield is less densely packed relative to smaller mines.</small>
+|-
+| [[File:Quasar Cannon Stratagem Icon.png|50px|alt=Quasar Cannon Icon]]
+| [[LAS-99 Quasar Cannon|LAS-99 Quasar Cannon]]
+| {{Stratagem code|down|down|up|left|right}}
+| 480 sec
+| {{Currency|Requisition Slips|7,500|notext}}
+| 18
+| <small>Charges up to fire a powerful, explosive energy burst. Has a long cooldown period after firing.</small>
+|-
+| [[File:Shield Generator Pack Stratagem Icon.png|50px]]
+| [[SH-32 Shield Generator Pack|SH-32 Shield Generator Pack]]
+| {{Stratagem code|down|up|left|right|left|right}}
+| 480 sec
+| {{Currency|Requisition Slips|10,000|notext}}
+| 20
+| <small>Encloses the wearer in a spherical shield which blocks high-speed projectiles. Has a limited lifetime once deployed.</small>
+|-
+| [[File:Gas Minefield Stratagem Icon.png.png|50x50px]]
+| [[MD-8 Gas Mines]]
+| {{Stratagem code|down|left|left|right}}
+| 120 sec
+| {{Currency|Requisition Slips|12,000|notext}}
+| 20
+| <small>Deploys mines that release gas on activation, temporarily blinding and slowing most enemies.</small>
+|-
+! rowspan="9" |Robotics Workshop
+| [[File:Machine Gun Sentry Stratagem Icon.png|50px]]
+| [[A/MG-43 Machine Gun Sentry|A/MG-43 Machine Gun Sentry]]
+| {{Stratagem code|down|up|right|right|up}}
+| 90 sec
+| {{Currency|Requisition Slips|1,500|notext}}
+| 1
+| <small>An agile automated machine gun turret. Will fire at targets even if Helldivers will be caught in the crossfire.</small>
+|-
+| [[File:Gatling Sentry Stratagem Icon.png|50px]]
+| [[A/G-16 Gatling Sentry|A/G-16 Gatling Sentry]]
+| {{Stratagem code|down|up|right|left}}
+| 150 sec
+| {{Currency|Requisition Slips|4,000|notext}}
+| 5
+| <small>An automated turret with an extremely high rate of fire. Caution: does not check if friendly units are in line of fire.</small>
+|-
+| [[File:Mortar Sentry Stratagem Icon.png|50px]]
+| [[A/M-12 Mortar Sentry|A/M-12 Mortar Sentry]]
+| {{Stratagem code|down|up|right|right|down}}
+| 180 sec
+| {{Currency|Requisition Slips|7,000|notext}}
+| 8
+| <small>A turret firing powerful shells in a high arc. Effective at long ranges, and able to strike at targets behind cover.</small>
+|-
+| [[File:Guard Dog Stratagem Icon.png|50px]]
+| [[AX/AR-23 "Guard Dog"|AX/AR-23 "Guard Dog"]]
+| {{Stratagem code|down|up|left|up|right|down}}
+| 480 sec
+| {{Currency|Requisition Slips|7,500|notext}}
+| 10
+| <small>An autonomous drone equipped with a Liberator Penetrator assault rifle, providing 360° cover. Returns to backpack to rearm.</small>
+|-
+| [[File:Autocannon Sentry Stratagem Icon.png|50px]]
+| [[A/AC-8 Autocannon Sentry|A/AC-8 Autocannon Sentry]]
+| {{Stratagem code|down|up|right|up|left|up}}
+| 150 sec
+| {{Currency|Requisition Slips|6,000|notext}}
+| 13
+| <small>An automated cannon turret firing anti-tank ammunition over long ranges. Sacrifices agility for range and power.</small>
+|-
+| [[File:Rocket Sentry Stratagem Icon.png|50px]]
+| [[A/MLS-4X Rocket Sentry|A/MLS-4X Rocket Sentry]]
+| {{Stratagem code|down|up|right|right|left}}
+| 150 sec
+| {{Currency|Requisition Slips|7,500|notext}}
+| 15
+| <small>A powerful automated turret, effective against armored targets. The turret will primarily aim at larger enemies.</small>
+|-
+| [[File:AM-23 EMS Mortar Sentry Stratagem Icon.png|50px]]
+| [[A/M-23 EMS Mortar Sentry|A/M-23 EMS Mortar Sentry]]
+| {{Stratagem code|down|up|right|down|right}}
+| 180 sec
+| {{Currency|Requisition Slips|8,000|notext}}
+| 20
+| <small>A turret firing static field generators that slow the advance of enemies.</small>
+|-
+| [[File:EXO-45 Patriot Exosuit Stratagem Icon.png|50px]]
+| [[EXO-45 Patriot Exosuit|EXO-45 Patriot Exosuit]]
+| {{Stratagem code|left|down|right|up|left|down|down}}
+| 600 sec
+| {{Currency|Requisition Slips|20,000|notext}}
+| 25
+| <small>The EXO-45 Patriot Exosuit is a heavily armored walking exosuit, equipped with fourteen rockets and a mini-gun preloaded with 1000 ammo.</small>
+|-
+| [[File:EXO-49 Emancipator Exosuit Stratagem Icon.png|50px]]
+| [[EXO-49 Emancipator Exosuit|EXO-49 Emancipator Exosuit]]
+| {{Stratagem code|left|down|right|up|left|down|up}}
+| 600 sec
+| {{Currency|Requisition Slips|20,000|notext}}
+| 25
+| <small>The EXO-49 Emancipator Exosuit is a heavily armored walking exosuit, equipped with dual autocannons preloaded with 100 rounds each.</small>
+|-
+! rowspan="20" | [[Warbonds]]
+| [[File:Sterilizer Stratagem Icon.png|50px]]
+| [[TX-41 Sterilizer]]
+| {{Stratagem code|down|left|up|down|left}}
+| 480 sec
+| {{Currency|Medals|85|notext}}
+| None
+| <small>Atomizes caustic chemicals into a fine mist that liquifies sensitive electronics and tissues. Blinds and slows most enemies.</small>
+|-
+| [[File:Guard Dog Dog Breath Stratagem Icon.png|50px]]
+| [[AX/TX-13 "Guard Dog" Dog Breath]]
+| {{Stratagem code|down|up|left|up|right|up}}
+| 480 sec
+| {{Currency|Medals|110|notext}}
+| None
+| <small>A drone that defends its user by firing caustic gas at nearby enemies. Returns to backpack to refill.</small>
+|-
+| [[File:SH-51 Directional Shield Stratagem Icon.png|50px]]
+| [[SH-51 Directional Shield]]
+| {{Stratagem code|down|up|left|right|up|up}}
+| 300 sec
+| {{Currency|Medals|75|notext}}
+| None
+| <small>A one-handed device that deploys a wide energy barrier in front of the user. The barrier is semipermeable and blocks high-speed projectiles from the outside only, leaving the user free to shoot through it.</small>
+|-
+| [[File:E_AT-12 Anti-Tank Emplacement Stratagem Icon.png|50px]]
+| [[E/AT-12 Anti-Tank Emplacement]]
+| {{Stratagem code|down|up|left|right|right|right}}
+| 180 sec
+| {{Currency|Medals|110|notext}}
+| None
+| <small>A powerful manned gun emplacement, capable of taking out armored targets at long ranges.</small>
+|-
+| [[File:A_FLAM-40 Flame Sentry Stratagem Icon.png|50px]]
+| [[A/FLAM-40 Flame Sentry]]
+| {{Stratagem Code|down|up|right|down|up|up}}
+| 100 sec
+| {{Currency|Medals|85|notext}}
+| None
+| <small>An automated flamethrower turret. Warning: fuel canister prone to explosion when ruptured.</small>
+|-
+| [[File:Portable Hellbomb Stratagem Icon.png|50px]]
+| [[B-100 Portable Hellbomb]]
+| {{Stratagem code|down|right|up|up|up}}
+| 300 sec
+| {{Currency|Medals|110|notext}}
+| None
+| <small>A backpack-mounted Hellbomb that can be armed by the wearer or an ally, starting a countdown. Users are recommended to remove the backpack before the countdown reaches zero.</small>
+|-
+| [[File:Hover Pack Stratagem Icon.png|50px]]
+| [[LIFT-860 Hover Pack]]
+| {{Stratagem code|down|up|up|down|left|right}}
+| 480 sec
+| {{Currency|Medals|110|notext}}
+| None
+| <small>Offers its user brief fixed-height flight, stable enough for pinpoint marksmanship.</small>
+|-
+| [[File:CQC-1 One True Flag Stratagem Icon.png|50px]]
+| [[CQC-1 One True Flag]]
+| {{Stratagem code|down|left|right|right|up}}
+| 480 sec
+| {{Currency|Medals|110|notext}}
+| None
+| <small>The eternal colors of Super Earth can never be tainted. Only quenched, by the blood of its enemies.</small>
+|-
+| [[File:GL-52 De-Escalator Stratagem Icon.png|50px]]
+| [[GL-52 De-Escalator]]
+| {{Stratagem code|down|right|up|left|right|}}
+| 480 sec
+| {{Currency|Medals|85|notext}}
+| None
+| <small> A humane grenade launcher firing high-powered arc grenades.</small>
+|-
+|[[File:AX ARC-3 "Guard Dog" K-9 Stratagem Icon.png|50px]]
+|[[AX/ARC-3 "Guard Dog" K-9]]
+|{{Stratagem code|down|up|left|up|right|left}}
+| 480 sec
+| {{Currency|Medals|110|notext}}
+| None
+| <small>A humane, autonomous drone equipped with a modified Arc Thrower. Capable of projecting arcs of lightning through multiple targets. Does not need to recharge between shots.</small>
+|-
+|[[File:PLAS-45 Epoch Stratagem Icon.png|50px]]
+|[[PLAS-45 Epoch]]
+|{{Stratagem code|down|left|up|left|right}}
+| 480 sec
+| {{Currency|Medals|75|notext}}
+| None
+| <small>A powerful plasma weapon that fires one blast at a time, each blast exploding on impact. Must be charged to fire. Warning: do not overcharge.</small>
+|-
+|[[File:A/LAS-98 Laser Sentry Stratagem Icon.png|50px]]
+|[[A/LAS-98 Laser Sentry]]
+|{{Stratagem code|down|up|right|down|up|right}}
+| 150 sec
+| {{Currency|medals|85|notext}}
+| None
+| <small>A turret firing powerful and precise laser beams. Warning: overloading heat sink may cause adverse effects.</small>
+|-
+|[[File:LIFT-182 Warp Pack Stratagem Icon.png|50px]]
+|[[LIFT-182 Warp Pack]]
+|{{Stratagem code|down|left|right|down|left|right}}
+| 480 sec
+| {{Currency|Medals|110|notext}}
+| None
+| <small>A Dark Fluid-powered backpack that generates a portable micro-wormhole. This safe and well-understood technology allows the wearer to warp short distances. Warning: do not use while pack is overloaded.</small>
+|-
+|[[File:S-11 Speargun Stratagem Icon.png|50px]]
+|[[S-11 Speargun]]
+| {{Stratagem code|down|right|down|left|up|right}}
+| 480 sec
+| {{Currency|Medals|85|notext}}
+| None
+|<small>A speargun firing heavy-duty projectiles. These projectiles release a cloud of gas on impact, and must be carefully loaded one at a time.</small>
+|-
+|[[File:EAT-700 Expendable Napalm Stratagem Icon.png|50px]]
+|[[EAT-700 Expendable Napalm]]
+|{{Stratagem code|down|down|left|up|left}}
+| 140 sec
+| {{Currency|Medals|85|notext}}
+| None
+|<small>A single-use weapon that fires a missile containing napalm cluster bombs that release upon impact.</small>
+|-
+|[[File:MS-11 Solo Silo Stratagem Icon.png|50px]]
+|[[MS-11 Solo Silo]]
+|{{Stratagem code|down|up|right|down|down}}
+| 180 sec
+| {{Currency|Medals|110|notext}}
+| None
+|<small>A silo that fit one single, powerful missile. Comes with a handheld targeting remote.</small>
+|-
+|[[File:M-1000 Maxigun Stratagem Icon.png|50px]]
+|[[M-1000 Maxigun]]
+|{{Stratagem code|down|left|right|down|up|up}}
+| 480 sec
+| {{Currency|Medals|110|notext}}
+| None
+|<small>A belt-fed minigun with an exceptional ammo capacity. Cannot be reloaded with standard non-belted munitions.</small>
+|-
+|[[File:CQC-9 Defoliation Tool Stratagem Icon.png|50px]]
+|[[CQC-9 Defoliation Tool]]
+|{{Stratagem code|down|left|right|right|down}}
+| 480 sec
+| {{Currency|Medals|85|notext}}
+| None
+|<small>A useful field-clearing tool for removing trees, obstacles, and unlucky foes. </small>
+|-
+|[[File:AX FLAM-75 “Guard Dog” Hot Dog Stratagem Icon.png|50px]]
+|[[AX/FLAM-75 "Guard Dog" Hot Dog]]
+|{{Stratagem code|down|up|left|up|left|left}}
+| 480 sec
+| {{Currency|Medals|75|notext}}
+| None
+| <small>An autonomous drone equipped with a flamethrower. Returns to pack to refill fuel canisters.</small>
+|-
+|[[File:B MD C4 Pack Stratagem Icon.png|50px]]
+|[[B/MD C4 Pack]]
+|{{Stratagem_code|down|right|up|up|right|up}}
+| 480 sec
+| {{Currency|Medals|110|notext}}
+| None
+| <small>A backpack with six adhesive C4 charges and a wireless detonator set up for either individual or simultaneous detonation.</small>
+|}
+
+== Mission Stratagems ==
+When calling in a Stratagem with a terminal, the terminal will always be opposite from where the Helldiver faced the beacon at the time of throwing.
+{| class="wikitable sortable"
+! scope="col" width="5%" | Type
+! scope="col" width="3%" | Icon
+! scope="col" width="20%" | Stratagem
+! scope="col" width="32%" | Stratagem Codes
+! scope="col" width="40%" | Description
+|-
+! rowspan="4" | Common
+| [[File:Reinforce Stratagem Icon.png|50px]]
+| [[Reinforce]]
+| {{Stratagem_code|up|down|right|left|up}}
+| <small>Used to call in a Helldiver if they have perished.</small>
+|-
+| [[File:SOS Beacon Stratagem Icon.png|50px]]
+| [[SoS Beacon]]
+| {{Stratagem_code|up|down|right|up}}
+| <small>Used to get priority on the mission select screen to increase the chances of Helldivers joining and sets the lobby's visibility to public for the rest of the dive. Only usable by the host if there are 3 or less Helldivers present in the dive.</small>
+|-
+| [[File:Resupply Stratagem Icon.png|50px]]
+| [[Resupply]]
+| {{Stratagem_code|down|down|up|right}}
+| <small>Used to call in a Resupply.</small>
+|-
+| [[File:Eagle Rearm Stratagem Icon.png|50x50px]]
+| [[Eagle Rearm]]
+| {{Stratagem_code|up|up|left|up|right}}
+| <small>Used to send [[Eagle 1]] back to the Super Destroyer Ship to resupply. Disabled if [[Eagle 1]] has no expended any payloads or if no eagle stratagems were selected</small>
+|-
+! rowspan="12" | Objectives
+| [[File:Start Upload Stratagem Icon.svg|50px]]
+| [[SSSD Delivery]]
+| {{Stratagem_code|down|down|down|up|up}}
+| <small>Used to deliver the SSSD Hard Drive.</small>
+|-
+| [[File:Prospecting Drill Stratagem Icon.png|50px]]
+| [[Prospecting Drill]]
+| {{Stratagem_code|down|down|left|right|down|down}}
+| <small>Used to start the Main Objective of the [[Conduct Geological Survey]] Mission.</small>
+|-
+| [[File:Super Earth Flag Stratagem Icon.png|50px]]
+| [[Super Earth Flag]]
+| {{Stratagem_code|down|up|down|up}}
+| <small>Used to start the Main Objective: Raise [[Super Earth Flag]] Mission.</small>
+|-
+| [[File:Hellbomb Stratagem Icon.png|50px]]
+| [[NUX-223 Hellbomb|Hellbomb]]
+| {{Stratagem_code|down|up|left|down|up|right|down|up}}
+| <small>Used to call in a Hellbomb.</small>
+|-
+| [[File:Start Upload Stratagem Icon.svg|50px]]
+| [[Upload Data]]
+| {{Stratagem_code|left|right|up|up|up}}
+| <small>Used to start the Side Objective: [[Upload Escape Pod Data]].</small>
+|-
+| [[File:Seismic Probe Stratagem Icon.png|50px]]
+| [[Seismic Probe]]
+| {{Stratagem_code|up|up|left|right|down|down}}
+| <small>Used to start the Side Objective: [[Conduct Geological Survey]].</small>
+|-
+| [[File:Orbital Illumination Flare Stratagem Icon.png|50px]]
+| [[Orbital Illumination Flare]]
+| {{Stratagem_code|right|right|left|left}}
+| <small>Only found in the Stratagem Hero Game onboard the Super Destroyer.</small>
+|-
+| [[File:SEAF Artillery Stratagem Icon.png|50px]]
+| [[SEAF Artillery]]
+| {{Stratagem_code|right|up|up|down}}
+| <small>Unlocked after completing the [[SEAF Artillery|SEAF Artillery Side Objective]]. Used to call in an Artillery Strike. Damage and Effect of the strike depends on which Shells were loaded during the Side Objective.</small>
+|-
+| [[File:Dark Fluid Vessel Stratagem Icon.png|50px]]
+| [[Dark Fluid Vessel]]
+| {{Stratagem code|up|left|right|down|up|up}}
+| <small>Event-exclusive stratagem for the [[Deploy Dark Fluid]] mission. Deploys a backpack full of Dark Fluid that acts as a more powerful [[Jump Pack]] when worn. Must be inserted into the [[Tectonic Drill]].</small>
+|-
+| [[File:Prospecting Drill Stratagem Icon.png|50px]]
+| [[Tectonic Drill]]
+| {{Stratagem code|up|down|up|down|up|down}}
+| <small>Event-exclusive stratagem for the [[Deploy Dark Fluid]] mission. Deploys a drill to the surface which must be loaded with a [[Dark Fluid Vessel]] and then defended.</small>
+|-
+| [[File:Prospecting Drill Stratagem Icon.png|50px]]
+| [[Hive Breaker Drill]]
+| {{Stratagem code|left|up|down|right|down|down}}
+| <small>Used to start the Main Objective of the [[Nuke Nursery]] Mission.</small>
+|-
+| [[File:Cargo Container Stratagem Icon.png|50px]]
+| [[Cargo Container]]
+| {{Stratagem code|up|up|down|down|right|down}}
+| <small>Used to contain Fusion Batteries and High-Grade Platinum in the [[Confiscate Assets]] and [[Rapid Acquisition]] Missions.</small>
+|}
+<gallery mode="packed" heights="200">
+File:Stratagem Permit.png|Permit
+</gallery>
+
+== Trivia ==
+* The cost of one Stratagem is more than the average annual income for a [[Super Citizen Edition|Super Citizen]]
+[[Category:Stratagems|!]]
+__FORCETOC__
