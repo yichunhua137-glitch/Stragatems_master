@@ -2,8 +2,8 @@ import React from 'react';
 import StratagemSelector from '../components/StratagemSelector';
 import { DIR_ICON } from '../constants/directions';
 
-// Scored challenge mode with level/timer progression.
-function ChallengePage({
+// Dedicated challenge variant where stratagem codes shift on a timer.
+function ChallengeInterferencePage({
   selectedIds,
   allStratagems,
   stratagemSections,
@@ -14,8 +14,6 @@ function ChallengePage({
   onHoverPos,
   onHoverClear,
   getStratagemLogo,
-  challengeMode,
-  setChallengeMode,
   challengeLevel,
   setChallengeLevel,
   challengeScore,
@@ -38,13 +36,16 @@ function ChallengePage({
   challengeStatus,
   challengeCompleted,
   setChallengeLevelAndStartNext,
+  challengeInterferenceMs,
+  setChallengeInterferenceMs,
+  challengeInterferenceLeftMs,
 }) {
   return (
     <section className="section challenge-section">
       <div className="section-title">
-        <span>04</span>
-        <h2>Stratagem Challenge</h2>
-        <p>Compete for glory, points, and the right to blame your teammates.</p>
+        <span>09</span>
+        <h2>Illuminate Interference</h2>
+        <p>Codes shift on a timer. Mid-input shifts force a full restart.</p>
       </div>
       <div className="training-grid challenge-grid">
         <div className="training-left">
@@ -69,23 +70,8 @@ function ChallengePage({
               <div>
                 <label>Mode</label>
                 <div className="toggle-row">
-                  <button
-                    type="button"
-                    className={`toggle-chip ${
-                      challengeMode === 'count' ? 'active' : ''
-                    }`}
-                    onClick={() => setChallengeMode('count')}
-                  >
+                  <button type="button" className="toggle-chip active">
                     Complete N
-                  </button>
-                  <button
-                    type="button"
-                    className={`toggle-chip ${
-                      challengeMode === 'timed' ? 'active' : ''
-                    }`}
-                    onClick={() => setChallengeMode('timed')}
-                  >
-                    Time Attack
                   </button>
                 </div>
               </div>
@@ -111,6 +97,38 @@ function ChallengePage({
                 </div>
               </div>
             </div>
+
+            <div className="challenge-row">
+              <div>
+                <label>Interference Cycle</label>
+                <div className="count-control">
+                  <input
+                    type="range"
+                    min="3000"
+                    max="12000"
+                    step="500"
+                    value={challengeInterferenceMs}
+                    onChange={(event) =>
+                      setChallengeInterferenceMs(Number(event.target.value))
+                    }
+                  />
+                  <span>{(challengeInterferenceMs / 1000).toFixed(1)}s</span>
+                </div>
+              </div>
+              <div className="challenge-metrics">
+                <div>
+                  <span>Code Shift</span>
+                  <strong>
+                    {challengeStarted
+                      ? `${Math.max(0, challengeInterferenceLeftMs / 1000).toFixed(
+                          1
+                        )}s`
+                      : 'Ready'}
+                  </strong>
+                </div>
+              </div>
+            </div>
+
             <div className="challenge-row">
               <div className="challenge-metrics">
                 <div>
@@ -131,6 +149,7 @@ function ChallengePage({
                 </div>
               </div>
             </div>
+
             <div className="challenge-row">
               <button
                 type="button"
@@ -140,8 +159,8 @@ function ChallengePage({
                     challengeFailed ? Math.max(0, prev - 200) : prev
                   );
                   setChallengeRetries((prev) => (challengeFailed ? prev + 1 : 0));
-                  startChallengeLevel();
-                  beginChallengeRun();
+                  startChallengeLevel(challengeLevel, 'count');
+                  beginChallengeRun(challengeLevel, 'count');
                 }}
               >
                 {challengeFailed ? 'Retry (-200)' : 'Start Level'}
@@ -156,24 +175,18 @@ function ChallengePage({
                 </button>
               )}
               <span className="challenge-hint">
-                Target:{' '}
-                {challengeMode === 'count'
-                  ? `${getChallengeTargetCount(challengeLevel)} stratagems`
-                  : 'score as many as possible'}
+                Target: {getChallengeTargetCount(challengeLevel)} stratagems
               </span>
             </div>
           </div>
 
           <div className="challenge-stage">
             {(() => {
-              const activeItem =
-                challengeMode === 'count'
-                  ? challengeSet[challengeActiveIndex]
-                  : challengeSet[0];
+              const activeItem = challengeSet[challengeActiveIndex];
               if (!challengeStarted) {
                 return (
                   <div className="active-empty">
-                    Press Space or Enter to begin. Survival is optional.
+                    Press Space, Enter, or Start Level to begin.
                   </div>
                 );
               }
@@ -194,7 +207,7 @@ function ChallengePage({
                   >
                     {activeItem.code.map((dir, idx) => (
                       <span
-                        key={`${activeItem.id}-challenge-${idx}`}
+                        key={`${activeItem.id}-interference-${idx}`}
                         className={
                           challengeInputSeq[idx] ? 'code-chip entered' : 'code-chip'
                         }
@@ -210,10 +223,8 @@ function ChallengePage({
                   <div className="active-status center">{challengeStatus}</div>
                   <div className="challenge-progress">
                     <span>
-                      Completed: {challengeCompleted}
-                      {challengeMode === 'count'
-                        ? ` / ${getChallengeTargetCount(challengeLevel)}`
-                        : ''}
+                      Completed: {challengeCompleted} /{' '}
+                      {getChallengeTargetCount(challengeLevel)}
                     </span>
                     <span>Retries: {challengeRetries}</span>
                   </div>
@@ -227,4 +238,4 @@ function ChallengePage({
   );
 }
 
-export default ChallengePage;
+export default ChallengeInterferencePage;

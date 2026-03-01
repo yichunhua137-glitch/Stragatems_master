@@ -48,6 +48,8 @@ function TopBar({
     challenge: [
       { id: 'challenge', label: 'Challenge' },
       { id: 'random', label: 'Random Code' },
+      { id: 'challenge-interference', label: 'Interference' },
+      { id: 'signal-hijack', label: 'Signal Hijack' },
     ],
     weapon: [
       { id: 'weapon', label: 'Weapon Wiki' },
@@ -58,7 +60,10 @@ function TopBar({
   const activeGroup =
     page === 'weapon' || page === 'weapon-random'
       ? 'weapon'
-      : page === 'challenge' || page === 'random'
+      : page === 'challenge' ||
+        page === 'random' ||
+        page === 'challenge-interference' ||
+        page === 'signal-hijack'
       ? 'challenge'
       : 'stratagem';
   const currentLabel =

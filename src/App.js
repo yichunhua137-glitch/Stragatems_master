@@ -12,6 +12,8 @@ import RandomPage from './pages/RandomPage';
 import WikiPage from './pages/WikiPage';
 import LoadoutPage from './pages/LoadoutPage';
 import ChallengePage from './pages/ChallengePage';
+import ChallengeInterferencePage from './pages/ChallengeInterferencePage';
+import SignalHijackPage from './pages/SignalHijackPage';
 import WeaponPage from './pages/WeaponPage';
 import WeaponRandomPage from './pages/WeaponRandomPage';
 
@@ -106,6 +108,9 @@ function App() {
   const [bindingTarget, setBindingTarget] = useState(null);
   const [hoverInfo, setHoverInfo] = useState(null);
   const [hoverPos, setHoverPos] = useState({ x: 0, y: 0 });
+  const isChallengeRoute =
+    page === 'challenge' || page === 'challenge-interference';
+  const isInterferenceRoute = page === 'challenge-interference';
   const splashLogoUrl = `${process.env.PUBLIC_URL}/Helldiver_welcom_logo.png`;
   const stratagemLogoBase = `${process.env.PUBLIC_URL}/stratagems logo`;
   const weaponLogoBase = `${process.env.PUBLIC_URL}/weapons`;
@@ -290,6 +295,29 @@ function App() {
     }
     return 45000 + Math.max(0, level - 1) * 8000;
   }, []);
+  const beginChallengeRun = useCallback(
+    (overrideLevel = challengeLevel, overrideMode = challengeMode) => {
+      const durationMs = getChallengeDurationMs(overrideMode, overrideLevel);
+      challengeEndRef.current = Date.now() + durationMs;
+      if (isInterferenceRoute) {
+        challengeInterferenceNextRef.current = Date.now() + challengeInterferenceMs;
+        setChallengeInterferenceLeftMs(challengeInterferenceMs);
+      } else {
+        challengeInterferenceNextRef.current = null;
+        setChallengeInterferenceLeftMs(0);
+      }
+      setChallengeTimeLeft(durationMs);
+      setChallengeStarted(true);
+      setChallengeStatus('Awaiting WASD input');
+    },
+    [
+      challengeLevel,
+      challengeMode,
+      getChallengeDurationMs,
+      isInterferenceRoute,
+      challengeInterferenceMs,
+    ]
+  );
   const refreshTrainingSet = useCallback(() => {
     const pool = availableStratagems.length ? availableStratagems : allStratagems;
     let next = [];
@@ -420,20 +448,33 @@ function App() {
   }, [page, rollRandomWeapons]);
 
   useEffect(() => {
+    if (isInterferenceRoute) {
+      setChallengeInterferenceEnabled(true);
+    } else {
+      setChallengeInterferenceEnabled(false);
+    }
+  }, [isInterferenceRoute]);
+
+  useEffect(() => {
     if (page === 'loadout') {
       refreshLoadoutSet();
     }
   }, [page, refreshLoadoutSet]);
 
   useEffect(() => {
-    if (page === 'challenge') {
+    if (isChallengeRoute) {
       setChallengeRetries(0);
-      startChallengeLevel();
+      if (isInterferenceRoute) {
+        setChallengeMode('count');
+        startChallengeLevel(challengeLevel, 'count');
+      } else {
+        startChallengeLevel();
+      }
     }
-  }, [page, startChallengeLevel]);
+  }, [isChallengeRoute, isInterferenceRoute, startChallengeLevel, challengeLevel]);
 
   useEffect(() => {
-    if (page !== 'challenge' || challengeFailed || challengeLevelComplete) return;
+    if (!isChallengeRoute || challengeFailed || challengeLevelComplete) return;
     if (!challengeStarted || !challengeEndRef.current) return;
     const timer = setInterval(() => {
       const remaining = Math.max(0, challengeEndRef.current - Date.now());
@@ -445,10 +486,10 @@ function App() {
       }
     }, 100);
     return () => clearInterval(timer);
-  }, [page, challengeFailed, challengeLevelComplete, challengeStarted]);
+  }, [isChallengeRoute, challengeFailed, challengeLevelComplete, challengeStarted]);
 
   useEffect(() => {
-    if (page !== 'challenge') return undefined;
+    if (!isInterferenceRoute) return undefined;
     if (!challengeInterferenceEnabled || !challengeStarted) {
       challengeInterferenceNextRef.current = null;
       setChallengeInterferenceLeftMs(0);
@@ -475,7 +516,7 @@ function App() {
     }, 100);
     return () => clearInterval(timer);
   }, [
-    page,
+    isInterferenceRoute,
     challengeInterferenceEnabled,
     challengeStarted,
     challengeFailed,
@@ -548,18 +589,13 @@ function App() {
         refreshLoadoutSet();
         return;
       }
-      if (page === 'challenge' && (pressedKey === ' ' || pressedKey === 'enter')) {
+      if (
+        (page === 'challenge' || page === 'challenge-interference') &&
+        (pressedKey === ' ' || pressedKey === 'enter')
+      ) {
         event.preventDefault();
         if (!challengeStarted) {
-          const durationMs = getChallengeDurationMs(challengeMode, challengeLevel);
-          challengeEndRef.current = Date.now() + durationMs;
-          if (challengeInterferenceEnabled) {
-            challengeInterferenceNextRef.current = Date.now() + challengeInterferenceMs;
-            setChallengeInterferenceLeftMs(challengeInterferenceMs);
-          }
-          setChallengeTimeLeft(durationMs);
-          setChallengeStarted(true);
-          setChallengeStatus('Awaiting WASD input');
+          beginChallengeRun();
         }
         return;
       }
@@ -580,7 +616,13 @@ function App() {
         setBindingTarget(null);
         return;
       }
-      if (page !== 'training' && page !== 'random' && page !== 'challenge') return;
+      if (
+        page !== 'training' &&
+        page !== 'random' &&
+        page !== 'challenge' &&
+        page !== 'challenge-interference'
+      )
+        return;
       const dir = keyToDir[pressedKey];
       if (!dir) return;
       event.preventDefault();
@@ -684,12 +726,13 @@ function App() {
         } else {
           setRandomStatus('Correct input, continue');
         }
-      } else if (page === 'challenge') {
+      } else if (page === 'challenge' || page === 'challenge-interference') {
         if (!challengeStarted) return;
         if (challengeFailed || challengeLevelComplete) return;
+        const activeMode = page === 'challenge-interference' ? 'count' : challengeMode;
         const targetCount = getChallengeTargetCount(challengeLevel);
         const activeItem =
-          challengeMode === 'count'
+          activeMode === 'count'
             ? challengeSet[challengeActiveIndex]
             : challengeSet[0];
         if (!activeItem) return;
@@ -736,7 +779,7 @@ function App() {
           setChallengeInputSeq([]);
           challengeMistakesRef.current = 0;
           challengeActiveStartRef.current = null;
-          if (challengeMode === 'count') {
+          if (activeMode === 'count') {
             const isLastItem = challengeActiveIndex + 1 >= targetCount;
             if (isLastItem) {
               setChallengeLevelComplete(true);
@@ -785,10 +828,8 @@ function App() {
       challengeInputSeq,
       challengeSessionStartMs,
       challengeStreak,
-      challengeInterferenceEnabled,
-      challengeInterferenceMs,
+      beginChallengeRun,
       getChallengeTargetCount,
-      getChallengeDurationMs,
       sessionStartMs,
     ]
   );
@@ -812,22 +853,15 @@ function App() {
     setChallengeLevel((prev) => {
       const next = prev + 1;
       setChallengeRetries(0);
-      startChallengeLevel(next, challengeMode);
-      const durationMs = getChallengeDurationMs(challengeMode, next);
-      challengeEndRef.current = Date.now() + durationMs;
-      if (challengeInterferenceEnabled) {
-        challengeInterferenceNextRef.current = Date.now() + challengeInterferenceMs;
-        setChallengeInterferenceLeftMs(challengeInterferenceMs);
-      }
-      setChallengeTimeLeft(durationMs);
-      setChallengeStarted(true);
+      const mode = isInterferenceRoute ? 'count' : challengeMode;
+      startChallengeLevel(next, mode);
+      beginChallengeRun(next, mode);
       return next;
     });
   }, [
     challengeMode,
-    challengeInterferenceEnabled,
-    challengeInterferenceMs,
-    getChallengeDurationMs,
+    isInterferenceRoute,
+    beginChallengeRun,
     startChallengeLevel,
   ]);
 
@@ -947,9 +981,7 @@ function App() {
             setChallengeRetries={setChallengeRetries}
             startChallengeLevel={startChallengeLevel}
             getChallengeDurationMs={getChallengeDurationMs}
-            challengeEndRef={challengeEndRef}
-            setChallengeStarted={setChallengeStarted}
-            setChallengeTimeLeft={setChallengeTimeLeft}
+            beginChallengeRun={beginChallengeRun}
             challengeLevelComplete={challengeLevelComplete}
             challengeRetries={challengeRetries}
             getChallengeTargetCount={getChallengeTargetCount}
@@ -961,13 +993,50 @@ function App() {
             challengeStatus={challengeStatus}
             challengeCompleted={challengeCompleted}
             setChallengeLevelAndStartNext={setChallengeLevelAndStartNext}
-            challengeInterferenceEnabled={challengeInterferenceEnabled}
-            setChallengeInterferenceEnabled={setChallengeInterferenceEnabled}
+          />
+        )}
+
+        {page === 'challenge-interference' && (
+          <ChallengeInterferencePage
+            selectedIds={selectedIds}
+            allStratagems={allStratagems}
+            stratagemSections={stratagemSections}
+            onToggleAll={toggleAllSelections}
+            onToggleSection={toggleSection}
+            onToggleSelect={toggleSelect}
+            onHoverInfo={setHoverInfo}
+            onHoverPos={setHoverPos}
+            onHoverClear={() => setHoverInfo(null)}
+            getStratagemLogo={getStratagemLogo}
+            challengeLevel={challengeLevel}
+            setChallengeLevel={setChallengeLevel}
+            challengeScore={challengeScore}
+            challengeTimeLeft={challengeTimeLeft}
+            challengeStreak={challengeStreak}
+            challengeBestStreak={challengeBestStreak}
+            challengeFailed={challengeFailed}
+            setChallengeScore={setChallengeScore}
+            setChallengeRetries={setChallengeRetries}
+            startChallengeLevel={startChallengeLevel}
+            beginChallengeRun={beginChallengeRun}
+            challengeLevelComplete={challengeLevelComplete}
+            challengeRetries={challengeRetries}
+            getChallengeTargetCount={getChallengeTargetCount}
+            challengeSet={challengeSet}
+            challengeActiveIndex={challengeActiveIndex}
+            challengeStarted={challengeStarted}
+            challengeErrorFlash={challengeErrorFlash}
+            challengeInputSeq={challengeInputSeq}
+            challengeStatus={challengeStatus}
+            challengeCompleted={challengeCompleted}
+            setChallengeLevelAndStartNext={setChallengeLevelAndStartNext}
             challengeInterferenceMs={challengeInterferenceMs}
             setChallengeInterferenceMs={setChallengeInterferenceMs}
             challengeInterferenceLeftMs={challengeInterferenceLeftMs}
           />
         )}
+
+        {page === 'signal-hijack' && <SignalHijackPage />}
 
         {page === 'weapon' && (
           <WeaponPage

@@ -1,4 +1,4 @@
-﻿@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;500;600&family=Space+Grotesk:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;500;600&family=Space+Grotesk:wght@400;500;600&display=swap');
 
 :root {
   color-scheme: dark;
@@ -135,7 +135,7 @@ main {
   gap: 10px;
   min-width: 0;
   padding: 6px 10px;
-  border-radius: 6px;
+  border-radius: 2px;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(0, 0, 0, 0.18));
 }
 
@@ -149,7 +149,7 @@ main {
   font-size: 18px;
   letter-spacing: 0.06em;
   cursor: pointer;
-  border-radius: 4px;
+  border-radius: 1px;
   transition: box-shadow 0.2s ease, transform 0.2s ease;
 }
 
@@ -252,7 +252,7 @@ main {
   border: 1px solid var(--line);
   padding: 8px;
   box-shadow: var(--panel-shadow);
-  border-radius: 6px;
+  border-radius: 2px;
   z-index: 9;
 }
 
@@ -290,7 +290,7 @@ main {
   letter-spacing: 0.1em;
   font-size: 10px;
   line-height: 1.2;
-  border-radius: 4px;
+  border-radius: 1px;
   cursor: pointer;
   white-space: nowrap;
 }
@@ -335,7 +335,7 @@ main {
     linear-gradient(180deg, var(--panel), var(--panel-2));
   border: 1px solid var(--line-soft);
   box-shadow: var(--panel-shadow);
-  border-radius: 6px;
+  border-radius: 2px;
 }
 
 .stratagem-list,
@@ -392,7 +392,7 @@ button.primary {
   letter-spacing: 0.12em;
   font-size: 11px;
   padding: 8px 10px;
-  border-radius: 4px;
+  border-radius: 1px;
   cursor: pointer;
   transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
 }
@@ -450,7 +450,7 @@ button.primary:hover,
   display: grid;
   gap: 8px;
   background: rgba(0, 0, 0, 0.22);
-  border-radius: 4px;
+  border-radius: 1px;
 }
 
 .section-block-title {
@@ -520,7 +520,7 @@ button.primary:hover,
   font-size: 10px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  border-radius: 4px;
+  border-radius: 1px;
 }
 
 .icon-tile-art img {
@@ -560,7 +560,7 @@ button.primary:hover,
 .active-card {
   border: 1px solid var(--line-soft);
   background: #0f1215;
-  border-radius: 6px;
+  border-radius: 2px;
 }
 
 .active-card.compact {
@@ -620,7 +620,7 @@ button.primary:hover,
   padding: 4px;
   display: grid;
   place-items: center;
-  border-radius: 4px;
+  border-radius: 1px;
 }
 
 .strip-icon-art img {
@@ -780,7 +780,7 @@ button.primary:hover,
   color: var(--muted);
   padding: 22px;
   text-align: center;
-  border-radius: 4px;
+  border-radius: 1px;
 }
 
 .page-placeholder {
@@ -825,7 +825,7 @@ button.primary:hover,
   background: rgba(10, 12, 15, 0.98);
   border: 1px solid var(--line);
   box-shadow: var(--panel-shadow);
-  border-radius: 4px;
+  border-radius: 1px;
 }
 
 .floating-tooltip strong {
@@ -885,7 +885,7 @@ button.primary:hover,
   color: var(--text);
   padding: 10px 12px;
   font-size: 14px;
-  border-radius: 4px;
+  border-radius: 1px;
 }
 
 .wiki-field input:focus,
@@ -911,6 +911,179 @@ button.primary:hover,
 .weapon-random-section,
 .page-shell {
   min-height: 70vh;
+}
+
+.signal-hijack-section {
+  min-height: 70vh;
+}
+
+.signal-console {
+  max-width: 980px;
+  margin: 0 auto;
+  background:
+    linear-gradient(170deg, rgba(242, 214, 56, 0.05), transparent 38%),
+    linear-gradient(180deg, var(--panel), var(--panel-2));
+  border: 1px solid var(--line-soft);
+  border-radius: 2px;
+  box-shadow: var(--panel-shadow);
+  padding: 18px;
+  display: grid;
+  gap: 14px;
+}
+
+.signal-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+}
+
+.signal-meta strong {
+  color: var(--accent);
+}
+
+.signal-feed {
+  position: relative;
+  border: 1px solid var(--line-faint);
+  border-radius: 1px;
+  background: #06090d;
+  min-height: 440px;
+  overflow: hidden;
+}
+
+.signal-screen {
+  height: 100%;
+  min-height: 440px;
+  padding: 20px;
+  display: grid;
+  gap: 10px;
+  align-content: start;
+}
+
+.signal-screen.training {
+  place-items: center;
+  align-content: center;
+}
+
+.signal-note {
+  margin-top: 10px;
+  text-align: center;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+.signal-screen h3 {
+  margin: 0;
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-size: 30px;
+}
+
+.signal-screen p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.signal-feed.glitch::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.08) 0,
+      rgba(255, 255, 255, 0.08) 2px,
+      transparent 2px,
+      transparent 6px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 0, 0, 0.12),
+      rgba(0, 255, 255, 0.12),
+      rgba(255, 255, 255, 0.09)
+    );
+  mix-blend-mode: screen;
+  animation: hijack-flicker 0.16s steps(2) infinite;
+}
+
+.signal-screen.glitch {
+  animation: hijack-shift 0.18s steps(2) infinite;
+}
+
+.signal-screen.hijacked {
+  align-content: start;
+}
+
+.video-wrap {
+  width: 100%;
+  max-width: 900px;
+  aspect-ratio: 16 / 9;
+  border: 1px solid var(--line);
+  border-radius: 1px;
+  overflow: hidden;
+  background: #000;
+}
+
+.video-wrap iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.signal-link {
+  color: var(--accent);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.signal-link:hover {
+  text-decoration: underline;
+}
+
+.signal-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+@keyframes hijack-flicker {
+  0% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0.3;
+  }
+}
+
+@keyframes hijack-shift {
+  0% {
+    transform: translate(0, 0);
+  }
+  20% {
+    transform: translate(-3px, 1px);
+  }
+  40% {
+    transform: translate(3px, -1px);
+  }
+  60% {
+    transform: translate(-2px, 2px);
+  }
+  100% {
+    transform: translate(1px, -2px);
+  }
 }
 
 .wiki-grid {
@@ -945,7 +1118,7 @@ button.primary:hover,
   text-transform: uppercase;
   letter-spacing: 0.12em;
   font-size: 9px;
-  border-radius: 4px;
+  border-radius: 1px;
 }
 
 .wiki-icon img,
@@ -1031,7 +1204,7 @@ button.primary:hover,
   grid-template-columns: 62px minmax(0, 1fr);
   gap: 12px;
   align-items: center;
-  border-radius: 4px;
+  border-radius: 1px;
 }
 
 .loadout-hint,
@@ -1046,7 +1219,7 @@ button.primary:hover,
   padding: 10px;
   border: 1px solid var(--line-faint);
   background: rgba(0, 0, 0, 0.2);
-  border-radius: 4px;
+  border-radius: 1px;
 }
 
 .challenge-row {
@@ -1108,7 +1281,7 @@ button.primary:hover,
   place-items: center;
   padding: 10px 14px;
   overflow: hidden;
-  border-radius: 4px;
+  border-radius: 1px;
 }
 
 .weapon-card-icon span {
@@ -1237,7 +1410,7 @@ button.primary:hover,
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-radius: 4px;
+  border-radius: 1px;
   cursor: pointer;
 }
 
@@ -1262,7 +1435,7 @@ button.primary:hover,
   height: 46px;
   padding: 0 14px;
   min-width: 74px;
-  border-radius: 4px;
+  border-radius: 1px;
 }
 
 .settings-trigger {
