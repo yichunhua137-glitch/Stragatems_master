@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 
 // Top navigation with two group dropdowns: Stratagem and Weapon.
 function TopBar({
@@ -9,6 +9,17 @@ function TopBar({
   onCloseMenu,
   onSelectPage,
 }) {
+  const WALKER_SIZE = 117;
+  const movingFrames = useMemo(
+    () => [
+      `${process.env.PUBLIC_URL}/moving/sprite_upscaled_8x-export1.png`,
+      `${process.env.PUBLIC_URL}/moving/sprite_upscaled_8x-export2.png`,
+      `${process.env.PUBLIC_URL}/moving/sprite_upscaled_8x-export3.png`,
+      `${process.env.PUBLIC_URL}/moving/sprite_upscaled_8x-export4.png`,
+      `${process.env.PUBLIC_URL}/moving/sprite_upscaled_8x-export5.png`,
+    ],
+    []
+  );
   const helldiverQuips = useMemo(
     () => [
       'Friendly fire is just supervised learning.',
@@ -25,16 +36,16 @@ function TopBar({
       'Low survival rates indicate high mission enthusiasm.',
       'Every crater is a signed receipt for freedom.',
       'Do not fear death; fear incomplete paperwork.',
-      'Team cohesion improves after the first accidental airstrike.',
+      'Team cohesion improves after accidental airstrikes.',
       'A true Helldiver never misses. The map just shifts.',
-      'Collateral damage is still damage to the enemy economy.',
+      'Collateral damage hurts the enemy economy.',
       'If you can hear the barrage, you are probably outside it.',
       'Morale is stored in the stratagem cooldown timer.',
       'No witness, no friendly fire report.',
       'Victory is guaranteed. Survival remains experimental.',
       'Your helmet camera is for training, not complaints.',
-      'Managed Democracy appreciates your recyclable remains.',
-      'The safest drop zone is usually somewhere else.',
+      'Managed Democracy appreciates recyclable remains.',
+      'The safest drop zone is usually elsewhere.',
     ],
     []
   );
@@ -81,6 +92,13 @@ function TopBar({
   const [quipIndex, setQuipIndex] = useState(() =>
     Math.floor(Math.random() * helldiverQuips.length)
   );
+  const [frameIndex, setFrameIndex] = useState(0);
+  const [walkPos, setWalkPos] = useState(0);
+  const [walkDir, setWalkDir] = useState(1);
+  const [walkBounds, setWalkBounds] = useState({ min: 260, max: 520 });
+  const topbarRef = useRef(null);
+  const titleRef = useRef(null);
+  const groupRowRef = useRef(null);
 
   useEffect(() => {
     setQuipIndex(Math.floor(Math.random() * helldiverQuips.length));
@@ -93,6 +111,53 @@ function TopBar({
     return () => clearInterval(timer);
   }, [helldiverQuips.length]);
 
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setFrameIndex((prev) => (prev + 1) % movingFrames.length);
+    }, 120);
+    return () => clearInterval(timer);
+  }, [movingFrames.length]);
+
+  useEffect(() => {
+    const step = 0.012;
+    const timer = setInterval(() => {
+      setWalkPos((prev) => {
+        const next = prev + step * walkDir;
+        if (next >= 1) {
+          setWalkDir(-1);
+          return 1;
+        }
+        if (next <= 0) {
+          setWalkDir(1);
+          return 0;
+        }
+        return next;
+      });
+    }, 50);
+    return () => clearInterval(timer);
+  }, [walkDir]);
+
+  useEffect(() => {
+    const updateBounds = () => {
+      const topbarEl = topbarRef.current;
+      const titleEl = titleRef.current;
+      const navEl = groupRowRef.current;
+      if (!topbarEl || !titleEl || !navEl) return;
+      const topbarRect = topbarEl.getBoundingClientRect();
+      const titleRect = titleEl.getBoundingClientRect();
+      const navRect = navEl.getBoundingClientRect();
+      const min = titleRect.right - topbarRect.left + 30;
+      const max = navRect.left - topbarRect.left - 30 - WALKER_SIZE;
+      setWalkBounds({
+        min,
+        max: Math.max(min, max),
+      });
+    };
+    updateBounds();
+    window.addEventListener('resize', updateBounds);
+    return () => window.removeEventListener('resize', updateBounds);
+  }, [page, openMenuGroup]);
+
   const toggleGroup = (groupId) => {
     if (openMenuGroup === groupId) {
       onCloseMenu();
@@ -103,7 +168,7 @@ function TopBar({
 
   return (
     <>
-      <header className="topbar">
+      <header className="topbar" ref={topbarRef}>
         <div className="topbar-head">
           <button
             type="button"
@@ -116,12 +181,25 @@ function TopBar({
           </button>
           <div className="topbar-mode">
             <span className="topbar-mode-label">{modeHeadline}</span>
-            <span className="topbar-title">{currentLabel}</span>
+            <span className="topbar-title" ref={titleRef}>
+              {currentLabel}
+            </span>
             <span className="topbar-mode-quote">{helldiverQuips[quipIndex]}</span>
           </div>
         </div>
 
-        <nav className="topbar-group-row" aria-label="Navigation groups">
+        <div className="heading-walker" aria-hidden="true">
+          <img
+            className={`heading-walker-sprite ${walkDir < 0 ? 'leftward' : 'rightward'}`}
+            src={movingFrames[frameIndex]}
+            alt=""
+            style={{
+              left: `${walkBounds.min + (walkBounds.max - walkBounds.min) * walkPos}px`,
+            }}
+          />
+        </div>
+
+        <nav className="topbar-group-row" aria-label="Navigation groups" ref={groupRowRef}>
           {[
             { id: 'stratagem', label: 'Stratagem' },
             { id: 'challenge', label: 'Challenge' },

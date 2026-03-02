@@ -126,6 +126,7 @@ main {
   border-bottom: 1px solid var(--line);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
   backdrop-filter: blur(8px);
+  overflow: visible;
 }
 
 .topbar-head {
@@ -135,22 +136,34 @@ main {
   gap: 10px;
   min-width: 0;
   padding: 6px 10px;
-  border-radius: 2px;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(0, 0, 0, 0.18));
+  border-radius: 0;
+  background: transparent;
+  position: relative;
+  overflow: visible;
+  width: auto;
+  max-width: none;
+  z-index: 2;
 }
 
 .brand-mark {
-  min-width: 56px;
-  height: 42px;
+  min-width: 128px;
+  height: 72px;
   border: none;
   color: var(--accent);
   background: linear-gradient(140deg, rgba(242, 214, 56, 0.12), rgba(242, 214, 56, 0.02));
   font-family: 'Oswald', sans-serif;
-  font-size: 18px;
+  font-size: 44px;
   letter-spacing: 0.06em;
   cursor: pointer;
   border-radius: 1px;
   transition: box-shadow 0.2s ease, transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+  padding: 0;
+  position: relative;
+  z-index: 2;
 }
 
 .brand-mark:hover {
@@ -158,10 +171,41 @@ main {
   box-shadow: 0 0 0 1px rgba(242, 214, 56, 0.3), 0 0 10px rgba(242, 214, 56, 0.18);
 }
 
+.heading-walker-sprite {
+  width: 117px;
+  height: 117px;
+  image-rendering: pixelated;
+  display: block;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.heading-walker-sprite.leftward {
+  transform: translateY(-50%) scaleX(-1);
+}
+
+.heading-walker {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 120px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  z-index: 1;
+  overflow: visible;
+}
+
 .topbar-mode {
   min-width: 0;
   display: grid;
   gap: 2px;
+  position: relative;
+  z-index: 2;
+  width: auto;
+  padding-right: 140px;
 }
 
 .topbar-mode-label {
@@ -186,7 +230,9 @@ main {
   font-size: 10px;
   color: var(--muted);
   letter-spacing: 0.04em;
-  max-width: min(48vw, 560px);
+  width: 320px;
+  max-width: 320px;
+  min-width: 320px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -198,6 +244,7 @@ main {
   gap: 16px;
   flex-wrap: wrap;
   position: relative;
+  z-index: 2;
 }
 
 .topbar-group-item {
@@ -1593,12 +1640,20 @@ button.primary:hover,
     gap: 10px;
   }
 
+  .topbar-head {
+    width: 100%;
+    max-width: 100%;
+    flex: 1 1 auto;
+  }
+
   .topbar-title {
     font-size: 18px;
     letter-spacing: 0.08em;
   }
 
   .topbar-mode-quote {
+    width: 84vw;
+    min-width: 0;
     max-width: 84vw;
   }
 
@@ -1684,3 +1739,4 @@ button.primary:hover,
     font-size: 16px;
   }
 }
+
