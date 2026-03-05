@@ -860,6 +860,105 @@ button.primary:hover,
   color: var(--accent);
 }
 
+.animation-test-section {
+  min-height: 70vh;
+}
+
+.animation-test-panel {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 18px;
+  background:
+    linear-gradient(170deg, rgba(242, 214, 56, 0.05), transparent 38%),
+    linear-gradient(180deg, var(--panel), var(--panel-2));
+  border: 1px solid var(--line-soft);
+  border-radius: 2px;
+  box-shadow: var(--panel-shadow);
+  display: grid;
+  gap: 14px;
+}
+
+.animation-test-controls {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.animation-test-controls label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+}
+
+.animation-test-controls select {
+  background: #0a0e12;
+  border: 1px solid var(--line-faint);
+  color: var(--text);
+  padding: 9px 11px;
+  font-size: 13px;
+  border-radius: 1px;
+}
+
+.animation-stage {
+  min-height: 340px;
+  border: 1px solid var(--line-faint);
+  background: #070a0e;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+}
+
+.animation-frame {
+  width: 320px;
+  max-width: 100%;
+  image-rendering: pixelated;
+}
+
+.animation-test-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  color: var(--muted);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.animation-test-meta strong {
+  color: var(--accent);
+}
+
+.ship-map-section {
+  min-height: 70vh;
+}
+
+.ship-map-panel {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 18px;
+  background:
+    linear-gradient(170deg, rgba(242, 214, 56, 0.05), transparent 38%),
+    linear-gradient(180deg, var(--panel), var(--panel-2));
+  border: 1px solid var(--line-soft);
+  border-radius: 2px;
+  box-shadow: var(--panel-shadow);
+}
+
+.ship-map-canvas {
+  border: 1px solid var(--line-faint);
+  background: #06080b;
+  min-height: 520px;
+}
+
+.ship-map-canvas canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 /* Tooltip */
 .floating-tooltip {
   position: fixed;

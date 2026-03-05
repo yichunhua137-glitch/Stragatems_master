@@ -14,6 +14,8 @@ import LoadoutPage from './pages/LoadoutPage';
 import ChallengePage from './pages/ChallengePage';
 import ChallengeInterferencePage from './pages/ChallengeInterferencePage';
 import SignalHijackPage from './pages/SignalHijackPage';
+import AnimationTestPage from './pages/AnimationTestPage';
+import ShipMapPage from './pages/ShipMapPage';
 import WeaponPage from './pages/WeaponPage';
 import WeaponRandomPage from './pages/WeaponRandomPage';
 
@@ -1037,6 +1039,8 @@ function App() {
         )}
 
         {page === 'signal-hijack' && <SignalHijackPage />}
+        {page === 'animation-test' && <AnimationTestPage />}
+        {page === 'ship-map' && <ShipMapPage onOpenPage={setPage} />}
 
         {page === 'weapon' && (
           <WeaponPage

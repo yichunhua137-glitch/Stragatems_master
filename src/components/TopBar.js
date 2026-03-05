@@ -52,6 +52,7 @@ function TopBar({
 
   const groupItems = {
     stratagem: [
+      { id: 'ship-map', label: 'Ship Map' },
       { id: 'training', label: 'Training' },
       { id: 'wiki', label: 'Wiki' },
       { id: 'loadout', label: 'Random Loadout' },
@@ -61,6 +62,7 @@ function TopBar({
       { id: 'random', label: 'Random Code' },
       { id: 'challenge-interference', label: 'Interference' },
       { id: 'signal-hijack', label: 'Signal Hijack' },
+      { id: 'animation-test', label: 'Animation Test' },
     ],
     weapon: [
       { id: 'weapon', label: 'Weapon Wiki' },
@@ -74,7 +76,8 @@ function TopBar({
       : page === 'challenge' ||
         page === 'random' ||
         page === 'challenge-interference' ||
-        page === 'signal-hijack'
+        page === 'signal-hijack' ||
+        page === 'animation-test'
       ? 'challenge'
       : 'stratagem';
   const currentLabel =
