@@ -1,0 +1,524 @@
+{
+	"types": {
+		"58483197": {
+			"name": "SA-25 Steel Trooper",
+			"description": "For optimal performance, the manufacturer recommends avoiding immersing this armor in salt water for prolonged periods.",
+			"type": 1,
+			"slot": 2,
+			"armor_rating": 100,
+			"speed": 500,
+			"stamina_regen": 100,
+			"passive": 8
+		},
+		"267424901": {
+			"name": "I-102 Draconaught",
+			"description": "Completely sheathed in 14-cm silica fiber foam, except for a thin tube to the ear canal to enable hearing the satisfying screeches of Freedom's enemies as they burn.",
+			"type": 1,
+			"slot": 2,
+			"armor_rating": 100,
+			"speed": 500,
+			"stamina_regen": 100,
+			"passive": 11
+		},
+		"325695835": {
+			"name": "B-01 Tactical",
+			"description": "This armor is the Super Earth Standard Issue, made from the same titanium alloy as the Destroyer's hull.",
+			"type": 1,
+			"slot": 2,
+			"armor_rating": 100,
+			"speed": 500,
+			"stamina_regen": 100,
+			"passive": 0
+		},
+		"470325800": {
+			"name": "TR-40 Gold Eagle",
+			"description": "This high-visibility armor allows it's bearer to be easily seen through smoke, fog, and spewing viscera.",
+			"type": 2,
+			"slot": 2,
+			"armor_rating": 150,
+			"speed": 500,
+			"stamina_regen": 100,
+			"passive": 1
+		},
+		"476841466": {
+			"name": "CM-09 Bonesnapper",
+			"description": "Based on a colonial surgeon's gown, where surgeries were often interrupted by a need to perform defensive duties.",
+			"type": 1,
+			"slot": 2,
+			"armor_rating": 100,
+			"speed": 500,
+			"stamina_regen": 100,
+			"passive": 7
+		},
+		"487470129": {
+			"name": "B-01 Tactical",
+			"description": "This armor is the Super Earth Standard Issue, made from the same titanium alloy as the Destroyer's hull.",
+			"type": 1,
+			"slot": 2,
+			"armor_rating": 100,
+			"speed": 500,
+			"stamina_regen": 100,
+			"passive": 0
+		},
+		"600891740": {
+			"name": "PH-56 Jaguar",
+			"description": "'Prowl like a jaguar, strike like a viper.'—Motto of the storied SEAF special operations unit whose real exploits were portrayed in the classic comic book series 'Tales of the Viper Commandos.'",
+			"type": 1,
+			"slot": 2,
+			"armor_rating": 100,
+			"speed": 500,
+			"stamina_regen": 100,
+			"passive": 10
+		},
+		"618911418": {
+			"name": "EX-03 Prototype 3",
+			"description": "Because this prototype's wires operate at 400,000 volts, it also includes a handy rubber underlayer for insulation.",
+			"type": 1,
+			"slot": 2,
+			"armor_rating": 100,
+			"speed": 500,
+			"stamina_regen": 100,
+			"passive": 5
+		},
+		"621795009": {
+			"name": "B-01 Tactical",
+			"description": "This armor is the Super Earth Standard Issue, made from the same titanium alloy as the Destroyer's hull.",
+			"type": 1,
+			"slot": 2,
+			"armor_rating": 100,
+			"speed": 500,
+			"stamina_regen": 100,
+			"passive": 0
+		},
+		"622973953": {
+			"name": "UF-84 Doubt Killer",
+			"description": "Developed by the Ministry of Science while investigating the phenomenon known as The Gloom, this armor is non-permeable and squeak resistant.",
+			"type": 1,
+			"slot": 2,
+			"armor_rating": 100,
+			"speed": 500,
+			"stamina_regen": 100,
+			"passive": 13
+		},
+		"627197346": {
+			"name": "CE-35 Trench Engineer",
+			"description": "After colonists of Hellmire recovered a lost shipment of this armor, the local pastime of fence-smashing was born.",
+			"type": 1,
+			"slot": 2,
+			"armor_rating": 100,
+			"speed": 500,
+			"stamina_regen": 100,
+			"passive": 6
+		},
+		"726539469": {
+			"name": "CM-09 Bonesnapper",
+			"description": "Based on a colonial surgeon's gown, where surgeries were often interrupted by a need to perform defensive duties",
+			"type": 1,
+			"slot": 2,
+			"armor_rating": 100,
+			"speed": 500,
+			"stamina_regen": 100,
+			"passive": 7
+		},
+		"950673533": {
+			"name": "CM-14 Physician",
+			"description": "The distinctive red, white, and green of the Intergalactic Medical Corps signal to all Helldivers that help is at hand.",
+			"type": 1,
+			"slot": 2,
+			"armor_rating": 100,
+			"speed": 500,
+			"stamina_regen": 100,
+			"passive": 7
+		},
+		"996716618": {
+			"name": "AF-02 Haz-Master",
+			"description": "Developed by the Ministry of Science while investigating the phenomenon known as The Gloom, this armor is non-permeable and squeak resistant.",
+			"type": 1,
+			"slot": 2,
+			"armor_rating": 100,
+			"speed": 500,
+			"stamina_regen": 100,
+			"passive": 12
+		},
+		"1058794522": {
+			"name": "DP-00 Tactical",
+			"description": "This classic armour set is recognised by every citizen: worn by the heroic Helldivers who battled and forever defeated the Terminids, Cyborgs, and the Illuminate in the First Galactic War",
+			"type": 1,
+			"slot": 2,
+			"armor_rating": 100,
+			"speed": 500,
+			"stamina_regen": 100,
+			"passive": 9
+		},
+		"1223759745": {
+			"name": "EX-16 Prototype 16",
+			"description": "As the electric arc generates a strong magnetic field, wearers should avoid use while in the vicinity of stapled paperwork",
+			"type": 1,
+			"slot": 2,
+			"armor_rating": 100,
+			"speed": 500,
+			"stamina_regen": 100,
+			"passive": 5
+		},
+		"1333768893": {
+			"name": "B-01 Tactical",
+			"description": "This armor is the Super Earth Standard Issue, made from the same titanium alloy as the Destroyer's hull.",
+			"type": 1,
+			"slot": 2,
+			"armor_rating": 100,
+			"speed": 500,
+			"stamina_regen": 100,
+			"passive": 1
+		},
+		"1335058381": {
+			"name": "CW-9 White Wolf",
+			"description": "The pattern used for this armor is the result of the Winter Camouflage Improvement Effort, which considered 136 entrants before determining the color white would best blend in with snow.",
+			"type": 2,
+			"slot": 2,
+			"armor_rating": 150,
+			"speed": 500,
+			"stamina_regen": 100,
+			"passive": 1
+		},
+		"1558906438": {
+			"name": "CM-06 Combat Medic",
+			"description": "This armor was designed by PFC Rodney A. Carmichael, the first Helldiver to use a stim on an ally instead of himself.",
+			"type": 1,
+			"slot": 2,
+			"armor_rating": 100,
+			"speed": 500,
+			"stamina_regen": 100,
+			"passive": 7
+		},
+		"1639126819": {
+			"name": "B-01 Tactical",
+			"description": "This armor is the Super Earth Standard Issue, made from the same titanium alloy as the Destroyer's hull.",
+			"type": 1,
+			"slot": 2,
+			"armor_rating": 100,
+			"speed": 500,
+			"stamina_regen": 100,
+			"passive": 1
+		},
+		"1666296234": {
+			"name": "B-01 Tactical",
+			"description": "This armor is the Super Earth Standard Issue, made from the same titanium alloy as the Destroyer's hull.",
+			"type": 1,
+			"slot": 2,
+			"armor_rating": 100,
+			"speed": 500,
+			"stamina_regen": 100,
+			"passive": 1
+		},
+		"1831924614": {
+			"name": "B-01 Tactical",
+			"description": "This armor is the Super Earth Standard Issue, made from the same titanium alloy as the Destroyer's hull.",
+			"type": 1,
+			"slot": 2,
+			"armor_rating": 100,
+			"speed": 500,
+			"stamina_regen": 100,
+			"passive": 1
+		},
+		"1887719913": {
+			"name": "B-01 Tactical",
+			"description": "This armor is the Super Earth Standard Issue, made from the same titanium alloy as the Destroyer's hull.",
+			"type": 1,
+			"slot": 2,
+			"armor_rating": 100,
+			"speed": 500,
+			"stamina_regen": 100,
+			"passive": 0
+		},
+		"2047279903": {
+			"name": "CM-10 Clinician",
+			"description": "Featuring patented reverse-seam technology, to reduce the likelihood of bodily fluids entering the armor's interior.",
+			"type": 1,
+			"slot": 2,
+			"armor_rating": 100,
+			"speed": 500,
+			"stamina_regen": 100,
+			"passive": 6
+		},
+		"2076005753": {
+			"name": "DP-40 Hero of the Federation",
+			"description": "Though originally intended solely for ceremonial use, its inspirational energy proved equally useful on the battlefield.",
+			"type": 1,
+			"slot": 2,
+			"armor_rating": 100,
+			"speed": 500,
+			"stamina_regen": 100,
+			"passive": 9
+		},
+		"2128569605": {
+			"name": "CE-27 Ground Breaker",
+			"description": "'The ground is just another obstacle that hasn't yet been cleared.' - SGM Janet Jones, Excavation Corps Founder.",
+			"type": 1,
+			"slot": 2,
+			"armor_rating": 100,
+			"speed": 500,
+			"stamina_regen": 100,
+			"passive": 6
+		},
+		"2150790862": {
+			"name": "B-24 Enforcer",
+			"description": "In field tests, 84% of users said that the armor improved their posture and self-esteem.",
+			"type": 1,
+			"slot": 2,
+			"armor_rating": 100,
+			"speed": 471,
+			"stamina_regen": 71,
+			"passive": 3
+		},
+		"2325051543": {
+			"name": "TR-7 Ambassador of the Brand",
+			"description": "Promotional armor made by SUMY Corp. as part of a highly successful marketing campaign for frozen yogurt.",
+			"type": 1,
+			"slot": 2,
+			"armor_rating": 100,
+			"speed": 500,
+			"stamina_regen": 100,
+			"passive": 1
+		},
+		"2342442877": {
+			"name": "B-24 Enforcer",
+			"description": "In field tests, 84% of users said that the armor improved their posture and self-esteem.",
+			"type": 1,
+			"slot": 2,
+			"armor_rating": 100,
+			"speed": 471,
+			"stamina_regen": 71,
+			"passive": 7
+		},
+		"2346212818": {
+			"name": "FS-34 Exterminator",
+			"description": "Features a patented non-stick coating, which makes scraping viscera off after a long day of battle less taxing.",
+			"type": 1,
+			"slot": 2,
+			"armor_rating": 100,
+			"speed": 500,
+			"stamina_regen": 100,
+			"passive": 3
+		},
+		"2396807401": {
+			"name": "SA-04 Combat Technician",
+			"description": "Due to the enhanced strength caused by this armor, caution is advised when using door handles or embracing colleagues.",
+			"type": 1,
+			"slot": 2,
+			"armor_rating": 100,
+			"speed": 500,
+			"stamina_regen": 100,
+			"passive": 2
+		},
+		"2483492566": {
+			"name": "TR-9 Cavalier of Democracy",
+			"description": "Bearers of this armor ride no equine mount, but are nonetheless borne to battle atop the trusty steed of Liberty.",
+			"type": 1,
+			"slot": 2,
+			"armor_rating": 100,
+			"speed": 500,
+			"stamina_regen": 100,
+			"passive": 9
+		},
+		"2546928266": {
+			"name": "CE-81 Juggernaut",
+			"description": "One of the most durable engineer armors available, each set is quality tested by an impact with a full-grown Charger.",
+			"type": 1,
+			"slot": 2,
+			"armor_rating": 100,
+			"speed": 500,
+			"stamina_regen": 100,
+			"passive": 6
+		},
+		"2675118910": {
+			"name": "TR-117 Alpha Commander",
+			"description": "For warriors who are so strong and confident that they don't need any reassurance whatsoever.",
+			"type": 1,
+			"slot": 2,
+			"armor_rating": 100,
+			"speed": 500,
+			"stamina_regen": 100,
+			"passive": 7
+		},
+		"2855449476": {
+			"name": "EX-16 Prototype 16",
+			"description": "As the electric arc generates a strong magnetic field, wearers should avoid use while in vicinity of stapled paperwork.",
+			"type": 1,
+			"slot": 2,
+			"armor_rating": 100,
+			"speed": 500,
+			"stamina_regen": 100,
+			"passive": 5
+		},
+		"2858087169": {
+			"name": "SA-12 Servo Assisted",
+			"description": "Each servo-assisted limb contains 138 miniature motors, to support a natural gait and long-term spinal health.",
+			"type": 1,
+			"slot": 2,
+			"armor_rating": 100,
+			"speed": 500,
+			"stamina_regen": 100,
+			"passive": 8
+		},
+		"2886393549": {
+			"name": "B-24 Enforcer",
+			"description": "In field tests, 84% of users said that the armor improved their posture and self-esteem.",
+			"type": 1,
+			"slot": 2,
+			"armor_rating": 100,
+			"speed": 471,
+			"stamina_regen": 71,
+			"passive": 3
+		},
+		"2948747084": {
+			"name": "DP-11 Champion of the People",
+			"description": "The three stripes on the pauldrons stand for the three principles of Super Earth: Liberty, Democracy, and Prosperity.",
+			"type": 1,
+			"slot": 2,
+			"armor_rating": 100,
+			"speed": 500,
+			"stamina_regen": 100,
+			"passive": 9
+		},
+		"3008695584": {
+			"name": "UF-50 Bloodhound",
+			"description": "Users are advised not to scratch at the lacquer, as the Red 20,000 pigment that gives this armor its signature sheen may be correlated with rapid DNA unspooling.",
+			"type": 1,
+			"slot": 2,
+			"armor_rating": 100,
+			"speed": 500,
+			"stamina_regen": 100,
+			"passive": 13
+		},
+		"3037986132": {
+			"name": "DP-40 Hero of the Federation",
+			"description": "Though originally intended solely for ceremonial use, its inspirational energy proved equally useful on the battlefield.",
+			"type": 1,
+			"slot": 2,
+			"armor_rating": 100,
+			"speed": 500,
+			"stamina_regen": 100,
+			"passive": 9
+		},
+		"3059832618": {
+			"name": "UF-16 Inspector",
+			"description": "Made famous by the \"Truth Enforcers: Enforcers of Truth\" mystery novels, this armor calls to mind those paragons of patriotism who protect us from treasonous lies.",
+			"type": 1,
+			"slot": 2,
+			"armor_rating": 100,
+			"speed": 500,
+			"stamina_regen": 100,
+			"passive": 13
+		},
+		"3386027321": {
+			"name": "SA-04 Combat Technician",
+			"description": "Due to the enhanced strength caused by this armor, caution is advised when using door handles or embracing colleagues.",
+			"type": 1,
+			"slot": 2,
+			"armor_rating": 100,
+			"speed": 500,
+			"stamina_regen": 100,
+			"passive": 2
+		},
+		"3583338197": {
+			"name": "B-01 Tactical",
+			"description": "This armor is the Super Earth Standard Issue, made from the same titanium alloy as the Destroyer's hull.",
+			"type": 1,
+			"slot": 2,
+			"armor_rating": 100,
+			"speed": 500,
+			"stamina_regen": 100,
+			"passive": 0
+		},
+		"3605514351": {
+			"name": "EX-03 Prototype 3",
+			"description": "Because this prototype’s wires operate at 400,000 volts, it also includes a handy rubber underlayer for insulation.",
+			"type": 1,
+			"slot": 2,
+			"armor_rating": 100,
+			"speed": 500,
+			"stamina_regen": 100,
+			"passive": 5
+		},
+		"3658884708": {
+			"name": "CM-14 Physician",
+			"description": "The distinctive red, white, and green of the Intergalactic Medical Corps signal to all Helldivers that help is at hand.",
+			"type": 1,
+			"slot": 2,
+			"armor_rating": 100,
+			"speed": 500,
+			"stamina_regen": 100,
+			"passive": 7
+		},
+		"3672418116": {
+			"name": "SA-25 Steel Trooper",
+			"description": "For optimal performance, the manufacturer recommends avoiding immersing this armor in salt water for prolonged periods.",
+			"type": 1,
+			"slot": 2,
+			"armor_rating": 100,
+			"speed": 500,
+			"stamina_regen": 100,
+			"passive": 8
+		},
+		"3819612061": {
+			"name": "DP-11 Champion of the People",
+			"description": "The three stripes on the pauldrons stand for the three principles of Super Earth: Liberty, Democracy, and Prosperity.",
+			"type": 1,
+			"slot": 2,
+			"armor_rating": 100,
+			"speed": 500,
+			"stamina_regen": 100,
+			"passive": 9
+		},
+		"3990548579": {
+			"name": "I-92 Fire Fighter",
+			"description": "The heavy rubber tunic and reflective limb guards, originally designed to save citizens from burning buildings, now enable the liberal application of the cleansing fires of Justice.",
+			"type": 1,
+			"slot": 2,
+			"armor_rating": 100,
+			"speed": 500,
+			"stamina_regen": 100,
+			"passive": 11
+		},
+		"4072133621": {
+			"name": "SA-12 Servo-Assisted",
+			"description": "Each servo-assisted limb contains 138 miniature motors, to support a natural gait and long-term spinal health.",
+			"type": 1,
+			"slot": 2,
+			"armor_rating": 100,
+			"speed": 500,
+			"stamina_regen": 100,
+			"passive": 8
+		},
+		"4118634958": {
+			"name": "SC-15 Drone Master",
+			"description": "Some soldiers report picking up strange radio interference when wearing this armor near alien artifacts.",
+			"type": 1,
+			"slot": 2,
+			"armor_rating": 100,
+			"speed": 500,
+			"stamina_regen": 100,
+			"passive": 6
+		},
+		"4216001108": {
+			"name": "CE-35 Trench Engineer",
+			"description": "After colonists of Hellmire recovered a lost shipment of this armor, the local pastime of fence-smashing was born.",
+			"type": 1,
+			"slot": 2,
+			"armor_rating": 100,
+			"speed": 500,
+			"stamina_regen": 100,
+			"passive": 6
+		},
+		"4249185760": {
+			"name": "DP-53 Savior of the Free",
+			"description": "A faithful replica of the armor worn at The Battle of Liberty Peak. Honor their legacy, and wear it with pride.",
+			"type": 1,
+			"slot": 2,
+			"armor_rating": 100,
+			"speed": 500,
+			"stamina_regen": 100,
+			"passive": 9
+		}
+	}
+}

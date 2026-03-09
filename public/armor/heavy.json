@@ -1,0 +1,214 @@
+{
+	"types": {
+		"13": {
+			"name": "SR-18 Roadblock",
+			"description": "The crest on this armor's shoulder shows friendlies that safety is near, and foes that they have reached the end of the road.",
+			"type": 2,
+			"slot": 2,
+			"armor_rating": 150,
+			"speed": 450,
+			"stamina_regen": 50,
+			"passive": 14
+		},
+		"651522724": {
+			"name": "FS-23 Battle Master",
+			"description": "This aim-stabilizing armor found surprising secondary market success among alien birdwatching enthusiasts.",
+			"type": 1,
+			"slot": 2,
+			"armor_rating": 100,
+			"speed": 450,
+			"stamina_regen": 50,
+			"passive": 3
+		},
+		"824775809": {
+			"name": "CE-64 Grenadier",
+			"description": "The set's classic advertising campaign 'Have you tried a grenade?' has remained unchanged for over 70 years",
+			"type": 2,
+			"slot": 2,
+			"armor_rating": 150,
+			"speed": 450,
+			"stamina_regen": 50,
+			"passive": 6
+		},
+		"1010744048": {
+			"name": "SA-32 Dynamo",
+			"description": "In mountainous colonies, domestic variants of this armor are used to throw weather monitoring equipment uphill.",
+			"type": 2,
+			"slot": 2,
+			"armor_rating": 150,
+			"speed": 450,
+			"stamina_regen": 50,
+			"passive": 8
+		},
+		"1282140582": {
+			"name": "I-44 Salamander",
+			"description": "The signature orange pauldron allows easy battlefield detection of the bearer, alive or dead, on ash-strewn battlefields.",
+			"type": 2,
+			"slot": 2,
+			"armor_rating": 150,
+			"speed": 450,
+			"stamina_regen": 50,
+			"passive": 11
+		},
+		"1400802885": {
+			"name": "FS-61 Dreadnought",
+			"description": "With genuine gold accents, 74% of colonists voted this armor the set they would most like to be buried in.",
+			"type": 2,
+			"slot": 2,
+			"armor_rating": 150,
+			"speed": 450,
+			"stamina_regen": 50,
+			"passive": 8
+		},
+		"1490803405": {
+			"name": "FS-05 Marksman",
+			"description": "While early prototypes used shock-absorbing gels, this armor stabilizes aim with the use of internal gyroscopes.",
+			"type": 1,
+			"slot": 2,
+			"armor_rating": 100,
+			"speed": 450,
+			"stamina_regen": 50,
+			"passive": 3
+		},
+		"1625732159": {
+			"name": "CW-36 Winter Warrior",
+			"description": "Offering camouflage in snowy environments, surplus sets of this armor are used by nature photographers and keen hunters alike.",
+			"type": 1,
+			"slot": 2,
+			"armor_rating": 100,
+			"speed": 450,
+			"stamina_regen": 50,
+			"passive": 1
+		},
+		"1664632640": {
+			"name": "PH-202 Twigsnapper",
+			"description": "The omission of upper-limb coverings allows for optimized freedom of movement, perspiration, and communication of upper body strength to squadmates.",
+			"type": 2,
+			"slot": 2,
+			"armor_rating": 150,
+			"speed": 450,
+			"stamina_regen": 50,
+			"passive": 10
+		},
+		"1934028230": {
+			"name": "TR-62 Knight",
+			"description": "Crafted to deliver Justice to the darkest crevices of the galaxy.",
+			"type": 1,
+			"slot": 2,
+			"armor_rating": 100,
+			"speed": 450,
+			"stamina_regen": 50,
+			"passive": 8
+		},
+		"2006219485": {
+			"name": "FS-11 Executioner",
+			"description": "Popularized by actor Chip Messiter, who wore this in the action-rom-com-musical 'Lost My Heart to a Man in a Helmet.'",
+			"type": 1,
+			"slot": 2,
+			"armor_rating": 100,
+			"speed": 450,
+			"stamina_regen": 50,
+			"passive": 3
+		},
+		"2037274048": {
+			"name": "FS-23 Battle Master",
+			"description": "This aim-stabilizing armor found surprising secondary market success among alien birdwatching enthusiasts.",
+			"type": 2,
+			"slot": 2,
+			"armor_rating": 150,
+			"speed": 450,
+			"stamina_regen": 50,
+			"passive": 3
+		},
+		"2121537836": {
+			"name": "CW-36 Winter Warrior",
+			"description": "Offering camouflage in snowy environments, surplus sets of this armor are used by nature photographers and keen hunters alike.",
+			"type": 2,
+			"slot": 2,
+			"armor_rating": 150,
+			"speed": 450,
+			"stamina_regen": 50,
+			"passive": 8
+		},
+		"2509257439": {
+			"name": "CM-17 Butcher",
+			"description": "An armor often worn by frontline surgeons, who are skilled at both putting bodies back together and taking them apart.",
+			"type": 2,
+			"slot": 2,
+			"armor_rating": 150,
+			"speed": 450,
+			"stamina_regen": 50,
+			"passive": 7
+		},
+		"3182845434": {
+			"name": "CW-22 Kodiak",
+			"description": "The CW-22 Kodiak armor was thoroughly pressure-tested by patriotic volunteers, as part of the 'Test Subjects for Super-Earth' Citizen Advancement Program.",
+			"type": 2,
+			"slot": 2,
+			"armor_rating": 150,
+			"speed": 450,
+			"stamina_regen": 50,
+			"passive": 3
+		},
+		"3247235347": {
+			"name": "SA-32 Dynamo",
+			"description": "In mountainous colonies, domestic variants of this armor are used to throw weather monitoring equipment uphill.",
+			"type": 2,
+			"slot": 2,
+			"armor_rating": 150,
+			"speed": 450,
+			"stamina_regen": 50,
+			"passive": 8
+		},
+		"3377389763": {
+			"name": "FS-05 Marksman",
+			"description": "While early prototypes used shock-absorbing gels, this armor stabilizes aim with the use of internal gyroscopes",
+			"type": 2,
+			"slot": 2,
+			"armor_rating": 150,
+			"speed": 450,
+			"stamina_regen": 50,
+			"passive": 3
+		},
+		"3536156897": {
+			"name": "B-27 Fortified Commando",
+			"description": "This armor set first appeared in the music video for the summer anthem 'Our Love is Like Liberty (Indestructible)'.",
+			"type": 2,
+			"slot": 2,
+			"armor_rating": 200,
+			"speed": 450,
+			"stamina_regen": 50,
+			"passive": 1
+		},
+		"3544585106": {
+			"name": "FS-55 Devastator",
+			"description": "Contains many small pockets, allowing the user to evenly distribute the weight of ammunition, samples, and cool rocks.",
+			"type": 2,
+			"slot": 2,
+			"armor_rating": 150,
+			"speed": 450,
+			"stamina_regen": 50,
+			"passive": 3
+		},
+		"3739746472": {
+			"name": "CE-101 Guerilla Gorilla",
+			"description": "Heavily insulated from animal bites, enemy fire, and the histrionic diatribes of anarchists.",
+			"type": 2,
+			"slot": 2,
+			"armor_rating": 150,
+			"speed": 450,
+			"stamina_regen": 50,
+			"passive": 6
+		},
+		"3970674111": {
+			"name": "FS-05 Marksman",
+			"description": "While early prototypes used shock-absorbing gels, this armor stabilizes aim with the use of internal gyroscopes.",
+			"type": 1,
+			"slot": 2,
+			"armor_rating": 100,
+			"speed": 450,
+			"stamina_regen": 50,
+			"passive": 3
+		}
+	}
+}

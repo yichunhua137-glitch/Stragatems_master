@@ -18,6 +18,10 @@ import AnimationTestPage from './pages/AnimationTestPage';
 import ShipMapPage from './pages/ShipMapPage';
 import WeaponPage from './pages/WeaponPage';
 import WeaponRandomPage from './pages/WeaponRandomPage';
+import QuizInputPage from './pages/QuizInputPage';
+import QuizLogoPage from './pages/QuizLogoPage';
+import ArmorPage from './pages/ArmorPage';
+import RandomArmorPage from './pages/RandomArmorPage';
 
 // Fisher-Yates shuffle helper used across random generators.
 const shufflePick = (items, count) => {
@@ -68,6 +72,7 @@ function App() {
   const [challengeMode, setChallengeMode] = useState('count');
   const [challengeLevel, setChallengeLevel] = useState(1);
   const [challengeScore, setChallengeScore] = useState(0);
+  const [challengeHighScore, setChallengeHighScore] = useState(0);
   const [challengeTimeLeft, setChallengeTimeLeft] = useState(0);
   const [challengeSet, setChallengeSet] = useState([]);
   const [challengeActiveIndex, setChallengeActiveIndex] = useState(0);
@@ -163,11 +168,22 @@ function App() {
     });
   }, [weaponData.weapons, weaponQuery, weaponSlot, weaponCategory]);
   const primaryWeapons = useMemo(
-    () => weaponData.weapons.filter((item) => item.slot === 'Primary'),
+    () =>
+      weaponData.weapons.filter((item) => {
+        const image = item.image || '';
+        const isPrimaryRender = image.includes('Primary Render');
+        const isSidearmType =
+          item.category === 'Pistol' || item.category === 'Melee';
+        return isPrimaryRender && !isSidearmType;
+      }),
     [weaponData.weapons]
   );
   const secondaryWeapons = useMemo(
-    () => weaponData.weapons.filter((item) => item.slot === 'Secondary'),
+    () =>
+      weaponData.weapons.filter((item) => {
+        const image = item.image || '';
+        return image.includes('Secondary Render') || item.slot === 'Secondary';
+      }),
     [weaponData.weapons]
   );
   const grenadeWeapons = useMemo(
@@ -432,6 +448,10 @@ function App() {
     challengeActiveStartRef.current = null;
     setChallengeStatus('Interference detected! Code shifted, restart command.');
   }, []);
+
+  useEffect(() => {
+    setChallengeHighScore((prev) => Math.max(prev, challengeScore));
+  }, [challengeScore]);
 
   useEffect(() => {
     refreshTrainingSet();
@@ -975,6 +995,7 @@ function App() {
             challengeLevel={challengeLevel}
             setChallengeLevel={setChallengeLevel}
             challengeScore={challengeScore}
+            challengeHighScore={challengeHighScore}
             challengeTimeLeft={challengeTimeLeft}
             challengeStreak={challengeStreak}
             challengeBestStreak={challengeBestStreak}
@@ -1013,6 +1034,7 @@ function App() {
             challengeLevel={challengeLevel}
             setChallengeLevel={setChallengeLevel}
             challengeScore={challengeScore}
+            challengeHighScore={challengeHighScore}
             challengeTimeLeft={challengeTimeLeft}
             challengeStreak={challengeStreak}
             challengeBestStreak={challengeBestStreak}
@@ -1039,6 +1061,19 @@ function App() {
         )}
 
         {page === 'signal-hijack' && <SignalHijackPage />}
+        {page === 'quiz-input' && (
+          <QuizInputPage
+            allStratagems={allStratagems}
+            getStratagemLogo={getStratagemLogo}
+            keyToDir={keyToDir}
+          />
+        )}
+        {page === 'quiz-logo' && (
+          <QuizLogoPage
+            allStratagems={allStratagems}
+            getStratagemLogo={getStratagemLogo}
+          />
+        )}
         {page === 'animation-test' && <AnimationTestPage />}
         {page === 'ship-map' && <ShipMapPage onOpenPage={setPage} />}
 
@@ -1068,6 +1103,10 @@ function App() {
             getApIcon={getApIcon}
           />
         )}
+
+        {page === 'armor' && <ArmorPage />}
+
+        {page === 'armor-random' && <RandomArmorPage />}
       </main>
 
       <HoverTooltip hoverInfo={hoverInfo} hoverPos={hoverPos} />

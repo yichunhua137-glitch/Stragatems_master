@@ -19,6 +19,7 @@ function ChallengePage({
   challengeLevel,
   setChallengeLevel,
   challengeScore,
+  challengeHighScore,
   challengeTimeLeft,
   challengeStreak,
   challengeBestStreak,
@@ -39,11 +40,35 @@ function ChallengePage({
   challengeCompleted,
   setChallengeLevelAndStartNext,
 }) {
+  const handleStartOrRetry = () => {
+    setChallengeScore((prev) => (challengeFailed ? Math.max(0, prev - 200) : prev));
+    setChallengeRetries((prev) => (challengeFailed ? prev + 1 : 0));
+    startChallengeLevel();
+    beginChallengeRun();
+  };
+
   return (
     <section className="section challenge-section">
       <div className="section-title">
-        <span>04</span>
-        <h2>Stratagem Challenge</h2>
+        <div className="challenge-header-row">
+          <div className="challenge-heading-main">
+            <span>04</span>
+            <h2>Stratagem Challenge</h2>
+          </div>
+          <div className="challenge-records">
+            <div className="challenge-record-row">
+              <span>Best Record</span>
+              <strong>Score {challengeHighScore}</strong>
+              <strong>Streak {challengeBestStreak}</strong>
+            </div>
+            <div className="challenge-record-row">
+              <span>This Run</span>
+              <strong>Score {challengeScore}</strong>
+              <strong>Time {(challengeTimeLeft / 1000).toFixed(1)}s</strong>
+              <strong>Streak {challengeStreak}</strong>
+            </div>
+          </div>
+        </div>
         <p>Compete for glory, points, and the right to blame your teammates.</p>
       </div>
       <div className="training-grid challenge-grid">
@@ -65,102 +90,62 @@ function ChallengePage({
 
         <div className="challenge-panel">
           <div className="challenge-controls">
-            <div className="challenge-row">
-              <div>
+            <div className="challenge-control-grid">
+              <div className="challenge-control-card">
                 <label>Mode</label>
                 <div className="toggle-row">
                   <button
                     type="button"
-                    className={`toggle-chip ${
-                      challengeMode === 'count' ? 'active' : ''
-                    }`}
+                    className={`toggle-chip ${challengeMode === 'count' ? 'active' : ''}`}
                     onClick={() => setChallengeMode('count')}
                   >
                     Complete N
                   </button>
                   <button
                     type="button"
-                    className={`toggle-chip ${
-                      challengeMode === 'timed' ? 'active' : ''
-                    }`}
+                    className={`toggle-chip ${challengeMode === 'timed' ? 'active' : ''}`}
                     onClick={() => setChallengeMode('timed')}
                   >
                     Time Attack
                   </button>
                 </div>
               </div>
-              <div>
+
+              <div className="challenge-control-card">
                 <label>Level</label>
-                <div className="challenge-level">
-                  <button
-                    type="button"
-                    className="toggle-chip"
-                    onClick={() => setChallengeLevel((prev) => Math.max(1, prev - 1))}
-                    disabled={challengeLevel <= 1}
-                  >
-                    -
-                  </button>
-                  <span>Level {challengeLevel}</span>
-                  <button
-                    type="button"
-                    className="toggle-chip"
-                    onClick={() => setChallengeLevel((prev) => prev + 1)}
-                  >
-                    +
-                  </button>
+                <div className="challenge-level-input">
+                  <div className="challenge-level">
+                    <button
+                      type="button"
+                      className="toggle-chip"
+                      onClick={() => setChallengeLevel((prev) => Math.max(1, prev - 1))}
+                      disabled={challengeLevel <= 1}
+                    >
+                      -
+                    </button>
+                    <span>Level {challengeLevel}</span>
+                    <button
+                      type="button"
+                      className="toggle-chip"
+                      onClick={() => setChallengeLevel((prev) => Math.min(99, prev + 1))}
+                    >
+                      +
+                    </button>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="challenge-row">
-              <div className="challenge-metrics">
-                <div>
-                  <span>Score</span>
-                  <strong>{challengeScore}</strong>
-                </div>
-                <div>
-                  <span>Time</span>
-                  <strong>{(challengeTimeLeft / 1000).toFixed(1)}s</strong>
-                </div>
-                <div>
-                  <span>Streak</span>
-                  <strong>{challengeStreak}</strong>
-                </div>
-                <div>
-                  <span>Best</span>
-                  <strong>{challengeBestStreak}</strong>
-                </div>
-              </div>
-            </div>
-            <div className="challenge-row">
-              <button
-                type="button"
-                className="primary"
-                onClick={() => {
-                  setChallengeScore((prev) =>
-                    challengeFailed ? Math.max(0, prev - 200) : prev
-                  );
-                  setChallengeRetries((prev) => (challengeFailed ? prev + 1 : 0));
-                  startChallengeLevel();
-                  beginChallengeRun();
-                }}
-              >
-                {challengeFailed ? 'Retry (-200)' : 'Start Level'}
-              </button>
+
               {challengeLevelComplete && !challengeFailed && (
-                <button
-                  type="button"
-                  className="primary ghost"
-                  onClick={setChallengeLevelAndStartNext}
-                >
-                  Next Level
-                </button>
+                <div className="challenge-control-card challenge-control-card-wide challenge-actions">
+                  <button
+                    type="button"
+                    className="primary ghost"
+                    onClick={setChallengeLevelAndStartNext}
+                  >
+                    Next Level
+                  </button>
+                </div>
               )}
-              <span className="challenge-hint">
-                Target:{' '}
-                {challengeMode === 'count'
-                  ? `${getChallengeTargetCount(challengeLevel)} stratagems`
-                  : 'score as many as possible'}
-              </span>
             </div>
           </div>
 
@@ -172,8 +157,17 @@ function ChallengePage({
                   : challengeSet[0];
               if (!challengeStarted) {
                 return (
-                  <div className="active-empty">
-                    Press Space or Enter to begin. Survival is optional.
+                  <div className="active-empty challenge-empty">
+                    <span>Press Space or Enter to begin. Survival is optional.</span>
+                    <button type="button" className="primary stage-start-btn" onClick={handleStartOrRetry}>
+                      Start Level
+                    </button>
+                    <span className="challenge-hint stage-target-hint">
+                      Target:{' '}
+                      {challengeMode === 'count'
+                        ? `${getChallengeTargetCount(challengeLevel)} stratagems`
+                        : 'score as many as possible'}
+                    </span>
                   </div>
                 );
               }
@@ -217,6 +211,17 @@ function ChallengePage({
                     </span>
                     <span>Retries: {challengeRetries}</span>
                   </div>
+                  {challengeFailed && (
+                    <div className="challenge-stage-actions">
+                      <button
+                        type="button"
+                        className="primary"
+                        onClick={handleStartOrRetry}
+                      >
+                        Retry (-200)
+                      </button>
+                    </div>
+                  )}
                 </div>
               );
             })()}
@@ -228,3 +233,4 @@ function ChallengePage({
 }
 
 export default ChallengePage;
+

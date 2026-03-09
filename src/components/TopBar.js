@@ -52,7 +52,6 @@ function TopBar({
 
   const groupItems = {
     stratagem: [
-      { id: 'ship-map', label: 'Ship Map' },
       { id: 'training', label: 'Training' },
       { id: 'wiki', label: 'Wiki' },
       { id: 'loadout', label: 'Random Loadout' },
@@ -61,17 +60,28 @@ function TopBar({
       { id: 'challenge', label: 'Challenge' },
       { id: 'random', label: 'Random Code' },
       { id: 'challenge-interference', label: 'Interference' },
-      { id: 'signal-hijack', label: 'Signal Hijack' },
-      { id: 'animation-test', label: 'Animation Test' },
+      { id: 'signal-hijack', label: 'Broadcast Relay' },
+    ],
+    quiz: [
+      { id: 'quiz-input', label: 'Icon Blind Input' },
+      { id: 'quiz-logo', label: 'Code Match' },
     ],
     weapon: [
       { id: 'weapon', label: 'Weapon Wiki' },
       { id: 'weapon-random', label: 'Random Weapon' },
     ],
+    armor: [
+      { id: 'armor', label: 'Armor' },
+      { id: 'armor-random', label: 'Random Armor' },
+    ],
   };
 
   const activeGroup =
-    page === 'weapon' || page === 'weapon-random'
+    page === 'quiz-input' || page === 'quiz-logo'
+      ? 'quiz'
+      : page === 'armor' || page === 'armor-random'
+      ? 'armor'
+      : page === 'weapon' || page === 'weapon-random'
       ? 'weapon'
       : page === 'challenge' ||
         page === 'random' ||
@@ -84,11 +94,17 @@ function TopBar({
     [
       ...groupItems.stratagem,
       ...groupItems.challenge,
+      ...groupItems.quiz,
       ...groupItems.weapon,
+      ...groupItems.armor,
     ].find((item) => item.id === page)?.label || 'Training';
   const modeHeadline =
     activeGroup === 'challenge'
       ? 'Mandatory Heroism'
+      : activeGroup === 'quiz'
+      ? 'Cognitive Screening'
+      : activeGroup === 'armor'
+      ? 'Defensive Doctrine'
       : activeGroup === 'weapon'
       ? 'Approved Armaments'
       : 'Democracy Directive';
@@ -206,7 +222,9 @@ function TopBar({
           {[
             { id: 'stratagem', label: 'Stratagem' },
             { id: 'challenge', label: 'Challenge' },
+            { id: 'quiz', label: 'Quiz' },
             { id: 'weapon', label: 'Weapon' },
+            { id: 'armor', label: 'Armor' },
           ].map((group) => (
             <div key={group.id} className="topbar-group-item">
               <button
@@ -232,6 +250,10 @@ function TopBar({
                         ? 'Stratagem'
                         : group.id === 'challenge'
                         ? 'Challenge'
+                        : group.id === 'quiz'
+                        ? 'Quiz'
+                        : group.id === 'armor'
+                        ? 'Armor'
                         : 'Weapon'}
                     </div>
                     {groupItems[group.id].map((item) => (

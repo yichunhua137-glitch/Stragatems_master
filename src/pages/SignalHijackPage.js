@@ -26,8 +26,8 @@ function SignalHijackPage() {
     <section className="section signal-hijack-section page-shell">
       <div className="section-title">
         <span>10</span>
-        <h2>Signal Hijack Event</h2>
-        <p>Automaton tower interference can jam stratagem channels completely.</p>
+        <h2>Broadcast Relay Test</h2>
+        <p>Routine transmission quality check with staged feed transitions.</p>
       </div>
 
       <div className="signal-console">
@@ -92,8 +92,8 @@ function SignalHijackPage() {
 
           {phase === 'hijacked' && (
             <div className="signal-screen hijacked">
-              <h3>Signal Hijacked</h3>
-              <p>Automaton propaganda feed has overridden this channel.</p>
+              <h3>Unscheduled Transmission</h3>
+              <p>An external feed has overridden this channel.</p>
               <div className="video-wrap">
                 <iframe
                   title="Automaton hijack video"

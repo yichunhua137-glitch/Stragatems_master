@@ -17,6 +17,7 @@ function ChallengeInterferencePage({
   challengeLevel,
   setChallengeLevel,
   challengeScore,
+  challengeHighScore,
   challengeTimeLeft,
   challengeStreak,
   challengeBestStreak,
@@ -40,11 +41,35 @@ function ChallengeInterferencePage({
   setChallengeInterferenceMs,
   challengeInterferenceLeftMs,
 }) {
+  const handleStartOrRetry = () => {
+    setChallengeScore((prev) => (challengeFailed ? Math.max(0, prev - 200) : prev));
+    setChallengeRetries((prev) => (challengeFailed ? prev + 1 : 0));
+    startChallengeLevel(challengeLevel, 'count');
+    beginChallengeRun(challengeLevel, 'count');
+  };
+
   return (
     <section className="section challenge-section">
       <div className="section-title">
-        <span>09</span>
-        <h2>Illuminate Interference</h2>
+        <div className="challenge-header-row">
+          <div className="challenge-heading-main">
+            <span>09</span>
+            <h2>Illuminate Interference</h2>
+          </div>
+          <div className="challenge-records">
+            <div className="challenge-record-row">
+              <span>Best Record</span>
+              <strong>Score {challengeHighScore}</strong>
+              <strong>Streak {challengeBestStreak}</strong>
+            </div>
+            <div className="challenge-record-row">
+              <span>This Run</span>
+              <strong>Score {challengeScore}</strong>
+              <strong>Time {(challengeTimeLeft / 1000).toFixed(1)}s</strong>
+              <strong>Streak {challengeStreak}</strong>
+            </div>
+          </div>
+        </div>
         <p>Codes shift on a timer. Mid-input shifts force a full restart.</p>
       </div>
       <div className="training-grid challenge-grid">
@@ -66,40 +91,37 @@ function ChallengeInterferencePage({
 
         <div className="challenge-panel">
           <div className="challenge-controls">
-            <div className="challenge-row">
-              <div>
+            <div className="challenge-control-grid">
+              <div className="challenge-control-card">
                 <label>Mode</label>
-                <div className="toggle-row">
-                  <button type="button" className="toggle-chip active">
-                    Complete N
-                  </button>
-                </div>
+                <div className="challenge-mode-readonly">Complete N (Fixed)</div>
               </div>
-              <div>
-                <label>Level</label>
-                <div className="challenge-level">
-                  <button
-                    type="button"
-                    className="toggle-chip"
-                    onClick={() => setChallengeLevel((prev) => Math.max(1, prev - 1))}
-                    disabled={challengeLevel <= 1}
-                  >
-                    -
-                  </button>
-                  <span>Level {challengeLevel}</span>
-                  <button
-                    type="button"
-                    className="toggle-chip"
-                    onClick={() => setChallengeLevel((prev) => prev + 1)}
-                  >
-                    +
-                  </button>
-                </div>
-              </div>
-            </div>
 
-            <div className="challenge-row">
-              <div>
+              <div className="challenge-control-card">
+                <label>Level</label>
+                <div className="challenge-level-input">
+                  <div className="challenge-level">
+                    <button
+                      type="button"
+                      className="toggle-chip"
+                      onClick={() => setChallengeLevel((prev) => Math.max(1, prev - 1))}
+                      disabled={challengeLevel <= 1}
+                    >
+                      -
+                    </button>
+                    <span>Level {challengeLevel}</span>
+                    <button
+                      type="button"
+                      className="toggle-chip"
+                      onClick={() => setChallengeLevel((prev) => Math.min(99, prev + 1))}
+                    >
+                      +
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div className="challenge-control-card challenge-control-card-wide">
                 <label>Interference Cycle</label>
                 <div className="count-control">
                   <input
@@ -114,69 +136,31 @@ function ChallengeInterferencePage({
                   />
                   <span>{(challengeInterferenceMs / 1000).toFixed(1)}s</span>
                 </div>
-              </div>
-              <div className="challenge-metrics">
-                <div>
-                  <span>Code Shift</span>
-                  <strong>
-                    {challengeStarted
-                      ? `${Math.max(0, challengeInterferenceLeftMs / 1000).toFixed(
-                          1
-                        )}s`
-                      : 'Ready'}
-                  </strong>
+                <div className="challenge-metrics single-metric">
+                  <div className="metric-tile">
+                    <span>Code Shift</span>
+                    <strong>
+                      {challengeStarted
+                        ? `${Math.max(0, challengeInterferenceLeftMs / 1000).toFixed(
+                            1
+                          )}s`
+                        : 'Ready'}
+                    </strong>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <div className="challenge-row">
-              <div className="challenge-metrics">
-                <div>
-                  <span>Score</span>
-                  <strong>{challengeScore}</strong>
-                </div>
-                <div>
-                  <span>Time</span>
-                  <strong>{(challengeTimeLeft / 1000).toFixed(1)}s</strong>
-                </div>
-                <div>
-                  <span>Streak</span>
-                  <strong>{challengeStreak}</strong>
-                </div>
-                <div>
-                  <span>Best</span>
-                  <strong>{challengeBestStreak}</strong>
-                </div>
-              </div>
-            </div>
-
-            <div className="challenge-row">
-              <button
-                type="button"
-                className="primary"
-                onClick={() => {
-                  setChallengeScore((prev) =>
-                    challengeFailed ? Math.max(0, prev - 200) : prev
-                  );
-                  setChallengeRetries((prev) => (challengeFailed ? prev + 1 : 0));
-                  startChallengeLevel(challengeLevel, 'count');
-                  beginChallengeRun(challengeLevel, 'count');
-                }}
-              >
-                {challengeFailed ? 'Retry (-200)' : 'Start Level'}
-              </button>
               {challengeLevelComplete && !challengeFailed && (
-                <button
-                  type="button"
-                  className="primary ghost"
-                  onClick={setChallengeLevelAndStartNext}
-                >
-                  Next Level
-                </button>
+                <div className="challenge-control-card challenge-control-card-wide challenge-actions">
+                  <button
+                    type="button"
+                    className="primary ghost"
+                    onClick={setChallengeLevelAndStartNext}
+                  >
+                    Next Level
+                  </button>
+                </div>
               )}
-              <span className="challenge-hint">
-                Target: {getChallengeTargetCount(challengeLevel)} stratagems
-              </span>
             </div>
           </div>
 
@@ -185,8 +169,14 @@ function ChallengeInterferencePage({
               const activeItem = challengeSet[challengeActiveIndex];
               if (!challengeStarted) {
                 return (
-                  <div className="active-empty">
-                    Press Space, Enter, or Start Level to begin.
+                  <div className="active-empty challenge-empty">
+                    <span>Press Space, Enter, or Start Level to begin.</span>
+                    <button type="button" className="primary stage-start-btn" onClick={handleStartOrRetry}>
+                      Start Level
+                    </button>
+                    <span className="challenge-hint stage-target-hint">
+                      Target: {getChallengeTargetCount(challengeLevel)} stratagems
+                    </span>
                   </div>
                 );
               }
@@ -228,6 +218,17 @@ function ChallengeInterferencePage({
                     </span>
                     <span>Retries: {challengeRetries}</span>
                   </div>
+                  {challengeFailed && (
+                    <div className="challenge-stage-actions">
+                      <button
+                        type="button"
+                        className="primary"
+                        onClick={handleStartOrRetry}
+                      >
+                        Retry (-200)
+                      </button>
+                    </div>
+                  )}
                 </div>
               );
             })()}
@@ -239,3 +240,4 @@ function ChallengeInterferencePage({
 }
 
 export default ChallengeInterferencePage;
+

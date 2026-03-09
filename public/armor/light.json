@@ -1,0 +1,194 @@
+{
+	"types": {
+		"1": {
+			"name": "SR-24 Street Scout",
+			"description": "This armor's nostalgic color scheme brings to mind beloved trappings of colonial yesteryear: concrete frontier domiciles, slate-colored civilian jumpsuits, and Space Settlers' Pie.",
+			"type": 0,
+			"slot": 2,
+			"armor_rating": 50,
+			"speed": 550,
+			"stamina_regen": 125,
+			"passive": 14
+		},
+		"337681978": {
+			"name": "SC-37 Legionnaire",
+			"description": "This armor is based on the antique uniforms of the 'Super Earth Legion', a less patriotic precursor to the Helldivers.",
+			"type": 0,
+			"slot": 2,
+			"armor_rating": 50,
+			"speed": 550,
+			"stamina_regen": 125,
+			"passive": 8
+		},
+		"488691438": {
+			"name": "B-08 Light Gunner",
+			"description": "Compact and flexible, this kevlar armor adds minimal mass, making it a common choice for Helldiver fitness tests.",
+			"type": 1,
+			"slot": 2,
+			"armor_rating": 100,
+			"speed": 550,
+			"stamina_regen": 125,
+			"passive": 1
+		},
+		"492895376": {
+			"name": "SC-30 Trailblazer Scout",
+			"description": "The patented fabric absorbs visible, infrared, and ultraviolet radiation, to prevent detection by all known species.",
+			"type": 0,
+			"slot": 2,
+			"armor_rating": 50,
+			"speed": 550,
+			"stamina_regen": 125,
+			"passive": 2
+		},
+		"530315896": {
+			"name": "FS-37 Ravager",
+			"description": "Contains many small pockets, allowing the user to evenly distribute the weight of ammunition, samples, and cool rocks.",
+			"type": 0,
+			"slot": 2,
+			"armor_rating": 50,
+			"speed": 550,
+			"stamina_regen": 125,
+			"passive": 3
+		},
+		"547904705": {
+			"name": "FS-38 Eradicator",
+			"description": "First deployed in the mines of Cyberstan, where it offered protection against explosions in the hydrogen-rich caverns.",
+			"type": 0,
+			"slot": 2,
+			"armor_rating": 50,
+			"speed": 550,
+			"stamina_regen": 125,
+			"passive": 3
+		},
+		"650064382": {
+			"name": "CE-74 Breaker",
+			"description": "A domestic version of this armor is available for citizens who wish to perform efficient home renovation projects.",
+			"type": 0,
+			"slot": 2,
+			"armor_rating": 50,
+			"speed": 550,
+			"stamina_regen": 125,
+			"passive": 6
+		},
+		"1399805769": {
+			"name": "AF-50 Noxious Ranger",
+			"description": "We fear not poison, fear not death; spite our foes with every breath.” From the beloved classic Hazard Pay: The Musical.",
+			"type": 1,
+			"slot": 2,
+			"armor_rating": 50,
+			"speed": 550,
+			"stamina_regen": 125,
+			"passive": 12
+		},
+		"1511511766": {
+			"name": "CE-07 Demolition Specialist",
+			"description": "Originally worn by lunar terraformers, this suit can withstand rapid changes in pressure, heat, and personal velocity.",
+			"type": 0,
+			"slot": 2,
+			"armor_rating": 64,
+			"speed": 536,
+			"stamina_regen": 118,
+			"passive": 6
+		},
+		"1538571184": {
+			"name": "SC-34 Infiltrator",
+			"description": "This suit's plutonium-238 nuclear battery enables environmental scanning long after the user has ceased operation.",
+			"type": 0,
+			"slot": 2,
+			"armor_rating": 70,
+			"speed": 530,
+			"stamina_regen": 115,
+			"passive": 2
+		},
+		"1740717999": {
+			"name": "CW-4 Arctic Ranger",
+			"description": "Features a utility belt with pockets that can be filled with any number of things, such as pocket knives, mementos from home, and interesting rocks.",
+			"type": 0,
+			"slot": 2,
+			"armor_rating": 50,
+			"speed": 550,
+			"stamina_regen": 125,
+			"passive": 2
+		},
+		"1853367679": {
+			"name": "EX-00 Prototype X",
+			"description": "The end result of several billion Super Credits and 12 years of research into creating “the Solider of Tomorrow”.",
+			"type": 0,
+			"slot": 2,
+			"armor_rating": 50,
+			"speed": 550,
+			"stamina_regen": 125,
+			"passive": 5
+		},
+		"1877242796": {
+			"name": "PH-9 Predator",
+			"description": "Based on the uniform of Jackle 6, a veteran of the Viper Commandos who held off an entire Terminid brood on Nublaria in the First Galactic War with nothing but a machine gun, pocket knife, and Orbital Laser Strikes.",
+			"type": 0,
+			"slot": 2,
+			"armor_rating": 50,
+			"speed": 550,
+			"stamina_regen": 125,
+			"passive": 10
+		},
+		"2441344260": {
+			"name": "SC-34 Infiltrator",
+			"description": "This suit's plutonium-238 nuclear battery enables environmental scanning long after the user has ceased operation.",
+			"type": 0,
+			"slot": 2,
+			"armor_rating": 70,
+			"speed": 530,
+			"stamina_regen": 115,
+			"passive": 2
+		},
+		"3015649355": {
+			"name": "I-09 Heatseeker",
+			"description": "The burnished blood-red plates are forged in righteous fire, like the heroes they were wrought to protect.",
+			"type": 0,
+			"slot": 2,
+			"armor_rating": 50,
+			"speed": 550,
+			"stamina_regen": 125,
+			"passive": 11
+		},
+		"3576411155": {
+			"name": "CM-21 Trench Paramedic",
+			"description": "The suit was once designed to hold a variety of battlefield medical equipment. Now it holds a generous supply of stims.",
+			"type": 0,
+			"slot": 2,
+			"armor_rating": 64,
+			"speed": 536,
+			"stamina_regen": 118,
+			"passive": 7
+		},
+		"3618831709": {
+			"name": "EX-00 Prototype X",
+			"description": "The end result of several billion Super Credits and 12 years of reseach into creating 'the Soldier of Tomorrow.'",
+			"type": 0,
+			"slot": 2,
+			"armor_rating": 50,
+			"speed": 550,
+			"stamina_regen": 125,
+			"passive": 6
+		},
+		"3884524834": {
+			"name": "SC-30 Trailblazer Scout",
+			"description": "The patented fabric absorbs visible, infrared, and ultraviolet radiation, to prevent detection by all known species.",
+			"type": 0,
+			"slot": 2,
+			"armor_rating": 50,
+			"speed": 550,
+			"stamina_regen": 125,
+			"passive": 2
+		},
+		"4081083564": {
+			"name": "CE-67 Titan",
+			"description": "A quality product, this armor can destroy over 300,000 kilometers of fencing with no decline in operational efficiency.",
+			"type": 0,
+			"slot": 2,
+			"armor_rating": 79,
+			"speed": 521,
+			"stamina_regen": 111,
+			"passive": 6
+		}
+	}
+}
