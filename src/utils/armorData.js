@@ -1,4 +1,5 @@
 const ARMOR_DATA_BASE = `${process.env.PUBLIC_URL || ''}/armor`;
+const ARMOR_IMAGE_BASE = `${process.env.PUBLIC_URL || ''}/armor image`;
 
 const classLabelFromKey = (key) => {
   if (key === 'light') return 'Light';
@@ -72,4 +73,14 @@ export function pickRandomArmors(items, count) {
     output.push(list[Math.floor(Math.random() * list.length)]);
   }
   return output;
+}
+
+export function getArmorImageByName(name) {
+  if (!name) return '';
+  const normalized = name
+    .replace(/\s+/g, '_')
+    .replace(/[/:]/g, '_')
+    .replace(/["']/g, '');
+  const file = `123px-${normalized}_Body_Icon.webp`;
+  return `${ARMOR_IMAGE_BASE}/${encodeURIComponent(file)}`;
 }

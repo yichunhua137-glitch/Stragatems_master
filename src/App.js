@@ -117,6 +117,7 @@ function App() {
   const [hoverPos, setHoverPos] = useState({ x: 0, y: 0 });
   const touchStartRef = useRef(null);
   const [showRotateHint, setShowRotateHint] = useState(false);
+  const [isTouchGameplayPage, setIsTouchGameplayPage] = useState(false);
   const isChallengeRoute =
     page === 'challenge' || page === 'challenge-interference';
   const isInterferenceRoute = page === 'challenge-interference';
@@ -598,6 +599,17 @@ function App() {
       const tag = event.target?.tagName?.toLowerCase();
       if (tag === 'input' || tag === 'textarea') return;
       const pressedKey = event.key?.toLowerCase();
+      const wasdPages = new Set([
+        'training',
+        'random',
+        'challenge',
+        'challenge-interference',
+        'quiz-input',
+      ]);
+      if (showRotateHint && wasdPages.has(page)) {
+        event.preventDefault();
+        return;
+      }
       if (page === 'training' && (pressedKey === ' ' || pressedKey === 'enter')) {
         event.preventDefault();
         refreshTrainingSet();
@@ -942,7 +954,9 @@ function App() {
       'quiz-input',
     ]);
     const hasTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-    if (!hasTouch || !swipeEnabledPages.has(page)) {
+    const onGameplayPage = hasTouch && swipeEnabledPages.has(page);
+    setIsTouchGameplayPage(onGameplayPage);
+    if (!onGameplayPage) {
       setShowRotateHint(false);
       return undefined;
     }
@@ -1033,6 +1047,8 @@ function App() {
             inputSeq={inputSeq}
             status={status}
             keysPerSec={keysPerSec}
+            mobileGameplay={isTouchGameplayPage}
+            controlsLocked={showRotateHint}
           />
         )}
 
@@ -1115,6 +1131,8 @@ function App() {
             challengeStatus={challengeStatus}
             challengeCompleted={challengeCompleted}
             setChallengeLevelAndStartNext={setChallengeLevelAndStartNext}
+            mobileGameplay={isTouchGameplayPage}
+            controlsLocked={showRotateHint}
           />
         )}
 
@@ -1156,6 +1174,8 @@ function App() {
             challengeInterferenceMs={challengeInterferenceMs}
             setChallengeInterferenceMs={setChallengeInterferenceMs}
             challengeInterferenceLeftMs={challengeInterferenceLeftMs}
+            mobileGameplay={isTouchGameplayPage}
+            controlsLocked={showRotateHint}
           />
         )}
 
@@ -1165,6 +1185,7 @@ function App() {
             allStratagems={allStratagems}
             getStratagemLogo={getStratagemLogo}
             keyToDir={keyToDir}
+            controlsLocked={showRotateHint}
           />
         )}
         {page === 'quiz-logo' && (
