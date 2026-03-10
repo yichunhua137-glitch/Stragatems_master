@@ -115,6 +115,8 @@ function App() {
   const [bindingTarget, setBindingTarget] = useState(null);
   const [hoverInfo, setHoverInfo] = useState(null);
   const [hoverPos, setHoverPos] = useState({ x: 0, y: 0 });
+  const touchStartRef = useRef(null);
+  const [showRotateHint, setShowRotateHint] = useState(false);
   const isChallengeRoute =
     page === 'challenge' || page === 'challenge-interference';
   const isInterferenceRoute = page === 'challenge-interference';
@@ -868,6 +870,98 @@ function App() {
     return () => window.removeEventListener('keydown', handleKey);
   }, [handleKey]);
 
+  useEffect(() => {
+    if (showSplash) return undefined;
+    const swipeEnabledPages = new Set([
+      'training',
+      'random',
+      'challenge',
+      'challenge-interference',
+      'quiz-input',
+    ]);
+    if (!swipeEnabledPages.has(page)) return undefined;
+
+    const keyForDir = {
+      up: (keyBindings.up || 'w').toLowerCase(),
+      down: (keyBindings.down || 's').toLowerCase(),
+      left: (keyBindings.left || 'a').toLowerCase(),
+      right: (keyBindings.right || 'd').toLowerCase(),
+    };
+
+    const onTouchStart = (event) => {
+      if (event.touches.length !== 1) return;
+      const touch = event.touches[0];
+      touchStartRef.current = {
+        x: touch.clientX,
+        y: touch.clientY,
+        t: Date.now(),
+      };
+    };
+
+    const onTouchEnd = (event) => {
+      if (!touchStartRef.current) return;
+      if (event.changedTouches.length !== 1) return;
+      const touch = event.changedTouches[0];
+      const dx = touch.clientX - touchStartRef.current.x;
+      const dy = touch.clientY - touchStartRef.current.y;
+      const elapsed = Date.now() - touchStartRef.current.t;
+      touchStartRef.current = null;
+
+      const minDistance = 36;
+      const maxDuration = 700;
+      if (elapsed > maxDuration) return;
+      if (Math.max(Math.abs(dx), Math.abs(dy)) < minDistance) return;
+
+      const dir =
+        Math.abs(dx) > Math.abs(dy)
+          ? dx > 0
+            ? 'right'
+            : 'left'
+          : dy > 0
+          ? 'down'
+          : 'up';
+      const key = keyForDir[dir];
+      if (!key) return;
+      window.dispatchEvent(new KeyboardEvent('keydown', { key, bubbles: true }));
+    };
+
+    window.addEventListener('touchstart', onTouchStart, { passive: true });
+    window.addEventListener('touchend', onTouchEnd, { passive: true });
+    return () => {
+      window.removeEventListener('touchstart', onTouchStart);
+      window.removeEventListener('touchend', onTouchEnd);
+    };
+  }, [page, keyBindings, showSplash]);
+
+  useEffect(() => {
+    const swipeEnabledPages = new Set([
+      'training',
+      'random',
+      'challenge',
+      'challenge-interference',
+      'quiz-input',
+    ]);
+    const hasTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    if (!hasTouch || !swipeEnabledPages.has(page)) {
+      setShowRotateHint(false);
+      return undefined;
+    }
+
+    const update = () => {
+      const isPortrait = window.innerHeight > window.innerWidth;
+      const isMobileLike = window.innerWidth <= 980;
+      setShowRotateHint(isPortrait && isMobileLike);
+    };
+
+    update();
+    window.addEventListener('resize', update);
+    window.addEventListener('orientationchange', update);
+    return () => {
+      window.removeEventListener('resize', update);
+      window.removeEventListener('orientationchange', update);
+    };
+  }, [page]);
+
   const startButtonHandler =
     page === 'training' ? refreshTrainingSet : refreshRandomSequence;
 
@@ -910,6 +1004,11 @@ function App() {
       )}
 
       <main>
+        {showRotateHint && (
+          <div className="rotate-hint">
+            Swipe controls work best in landscape mode. Rotate your phone.
+          </div>
+        )}
         {page === 'training' && (
           <TrainingPage
             selectedIds={selectedIds}

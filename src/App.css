@@ -79,6 +79,17 @@ main {
   z-index: 1;
 }
 
+.rotate-hint {
+  margin: 8px 5vw 0;
+  border: 1px solid var(--line);
+  background: rgba(242, 214, 56, 0.09);
+  color: var(--accent);
+  padding: 8px 10px;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
 .section {
   padding: 8px 5vw 56px;
 }
@@ -362,6 +373,11 @@ main {
   box-shadow: var(--panel-shadow);
   border-radius: 2px;
   z-index: 9;
+}
+
+.menu-dropdown.align-right {
+  left: auto;
+  right: 0;
 }
 
 .menu-columns {

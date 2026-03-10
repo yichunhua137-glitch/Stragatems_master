@@ -243,7 +243,12 @@ function TopBar({
               </button>
 
               {openMenuGroup === group.id && (
-                <div className="menu-dropdown" id={`${group.id}-menu`}>
+                <div
+                  className={`menu-dropdown ${
+                    group.id === 'armor' || group.id === 'weapon' ? 'align-right' : ''
+                  }`}
+                  id={`${group.id}-menu`}
+                >
                   <div className="menu-col">
                     <div className="menu-dropdown-title">
                       {group.id === 'stratagem'

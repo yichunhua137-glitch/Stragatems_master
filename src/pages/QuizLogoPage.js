@@ -23,8 +23,11 @@ function QuizLogoPage({ allStratagems, getStratagemLogo }) {
   }, [score, attempts]);
 
   const nextQuestion = useCallback(() => {
-    if (allStratagems.length < 4) return;
-    const shuffled = shuffle(allStratagems);
+    const uniquePool = Array.from(
+      new Map(allStratagems.map((item) => [item.id, item])).values()
+    );
+    if (uniquePool.length < 4) return;
+    const shuffled = shuffle(uniquePool);
     const target = shuffled[0];
     const opts = shuffle(shuffled.slice(0, 4));
     setQuestion(target);
@@ -105,4 +108,3 @@ function QuizLogoPage({ allStratagems, getStratagemLogo }) {
 }
 
 export default QuizLogoPage;
-
