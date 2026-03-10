@@ -26,7 +26,53 @@ function TrainingPage({
   inputSeq,
   status,
   keysPerSec,
+  isMobileSetup,
+  isMobilePlay,
+  canPlayInCurrentOrientation,
+  onEnterMobilePlay,
+  onExitMobilePlay,
 }) {
+  if (isMobileSetup) {
+    return (
+      <section className="section training-section">
+        <div className="section-title">
+          <span>01</span>
+          <h2>Stratagem Training</h2>
+          <p>Select your stratagem set, then confirm to enter training.</p>
+        </div>
+        <div className="training-grid training-grid-mobile-single">
+          <div className="training-left">
+            <StratagemSelector
+              title="Stratagem Arsenal"
+              selectedIds={selectedIds}
+              allStratagems={allStratagems}
+              stratagemSections={stratagemSections}
+              onToggleAll={onToggleAll}
+              onToggleSection={onToggleSection}
+              onToggleSelect={onToggleSelect}
+              onHoverInfo={onHoverInfo}
+              onHoverPos={onHoverPos}
+              onHoverClear={onHoverClear}
+              getStratagemLogo={getStratagemLogo}
+              stratagemStats={stratagemStats}
+              showBest
+            />
+            <div className="mobile-step-actions">
+              <button
+                type="button"
+                className="primary"
+                onClick={onEnterMobilePlay}
+                disabled={!canPlayInCurrentOrientation}
+              >
+                Confirm Selection
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section className="section training-section">
       <div className="section-title">
@@ -35,26 +81,39 @@ function TrainingPage({
         <p>Drill the basics until your fingers file their own requisition forms.</p>
       </div>
       <div className="training-grid">
-        <div className="training-left">
-          <StratagemSelector
-            title="Stratagem Arsenal"
-            selectedIds={selectedIds}
-            allStratagems={allStratagems}
-            stratagemSections={stratagemSections}
-            onToggleAll={onToggleAll}
-            onToggleSection={onToggleSection}
-            onToggleSelect={onToggleSelect}
-            onHoverInfo={onHoverInfo}
-            onHoverPos={onHoverPos}
-            onHoverClear={onHoverClear}
-            getStratagemLogo={getStratagemLogo}
-            stratagemStats={stratagemStats}
-            showBest
-          />
-        </div>
+        {!isMobilePlay && (
+          <div className="training-left">
+            <StratagemSelector
+              title="Stratagem Arsenal"
+              selectedIds={selectedIds}
+              allStratagems={allStratagems}
+              stratagemSections={stratagemSections}
+              onToggleAll={onToggleAll}
+              onToggleSection={onToggleSection}
+              onToggleSelect={onToggleSelect}
+              onHoverInfo={onHoverInfo}
+              onHoverPos={onHoverPos}
+              onHoverClear={onHoverClear}
+              getStratagemLogo={getStratagemLogo}
+              stratagemStats={stratagemStats}
+              showBest
+            />
+          </div>
+        )}
 
         <div className="training-panel">
-          <div className="panel-controls" />
+          <div className="panel-controls">
+            {isMobilePlay && (
+              <button
+                type="button"
+                className="mobile-back-btn"
+                onClick={onExitMobilePlay}
+                aria-label="Back to stratagem selection"
+              >
+                ×
+              </button>
+            )}
+          </div>
 
           <div className="training-stage">
             <div className="stage-left">

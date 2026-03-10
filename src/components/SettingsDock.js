@@ -20,6 +20,7 @@ function SettingsDock({
   bindingTarget,
   setBindingTarget,
   keyBindings,
+  disableStart = false,
 }) {
   return (
     <div className="settings-dock">
@@ -28,6 +29,7 @@ function SettingsDock({
           type="button"
           className="start-trigger"
           onClick={onStart}
+          disabled={disableStart}
         >
           Start
         </button>

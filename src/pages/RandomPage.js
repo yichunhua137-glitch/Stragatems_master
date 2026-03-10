@@ -2,7 +2,15 @@ import React from 'react';
 import { DIR_ICON } from '../constants/directions';
 
 // Free-form random arrow sequence trainer.
-function RandomPage({ randomErrorFlash, randomSequence, randomInput, randomStatus, randomElapsed }) {
+function RandomPage({
+  randomErrorFlash,
+  randomSequence,
+  randomInput,
+  randomStatus,
+  randomElapsed,
+  canPlayInCurrentOrientation,
+  requiresLandscape,
+}) {
   return (
     <section className="section page-shell">
       <div className="section-title">
@@ -11,6 +19,11 @@ function RandomPage({ randomErrorFlash, randomSequence, randomInput, randomStatu
         <p>Because memorizing chaos is still safer than the battlefield.</p>
       </div>
       <div className="random-shell">
+        {requiresLandscape && !canPlayInCurrentOrientation && (
+          <div className="active-empty">
+            Rotate to landscape to start touch input.
+          </div>
+        )}
         <div
           className={`active-code center random-code ${
             randomErrorFlash ? 'error-flash' : ''

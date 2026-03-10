@@ -1,8 +1,9 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { getArmorImageByName, loadArmorData } from '../utils/armorData';
+import { loadArmorData } from '../utils/armorData';
 
 function ArmorPage() {
   const [armors, setArmors] = useState([]);
+  const [slotMap, setSlotMap] = useState({});
   const [passiveMap, setPassiveMap] = useState({});
   const [search, setSearch] = useState('');
   const [armorClass, setArmorClass] = useState('all');
@@ -15,6 +16,7 @@ function ArmorPage() {
       .then((data) => {
         if (!mounted) return;
         setArmors(data.armors);
+        setSlotMap(data.slotMap);
         setPassiveMap(data.passiveMap);
         setLoading(false);
       })
@@ -46,29 +48,11 @@ function ArmorPage() {
       <div className="section-title">
         <span>09</span>
         <h2>Armor Wiki</h2>
-        <p>Browse armor sets by class, passive, and movement profile.</p>
+        <p>Browse light, medium, and heavy armor with slot/passive details.</p>
       </div>
 
-      <div className="armor-toolbar">
-        <div className="armor-class-tabs">
-          {[
-            { value: 'all', label: 'All' },
-            { value: 'light', label: 'Light' },
-            { value: 'medium', label: 'Medium' },
-            { value: 'heavy', label: 'Heavy' },
-          ].map((entry) => (
-            <button
-              key={entry.value}
-              type="button"
-              className={`toggle-chip ${armorClass === entry.value ? 'active' : ''}`}
-              onClick={() => setArmorClass(entry.value)}
-            >
-              {entry.label}
-            </button>
-          ))}
-        </div>
-
-        <label className="armor-search">
+      <div className="armor-controls">
+        <label className="weapon-field">
           <span>Search</span>
           <input
             type="text"
@@ -78,7 +62,20 @@ function ArmorPage() {
           />
         </label>
 
-        <div className="armor-count-badge">{filtered.length} armors</div>
+        <label className="weapon-field">
+          <span>Class</span>
+          <select
+            value={armorClass}
+            onChange={(event) => setArmorClass(event.target.value)}
+          >
+            <option value="all">All classes</option>
+            <option value="light">Light</option>
+            <option value="medium">Medium</option>
+            <option value="heavy">Heavy</option>
+          </select>
+        </label>
+
+        <div className="weapon-count">{filtered.length} armors</div>
       </div>
 
       {loading ? (
@@ -89,58 +86,36 @@ function ArmorPage() {
         <div className="armor-grid">
           {filtered.map((item) => {
             const passive = passiveMap[item.passive] || {};
+            const slot = slotMap[item.slot] || `Slot ${item.slot}`;
             return (
               <article key={item.id} className="armor-card">
-                <div className="armor-card-layout">
-                  <div className="armor-card-content">
-                    <div className="armor-card-head">
-                      <h3>{item.name}</h3>
-                      <span className={`armor-class-chip ${item.classKey}`}>
-                        {item.classLabel}
-                      </span>
-                    </div>
-                    <p className="armor-desc">{item.description}</p>
-
-                    <div className="armor-stat-row">
-                      <div className="armor-stat">
-                        <span>Armor</span>
-                        <strong>{item.armorRating || '--'}</strong>
-                      </div>
-                      <div className="armor-stat">
-                        <span>Speed</span>
-                        <strong>{item.speed || '--'}</strong>
-                      </div>
-                      <div className="armor-stat">
-                        <span>Stamina</span>
-                        <strong>{item.staminaRegen || '--'}</strong>
-                      </div>
-                    </div>
-
-                    <div className="armor-meta-block">
-                      <strong>{passive.name || `Passive ${item.passive}`}</strong>
-                      {passive.description ? (
-                        <span>{passive.description}</span>
-                      ) : (
-                        <span>No passive description.</span>
-                      )}
-                    </div>
-                  </div>
-
-                  <div className="armor-image-slot">
-                    <img
-                      src={getArmorImageByName(item.name)}
-                      alt={item.name}
-                      loading="lazy"
-                      onError={(event) => {
-                        event.currentTarget.style.display = 'none';
-                        if (event.currentTarget.nextElementSibling) {
-                          event.currentTarget.nextElementSibling.style.display = 'block';
-                        }
-                      }}
-                    />
-                    <span className="armor-image-fallback">Image Missing</span>
-                  </div>
+                <div className="armor-header-row">
+                  <h3>{item.name}</h3>
+                  <span className={`armor-class-chip ${item.classKey}`}>
+                    {item.classLabel}
+                  </span>
                 </div>
+                <p className="wiki-desc">{item.description}</p>
+
+                <div className="armor-stats">
+                  <span>Armor {item.armorRating}</span>
+                  <span>Speed {item.speed}</span>
+                  <span>Stamina Regen {item.staminaRegen}</span>
+                </div>
+
+                <div className="armor-meta-block">
+                  <strong>Slot</strong>
+                  <span>{slot}</span>
+                </div>
+
+                <div className="armor-meta-block">
+                  <strong>Passive</strong>
+                  <span>{passive.name || `Passive ${item.passive}`}</span>
+                </div>
+
+                {passive.description ? (
+                  <p className="weapon-armor-note">{passive.description}</p>
+                ) : null}
               </article>
             );
           })}
