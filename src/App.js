@@ -316,8 +316,20 @@ function App() {
     }
     return 45000 + Math.max(0, level - 1) * 8000;
   }, []);
+
+  const requestLandscapeLock = useCallback(async () => {
+    if (!isTouchGameplayPage) return;
+    if (!window.screen?.orientation?.lock) return;
+    try {
+      await window.screen.orientation.lock('landscape');
+    } catch (error) {
+      // Ignore lock failures and keep using rotate hint + input lock fallback.
+    }
+  }, [isTouchGameplayPage]);
+
   const beginChallengeRun = useCallback(
     (overrideLevel = challengeLevel, overrideMode = challengeMode) => {
+      requestLandscapeLock();
       const durationMs = getChallengeDurationMs(overrideMode, overrideLevel);
       challengeEndRef.current = Date.now() + durationMs;
       if (isInterferenceRoute) {
@@ -337,6 +349,7 @@ function App() {
       getChallengeDurationMs,
       isInterferenceRoute,
       challengeInterferenceMs,
+      requestLandscapeLock,
     ]
   );
   const refreshTrainingSet = useCallback(() => {
@@ -977,8 +990,14 @@ function App() {
     };
   }, [page]);
 
-  const startButtonHandler =
-    page === 'training' ? refreshTrainingSet : refreshRandomSequence;
+  const startButtonHandler = () => {
+    requestLandscapeLock();
+    if (page === 'training') {
+      refreshTrainingSet();
+      return;
+    }
+    refreshRandomSequence();
+  };
 
   const setChallengeLevelAndStartNext = useCallback(() => {
     setChallengeLevel((prev) => {
