@@ -867,6 +867,7 @@ function App() {
       beginChallengeRun,
       getChallengeTargetCount,
       sessionStartMs,
+      showRotateHint,
     ]
   );
 
