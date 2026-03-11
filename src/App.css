@@ -40,6 +40,13 @@ body {
   min-height: 100vh;
 }
 
+body.touch-play-lock {
+  overflow: hidden;
+  height: 100vh;
+  overscroll-behavior: none;
+  touch-action: none;
+}
+
 button,
 input,
 select {
@@ -50,6 +57,12 @@ select {
   min-height: 100vh;
   position: relative;
   overflow-x: hidden;
+}
+
+.app.mobile-training-play,
+.app.mobile-training-play main {
+  height: 100vh;
+  overflow: hidden;
 }
 
 .app::before,
@@ -88,6 +101,46 @@ main {
   font-size: 11px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+}
+
+.mode-picker-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: grid;
+  place-items: center;
+  background: rgba(4, 7, 10, 0.78);
+}
+
+.mode-picker-card {
+  width: min(460px, 92vw);
+  padding: 18px;
+  border: 1px solid var(--line);
+  background:
+    linear-gradient(170deg, rgba(242, 214, 56, 0.08), transparent 38%),
+    linear-gradient(180deg, #12171d, #0c1116);
+  box-shadow: var(--panel-shadow);
+  display: grid;
+  gap: 10px;
+}
+
+.mode-picker-card strong {
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  font-size: 24px;
+}
+
+.mode-picker-card span {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.mode-picker-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
 .section {
@@ -703,6 +756,49 @@ button.primary:hover,
   gap: 12px;
 }
 
+.training-back-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 4;
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--line-soft);
+  background: rgba(11, 14, 18, 0.85);
+  color: var(--accent);
+  font-size: 26px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.training-back-btn:hover {
+  border-color: var(--line);
+}
+
+.training-mobile-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.training-mobile-select .training-grid,
+.training-mobile-play .training-grid {
+  grid-template-columns: 1fr;
+}
+
+.training-mobile-play .training-panel {
+  min-height: calc(100vh - 250px);
+}
+
+.training-mobile-play .training-stage {
+  position: relative;
+  padding-top: 54px;
+}
+
+.training-mobile-select .stratagem-list {
+  height: calc(100vh - 300px);
+  min-height: 320px;
+}
+
 .training-stage,
 .stage-left,
 .challenge-stage,
@@ -711,6 +807,12 @@ button.primary:hover,
 .weapon-random-body {
   display: grid;
   gap: 14px;
+}
+
+.training-mobile-restart {
+  display: flex;
+  justify-content: center;
+  padding: 8px 0 14px;
 }
 
 .active-card {
@@ -2219,6 +2321,21 @@ button.primary:hover,
 .start-trigger {
   font-weight: 600;
   letter-spacing: 0.12em;
+}
+
+@media (orientation: landscape) and (max-height: 900px) {
+  .training-mobile-select .section-grid {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 6px;
+  }
+
+  .training-mobile-select .icon-tile-art {
+    padding: 2px;
+  }
+
+  .training-mobile-select .stratagem-list {
+    padding: 12px;
+  }
 }
 
 .count-control input[type='range'] {

@@ -36,6 +36,8 @@ const RANDOM_DIRS = ['up', 'down', 'left', 'right'];
 
 function App() {
   const [showSplash, setShowSplash] = useState(true);
+  const [controlMode, setControlMode] = useState(null);
+  const [showModePicker, setShowModePicker] = useState(false);
   const [page, setPage] = useState('training');
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [openMenuGroup, setOpenMenuGroup] = useState(null);
@@ -118,9 +120,14 @@ function App() {
   const touchStartRef = useRef(null);
   const [showRotateHint, setShowRotateHint] = useState(false);
   const [isTouchGameplayPage, setIsTouchGameplayPage] = useState(false);
+  const [trainingMobileStep, setTrainingMobileStep] = useState('play');
   const isChallengeRoute =
     page === 'challenge' || page === 'challenge-interference';
   const isInterferenceRoute = page === 'challenge-interference';
+  const isTrainingMobileSetup =
+    page === 'training' && isTouchGameplayPage && trainingMobileStep === 'setup';
+  const isTrainingMobilePlay =
+    page === 'training' && isTouchGameplayPage && trainingMobileStep === 'play';
   const splashLogoUrl = `${process.env.PUBLIC_URL}/Helldiver_welcom_logo.png`;
   const stratagemLogoBase = `${process.env.PUBLIC_URL}/stratagems logo`;
   const weaponLogoBase = `${process.env.PUBLIC_URL}/weapons`;
@@ -570,7 +577,7 @@ function App() {
       setRandomElapsed(Date.now() - randomStartRef.current);
     }, 100);
     return () => clearInterval(timer);
-  }, [page]);
+  }, [page, controlMode]);
 
   useEffect(() => {
     if (!activeStratagem || trainingDone) {
@@ -609,6 +616,7 @@ function App() {
   const handleKey = useCallback(
     (event) => {
       if (showSplash) return;
+      if (showModePicker) return;
       const tag = event.target?.tagName?.toLowerCase();
       if (tag === 'input' || tag === 'textarea') return;
       const pressedKey = event.key?.toLowerCase();
@@ -620,6 +628,10 @@ function App() {
         'quiz-input',
       ]);
       if (showRotateHint && wasdPages.has(page)) {
+        event.preventDefault();
+        return;
+      }
+      if (isTrainingMobileSetup && page === 'training') {
         event.preventDefault();
         return;
       }
@@ -859,6 +871,7 @@ function App() {
       refreshTrainingSet,
       settingsOpen,
       showSplash,
+      showModePicker,
       trainingSet,
       availableStratagems,
       allStratagems,
@@ -881,6 +894,7 @@ function App() {
       getChallengeTargetCount,
       sessionStartMs,
       showRotateHint,
+      isTrainingMobileSetup,
     ]
   );
 
@@ -967,18 +981,17 @@ function App() {
       'challenge-interference',
       'quiz-input',
     ]);
-    const hasTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-    const onGameplayPage = hasTouch && swipeEnabledPages.has(page);
-    setIsTouchGameplayPage(onGameplayPage);
-    if (!onGameplayPage) {
-      setShowRotateHint(false);
-      return undefined;
-    }
-
     const update = () => {
-      const isPortrait = window.innerHeight > window.innerWidth;
       const isMobileLike = window.innerWidth <= 980;
-      setShowRotateHint(isPortrait && isMobileLike);
+      const onGameplayPage =
+        controlMode === 'mobile' && isMobileLike && swipeEnabledPages.has(page);
+      setIsTouchGameplayPage(onGameplayPage);
+      if (!onGameplayPage) {
+        setShowRotateHint(false);
+        return;
+      }
+      const isPortrait = window.innerHeight > window.innerWidth;
+      setShowRotateHint(isPortrait);
     };
 
     update();
@@ -988,14 +1001,104 @@ function App() {
       window.removeEventListener('resize', update);
       window.removeEventListener('orientationchange', update);
     };
-  }, [page]);
+  }, [page, controlMode]);
+
+  useEffect(() => {
+    if (page === 'training' && controlMode === 'mobile') {
+      setTrainingMobileStep('setup');
+      return;
+    }
+    setTrainingMobileStep('play');
+  }, [page, controlMode]);
+
+  useEffect(() => {
+    if (showSplash) {
+      setShowModePicker(false);
+      setControlMode(null);
+    }
+  }, [showSplash]);
+
+  const enterTrainingMobilePlay = useCallback(async () => {
+    await requestLandscapeLock();
+    if (showRotateHint) return;
+    refreshTrainingSet();
+    setTrainingMobileStep('play');
+    setSettingsOpen(false);
+  }, [requestLandscapeLock, showRotateHint, refreshTrainingSet]);
+
+  const exitTrainingMobilePlay = useCallback(() => {
+    setTrainingMobileStep('setup');
+  }, []);
+
+  useEffect(() => {
+    if (!isTrainingMobilePlay) {
+      document.body.classList.remove('touch-play-lock');
+      return undefined;
+    }
+    const htmlEl = document.documentElement;
+    const bodyEl = document.body;
+    const saved = {
+      htmlOverflow: htmlEl.style.overflow,
+      bodyOverflow: bodyEl.style.overflow,
+      bodyPosition: bodyEl.style.position,
+      bodyTop: bodyEl.style.top,
+      bodyWidth: bodyEl.style.width,
+      bodyHeight: bodyEl.style.height,
+    };
+    const scrollY = window.scrollY || 0;
+
+    htmlEl.style.overflow = 'hidden';
+    bodyEl.style.overflow = 'hidden';
+    bodyEl.style.position = 'fixed';
+    bodyEl.style.top = `-${scrollY}px`;
+    bodyEl.style.width = '100%';
+    bodyEl.style.height = '100vh';
+    document.body.classList.add('touch-play-lock');
+    const preventScroll = (event) => event.preventDefault();
+    const preventScrollKeys = (event) => {
+      const key = (event.key || '').toLowerCase();
+      if (
+        key === ' ' ||
+        key === 'arrowup' ||
+        key === 'arrowdown' ||
+        key === 'pageup' ||
+        key === 'pagedown' ||
+        key === 'home' ||
+        key === 'end'
+      ) {
+        event.preventDefault();
+      }
+    };
+    window.addEventListener('touchmove', preventScroll, { passive: false });
+    window.addEventListener('wheel', preventScroll, { passive: false });
+    window.addEventListener('keydown', preventScrollKeys, { passive: false });
+    return () => {
+      document.body.classList.remove('touch-play-lock');
+      window.removeEventListener('touchmove', preventScroll);
+      window.removeEventListener('wheel', preventScroll);
+      window.removeEventListener('keydown', preventScrollKeys);
+      htmlEl.style.overflow = saved.htmlOverflow;
+      bodyEl.style.overflow = saved.bodyOverflow;
+      bodyEl.style.position = saved.bodyPosition;
+      bodyEl.style.top = saved.bodyTop;
+      bodyEl.style.width = saved.bodyWidth;
+      bodyEl.style.height = saved.bodyHeight;
+      window.scrollTo(0, scrollY);
+    };
+  }, [isTrainingMobilePlay]);
 
   const startButtonHandler = () => {
-    requestLandscapeLock();
+    if (showModePicker) return;
     if (page === 'training') {
+      if (isTrainingMobileSetup) {
+        enterTrainingMobilePlay();
+        return;
+      }
+      requestLandscapeLock();
       refreshTrainingSet();
       return;
     }
+    requestLandscapeLock();
     refreshRandomSequence();
   };
 
@@ -1015,13 +1118,28 @@ function App() {
     startChallengeLevel,
   ]);
 
+  const handleSplashClose = () => {
+    setShowSplash(false);
+    setShowModePicker(true);
+  };
+
+  const handleSelectControlMode = (mode) => {
+    setControlMode(mode);
+    setShowModePicker(false);
+    setSettingsOpen(false);
+  };
+
   return (
-    <div className="app">
+    <div
+      className={`app ${isTrainingMobilePlay ? 'mobile-training-play' : ''} ${
+        isTrainingMobileSetup ? 'mobile-training-setup' : ''
+      }`}
+    >
       {showSplash && (
-        <SplashScreen splashLogoUrl={splashLogoUrl} onClose={() => setShowSplash(false)} />
+        <SplashScreen splashLogoUrl={splashLogoUrl} onClose={handleSplashClose} />
       )}
 
-      {!showSplash && (
+      {!showSplash && !isTrainingMobilePlay && (
         <>
           <TopBar
             openMenuGroup={openMenuGroup}
@@ -1035,6 +1153,31 @@ function App() {
             }}
           />
         </>
+      )}
+
+      {!showSplash && showModePicker && (
+        <div className="mode-picker-overlay">
+          <div className="mode-picker-card">
+            <strong>Select Control Mode</strong>
+            <span>Choose the mode for this session.</span>
+            <div className="mode-picker-actions">
+              <button
+                type="button"
+                className="primary"
+                onClick={() => handleSelectControlMode('desktop')}
+              >
+                Desktop Mode
+              </button>
+              <button
+                type="button"
+                className="primary ghost"
+                onClick={() => handleSelectControlMode('mobile')}
+              >
+                Mobile Mode
+              </button>
+            </div>
+          </div>
+        </div>
       )}
 
       <main>
@@ -1069,6 +1212,10 @@ function App() {
             keysPerSec={keysPerSec}
             mobileGameplay={isTouchGameplayPage}
             controlsLocked={showRotateHint}
+            mobileStep={isTrainingMobileSetup ? 'setup' : 'play'}
+            onEnterMobilePlay={enterTrainingMobilePlay}
+            onExitMobilePlay={exitTrainingMobilePlay}
+            onRestartTraining={refreshTrainingSet}
           />
         )}
 
@@ -1251,25 +1398,27 @@ function App() {
 
       <HoverTooltip hoverInfo={hoverInfo} hoverPos={hoverPos} />
 
-      <SettingsDock
-        page={page}
-        settingsOpen={settingsOpen}
-        onToggleSettings={() => setSettingsOpen((open) => !open)}
-        onStart={startButtonHandler}
-        trainCount={trainCount}
-        setTrainCount={setTrainCount}
-        randomLength={randomLength}
-        setRandomLength={setRandomLength}
-        endlessMode={endlessMode}
-        setEndlessMode={setEndlessMode}
-        pauseEnabled={pauseEnabled}
-        setPauseEnabled={setPauseEnabled}
-        pauseMs={pauseMs}
-        setPauseMs={setPauseMs}
-        bindingTarget={bindingTarget}
-        setBindingTarget={setBindingTarget}
-        keyBindings={keyBindings}
-      />
+      {!(page === 'training' && isTrainingMobilePlay) && (
+        <SettingsDock
+          page={page}
+          settingsOpen={settingsOpen}
+          onToggleSettings={() => setSettingsOpen((open) => !open)}
+          onStart={startButtonHandler}
+          trainCount={trainCount}
+          setTrainCount={setTrainCount}
+          randomLength={randomLength}
+          setRandomLength={setRandomLength}
+          endlessMode={endlessMode}
+          setEndlessMode={setEndlessMode}
+          pauseEnabled={pauseEnabled}
+          setPauseEnabled={setPauseEnabled}
+          pauseMs={pauseMs}
+          setPauseMs={setPauseMs}
+          bindingTarget={bindingTarget}
+          setBindingTarget={setBindingTarget}
+          keyBindings={keyBindings}
+        />
+      )}
     </div>
   );
 }
