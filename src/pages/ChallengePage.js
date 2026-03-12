@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import StratagemSelector from '../components/StratagemSelector';
 import { DIR_ICON } from '../constants/directions';
 
@@ -39,7 +39,12 @@ function ChallengePage({
   challengeStatus,
   challengeCompleted,
   setChallengeLevelAndStartNext,
+  mobileGameplay,
+  controlsLocked,
+  onExitMobilePlay,
 }) {
+  const [mobileStep, setMobileStep] = useState('setup');
+
   const handleStartOrRetry = () => {
     setChallengeScore((prev) => (challengeFailed ? Math.max(0, prev - 200) : prev));
     setChallengeRetries((prev) => (challengeFailed ? prev + 1 : 0));
@@ -47,9 +52,43 @@ function ChallengePage({
     beginChallengeRun();
   };
 
+  if (mobileGameplay && mobileStep === 'setup') {
+    return (
+      <section className="section challenge-section training-mobile-select">
+        <div className="training-grid">
+          <div className="training-left">
+            <StratagemSelector
+              title="Stratagem Arsenal"
+              selectedIds={selectedIds}
+              allStratagems={allStratagems}
+              stratagemSections={stratagemSections}
+              onToggleAll={onToggleAll}
+              onToggleSection={onToggleSection}
+              onToggleSelect={onToggleSelect}
+              onHoverInfo={onHoverInfo}
+              onHoverPos={onHoverPos}
+              onHoverClear={onHoverClear}
+              getStratagemLogo={getStratagemLogo}
+            />
+            <div className="training-mobile-actions">
+              <button
+                type="button"
+                className="primary"
+                onClick={() => setMobileStep('play')}
+                disabled={controlsLocked}
+              >
+                Confirm and Enter Challenge
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   return (
-    <section className="section challenge-section">
-      <div className="section-title">
+    <section className={`section challenge-section ${mobileGameplay ? 'training-mobile-play' : ''}`}>
+      {!mobileGameplay && <div className="section-title">
         <div className="challenge-header-row">
           <div className="challenge-heading-main">
             <span>04</span>
@@ -70,11 +109,11 @@ function ChallengePage({
           </div>
         </div>
         <p>Compete for glory, points, and the right to blame your teammates.</p>
-      </div>
+      </div>}
       <div className="training-grid challenge-grid">
-        <div className="training-left">
+        {!mobileGameplay && <div className="training-left">
           <StratagemSelector
-            title="Selectable Stratagems"
+            title="Stratagem Arsenal"
             selectedIds={selectedIds}
             allStratagems={allStratagems}
             stratagemSections={stratagemSections}
@@ -86,7 +125,7 @@ function ChallengePage({
             onHoverClear={onHoverClear}
             getStratagemLogo={getStratagemLogo}
           />
-        </div>
+        </div>}
 
         <div className="challenge-panel">
           <div className="challenge-controls">
@@ -150,6 +189,19 @@ function ChallengePage({
           </div>
 
           <div className="challenge-stage">
+            {mobileGameplay && (
+              <button
+                type="button"
+                className="training-back-btn"
+                onClick={() => {
+                  setMobileStep('setup');
+                  if (onExitMobilePlay) onExitMobilePlay();
+                }}
+                aria-label="Back to stratagem selection"
+              >
+                &times;
+              </button>
+            )}
             {(() => {
               const activeItem =
                 challengeMode === 'count'
@@ -179,7 +231,7 @@ function ChallengePage({
                 );
               }
               return (
-                <div className="active-card compact">
+                <div className={`active-card compact ${mobileGameplay ? 'mobile-drill' : ''}`}>
                   <div className="active-name-bar">{activeItem.name}</div>
                   <div
                     className={`active-code center ${

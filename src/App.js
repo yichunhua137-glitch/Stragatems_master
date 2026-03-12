@@ -65,6 +65,7 @@ function App() {
   const [randomErrorFlash, setRandomErrorFlash] = useState(false);
   const [randomElapsed, setRandomElapsed] = useState(0);
   const randomStartRef = useRef(null);
+  const [randomMobileStarted, setRandomMobileStarted] = useState(false);
   const [stratagemStats, setStratagemStats] = useState({});
   const activeStartRef = useRef(null);
   const [wikiQuery, setWikiQuery] = useState('');
@@ -128,6 +129,14 @@ function App() {
     page === 'training' && isTouchGameplayPage && trainingMobileStep === 'setup';
   const isTrainingMobilePlay =
     page === 'training' && isTouchGameplayPage && trainingMobileStep === 'play';
+  const isChallengeMobilePlay =
+    isTouchGameplayPage &&
+    (page === 'challenge' || page === 'challenge-interference') &&
+    challengeStarted;
+  const isRandomMobilePlay =
+    page === 'random' && isTouchGameplayPage && randomMobileStarted;
+  const isMobilePlayLocked =
+    isTrainingMobilePlay || isChallengeMobilePlay || isRandomMobilePlay;
   const splashLogoUrl = `${process.env.PUBLIC_URL}/Helldiver_welcom_logo.png`;
   const stratagemLogoBase = `${process.env.PUBLIC_URL}/stratagems logo`;
   const weaponLogoBase = `${process.env.PUBLIC_URL}/weapons`;
@@ -642,6 +651,9 @@ function App() {
       }
       if (page === 'random' && (pressedKey === ' ' || pressedKey === 'enter')) {
         event.preventDefault();
+        if (isTouchGameplayPage) {
+          setRandomMobileStarted(true);
+        }
         refreshRandomSequence();
         return;
       }
@@ -879,6 +891,7 @@ function App() {
       randomInput,
       randomSequence,
       refreshRandomSequence,
+      isTouchGameplayPage,
       refreshLoadoutSet,
       challengeFailed,
       challengeStarted,
@@ -1012,6 +1025,12 @@ function App() {
   }, [page, controlMode]);
 
   useEffect(() => {
+    if (page !== 'random' || controlMode !== 'mobile') {
+      setRandomMobileStarted(false);
+    }
+  }, [page, controlMode]);
+
+  useEffect(() => {
     if (showSplash) {
       setShowModePicker(false);
       setControlMode(null);
@@ -1031,7 +1050,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    if (!isTrainingMobilePlay) {
+    if (!isMobilePlayLocked) {
       document.body.classList.remove('touch-play-lock');
       return undefined;
     }
@@ -1085,7 +1104,7 @@ function App() {
       bodyEl.style.height = saved.bodyHeight;
       window.scrollTo(0, scrollY);
     };
-  }, [isTrainingMobilePlay]);
+  }, [isMobilePlayLocked]);
 
   const startButtonHandler = () => {
     if (showModePicker) return;
@@ -1096,6 +1115,14 @@ function App() {
       }
       requestLandscapeLock();
       refreshTrainingSet();
+      return;
+    }
+    if (page === 'random') {
+      requestLandscapeLock();
+      if (isTouchGameplayPage) {
+        setRandomMobileStarted(true);
+      }
+      refreshRandomSequence();
       return;
     }
     requestLandscapeLock();
@@ -1131,7 +1158,7 @@ function App() {
 
   return (
     <div
-      className={`app ${isTrainingMobilePlay ? 'mobile-training-play' : ''} ${
+      className={`app ${isMobilePlayLocked ? 'mobile-training-play' : ''} ${
         isTrainingMobileSetup ? 'mobile-training-setup' : ''
       }`}
     >
@@ -1139,7 +1166,7 @@ function App() {
         <SplashScreen splashLogoUrl={splashLogoUrl} onClose={handleSplashClose} />
       )}
 
-      {!showSplash && !isTrainingMobilePlay && (
+      {!showSplash && !isMobilePlayLocked && (
         <>
           <TopBar
             openMenuGroup={openMenuGroup}
@@ -1226,6 +1253,9 @@ function App() {
             randomInput={randomInput}
             randomStatus={randomStatus}
             randomElapsed={randomElapsed}
+            mobileGameplay={isTouchGameplayPage}
+            mobileStarted={isRandomMobilePlay}
+            onExitMobilePlay={() => setRandomMobileStarted(false)}
           />
         )}
 
@@ -1300,6 +1330,7 @@ function App() {
             setChallengeLevelAndStartNext={setChallengeLevelAndStartNext}
             mobileGameplay={isTouchGameplayPage}
             controlsLocked={showRotateHint}
+            onExitMobilePlay={() => setChallengeStarted(false)}
           />
         )}
 
@@ -1343,6 +1374,7 @@ function App() {
             challengeInterferenceLeftMs={challengeInterferenceLeftMs}
             mobileGameplay={isTouchGameplayPage}
             controlsLocked={showRotateHint}
+            onExitMobilePlay={() => setChallengeStarted(false)}
           />
         )}
 
@@ -1398,7 +1430,7 @@ function App() {
 
       <HoverTooltip hoverInfo={hoverInfo} hoverPos={hoverPos} />
 
-      {!(page === 'training' && isTrainingMobilePlay) && (
+      {!isMobilePlayLocked && (
         <SettingsDock
           page={page}
           settingsOpen={settingsOpen}

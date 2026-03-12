@@ -238,7 +238,7 @@ function TopBar({
               >
                 <span>{group.label}</span>
                 <span className="topbar-group-arrow" aria-hidden="true">
-                  ▼
+                  &#9662;
                 </span>
               </button>
 
@@ -287,3 +287,4 @@ function TopBar({
 }
 
 export default TopBar;
+

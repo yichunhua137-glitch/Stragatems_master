@@ -112,12 +112,12 @@ function TrainingPage({
                 onClick={onExitMobilePlay}
                 aria-label="Back to stratagem selection"
               >
-                ×
+                &times;
               </button>
             )}
             <div className="stage-left">
               {activeStratagem ? (
-                <div className="active-card compact">
+                <div className={`active-card compact ${mobileGameplay ? 'mobile-drill' : ''}`}>
                   <div className="active-strip-shell">
                     <div
                       className="active-strip"
@@ -223,3 +223,4 @@ function TrainingPage({
 }
 
 export default TrainingPage;
+

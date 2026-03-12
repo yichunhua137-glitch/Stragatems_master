@@ -365,16 +365,22 @@ main {
 
 .topbar-group-row {
   display: flex;
+  align-items: center;
   justify-content: flex-end;
-  gap: 16px;
-  flex-wrap: wrap;
+  gap: 24px;
+  flex-wrap: nowrap;
+  width: fit-content;
+  margin-left: auto;
   position: relative;
   z-index: 2;
 }
 
 .topbar-group-item {
   position: relative;
+  display: flex;
+  flex: 0 0 auto;
 }
+
 
 .topbar-group-btn {
   border: none;
@@ -777,7 +783,8 @@ button.primary:hover,
 
 .training-mobile-actions {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
+  padding-bottom: 88px;
 }
 
 .training-mobile-select .training-grid,
@@ -786,12 +793,19 @@ button.primary:hover,
 }
 
 .training-mobile-play .training-panel {
-  min-height: calc(100vh - 250px);
+  min-height: calc(100vh - 44px);
+  padding: 0;
+  border: none;
+  background: transparent;
+  box-shadow: none;
 }
 
 .training-mobile-play .training-stage {
   position: relative;
-  padding-top: 54px;
+  padding: 8px 0 0;
+  border: none;
+  background: transparent;
+  min-height: calc(100vh - 120px);
 }
 
 .training-mobile-select .stratagem-list {
@@ -815,6 +829,24 @@ button.primary:hover,
   padding: 8px 0 14px;
 }
 
+.training-mobile-play .training-mobile-restart {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  background: rgba(2, 6, 12, 0.72);
+}
+
+.training-mobile-play .training-mobile-restart .primary {
+  min-width: 220px;
+  min-height: 72px;
+  font-size: 18px;
+  letter-spacing: 0.14em;
+}
+
 .active-card {
   border: 1px solid var(--line-soft);
   background: #0f1215;
@@ -824,6 +856,67 @@ button.primary:hover,
 .active-card.compact {
   padding: 0;
   overflow: hidden;
+}
+
+.active-card.mobile-drill {
+  min-height: calc(100vh - 170px);
+  background: linear-gradient(180deg, #040a12, #03070c);
+  border-color: rgba(242, 214, 56, 0.22);
+}
+
+.active-card.mobile-drill .active-strip-shell {
+  margin: 0 16px;
+  margin-top: 18px;
+  padding: 28px 12px;
+  border: 1px solid rgba(242, 214, 56, 0.18);
+  background: rgba(2, 8, 16, 0.7);
+}
+
+.active-card.mobile-drill .active-name-bar {
+  margin-top: 16px;
+  padding: 16px 12px;
+  font-size: 24px;
+  letter-spacing: 0.06em;
+}
+
+.active-card.mobile-drill .active-code.center {
+  margin: 0px 0 18px;
+  gap: 30px;
+  flex-wrap: nowrap;
+  justify-content: center;
+}
+
+.active-card.mobile-drill .code-chip {
+  margin-left: -80px;
+}
+
+.active-card.mobile-drill .code-icon {
+  width: 180px;
+  height: 180px;
+}
+
+.active-card.mobile-drill .active-status.center,
+.active-card.mobile-drill .active-times,
+.active-card.mobile-drill .active-metrics {
+  display: none;
+}
+
+.active-card.mobile-drill .challenge-progress {
+  display: none;
+}
+
+.training-mobile-play .training-back-btn {
+  top: 76px;
+  right: 16px;
+  width: 56px;
+  height: 56px;
+  font-size: 44px;
+  background: #060c14;
+  border-color: rgba(242, 214, 56, 0.24);
+}
+
+.training-mobile-play .training-back-btn:hover {
+  border-color: rgba(242, 214, 56, 0.5);
 }
 
 .active-strip-shell {
@@ -2497,6 +2590,11 @@ button.primary:hover,
     min-width: 120px;
   }
 
+  /* Mobile only: set QUIZ <-> WEAPON gap to negative 30px */
+  .topbar-group-item:nth-child(4) {
+    margin-left: -50px;
+  }
+
   .menu-columns {
     grid-template-columns: 1fr;
   }
@@ -2572,6 +2670,20 @@ button.primary:hover,
   .code-icon {
     width: 118px;
     height: 118px;
+  }
+
+  .active-card.mobile-drill .active-name-bar {
+    font-size: 20px;
+  }
+
+  .active-card.mobile-drill .active-code.center {
+    margin-top: 40px;
+    gap: 12px;
+  }
+
+  .active-card.mobile-drill .code-icon {
+    width: 124px;
+    height: 124px;
   }
 
   .code-chip {

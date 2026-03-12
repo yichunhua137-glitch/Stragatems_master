@@ -2,15 +2,34 @@ import React from 'react';
 import { DIR_ICON } from '../constants/directions';
 
 // Free-form random arrow sequence trainer.
-function RandomPage({ randomErrorFlash, randomSequence, randomInput, randomStatus, randomElapsed }) {
+function RandomPage({
+  randomErrorFlash,
+  randomSequence,
+  randomInput,
+  randomStatus,
+  randomElapsed,
+  mobileGameplay,
+  mobileStarted,
+  onExitMobilePlay,
+}) {
   return (
-    <section className="section page-shell">
-      <div className="section-title">
+    <section className={`section page-shell ${mobileStarted ? 'training-mobile-play' : ''}`}>
+      {!mobileStarted && <div className="section-title">
         <span>05</span>
         <h2>Random Code Training</h2>
         <p>Because memorizing chaos is still safer than the battlefield.</p>
-      </div>
+      </div>}
       <div className="random-shell">
+        {mobileGameplay && mobileStarted && (
+          <button
+            type="button"
+            className="training-back-btn"
+            onClick={onExitMobilePlay}
+            aria-label="Back to random setup"
+          >
+            &times;
+          </button>
+        )}
         <div
           className={`active-code center random-code ${
             randomErrorFlash ? 'error-flash' : ''
