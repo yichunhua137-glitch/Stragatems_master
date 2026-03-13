@@ -66,6 +66,7 @@ function App() {
   const [randomElapsed, setRandomElapsed] = useState(0);
   const randomStartRef = useRef(null);
   const [randomMobileStarted, setRandomMobileStarted] = useState(false);
+  const [isFullscreenMode, setIsFullscreenMode] = useState(false);
   const [stratagemStats, setStratagemStats] = useState({});
   const activeStartRef = useRef(null);
   const [wikiQuery, setWikiQuery] = useState('');
@@ -1037,6 +1038,15 @@ function App() {
     }
   }, [showSplash]);
 
+  useEffect(() => {
+    const syncFullscreen = () => {
+      setIsFullscreenMode(Boolean(document.fullscreenElement));
+    };
+    document.addEventListener('fullscreenchange', syncFullscreen);
+    syncFullscreen();
+    return () => document.removeEventListener('fullscreenchange', syncFullscreen);
+  }, []);
+
   const enterTrainingMobilePlay = useCallback(async () => {
     await requestLandscapeLock();
     if (showRotateHint) return;
@@ -1047,6 +1057,23 @@ function App() {
 
   const exitTrainingMobilePlay = useCallback(() => {
     setTrainingMobileStep('setup');
+  }, []);
+
+  const toggleFullscreenMode = useCallback(async () => {
+    const root = document.documentElement;
+    if (!document.fullscreenElement) {
+      try {
+        await root.requestFullscreen();
+      } catch (error) {
+        // Ignore browsers that block fullscreen without a valid user gesture.
+      }
+      return;
+    }
+    try {
+      await document.exitFullscreen();
+    } catch (error) {
+      // Ignore failed exits and leave state synced from fullscreenchange.
+    }
   }, []);
 
   useEffect(() => {
@@ -1243,6 +1270,8 @@ function App() {
             onEnterMobilePlay={enterTrainingMobilePlay}
             onExitMobilePlay={exitTrainingMobilePlay}
             onRestartTraining={refreshTrainingSet}
+            onToggleFullscreen={toggleFullscreenMode}
+            isFullscreenMode={isFullscreenMode}
           />
         )}
 
@@ -1256,6 +1285,8 @@ function App() {
             mobileGameplay={isTouchGameplayPage}
             mobileStarted={isRandomMobilePlay}
             onExitMobilePlay={() => setRandomMobileStarted(false)}
+            onToggleFullscreen={toggleFullscreenMode}
+            isFullscreenMode={isFullscreenMode}
           />
         )}
 
@@ -1331,6 +1362,8 @@ function App() {
             mobileGameplay={isTouchGameplayPage}
             controlsLocked={showRotateHint}
             onExitMobilePlay={() => setChallengeStarted(false)}
+            onToggleFullscreen={toggleFullscreenMode}
+            isFullscreenMode={isFullscreenMode}
           />
         )}
 
@@ -1375,6 +1408,8 @@ function App() {
             mobileGameplay={isTouchGameplayPage}
             controlsLocked={showRotateHint}
             onExitMobilePlay={() => setChallengeStarted(false)}
+            onToggleFullscreen={toggleFullscreenMode}
+            isFullscreenMode={isFullscreenMode}
           />
         )}
 

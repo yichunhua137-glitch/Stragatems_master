@@ -32,6 +32,8 @@ function TrainingPage({
   onEnterMobilePlay,
   onExitMobilePlay,
   onRestartTraining,
+  onToggleFullscreen,
+  isFullscreenMode,
 }) {
   if (mobileGameplay && mobileStep === 'setup') {
     return (
@@ -106,14 +108,24 @@ function TrainingPage({
         <div className="training-panel">
           <div className="training-stage">
             {mobileGameplay && (
-              <button
-                type="button"
-                className="training-back-btn"
-                onClick={onExitMobilePlay}
-                aria-label="Back to stratagem selection"
-              >
-                &times;
-              </button>
+              <div className="mobile-top-controls">
+                <button
+                  type="button"
+                  className="training-fullscreen-btn"
+                  onClick={onToggleFullscreen}
+                  aria-label={isFullscreenMode ? 'Exit fullscreen mode' : 'Enter fullscreen mode'}
+                >
+                  {isFullscreenMode ? '[]' : '[ ]'}
+                </button>
+                <button
+                  type="button"
+                  className="training-back-btn"
+                  onClick={onExitMobilePlay}
+                  aria-label="Back to stratagem selection"
+                >
+                  &times;
+                </button>
+              </div>
             )}
             <div className="stage-left">
               {activeStratagem ? (

@@ -42,6 +42,8 @@ function ChallengePage({
   mobileGameplay,
   controlsLocked,
   onExitMobilePlay,
+  onToggleFullscreen,
+  isFullscreenMode,
 }) {
   const [mobileStep, setMobileStep] = useState('setup');
 
@@ -190,17 +192,27 @@ function ChallengePage({
 
           <div className="challenge-stage">
             {mobileGameplay && (
-              <button
-                type="button"
-                className="training-back-btn"
-                onClick={() => {
-                  setMobileStep('setup');
-                  if (onExitMobilePlay) onExitMobilePlay();
-                }}
-                aria-label="Back to stratagem selection"
-              >
-                &times;
-              </button>
+              <div className="mobile-top-controls">
+                <button
+                  type="button"
+                  className="training-fullscreen-btn"
+                  onClick={onToggleFullscreen}
+                  aria-label={isFullscreenMode ? 'Exit fullscreen mode' : 'Enter fullscreen mode'}
+                >
+                  {isFullscreenMode ? '[]' : '[ ]'}
+                </button>
+                <button
+                  type="button"
+                  className="training-back-btn"
+                  onClick={() => {
+                    setMobileStep('setup');
+                    if (onExitMobilePlay) onExitMobilePlay();
+                  }}
+                  aria-label="Back to stratagem selection"
+                >
+                  &times;
+                </button>
+              </div>
             )}
             {(() => {
               const activeItem =

@@ -11,6 +11,8 @@ function RandomPage({
   mobileGameplay,
   mobileStarted,
   onExitMobilePlay,
+  onToggleFullscreen,
+  isFullscreenMode,
 }) {
   return (
     <section className={`section page-shell ${mobileStarted ? 'training-mobile-play' : ''}`}>
@@ -21,14 +23,24 @@ function RandomPage({
       </div>}
       <div className="random-shell">
         {mobileGameplay && mobileStarted && (
-          <button
-            type="button"
-            className="training-back-btn"
-            onClick={onExitMobilePlay}
-            aria-label="Back to random setup"
-          >
-            &times;
-          </button>
+          <div className="mobile-top-controls">
+            <button
+              type="button"
+              className="training-fullscreen-btn"
+              onClick={onToggleFullscreen}
+              aria-label={isFullscreenMode ? 'Exit fullscreen mode' : 'Enter fullscreen mode'}
+            >
+              {isFullscreenMode ? '[]' : '[ ]'}
+            </button>
+            <button
+              type="button"
+              className="training-back-btn"
+              onClick={onExitMobilePlay}
+              aria-label="Back to random setup"
+            >
+              &times;
+            </button>
+          </div>
         )}
         <div
           className={`active-code center random-code ${

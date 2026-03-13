@@ -777,7 +777,33 @@ button.primary:hover,
   cursor: pointer;
 }
 
+.mobile-top-controls {
+  position: absolute;
+  top: 76px;
+  right: 16px;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.training-fullscreen-btn {
+  width: 56px;
+  height: 56px;
+  border: 1px solid var(--line-soft);
+  background: rgba(11, 14, 18, 0.85);
+  color: var(--accent);
+  font-size: 18px;
+  line-height: 1;
+  letter-spacing: -0.06em;
+  cursor: pointer;
+}
+
 .training-back-btn:hover {
+  border-color: var(--line);
+}
+
+.training-fullscreen-btn:hover {
   border-color: var(--line);
 }
 
@@ -906,8 +932,7 @@ button.primary:hover,
 }
 
 .training-mobile-play .training-back-btn {
-  top: 76px;
-  right: 16px;
+  position: static;
   width: 56px;
   height: 56px;
   font-size: 44px;
@@ -916,6 +941,15 @@ button.primary:hover,
 }
 
 .training-mobile-play .training-back-btn:hover {
+  border-color: rgba(242, 214, 56, 0.5);
+}
+
+.training-mobile-play .training-fullscreen-btn {
+  background: #060c14;
+  border-color: rgba(242, 214, 56, 0.24);
+}
+
+.training-mobile-play .training-fullscreen-btn:hover {
   border-color: rgba(242, 214, 56, 0.5);
 }
 
