@@ -44,6 +44,8 @@ function ChallengePage({
   onExitMobilePlay,
   onToggleFullscreen,
   isFullscreenMode,
+  fullscreenButtonLabel,
+  fullscreenAriaLabel,
 }) {
   const [mobileStep, setMobileStep] = useState('setup');
 
@@ -197,9 +199,9 @@ function ChallengePage({
                   type="button"
                   className="training-fullscreen-btn"
                   onClick={onToggleFullscreen}
-                  aria-label={isFullscreenMode ? 'Exit fullscreen mode' : 'Enter fullscreen mode'}
+                  aria-label={fullscreenAriaLabel}
                 >
-                  {isFullscreenMode ? '[]' : '[ ]'}
+                  {fullscreenButtonLabel}
                 </button>
                 <button
                   type="button"

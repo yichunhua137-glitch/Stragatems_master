@@ -67,6 +67,8 @@ function App() {
   const randomStartRef = useRef(null);
   const [randomMobileStarted, setRandomMobileStarted] = useState(false);
   const [isFullscreenMode, setIsFullscreenMode] = useState(false);
+  const [isSafariMobileBrowser, setIsSafariMobileBrowser] = useState(false);
+  const [isFocusMode, setIsFocusMode] = useState(false);
   const [stratagemStats, setStratagemStats] = useState({});
   const activeStartRef = useRef(null);
   const [wikiQuery, setWikiQuery] = useState('');
@@ -1039,6 +1041,15 @@ function App() {
   }, [showSplash]);
 
   useEffect(() => {
+    const ua = navigator.userAgent || '';
+    const isSafariEngine =
+      /Safari/i.test(ua) &&
+      !/CriOS|Chrome|FxiOS|Firefox|EdgiOS|EdgA|OPiOS|OPR|SamsungBrowser/i.test(ua);
+    const isMobileDevice = /iPhone|iPad|iPod|Android/i.test(ua);
+    setIsSafariMobileBrowser(isSafariEngine && isMobileDevice);
+  }, []);
+
+  useEffect(() => {
     const syncFullscreen = () => {
       setIsFullscreenMode(Boolean(document.fullscreenElement));
     };
@@ -1057,15 +1068,22 @@ function App() {
 
   const exitTrainingMobilePlay = useCallback(() => {
     setTrainingMobileStep('setup');
+    setIsFocusMode(false);
   }, []);
 
   const toggleFullscreenMode = useCallback(async () => {
+    if (isSafariMobileBrowser && isTouchGameplayPage) {
+      setIsFocusMode((prev) => !prev);
+      return;
+    }
     const root = document.documentElement;
     if (!document.fullscreenElement) {
       try {
         await root.requestFullscreen();
       } catch (error) {
-        // Ignore browsers that block fullscreen without a valid user gesture.
+        if (isTouchGameplayPage) {
+          setIsFocusMode(true);
+        }
       }
       return;
     }
@@ -1074,10 +1092,11 @@ function App() {
     } catch (error) {
       // Ignore failed exits and leave state synced from fullscreenchange.
     }
-  }, []);
+  }, [isSafariMobileBrowser, isTouchGameplayPage]);
 
   useEffect(() => {
     if (!isMobilePlayLocked) {
+      setIsFocusMode(false);
       document.body.classList.remove('touch-play-lock');
       return undefined;
     }
@@ -1186,6 +1205,8 @@ function App() {
   return (
     <div
       className={`app ${isMobilePlayLocked ? 'mobile-training-play' : ''} ${
+        isFocusMode ? 'mobile-focus-mode' : ''
+      } ${isSafariMobileBrowser ? 'mobile-safari-browser' : ''} ${
         isTrainingMobileSetup ? 'mobile-training-setup' : ''
       }`}
     >
@@ -1272,6 +1293,24 @@ function App() {
             onRestartTraining={refreshTrainingSet}
             onToggleFullscreen={toggleFullscreenMode}
             isFullscreenMode={isFullscreenMode}
+            fullscreenButtonLabel={
+              isSafariMobileBrowser && isTouchGameplayPage
+                ? isFocusMode
+                  ? 'Exit'
+                  : 'Focus'
+                : isFullscreenMode
+                ? '[]'
+                : '[ ]'
+            }
+            fullscreenAriaLabel={
+              isSafariMobileBrowser && isTouchGameplayPage
+                ? isFocusMode
+                  ? 'Exit focus mode'
+                  : 'Enter focus mode'
+                : isFullscreenMode
+                ? 'Exit fullscreen mode'
+                : 'Enter fullscreen mode'
+            }
           />
         )}
 
@@ -1284,9 +1323,30 @@ function App() {
             randomElapsed={randomElapsed}
             mobileGameplay={isTouchGameplayPage}
             mobileStarted={isRandomMobilePlay}
-            onExitMobilePlay={() => setRandomMobileStarted(false)}
+            onExitMobilePlay={() => {
+              setRandomMobileStarted(false);
+              setIsFocusMode(false);
+            }}
             onToggleFullscreen={toggleFullscreenMode}
             isFullscreenMode={isFullscreenMode}
+            fullscreenButtonLabel={
+              isSafariMobileBrowser && isTouchGameplayPage
+                ? isFocusMode
+                  ? 'Exit'
+                  : 'Focus'
+                : isFullscreenMode
+                ? '[]'
+                : '[ ]'
+            }
+            fullscreenAriaLabel={
+              isSafariMobileBrowser && isTouchGameplayPage
+                ? isFocusMode
+                  ? 'Exit focus mode'
+                  : 'Enter focus mode'
+                : isFullscreenMode
+                ? 'Exit fullscreen mode'
+                : 'Enter fullscreen mode'
+            }
           />
         )}
 
@@ -1361,9 +1421,30 @@ function App() {
             setChallengeLevelAndStartNext={setChallengeLevelAndStartNext}
             mobileGameplay={isTouchGameplayPage}
             controlsLocked={showRotateHint}
-            onExitMobilePlay={() => setChallengeStarted(false)}
+            onExitMobilePlay={() => {
+              setChallengeStarted(false);
+              setIsFocusMode(false);
+            }}
             onToggleFullscreen={toggleFullscreenMode}
             isFullscreenMode={isFullscreenMode}
+            fullscreenButtonLabel={
+              isSafariMobileBrowser && isTouchGameplayPage
+                ? isFocusMode
+                  ? 'Exit'
+                  : 'Focus'
+                : isFullscreenMode
+                ? '[]'
+                : '[ ]'
+            }
+            fullscreenAriaLabel={
+              isSafariMobileBrowser && isTouchGameplayPage
+                ? isFocusMode
+                  ? 'Exit focus mode'
+                  : 'Enter focus mode'
+                : isFullscreenMode
+                ? 'Exit fullscreen mode'
+                : 'Enter fullscreen mode'
+            }
           />
         )}
 
@@ -1407,9 +1488,30 @@ function App() {
             challengeInterferenceLeftMs={challengeInterferenceLeftMs}
             mobileGameplay={isTouchGameplayPage}
             controlsLocked={showRotateHint}
-            onExitMobilePlay={() => setChallengeStarted(false)}
+            onExitMobilePlay={() => {
+              setChallengeStarted(false);
+              setIsFocusMode(false);
+            }}
             onToggleFullscreen={toggleFullscreenMode}
             isFullscreenMode={isFullscreenMode}
+            fullscreenButtonLabel={
+              isSafariMobileBrowser && isTouchGameplayPage
+                ? isFocusMode
+                  ? 'Exit'
+                  : 'Focus'
+                : isFullscreenMode
+                ? '[]'
+                : '[ ]'
+            }
+            fullscreenAriaLabel={
+              isSafariMobileBrowser && isTouchGameplayPage
+                ? isFocusMode
+                  ? 'Exit focus mode'
+                  : 'Enter focus mode'
+                : isFullscreenMode
+                ? 'Exit fullscreen mode'
+                : 'Enter fullscreen mode'
+            }
           />
         )}
 

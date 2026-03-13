@@ -13,6 +13,8 @@ function RandomPage({
   onExitMobilePlay,
   onToggleFullscreen,
   isFullscreenMode,
+  fullscreenButtonLabel,
+  fullscreenAriaLabel,
 }) {
   return (
     <section className={`section page-shell ${mobileStarted ? 'training-mobile-play' : ''}`}>
@@ -28,9 +30,9 @@ function RandomPage({
               type="button"
               className="training-fullscreen-btn"
               onClick={onToggleFullscreen}
-              aria-label={isFullscreenMode ? 'Exit fullscreen mode' : 'Enter fullscreen mode'}
+              aria-label={fullscreenAriaLabel}
             >
-              {isFullscreenMode ? '[]' : '[ ]'}
+              {fullscreenButtonLabel}
             </button>
             <button
               type="button"

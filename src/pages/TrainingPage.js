@@ -34,6 +34,8 @@ function TrainingPage({
   onRestartTraining,
   onToggleFullscreen,
   isFullscreenMode,
+  fullscreenButtonLabel,
+  fullscreenAriaLabel,
 }) {
   if (mobileGameplay && mobileStep === 'setup') {
     return (
@@ -113,9 +115,9 @@ function TrainingPage({
                   type="button"
                   className="training-fullscreen-btn"
                   onClick={onToggleFullscreen}
-                  aria-label={isFullscreenMode ? 'Exit fullscreen mode' : 'Enter fullscreen mode'}
+                  aria-label={fullscreenAriaLabel}
                 >
-                  {isFullscreenMode ? '[]' : '[ ]'}
+                  {fullscreenButtonLabel}
                 </button>
                 <button
                   type="button"

@@ -61,7 +61,8 @@ select {
 
 .app.mobile-training-play,
 .app.mobile-training-play main {
-  height: 100vh;
+  height: 100svh;
+  height: 100dvh;
   overflow: hidden;
 }
 
@@ -795,8 +796,10 @@ button.primary:hover,
   color: var(--accent);
   font-size: 18px;
   line-height: 1;
-  letter-spacing: -0.06em;
+  letter-spacing: 0;
   cursor: pointer;
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
 }
 
 .training-back-btn:hover {
@@ -819,7 +822,8 @@ button.primary:hover,
 }
 
 .training-mobile-play .training-panel {
-  min-height: calc(100vh - 44px);
+  min-height: calc(100svh - 44px);
+  min-height: calc(100dvh - 44px);
   padding: 0;
   border: none;
   background: transparent;
@@ -828,14 +832,16 @@ button.primary:hover,
 
 .training-mobile-play .training-stage {
   position: relative;
-  padding: 8px 0 0;
+  padding: calc(env(safe-area-inset-top, 0px) + 8px) 0 0;
   border: none;
   background: transparent;
-  min-height: calc(100vh - 120px);
+  min-height: calc(100svh - 120px);
+  min-height: calc(100dvh - 120px);
 }
 
 .training-mobile-select .stratagem-list {
-  height: calc(100vh - 300px);
+  height: calc(100svh - 300px);
+  height: calc(100dvh - 300px);
   min-height: 320px;
 }
 
@@ -951,6 +957,70 @@ button.primary:hover,
 
 .training-mobile-play .training-fullscreen-btn:hover {
   border-color: rgba(242, 214, 56, 0.5);
+}
+
+.app.mobile-focus-mode .mobile-top-controls {
+  top: calc(env(safe-area-inset-top, 0px) + 8px);
+  right: 10px;
+  gap: 8px;
+}
+
+.app.mobile-focus-mode .training-fullscreen-btn,
+.app.mobile-focus-mode .training-back-btn {
+  width: 48px;
+  height: 48px;
+}
+
+.app.mobile-focus-mode .training-fullscreen-btn {
+  font-size: 12px;
+  letter-spacing: 0.08em;
+}
+
+.app.mobile-focus-mode .training-back-btn {
+  font-size: 34px;
+}
+
+.app.mobile-focus-mode .training-stage,
+.app.mobile-focus-mode .challenge-stage,
+.app.mobile-focus-mode .random-shell {
+  padding-top: calc(env(safe-area-inset-top, 0px) + 2px);
+}
+
+.app.mobile-focus-mode .active-card.mobile-drill {
+  min-height: calc(100svh - 132px);
+  min-height: calc(100dvh - 132px);
+}
+
+.app.mobile-focus-mode .active-card.mobile-drill .active-strip-shell {
+  margin: 0 10px;
+  margin-top: 8px;
+  padding: 16px 10px;
+}
+
+.app.mobile-focus-mode .active-card.mobile-drill .active-name-bar {
+  margin-top: 10px;
+  padding: 12px 10px;
+  font-size: 18px;
+}
+
+.app.mobile-focus-mode .active-card.mobile-drill .active-code.center {
+  margin: -10px 0 8px;
+  gap: 12px;
+}
+
+.app.mobile-focus-mode .active-card.mobile-drill .code-chip {
+  margin-left: -96px;
+}
+
+.app.mobile-focus-mode .active-card.mobile-drill .code-icon {
+  width: 150px;
+  height: 150px;
+}
+
+.app.mobile-focus-mode .training-mobile-play .training-mobile-restart .primary {
+  min-width: 180px;
+  min-height: 62px;
+  font-size: 15px;
 }
 
 .active-strip-shell {
