@@ -1,8 +1,8 @@
-const fs = require('fs');
+﻿const fs = require('fs');
 const path = require('path');
+const { saveStratagemSections } = require('./lib/stratagem-data');
 
-const inputPath = path.join(__dirname, '..', 'src', 'stratagems.txt');
-const outputPath = path.join(__dirname, '..', 'src', 'stratagems.js');
+const inputPath = path.join(__dirname, 'source', 'stratagems.txt');
 
 const raw = fs.readFileSync(inputPath, 'utf8');
 const lines = raw.split(/\r?\n/);
@@ -19,11 +19,11 @@ const decodeEntities = (text) => text
   .replace(/&quot;/g, '"')
   .replace(/&lt;/g, '<')
   .replace(/&gt;/g, '>')
-  .replace(/°/g, '�')
-  .replace(/“/g, '"')
-  .replace(/”/g, '"')
-  .replace(/‘/g, "'")
-  .replace(/’/g, "'");
+  .replace(/Â°/g, '°')
+  .replace(/â€œ/g, '"')
+  .replace(/â€/g, '"')
+  .replace(/â€˜/g, "'")
+  .replace(/â€™/g, "'");
 
 const stripMarkup = (text) => {
   let t = text;
@@ -37,8 +37,7 @@ const stripMarkup = (text) => {
   t = t.replace(/\{\{Stratagem Code\|([^}]+)\}\}/gi, '$1');
   t = t.replace(/\{\{[^}]+\}\}/g, '');
   t = t.replace(/\s+/g, ' ');
-  t = t.trim();
-  return decodeEntities(t);
+  return decodeEntities(t.trim());
 };
 
 const parseCode = (text) => {
@@ -70,7 +69,7 @@ const makeId = (name) => name
 
 const ensureSection = (name) => {
   if (currentSection && currentSection.name === name) return;
-  const existing = sections.find((s) => s.name === name);
+  const existing = sections.find((section) => section.name === name);
   if (existing) {
     currentSection = existing;
     return;
@@ -138,18 +137,14 @@ while (i < lines.length) {
     let description = '';
 
     if (inMissionTable) {
-      if (cells.length < 4) {
-        continue;
-      }
+      if (cells.length < 4) continue;
       icon = parseIcon(cells[0]);
       name = parseName(cells[1]);
       code = parseCode(cells[2]);
       description = stripMarkup(cells[3] || '');
       unlock = pendingMissionType || '-';
     } else {
-      if (cells.length < 6) {
-        continue;
-      }
+      if (cells.length < 6) continue;
       icon = parseIcon(cells[0]);
       name = parseName(cells[1]);
       code = parseCode(cells[2]);
@@ -158,7 +153,7 @@ while (i < lines.length) {
       description = stripMarkup(cells[6] || cells[5] || '');
     }
 
-    const item = {
+    currentSection.items.push({
       id: makeId(name),
       name,
       icon,
@@ -167,17 +162,12 @@ while (i < lines.length) {
       unlock,
       description,
       tag: currentSection.name,
-    };
-
-    currentSection.items.push(item);
+    });
     continue;
   }
 
   i += 1;
 }
 
-const output = `const stratagemSections = ${JSON.stringify(sections, null, 2)};\n\nconst flattenStratagems = (sections) =>\n  sections.flatMap((section) =>\n    section.items.map((item) => ({\n      ...item,\n      section: section.name,\n    }))\n  );\n\nexport { stratagemSections, flattenStratagems };\n`;
-
-fs.writeFileSync(outputPath, output, 'utf8');
-
-console.log(`Wrote ${sections.length} sections to ${outputPath}`);
+saveStratagemSections(sections);
+console.log(`Wrote ${sections.length} sections to stratagem JSON data`);

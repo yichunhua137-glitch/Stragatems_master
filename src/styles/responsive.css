@@ -1,0 +1,278 @@
+/* Responsive */
+@media (max-width: 1180px) {
+  .weapon-card {
+    grid-template-columns: 1fr;
+  }
+
+  .weapon-card-icon {
+    width: 100%;
+    height: 220px;
+  }
+}
+
+@media (max-width: 960px) {
+  .topbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .topbar-head {
+    width: 100%;
+    max-width: 100%;
+    flex: 1 1 auto;
+  }
+
+  .topbar-title {
+    font-size: 18px;
+    letter-spacing: 0.08em;
+  }
+
+  .topbar-mode-quote {
+    width: 56vw;
+    min-width: 0;
+    max-width: 56vw;
+  }
+
+  .topbar-group-btn {
+    min-width: 0;
+  }
+
+  .topbar-group-row {
+    width: 100%;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .topbar-auth {
+    width: 100%;
+    justify-content: space-between;
+    border-left: none;
+    padding-left: 0;
+  }
+
+  .topbar-auth-copy {
+    text-align: left;
+  }
+
+  .menu-columns {
+    grid-template-columns: 1fr;
+  }
+
+  .menu-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .menu-col.challenge-col {
+    border-left: none;
+    border-top: 1px solid var(--line-soft);
+    padding-left: 0;
+    padding-top: 10px;
+  }
+
+  .training-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .armor-toolbar {
+    grid-template-columns: 1fr;
+  }
+
+  .armor-card-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .challenge-header-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .challenge-records {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .honor-summary {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .auth-page-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .auth-hero-panel {
+    min-height: 360px;
+  }
+
+  .auth-hero-logo-wrap {
+    min-height: 280px;
+  }
+
+  .auth-hero-logo-card {
+    width: min(76vw, 360px);
+  }
+
+  .auth-panel {
+    min-height: 0;
+    align-content: start;
+  }
+
+  .auth-field-grid,
+  .auth-quick-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .auth-panel-topline {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .challenge-record-row {
+    flex-wrap: wrap;
+  }
+
+  .wiki-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .weapon-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .honor-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-overview-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .profile-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-contact-grid,
+  .profile-metric-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .section {
+    padding: 8px 4vw 44px;
+  }
+
+  .challenge-toolbar {
+    flex-direction: column;
+  }
+
+  .challenge-tool,
+  .challenge-tool-wide,
+  .challenge-tool-action {
+    min-width: 0;
+    width: 100%;
+    flex-basis: auto;
+  }
+
+  .quiz-logo-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .menu-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .topbar-group-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .honor-card {
+    grid-template-columns: 1fr;
+  }
+
+  .honor-card-icon {
+    width: 84px;
+    height: 84px;
+  }
+
+  .honor-card-times {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-overview-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-detail-row {
+    display: grid;
+    justify-content: start;
+  }
+
+  .profile-detail-row strong {
+    text-align: left;
+  }
+
+  .section-title h2 {
+    font-size: 26px;
+  }
+
+  .settings-dock {
+    right: 12px;
+    bottom: 12px;
+  }
+
+  .settings-panel {
+    width: min(340px, 92vw);
+  }
+
+  .code-icon {
+    width: 118px;
+    height: 118px;
+  }
+
+  .active-card.mobile-drill .active-name-bar {
+    font-size: 20px;
+  }
+
+  .active-card.mobile-drill .active-code.center {
+    margin-top: 40px;
+    gap: 12px;
+  }
+
+  .active-card.mobile-drill .code-icon {
+    width: 124px;
+    height: 124px;
+  }
+
+  .code-chip {
+    margin-left: -56px;
+  }
+
+  .wiki-code-icon {
+    width: 56px;
+    height: 56px;
+  }
+
+  .wiki-code-chip {
+    margin-left: -26px;
+  }
+
+  .wiki-grid,
+  .weapon-random-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .splash-emblem {
+    width: 150px;
+    height: 150px;
+  }
+
+  .splash-title {
+    font-size: 40px;
+  }
+
+  .splash-title-accent {
+    font-size: 16px;
+  }
+}
+

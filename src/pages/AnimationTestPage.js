@@ -100,7 +100,6 @@ function AnimationTestPage() {
   return (
     <section className="section page-shell animation-test-section">
       <div className="section-title">
-        <span>07</span>
         <h2>Animation Test</h2>
         <p>Independent sandbox page. You can remove it anytime.</p>
       </div>

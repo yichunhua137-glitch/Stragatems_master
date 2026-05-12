@@ -1,0 +1,313 @@
+/* Panels and Grids */
+.training-grid {
+  display: grid;
+  grid-template-columns: minmax(240px, 330px) minmax(0, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+
+.training-left {
+  display: grid;
+  gap: 22px;
+}
+
+.stratagem-list,
+.training-panel,
+.loadout-panel,
+.challenge-panel,
+.wiki-card,
+.weapon-card,
+.weapon-random-card,
+.settings-panel {
+  background:
+    linear-gradient(170deg, rgba(242, 214, 56, 0.06), transparent 35%),
+    linear-gradient(180deg, var(--panel), var(--panel-2));
+  border: 1px solid var(--line-soft);
+  box-shadow: var(--panel-shadow);
+  border-radius: 2px;
+}
+
+.stratagem-list,
+.training-panel,
+.loadout-panel,
+.challenge-panel {
+  min-height: 560px;
+  padding: 18px;
+}
+
+.stratagem-list {
+  height: 560px;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+}
+
+.training-panel,
+.loadout-panel,
+.challenge-panel {
+  display: grid;
+  gap: 20px;
+  align-content: start;
+}
+
+.training-panel.training-panel-plain {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  min-height: 0;
+}
+
+.list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.list-header h3 {
+  margin: 0;
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-size: 15px;
+}
+
+.list-header span {
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+}
+
+.list-header-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.select-toggle,
+.toggle-chip,
+.count-step,
+button.primary {
+  border: 1px solid var(--line-soft);
+  color: var(--text);
+  background: linear-gradient(180deg, #1b2026, #12161b);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 11px;
+  padding: 8px 10px;
+  border-radius: 1px;
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.select-toggle.active,
+.toggle-chip.active,
+button.primary,
+.start-trigger {
+  background: linear-gradient(180deg, var(--accent-2), var(--accent));
+  color: #0f1011;
+  border-color: rgba(0, 0, 0, 0.2);
+}
+
+.select-toggle:hover,
+.toggle-chip:hover,
+.count-step:hover,
+button.primary:hover,
+.start-trigger:hover,
+.settings-trigger:hover {
+  transform: translateY(-1px);
+  border-color: var(--line);
+}
+
+.primary.ghost {
+  background: transparent;
+  color: var(--accent);
+  border-color: var(--line);
+}
+
+.list-scroll {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  min-height: 0;
+  height: 100%;
+  padding-right: 4px;
+  display: grid;
+  gap: 10px;
+  align-content: start;
+  scrollbar-gutter: stable;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(242, 214, 56, 0.9) rgba(11, 14, 17, 0.35);
+  scroll-behavior: smooth;
+}
+
+.list-scroll::-webkit-scrollbar {
+  width: 10px;
+}
+
+.list-scroll::-webkit-scrollbar-track {
+  background: linear-gradient(
+    180deg,
+    rgba(11, 14, 17, 0.2),
+    rgba(11, 14, 17, 0.65),
+    rgba(11, 14, 17, 0.2)
+  );
+  border-left: 1px solid rgba(242, 214, 56, 0.12);
+}
+
+.list-scroll::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 231, 122, 0.95),
+    rgba(242, 214, 56, 0.95)
+  );
+  border: 2px solid rgba(11, 14, 17, 0.85);
+  border-radius: 1px;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.35);
+}
+
+.list-scroll::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 238, 153, 0.98),
+    rgba(242, 214, 56, 0.98)
+  );
+}
+
+.section-block {
+  border: 1px solid var(--line-faint);
+  padding: 10px;
+  display: grid;
+  gap: 8px;
+  background: rgba(0, 0, 0, 0.22);
+  border-radius: 1px;
+}
+
+.section-block-title {
+  border: 1px solid var(--line-soft);
+  color: var(--text);
+  background: rgba(242, 214, 56, 0.06);
+  padding: 6px 6px;
+  font-size: 11px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  cursor: pointer;
+}
+
+.section-block-title.active {
+  border-color: var(--line);
+  color: var(--accent);
+}
+
+.section-block-title.patriotic-center {
+  border: 1px solid var(--line-soft);
+  background: rgba(242, 214, 56, 0.06);
+}
+
+.section-block-title em {
+  font-style: normal;
+  color: var(--muted);
+}
+
+.section-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.icon-tile {
+  position: relative;
+  aspect-ratio: 1;
+  border: 1px solid transparent;
+  background: transparent;
+  padding: 0;
+  color: #98a1ab;
+  opacity: 0.62;
+  filter: grayscale(1);
+  cursor: pointer;
+  transition: border-color 0.2s ease, opacity 0.2s ease, filter 0.2s ease;
+}
+
+.icon-tile:hover,
+.icon-tile.active {
+  border-color: var(--line);
+  opacity: 1;
+  filter: grayscale(0);
+}
+
+.icon-tile-art {
+  width: 100%;
+  height: 100%;
+  background: #080b0e;
+  border: 1px solid var(--line-faint);
+  padding: 6px 6px 28px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  border-radius: 1px;
+}
+
+.icon-tile-art img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.stratagem-logo {
+  object-fit: contain !important;
+  transform: scale(1.2);
+  transform-origin: center;
+}
+
+.icon-tile-metrics {
+  position: absolute;
+  left: 6px;
+  bottom: 6px;
+  display: inline-flex;
+  pointer-events: none;
+}
+
+.icon-tile-metric {
+  min-width: 0;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 4px;
+  padding: 3px 5px;
+  background: rgba(4, 8, 12, 0.9);
+  border: 1px solid rgba(124, 216, 255, 0.16);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  line-height: 1;
+  backdrop-filter: blur(4px);
+}
+
+.icon-tile-metric strong {
+  font-size: 8px;
+  font-weight: 700;
+  color: #8a98a8;
+}
+
+.icon-tile-metric em {
+  min-width: 0;
+  font-style: normal;
+  font-size: 10px;
+  font-weight: 700;
+  color: #f2f5f8;
+}
+
+.icon-tile-metric-world {
+  border-color: rgba(124, 216, 255, 0.26);
+}
+
+.icon-tile-metric-world strong {
+  color: #7cd8ff;
+}
+
+
+

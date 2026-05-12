@@ -65,7 +65,6 @@ function QuizInputPage({ allStratagems, getStratagemLogo, keyToDir }) {
   return (
     <section className="section quiz-section">
       <div className="section-title">
-        <span>12</span>
         <h2>Icon Blind Input</h2>
         <p>Blind mode: only slot count is shown. Enter full code to reveal answer.</p>
       </div>
@@ -77,7 +76,7 @@ function QuizInputPage({ allStratagems, getStratagemLogo, keyToDir }) {
         </div>
         <div className="quiz-slot-info">
           <img
-            className="quiz-slot-logo"
+            className="quiz-slot-logo stratagem-logo"
             src={getStratagemLogo(activeItem.icon)}
             alt="stratagem icon"
           />
@@ -106,7 +105,7 @@ function QuizInputPage({ allStratagems, getStratagemLogo, keyToDir }) {
         </div>
         {revealed && (
           <div className="quiz-reveal-card">
-            <img src={getStratagemLogo(activeItem.icon)} alt={activeItem.name} />
+            <img className="stratagem-logo" src={getStratagemLogo(activeItem.icon)} alt={activeItem.name} />
             <strong>{activeItem.name}</strong>
           </div>
         )}

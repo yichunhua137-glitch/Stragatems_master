@@ -1,0 +1,104 @@
+/* Weapon */
+.weapon-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.weapon-card {
+  padding: 14px;
+  display: grid;
+  grid-template-columns: 340px minmax(0, 1fr);
+  gap: 16px;
+  align-items: center;
+}
+
+.weapon-card-icon {
+  width: 340px;
+  height: 220px;
+  border: 1px dashed var(--line-soft);
+  background: #090c10;
+  display: grid;
+  place-items: center;
+  padding: 10px 14px;
+  overflow: hidden;
+  border-radius: 1px;
+}
+
+.weapon-card-icon span {
+  font-size: 10px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.weapon-card-icon img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.weapon-card-icon.grenade img {
+  max-height: 82%;
+  transform: translateY(-16px);
+}
+
+.weapon-card-icon.k2-offset img {
+  transform: translateY(-42px);
+}
+
+.weapon-armor {
+  margin: 6px 0;
+}
+
+.weapon-armor-label {
+  font-size: 10px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+
+.weapon-armor-tags {
+  flex-wrap: wrap;
+}
+
+.weapon-armor-chip {
+  color: var(--accent);
+  font-size: 11px;
+}
+
+.weapon-armor-chip img {
+  height: 18px;
+}
+
+.weapon-random-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.weapon-random-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.weapon-random-card {
+  padding: 14px;
+  display: grid;
+  gap: 12px;
+}
+
+.weapon-random-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  color: var(--accent);
+  letter-spacing: 0.16em;
+}
+
+

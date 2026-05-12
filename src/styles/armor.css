@@ -1,0 +1,190 @@
+/* Armor */
+.armor-toolbar {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 420px) auto;
+  gap: 12px;
+  align-items: end;
+  margin-bottom: 18px;
+}
+
+.armor-class-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.armor-search {
+  display: grid;
+  gap: 6px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+}
+
+.armor-search input {
+  background: #0a0e12;
+  border: 1px solid var(--line-faint);
+  color: var(--text);
+  padding: 10px 12px;
+  font-size: 14px;
+  border-radius: 1px;
+}
+
+.armor-search input:focus {
+  outline: none;
+  border-color: var(--line);
+}
+
+.armor-count-badge {
+  border: 1px solid var(--line-faint);
+  background: rgba(11, 14, 17, 0.75);
+  color: var(--muted);
+  padding: 10px 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.armor-grid {
+  display: grid;
+  gap: 14px;
+}
+
+.armor-card {
+  background:
+    linear-gradient(170deg, rgba(242, 214, 56, 0.05), transparent 35%),
+    linear-gradient(180deg, var(--panel), var(--panel-2));
+  border: 1px solid var(--line-soft);
+  box-shadow: var(--panel-shadow);
+  border-radius: 2px;
+  padding: 14px;
+}
+
+.armor-card-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 210px;
+  gap: 14px;
+  align-items: start;
+}
+
+.armor-card-content {
+  display: grid;
+  gap: 10px;
+}
+
+.armor-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.armor-card-head h3 {
+  margin: 0;
+  font-size: 22px;
+  line-height: 1.1;
+}
+
+.armor-class-chip {
+  border: 1px solid var(--line-faint);
+  padding: 5px 8px;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.armor-class-chip.light {
+  color: #8dd9ff;
+  border-color: rgba(141, 217, 255, 0.45);
+}
+
+.armor-class-chip.medium {
+  color: #ffe77a;
+  border-color: rgba(255, 231, 122, 0.45);
+}
+
+.armor-class-chip.heavy {
+  color: #ffa178;
+  border-color: rgba(255, 161, 120, 0.45);
+}
+
+.armor-desc {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.armor-stat-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.armor-stat {
+  border: 1px solid var(--line-faint);
+  background: rgba(9, 13, 18, 0.8);
+  padding: 8px 10px;
+  display: grid;
+  gap: 4px;
+}
+
+.armor-stat span {
+  font-size: 10px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+
+.armor-stat strong {
+  font-size: 18px;
+  color: var(--text);
+}
+
+.armor-meta-block {
+  border: 1px solid var(--line-faint);
+  background: rgba(9, 13, 18, 0.8);
+  padding: 10px 12px;
+  display: grid;
+  gap: 5px;
+}
+
+.armor-meta-block strong {
+  color: var(--accent);
+  font-size: 13px;
+  letter-spacing: 0.04em;
+}
+
+.armor-meta-block span {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.armor-image-slot {
+  border: 1px dashed var(--line-soft);
+  background: #090d12;
+  min-height: 260px;
+  display: grid;
+  place-items: center;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 11px;
+  position: relative;
+  overflow: hidden;
+}
+
+.armor-image-slot img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.armor-image-fallback {
+  display: none;
+}
+
+

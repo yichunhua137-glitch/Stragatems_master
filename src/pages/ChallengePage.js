@@ -14,6 +14,7 @@ function ChallengePage({
   onHoverPos,
   onHoverClear,
   getStratagemLogo,
+  globalRecords,
   challengeMode,
   setChallengeMode,
   challengeLevel,
@@ -95,7 +96,6 @@ function ChallengePage({
       {!mobileGameplay && <div className="section-title">
         <div className="challenge-header-row">
           <div className="challenge-heading-main">
-            <span>04</span>
             <h2>Stratagem Challenge</h2>
           </div>
           <div className="challenge-records">
@@ -128,68 +128,65 @@ function ChallengePage({
             onHoverPos={onHoverPos}
             onHoverClear={onHoverClear}
             getStratagemLogo={getStratagemLogo}
+            globalRecords={globalRecords}
           />
         </div>}
 
         <div className="challenge-panel">
-          <div className="challenge-controls">
-            <div className="challenge-control-grid">
-              <div className="challenge-control-card">
-                <label>Mode</label>
-                <div className="toggle-row">
-                  <button
-                    type="button"
-                    className={`toggle-chip ${challengeMode === 'count' ? 'active' : ''}`}
-                    onClick={() => setChallengeMode('count')}
-                  >
-                    Complete N
-                  </button>
-                  <button
-                    type="button"
-                    className={`toggle-chip ${challengeMode === 'timed' ? 'active' : ''}`}
-                    onClick={() => setChallengeMode('timed')}
-                  >
-                    Time Attack
-                  </button>
-                </div>
+          <div className="challenge-toolbar">
+            <div className="challenge-tool">
+              <label>Mode</label>
+              <div className="toggle-row">
+                <button
+                  type="button"
+                  className={`toggle-chip ${challengeMode === 'count' ? 'active' : ''}`}
+                  onClick={() => setChallengeMode('count')}
+                >
+                  Complete N
+                </button>
+                <button
+                  type="button"
+                  className={`toggle-chip ${challengeMode === 'timed' ? 'active' : ''}`}
+                  onClick={() => setChallengeMode('timed')}
+                >
+                  Time Attack
+                </button>
               </div>
-
-              <div className="challenge-control-card">
-                <label>Level</label>
-                <div className="challenge-level-input">
-                  <div className="challenge-level">
-                    <button
-                      type="button"
-                      className="toggle-chip"
-                      onClick={() => setChallengeLevel((prev) => Math.max(1, prev - 1))}
-                      disabled={challengeLevel <= 1}
-                    >
-                      -
-                    </button>
-                    <span>Level {challengeLevel}</span>
-                    <button
-                      type="button"
-                      className="toggle-chip"
-                      onClick={() => setChallengeLevel((prev) => Math.min(99, prev + 1))}
-                    >
-                      +
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              {challengeLevelComplete && !challengeFailed && (
-                <div className="challenge-control-card challenge-control-card-wide challenge-actions">
-                  <button
-                    type="button"
-                    className="primary ghost"
-                    onClick={setChallengeLevelAndStartNext}
-                  >
-                    Next Level
-                  </button>
-                </div>
-              )}
             </div>
+
+            <div className="challenge-tool">
+              <label>Level</label>
+              <div className="challenge-level">
+                <button
+                  type="button"
+                  className="toggle-chip"
+                  onClick={() => setChallengeLevel((prev) => Math.max(1, prev - 1))}
+                  disabled={challengeLevel <= 1}
+                >
+                  -
+                </button>
+                <span>Level {challengeLevel}</span>
+                <button
+                  type="button"
+                  className="toggle-chip"
+                  onClick={() => setChallengeLevel((prev) => Math.min(99, prev + 1))}
+                >
+                  +
+                </button>
+              </div>
+            </div>
+
+            {challengeLevelComplete && !challengeFailed && (
+              <div className="challenge-tool challenge-tool-action">
+                <button
+                  type="button"
+                  className="primary ghost"
+                  onClick={setChallengeLevelAndStartNext}
+                >
+                  Next Level
+                </button>
+              </div>
+            )}
           </div>
 
           <div className="challenge-stage">

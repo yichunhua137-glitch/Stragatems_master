@@ -44,7 +44,6 @@ function QuizLogoPage({ allStratagems, getStratagemLogo }) {
   return (
     <section className="section quiz-section">
       <div className="section-title">
-        <span>13</span>
         <h2>Code Match Quiz</h2>
         <p>Read the code and choose the correct stratagem logo from 4 options.</p>
       </div>
@@ -91,7 +90,7 @@ function QuizLogoPage({ allStratagems, getStratagemLogo }) {
                   if (isCorrect) setScore((prev) => prev + 1);
                 }}
               >
-                <img src={getStratagemLogo(item.icon)} alt={item.name} />
+                <img className="stratagem-logo" src={getStratagemLogo(item.icon)} alt={item.name} />
               </button>
             );
           })}

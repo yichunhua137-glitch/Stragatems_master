@@ -13,6 +13,7 @@ function LoadoutPage({
   onHoverPos,
   onHoverClear,
   getStratagemLogo,
+  globalRecords,
   loadoutCount,
   setLoadoutCount,
   refreshLoadoutSet,
@@ -21,7 +22,6 @@ function LoadoutPage({
   return (
     <section className="section loadout-section">
       <div className="section-title">
-        <span>03</span>
         <h2>Random Stratagem Loadout</h2>
         <p>Let fate pick your gear, then pretend it was tactical genius.</p>
       </div>
@@ -39,6 +39,7 @@ function LoadoutPage({
             onHoverPos={onHoverPos}
             onHoverClear={onHoverClear}
             getStratagemLogo={getStratagemLogo}
+            globalRecords={globalRecords}
           />
         </div>
 
@@ -74,6 +75,7 @@ function LoadoutPage({
                   <div className="loadout-card-icon">
                     {item.icon ? (
                       <img
+                        className="stratagem-logo"
                         src={getStratagemLogo(item.icon)}
                         alt={item.name}
                         loading="lazy"

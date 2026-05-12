@@ -1,15 +1,10 @@
 const fs = require('fs');
 const path = require('path');
+const { loadStratagemSections } = require('./lib/stratagem-data');
 
-const dataPath = path.join(__dirname, '..', 'src', 'stratagems.js');
 const logosDir = path.join(__dirname, '..', 'public', 'stratagems logo');
-
-const raw = fs.readFileSync(dataPath, 'utf8');
-const match = raw.match(/const stratagemSections = (.*);\n\nconst flattenStratagems/s);
-if (!match) throw new Error('Unable to locate stratagemSections');
-
-const sections = JSON.parse(match[1]);
-const files = fs.readdirSync(logosDir).filter((f) => f.toLowerCase().endsWith('.png'));
+const sections = loadStratagemSections();
+const files = fs.readdirSync(logosDir).filter((f) => /\.(png|webp|jpg|jpeg|svg)$/i.test(f));
 const fileSet = new Set(files);
 
 const missing = [];

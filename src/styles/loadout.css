@@ -1,0 +1,24 @@
+/* Loadout */
+.loadout-cards {
+  gap: 10px;
+}
+
+.loadout-card {
+  border: 1px solid var(--line-faint);
+  background: #0d1115;
+  padding: 12px;
+  display: grid;
+  grid-template-columns: 62px minmax(0, 1fr);
+  gap: 12px;
+  align-items: center;
+  border-radius: 1px;
+}
+
+.loadout-hint,
+.challenge-hint {
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+}
+
+

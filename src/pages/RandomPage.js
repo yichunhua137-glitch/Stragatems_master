@@ -19,7 +19,6 @@ function RandomPage({
   return (
     <section className={`section page-shell ${mobileStarted ? 'training-mobile-play' : ''}`}>
       {!mobileStarted && <div className="section-title">
-        <span>05</span>
         <h2>Random Code Training</h2>
         <p>Because memorizing chaos is still safer than the battlefield.</p>
       </div>}

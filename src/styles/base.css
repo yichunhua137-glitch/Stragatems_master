@@ -1,0 +1,276 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;500;600&family=Space+Grotesk:wght@400;500;600&display=swap');
+
+:root {
+  color-scheme: dark;
+  --bg: #070809;
+  --bg-2: #0d0f11;
+  --panel: #13161a;
+  --panel-2: #0f1215;
+  --steel: #252b31;
+  --line: rgba(242, 214, 56, 0.32);
+  --line-soft: rgba(242, 214, 56, 0.16);
+  --line-faint: rgba(255, 255, 255, 0.12);
+  --text: #edf0f2;
+  --muted: #9ca4ad;
+  --accent: #f2d638;
+  --accent-2: #ffe77a;
+  --danger: #ff5252;
+  --panel-shadow: 0 14px 30px rgba(0, 0, 0, 0.45);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Space Grotesk', sans-serif;
+  color: var(--text);
+  background:
+    linear-gradient(120deg, rgba(242, 214, 56, 0.05), transparent 38%),
+    radial-gradient(circle at 8% 10%, rgba(242, 214, 56, 0.07), transparent 28%),
+    repeating-linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.025) 0,
+      rgba(255, 255, 255, 0.025) 1px,
+      transparent 1px,
+      transparent 8px
+    ),
+    var(--bg);
+  min-height: 100vh;
+}
+
+body.touch-play-lock {
+  overflow: hidden;
+  height: 100vh;
+  overscroll-behavior: none;
+  touch-action: none;
+}
+
+button,
+input,
+select {
+  font-family: inherit;
+}
+
+.app {
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.app.mobile-training-play,
+.app.mobile-training-play main {
+  height: 100svh;
+  height: 100dvh;
+  overflow: hidden;
+}
+
+.app::before,
+.app::after {
+  content: '';
+  position: fixed;
+  width: 500px;
+  height: 500px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.app::before {
+  top: -220px;
+  right: -180px;
+  background: radial-gradient(circle, rgba(242, 214, 56, 0.12), transparent 70%);
+}
+
+.app::after {
+  bottom: -240px;
+  left: -180px;
+  background: radial-gradient(circle, rgba(242, 214, 56, 0.08), transparent 70%);
+}
+
+main {
+  position: relative;
+  z-index: 1;
+}
+
+.rotate-hint {
+  margin: 8px 5vw 0;
+  border: 1px solid var(--line);
+  background: rgba(242, 214, 56, 0.09);
+  color: var(--accent);
+  padding: 8px 10px;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.mode-picker-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: grid;
+  place-items: center;
+  background: rgba(4, 7, 10, 0.78);
+}
+
+.mode-picker-card {
+  width: min(460px, 92vw);
+  padding: 18px;
+  border: 1px solid var(--line);
+  background:
+    linear-gradient(170deg, rgba(242, 214, 56, 0.08), transparent 38%),
+    linear-gradient(180deg, #12171d, #0c1116);
+  box-shadow: var(--panel-shadow);
+  display: grid;
+  gap: 10px;
+}
+
+.mode-picker-card strong {
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  font-size: 24px;
+}
+
+.mode-picker-card span {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.mode-picker-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.section {
+  padding: 8px 5vw 56px;
+}
+
+.section-title {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.section-title span {
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-size: 12px;
+}
+
+.section-title h2 {
+  margin: 0;
+  margin-top: 7px;
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 34px;
+  font-weight: 500;
+}
+
+.section-title p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.training-notice-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 55;
+  display: grid;
+  place-items: center;
+  background: rgba(4, 7, 10, 0.72);
+}
+
+.training-notice-card {
+  width: min(520px, 92vw);
+  padding: 18px;
+  border: 1px solid var(--line);
+  background:
+    linear-gradient(170deg, rgba(242, 214, 56, 0.08), transparent 38%),
+    linear-gradient(180deg, #12171d, #0c1116);
+  box-shadow: var(--panel-shadow);
+  display: grid;
+  gap: 12px;
+}
+
+.training-notice-card strong {
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  font-size: 24px;
+}
+
+.training-notice-card span {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.challenge-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 14px;
+}
+
+.challenge-heading-main {
+  display: grid;
+  gap: 8px;
+}
+
+.challenge-heading-main span {
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-size: 12px;
+}
+
+.challenge-heading-main h2 {
+  margin: 0;
+  margin-top: 7px;
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 34px;
+  font-weight: 500;
+}
+
+.challenge-records {
+  display: grid;
+  gap: 8px;
+  min-width: 520px;
+}
+
+.challenge-record-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid var(--line-faint);
+  background: rgba(8, 12, 16, 0.82);
+  padding: 8px 10px;
+}
+
+.challenge-record-row span {
+  color: var(--muted);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  min-width: 92px;
+}
+
+.challenge-record-row strong {
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+

@@ -1,12 +1,9 @@
-const fs = require('fs');
-const path = require('path');
+ï»¿const {
+  loadStratagemSections,
+  saveStratagemSections,
+} = require('./lib/stratagem-data');
 
-const dataPath = path.join(__dirname, '..', 'src', 'stratagems.js');
-const raw = fs.readFileSync(dataPath, 'utf8');
-const match = raw.match(/const stratagemSections = (.*);\n\nconst flattenStratagems/s);
-if (!match) throw new Error('Unable to locate stratagemSections');
-
-const sections = JSON.parse(match[1]);
+const sections = loadStratagemSections();
 
 const overrides = {
   'StA-X3 W.A.S.P. Launcher': '120px-StA-X3_W.png',
@@ -20,7 +17,7 @@ const overrides = {
   'LIFT-182 Warp Pack': 'LIFT-182_Warp_Pack_Stratagem_Icon.png',
   'M-1000 Maxigun': 'M-1000_Maxigun_Stratagem_Icon.png',
   'CQC-9 Defoliation Tool': 'CQC-9_Defoliation_Tool_Stratagem_Icon.png',
-  'AX/FLAM-75 "Guard Dog" Hot Dog': 'AX_FLAM-75_“Guard_Dog”_Hot_Dog_Stratagem_Icon.png'
+  'AX/FLAM-75 "Guard Dog" Hot Dog': 'AX_FLAM-75_â€œGuard_Dogâ€_Hot_Dog_Stratagem_Icon.png',
 };
 
 let updated = 0;
@@ -33,7 +30,5 @@ for (const section of sections) {
   }
 }
 
-const output = `const stratagemSections = ${JSON.stringify(sections, null, 2)};\n\nconst flattenStratagems = (sections) =>\n  sections.flatMap((section) =>\n    section.items.map((item) => ({\n      ...item,\n      section: section.name,\n    }))\n  );\n\nexport { stratagemSections, flattenStratagems };\n`;
-
-fs.writeFileSync(dataPath, output, 'utf8');
+saveStratagemSections(sections);
 console.log(`Overrides applied: ${updated}`);

@@ -1,0 +1,116 @@
+/* Settings Dock */
+.settings-dock {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 12;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.settings-panel {
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 12px);
+  width: 330px;
+  padding: 16px;
+  display: grid;
+  gap: 14px;
+}
+
+.settings-header h3 {
+  margin: 0;
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.settings-header span,
+.bind-hint,
+.settings-section.rules p {
+  font-size: 11px;
+  color: var(--muted);
+  margin: 0;
+}
+
+.bind-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.bind-chip {
+  border: 1px solid var(--line-faint);
+  background: #0c1014;
+  color: var(--text);
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 1px;
+  cursor: pointer;
+}
+
+.bind-chip.listening {
+  border-color: var(--line);
+  box-shadow: 0 0 12px rgba(242, 214, 56, 0.24);
+}
+
+.bind-dir {
+  font-size: 16px;
+}
+
+.bind-key {
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.settings-trigger,
+.start-trigger {
+  border: 1px solid var(--line-soft);
+  height: 46px;
+  padding: 0 14px;
+  min-width: 74px;
+  border-radius: 1px;
+}
+
+.settings-trigger {
+  width: 50px;
+  min-width: 50px;
+  background: #12161b;
+  color: var(--accent);
+  font-size: 20px;
+}
+
+.settings-trigger.active {
+  border-color: var(--line);
+}
+
+.start-trigger {
+  font-weight: 600;
+  letter-spacing: 0.12em;
+}
+
+@media (orientation: landscape) and (max-height: 900px) {
+  .training-mobile-select .section-grid {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 6px;
+  }
+
+  .training-mobile-select .icon-tile-art {
+    padding: 2px;
+  }
+
+  .training-mobile-select .stratagem-list {
+    padding: 12px;
+  }
+}
+
+.count-control input[type='range'] {
+  accent-color: var(--accent);
+  width: 150px;
+}
+
+

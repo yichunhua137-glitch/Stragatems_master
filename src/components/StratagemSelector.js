@@ -13,6 +13,7 @@ function StratagemSelector({
   onHoverPos,
   onHoverClear,
   getStratagemLogo,
+  globalRecords,
   stratagemStats,
   showBest = false,
 }) {
@@ -55,40 +56,47 @@ function StratagemSelector({
                 </em>
               </button>
               <div className="section-grid">
-                {section.items.map((item) => (
-                  <button
-                    key={item.id}
-                    className={`icon-tile ${
-                      selectedIds.includes(item.id) ? 'active' : ''
-                    }`}
-                    onClick={() => onToggleSelect(item.id)}
-                    onMouseEnter={(event) => {
-                      onHoverInfo({ item, section: section.name });
-                      onHoverPos({ x: event.clientX, y: event.clientY });
-                    }}
-                    onMouseMove={(event) =>
-                      onHoverPos({ x: event.clientX, y: event.clientY })
-                    }
-                    onMouseLeave={onHoverClear}
-                  >
-                    <div className="icon-tile-art">
-                      {item.icon ? (
-                        <img
-                          src={getStratagemLogo(item.icon)}
-                          alt={item.name}
-                          loading="lazy"
-                        />
-                      ) : (
-                        item.tag
-                      )}
-                    </div>
-                    {showBest && stratagemStats?.[item.id]?.bestMs && (
-                      <div className="icon-tile-best">
-                        Best {(stratagemStats[item.id].bestMs / 1000).toFixed(2)}s
+                {section.items.map((item) => {
+                  const globalRecord = globalRecords?.[item.id];
+                  return (
+                    <button
+                      key={item.id}
+                      className={`icon-tile ${
+                        selectedIds.includes(item.id) ? 'active' : ''
+                      }`}
+                      onClick={() => onToggleSelect(item.id)}
+                      onMouseEnter={(event) => {
+                        onHoverInfo({ item, section: section.name });
+                        onHoverPos({ x: event.clientX, y: event.clientY });
+                      }}
+                      onMouseMove={(event) =>
+                        onHoverPos({ x: event.clientX, y: event.clientY })
+                      }
+                      onMouseLeave={onHoverClear}
+                      >
+                        <div className="icon-tile-art">
+                        {item.icon ? (
+                          <img
+                            className="stratagem-logo"
+                            src={getStratagemLogo(item.icon)}
+                            alt={item.name}
+                            loading="lazy"
+                          />
+                        ) : (
+                          item.tag
+                        )}
                       </div>
-                    )}
-                  </button>
-                ))}
+                      {globalRecord?.bestMs && (
+                        <div className="icon-tile-metrics">
+                          <span className="icon-tile-metric icon-tile-metric-world">
+                            <strong>WR</strong>
+                            <em>{(globalRecord.bestMs / 1000).toFixed(2)}s</em>
+                          </span>
+                        </div>
+                      )}
+                    </button>
+                  );
+                })}
               </div>
             </div>
           );

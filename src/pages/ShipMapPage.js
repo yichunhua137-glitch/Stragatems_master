@@ -541,7 +541,6 @@ function ShipMapPage({ onOpenPage }) {
   return (
     <section className="section page-shell ship-map-section">
       <div className="section-title">
-        <span>08</span>
         <h2>Super Destroyer Deck</h2>
         <p>Walk to NPCs and terminals. Press E to interact.</p>
       </div>

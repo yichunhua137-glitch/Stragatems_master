@@ -1,9 +1,16 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 
-// Top navigation with two group dropdowns: Stratagem and Weapon.
+// Compact top navigation grouped by feature family.
 function TopBar({
+  authReady,
+  authConfigured,
+  currentUsername,
+  needsUsername,
   openMenuGroup,
+  onOpenAuth,
+  onSignOut,
   page,
+  session,
   setShowSplash,
   onOpenMenu,
   onCloseMenu,
@@ -74,10 +81,25 @@ function TopBar({
       { id: 'armor', label: 'Armor' },
       { id: 'armor-random', label: 'Random Armor' },
     ],
+    honor: [
+      { id: 'profile', label: 'Personal Home' },
+      { id: 'honor-board', label: 'Honor Board' },
+    ],
   };
 
+  const topLevelGroups = [
+    { id: 'stratagem', label: 'Stratagem', hasMenu: true },
+    { id: 'challenge', label: 'Challenge', hasMenu: true },
+    { id: 'quiz', label: 'Quiz', hasMenu: true },
+    { id: 'weapon', label: 'Weapon', hasMenu: true },
+    { id: 'armor', label: 'Armor', hasMenu: true },
+    { id: 'honor', label: 'Honor Board', hasMenu: false, targetPage: 'honor-board' },
+  ];
+
   const activeGroup =
-    page === 'quiz-input' || page === 'quiz-logo'
+    page === 'honor-board'
+      ? 'honor'
+      : page === 'quiz-input' || page === 'quiz-logo'
       ? 'quiz'
       : page === 'armor' || page === 'armor-random'
       ? 'armor'
@@ -97,6 +119,7 @@ function TopBar({
       ...groupItems.quiz,
       ...groupItems.weapon,
       ...groupItems.armor,
+      ...groupItems.honor,
     ].find((item) => item.id === page)?.label || 'Training';
   const modeHeadline =
     activeGroup === 'challenge'
@@ -107,6 +130,8 @@ function TopBar({
       ? 'Defensive Doctrine'
       : activeGroup === 'weapon'
       ? 'Approved Armaments'
+      : activeGroup === 'honor'
+      ? 'Cloud Commendations'
       : 'Democracy Directive';
   const [quipIndex, setQuipIndex] = useState(() =>
     Math.floor(Math.random() * helldiverQuips.length)
@@ -219,30 +244,32 @@ function TopBar({
         </div>
 
         <nav className="topbar-group-row" aria-label="Navigation groups" ref={groupRowRef}>
-          {[
-            { id: 'stratagem', label: 'Stratagem' },
-            { id: 'challenge', label: 'Challenge' },
-            { id: 'quiz', label: 'Quiz' },
-            { id: 'weapon', label: 'Weapon' },
-            { id: 'armor', label: 'Armor' },
-          ].map((group) => (
+          {topLevelGroups.map((group) => (
             <div key={group.id} className="topbar-group-item">
               <button
                 type="button"
                 className={`topbar-group-btn ${
                   activeGroup === group.id ? 'active' : ''
                 } ${openMenuGroup === group.id ? 'open' : ''}`}
-                onClick={() => toggleGroup(group.id)}
-                aria-expanded={openMenuGroup === group.id}
-                aria-controls={`${group.id}-menu`}
+                onClick={() => {
+                  if (group.hasMenu) {
+                    toggleGroup(group.id);
+                    return;
+                  }
+                  onSelectPage(group.targetPage);
+                }}
+                aria-expanded={group.hasMenu ? openMenuGroup === group.id : undefined}
+                aria-controls={group.hasMenu ? `${group.id}-menu` : undefined}
               >
                 <span>{group.label}</span>
-                <span className="topbar-group-arrow" aria-hidden="true">
-                  &#9662;
-                </span>
+                {group.hasMenu && (
+                  <span className="topbar-group-arrow" aria-hidden="true">
+                    &#9662;
+                  </span>
+                )}
               </button>
 
-              {openMenuGroup === group.id && (
+              {group.hasMenu && openMenuGroup === group.id && (
                 <div
                   className={`menu-dropdown ${
                     group.id === 'armor' || group.id === 'weapon' ? 'align-right' : ''
@@ -251,32 +278,78 @@ function TopBar({
                 >
                   <div className="menu-col">
                     <div className="menu-dropdown-title">
-                      {group.id === 'stratagem'
-                        ? 'Stratagem'
-                        : group.id === 'challenge'
-                        ? 'Challenge'
-                        : group.id === 'quiz'
-                        ? 'Quiz'
-                        : group.id === 'armor'
-                        ? 'Armor'
-                        : 'Weapon'}
+                      {group.label}
                     </div>
-                    {groupItems[group.id].map((item) => (
-                      <button
-                        key={item.id}
-                        type="button"
-                        className={page === item.id ? 'active' : ''}
-                        onClick={() => onSelectPage(item.id)}
-                      >
-                        {item.label}
-                      </button>
-                    ))}
+                    <div className="menu-grid">
+                      {groupItems[group.id].map((item) => (
+                        <button
+                          key={item.id}
+                          type="button"
+                          className={page === item.id ? 'active' : ''}
+                          onClick={() => onSelectPage(item.id)}
+                        >
+                          {item.label}
+                        </button>
+                      ))}
+                    </div>
                   </div>
                 </div>
               )}
             </div>
           ))}
         </nav>
+
+        <div className="topbar-auth">
+          <div className="topbar-auth-copy">
+            <span className="topbar-auth-label">
+              {session ? 'Profile' : 'Pilot'}
+            </span>
+            {!authReady ? (
+              <strong>Syncing</strong>
+            ) : !authConfigured ? (
+              <strong>Offline</strong>
+            ) : session ? (
+              <button
+                type="button"
+                className="topbar-auth-link"
+                onClick={() => onSelectPage('profile')}
+                title={currentUsername || session?.user?.email || 'Personal Home'}
+              >
+                Personal Home
+              </button>
+            ) : (
+              <strong>Guest</strong>
+            )}
+          </div>
+          {session ? (
+            <div className="topbar-auth-actions">
+              {needsUsername && (
+                <button
+                  type="button"
+                  className="topbar-auth-btn"
+                  onClick={onOpenAuth}
+                >
+                  Set Username
+                </button>
+              )}
+              <button
+                type="button"
+                className="topbar-auth-btn"
+                onClick={onSignOut}
+              >
+                Logout
+              </button>
+            </div>
+          ) : (
+            <button
+              type="button"
+              className="topbar-auth-btn"
+              onClick={onOpenAuth}
+            >
+              Login
+            </button>
+          )}
+        </div>
       </header>
 
       {openMenuGroup && (

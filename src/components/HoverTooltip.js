@@ -18,6 +18,13 @@ function HoverTooltip({ hoverInfo, hoverPos }) {
         <span>Cooldown: {hoverInfo.item.cooldown}</span>
         <span>Unlock: {hoverInfo.item.unlock}</span>
         <span>Section: {hoverInfo.section}</span>
+        <span>
+          World Best:{' '}
+          {hoverInfo.globalRecord?.bestMs
+            ? `${(hoverInfo.globalRecord.bestMs / 1000).toFixed(2)}s`
+            : '--'}
+        </span>
+        <span>Held by: {hoverInfo.globalRecord?.username || '--'}</span>
       </div>
       <span>{hoverInfo.item.description}</span>
       <em>{hoverInfo.item.code.map((dir) => DIR_LABEL[dir]).join(' ')}</em>

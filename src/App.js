@@ -2,26 +2,20 @@
 import './App.css';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { flattenStratagems, stratagemSections } from './stratagems';
-import weaponJson from './weapon.json';
 import SplashScreen from './components/SplashScreen';
 import TopBar from './components/TopBar';
 import HoverTooltip from './components/HoverTooltip';
+import AppPageContent from './components/AppPageContent';
 import SettingsDock from './components/SettingsDock';
-import TrainingPage from './pages/TrainingPage';
-import RandomPage from './pages/RandomPage';
-import WikiPage from './pages/WikiPage';
-import LoadoutPage from './pages/LoadoutPage';
-import ChallengePage from './pages/ChallengePage';
-import ChallengeInterferencePage from './pages/ChallengeInterferencePage';
-import SignalHijackPage from './pages/SignalHijackPage';
-import AnimationTestPage from './pages/AnimationTestPage';
-import ShipMapPage from './pages/ShipMapPage';
-import WeaponPage from './pages/WeaponPage';
-import WeaponRandomPage from './pages/WeaponRandomPage';
-import QuizInputPage from './pages/QuizInputPage';
-import QuizLogoPage from './pages/QuizLogoPage';
-import ArmorPage from './pages/ArmorPage';
-import RandomArmorPage from './pages/RandomArmorPage';
+import useAuthController from './hooks/useAuthController';
+import useAssetUrls from './hooks/useAssetUrls';
+import useHoverTooltip from './hooks/useHoverTooltip';
+import useStratagemCatalog from './hooks/useStratagemCatalog';
+import useStratagemCloudRecords from './hooks/useStratagemCloudRecords';
+import useStratagemStats from './hooks/useStratagemStats';
+import useWeaponCatalog from './hooks/useWeaponCatalog';
+import { hasSupabaseConfig } from './lib/supabase';
+import { formatKeyLabel } from './utils/keyboard';
 
 // Fisher-Yates shuffle helper used across random generators.
 const shufflePick = (items, count) => {
@@ -35,9 +29,19 @@ const shufflePick = (items, count) => {
 const RANDOM_DIRS = ['up', 'down', 'left', 'right'];
 
 function App() {
+  const {
+    authReady,
+    needsUsername,
+    profile,
+    saveUsername,
+    session,
+    signIn,
+    signOut,
+    signUp,
+  } = useAuthController();
   const [showSplash, setShowSplash] = useState(true);
-  const [controlMode, setControlMode] = useState(null);
-  const [showModePicker, setShowModePicker] = useState(false);
+  const [authReturnPage, setAuthReturnPage] = useState('training');
+  const [controlMode, setControlMode] = useState('desktop');
   const [page, setPage] = useState('training');
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [openMenuGroup, setOpenMenuGroup] = useState(null);
@@ -53,7 +57,7 @@ function App() {
   const [errorFlash, setErrorFlash] = useState(false);
   const [pauseEnabled, setPauseEnabled] = useState(false);
   const [pauseMs, setPauseMs] = useState(600);
-  const [endlessMode, setEndlessMode] = useState(false);
+  const [endlessMode, setEndlessMode] = useState(true);
   const [trainingDone, setTrainingDone] = useState(false);
   const [keysPerSec, setKeysPerSec] = useState(0);
   const [sessionStartMs, setSessionStartMs] = useState(null);
@@ -69,7 +73,6 @@ function App() {
   const [isFullscreenMode, setIsFullscreenMode] = useState(false);
   const [isSafariMobileBrowser, setIsSafariMobileBrowser] = useState(false);
   const [isFocusMode, setIsFocusMode] = useState(false);
-  const [stratagemStats, setStratagemStats] = useState({});
   const activeStartRef = useRef(null);
   const [wikiQuery, setWikiQuery] = useState('');
   const [wikiSection, setWikiSection] = useState('all');
@@ -102,7 +105,6 @@ function App() {
   const challengeEndRef = useRef(null);
   const challengeMistakesRef = useRef(0);
   const challengeInterferenceNextRef = useRef(null);
-  const [weaponData] = useState(weaponJson);
   const [weaponQuery, setWeaponQuery] = useState('');
   const [weaponSlot, setWeaponSlot] = useState('all');
   const [weaponCategory, setWeaponCategory] = useState('all');
@@ -119,12 +121,36 @@ function App() {
     right: 'd',
   });
   const [bindingTarget, setBindingTarget] = useState(null);
-  const [hoverInfo, setHoverInfo] = useState(null);
-  const [hoverPos, setHoverPos] = useState({ x: 0, y: 0 });
   const touchStartRef = useRef(null);
   const [showRotateHint, setShowRotateHint] = useState(false);
   const [isTouchGameplayPage, setIsTouchGameplayPage] = useState(false);
   const [trainingMobileStep, setTrainingMobileStep] = useState('play');
+  const {
+    availableStratagems,
+    wikiResults,
+    wikiSections,
+  } = useStratagemCatalog({
+    allStratagems,
+    selectedIds,
+    stratagemSections,
+    wikiQuery,
+    wikiSection,
+  });
+  const { getApIcon, getStratagemLogo, getWeaponImage, splashLogoUrl } =
+    useAssetUrls();
+  const { stratagemStats, setStratagemStats } = useStratagemStats();
+  const {
+    grenadeWeapons,
+    primaryWeapons,
+    secondaryWeapons,
+    weaponCategories,
+    weaponResults,
+    weaponSlots,
+  } = useWeaponCatalog({
+    weaponCategory,
+    weaponQuery,
+    weaponSlot,
+  });
   const isChallengeRoute =
     page === 'challenge' || page === 'challenge-interference';
   const isInterferenceRoute = page === 'challenge-interference';
@@ -140,81 +166,35 @@ function App() {
     page === 'random' && isTouchGameplayPage && randomMobileStarted;
   const isMobilePlayLocked =
     isTrainingMobilePlay || isChallengeMobilePlay || isRandomMobilePlay;
-  const splashLogoUrl = `${process.env.PUBLIC_URL}/Helldiver_welcom_logo.png`;
-  const stratagemLogoBase = `${process.env.PUBLIC_URL}/stratagems logo`;
-  const weaponLogoBase = `${process.env.PUBLIC_URL}/weapons`;
-  const apLogoBase = `${process.env.PUBLIC_URL}/APs`;
-
-  const availableStratagems = useMemo(
-    () => allStratagems.filter((item) => selectedIds.includes(item.id)),
-    [allStratagems, selectedIds]
-  );
-  const wikiSections = useMemo(
-    () => stratagemSections.map((section) => section.name),
-    []
-  );
-  const wikiResults = useMemo(() => {
-    const query = wikiQuery.trim().toLowerCase();
-    return allStratagems.filter((item) => {
-      if (wikiSection !== 'all' && item.section !== wikiSection) return false;
-      if (!query) return true;
-      return (
-        item.name.toLowerCase().includes(query) ||
-        item.id.toLowerCase().includes(query)
-      );
-    });
-  }, [allStratagems, wikiQuery, wikiSection]);
-  const weaponSlots = useMemo(() => {
-    const unique = new Set(weaponData.weapons.map((item) => item.slot));
-    return Array.from(unique).sort();
-  }, [weaponData.weapons]);
-  const weaponCategories = useMemo(() => {
-    const unique = new Set(
-      weaponData.weapons
-        .filter((item) => weaponSlot === 'all' || item.slot === weaponSlot)
-        .map((item) => item.category)
-    );
-    return Array.from(unique).sort();
-  }, [weaponData.weapons, weaponSlot]);
-  const weaponResults = useMemo(() => {
-    const query = weaponQuery.trim().toLowerCase();
-    return weaponData.weapons.filter((item) => {
-      if (weaponSlot !== 'all' && item.slot !== weaponSlot) return false;
-      if (weaponCategory !== 'all' && item.category !== weaponCategory)
-        return false;
-      if (!query) return true;
-      return (
-        item.name.toLowerCase().includes(query) ||
-        item.id.toLowerCase().includes(query)
-      );
-    });
-  }, [weaponData.weapons, weaponQuery, weaponSlot, weaponCategory]);
-  const primaryWeapons = useMemo(
-    () =>
-      weaponData.weapons.filter((item) => {
-        const image = item.image || '';
-        const isPrimaryRender = image.includes('Primary Render');
-        const isSidearmType =
-          item.category === 'Pistol' || item.category === 'Melee';
-        return isPrimaryRender && !isSidearmType;
-      }),
-    [weaponData.weapons]
-  );
-  const secondaryWeapons = useMemo(
-    () =>
-      weaponData.weapons.filter((item) => {
-        const image = item.image || '';
-        return image.includes('Secondary Render') || item.slot === 'Secondary';
-      }),
-    [weaponData.weapons]
-  );
-  const grenadeWeapons = useMemo(
-    () =>
-      weaponData.weapons.filter(
-        (item) => item.slot === 'Slot 4' && item.category === 'Grenade'
-      ),
-    [weaponData.weapons]
-  );
+  const fullscreenButtonLabel =
+    isSafariMobileBrowser && isTouchGameplayPage
+      ? isFocusMode
+        ? 'Exit'
+        : 'Focus'
+      : isFullscreenMode
+      ? '[]'
+      : '[ ]';
+  const fullscreenAriaLabel =
+    isSafariMobileBrowser && isTouchGameplayPage
+      ? isFocusMode
+        ? 'Exit focus mode'
+        : 'Enter focus mode'
+      : isFullscreenMode
+      ? 'Exit fullscreen mode'
+      : 'Enter fullscreen mode';
+  const {
+    globalRecords,
+    personalRecords,
+    personalCloudReady,
+    cloudSyncStatus,
+    submitCloudStratagemRecord,
+  } = useStratagemCloudRecords({
+    needsUsername,
+    profile,
+    session,
+  });
+  const { clearHoverInfo, handleHoverInfo, hoverInfo, hoverPos, setHoverPos } =
+    useHoverTooltip(globalRecords);
 
   const activeStratagem = trainingSet[activeIndex];
   const keyToDir = useMemo(() => {
@@ -225,82 +205,12 @@ function App() {
     return mapping;
   }, [keyBindings]);
 
-  const getStratagemLogo = useCallback(
-    (iconName) => {
-      if (!iconName) return null;
-      return `${stratagemLogoBase}/${encodeURIComponent(iconName)}`;
-    },
-    [stratagemLogoBase]
-  );
-  const apIconMap = useMemo(
-    () => ({
-      2: 'Armor_AP2_Icon.webp',
-      3: 'Armor_AP3_Icon.png',
-      4: 'Armor_AP4_Icon.webp',
-      5: 'Armor_AP5_Icon.webp',
-      6: 'Armor_AP6_Icon.webp',
-      7: 'Armor_AP7_Icon.webp',
-    }),
-    []
-  );
-  const weaponImageOverrides = useMemo(
-    () => ({
-      'TED-63_Dynamite_Throwable_Render.png':
-        'TED-63_Dynamite_Throwable_Render.webp',
-      'G-6_Frag_Throwable_Render.png': 'G-6_Frag_Throwable_Render.webp',
-      'G-12_High_Explosive_Throwable_Render.png':
-        'G-12_High_Explosive_Throwable_Render.webp',
-      'G-10_Incendiary_Throwable_Render.png':
-        'G-10_Incendiary_Throwable_Render.webp',
-      'G-7_Pineapple_Throwable_Render.png':
-        'G-7_Pineapple_Throwable_Render.webp',
-      'G-16_Impact_Throwable_Render.png': 'G-16_Impact_Throwable_Render.webp',
-      'G-13_Incendiary_Impact_Throwable_Render.png':
-        'G-13_Incendiary_Impact_Throwable_Render.webp',
-      'G-23_Stun_Throwable_Render.png': 'G-23_Stun_Throwable_Render.webp',
-      'G-4_Gas_Throwable_Render.png': 'G-4_Gas_Throwable_Render.webp',
-      'G-50_Seeker_Throwable_Render.png': 'G-50_Seeker_Throwable_Render.webp',
-      'G-3_Smoke_Throwable_Render.png': 'G-3_Smoke_Throwable_Render.webp',
-      'G-123_Thermite_Throwable_Render.png':
-        'G-123_Thermite_Throwable_Render.webp',
-      'K-2_Throwing_Knife_Throwable_Render.png':
-        'K-2_Throwing_Knife_Throwable_Render.webp',
-      'G-142_Pyrotech_Throwable_Render.png':
-        'G-142_Pyrotech_Throwable_Render.webp',
-      'G-109_Urchin_Throwable_Render.png': 'G-109_Urchin_Throwable_Render.webp',
-      'G-31_ARC_Throwable_Render.png': 'G-31_ARC_Throwable_Render.webp',
-      'TM-1_Lure_Mine_Throwable_Render.png':
-        'TM-1_Lure_Mine_Throwable_Render.webp',
-      'G-89_Smokescreen_Throwable_Render.png':
-        'G-89_Smokescreen_Throwable_Render.webp',
-      'RL-77_Airburst_Rocket_Launcher_Support_Render.png':
-        'RL-77_Airburst_Rocket_Launcher_Support_Render.webp',
-      'StA-X3_W.A.S.P._Launcher_Support_Render.png': 'StA-X3_W.png',
-      'Entrenchment_Tool_Support_Render.png':
-        'Entrenchment_Tool_Support_Render.webp',
-      'CQC-1_One_True_Flag_Support_Render.png':
-        'CQC-1_One_True_Flag_Support_Render.webp',
-    }),
-    []
-  );
-  const getWeaponImage = useCallback(
-    (filename) => {
-      if (!filename) return null;
-      const normalized = filename.replace(/\s+/g, '_');
-      const resolved = weaponImageOverrides[normalized] || normalized;
-      return `${weaponLogoBase}/${encodeURIComponent(resolved)}`;
-    },
-    [weaponLogoBase, weaponImageOverrides]
-  );
-  const getApIcon = useCallback(
-    (value) => {
-      const numeric = Number.parseInt(value, 10);
-      if (!Number.isFinite(numeric)) return null;
-      const filename = apIconMap[numeric];
-      return filename ? `${apLogoBase}/${filename}` : null;
-    },
-    [apLogoBase, apIconMap]
-  );
+  useEffect(() => {
+    if (needsUsername && page !== 'auth') {
+      setAuthReturnPage((current) => (page === 'auth' ? current : page));
+      setPage('auth');
+    }
+  }, [needsUsername, page]);
 
   const rollRandomWeapons = useCallback(() => {
     const pickSet = (list) => {
@@ -628,7 +538,6 @@ function App() {
   const handleKey = useCallback(
     (event) => {
       if (showSplash) return;
-      if (showModePicker) return;
       const tag = event.target?.tagName?.toLowerCase();
       if (tag === 'input' || tag === 'textarea') return;
       const pressedKey = event.key?.toLowerCase();
@@ -639,6 +548,22 @@ function App() {
         'challenge-interference',
         'quiz-input',
       ]);
+      if (settingsOpen && bindingTarget) {
+        event.preventDefault();
+        if (!pressedKey) return;
+        setKeyBindings((prev) => {
+          const next = { ...prev };
+          Object.keys(next).forEach((dir) => {
+            if (next[dir] === pressedKey) {
+              next[dir] = '';
+            }
+          });
+          next[bindingTarget] = pressedKey;
+          return next;
+        });
+        setBindingTarget(null);
+        return;
+      }
       if (showRotateHint && wasdPages.has(page)) {
         event.preventDefault();
         return;
@@ -676,22 +601,6 @@ function App() {
         return;
       }
       if (trainingDone && page === 'training') return;
-      if (settingsOpen && bindingTarget) {
-        event.preventDefault();
-        if (!pressedKey || pressedKey.length > 1) return;
-        setKeyBindings((prev) => {
-          const next = { ...prev };
-          Object.keys(next).forEach((dir) => {
-            if (next[dir] === pressedKey) {
-              next[dir] = '';
-            }
-          });
-          next[bindingTarget] = pressedKey;
-          return next;
-        });
-        setBindingTarget(null);
-        return;
-      }
       if (
         page !== 'training' &&
         page !== 'random' &&
@@ -743,6 +652,7 @@ function App() {
                   },
                 };
               });
+              submitCloudStratagemRecord(activeStratagem.id, elapsed);
             }
             setInputSeq([]);
             const isLastItem = activeIndex + 1 >= trainingSet.length;
@@ -886,7 +796,6 @@ function App() {
       refreshTrainingSet,
       settingsOpen,
       showSplash,
-      showModePicker,
       trainingSet,
       availableStratagems,
       allStratagems,
@@ -909,7 +818,9 @@ function App() {
       beginChallengeRun,
       getChallengeTargetCount,
       sessionStartMs,
+      setStratagemStats,
       showRotateHint,
+      submitCloudStratagemRecord,
       isTrainingMobileSetup,
     ]
   );
@@ -1035,7 +946,6 @@ function App() {
 
   useEffect(() => {
     if (showSplash) {
-      setShowModePicker(false);
       setControlMode(null);
     }
   }, [showSplash]);
@@ -1153,7 +1063,6 @@ function App() {
   }, [isMobilePlayLocked]);
 
   const startButtonHandler = () => {
-    if (showModePicker) return;
     if (page === 'training') {
       if (isTrainingMobileSetup) {
         enterTrainingMobilePlay();
@@ -1193,14 +1102,19 @@ function App() {
 
   const handleSplashClose = () => {
     setShowSplash(false);
-    setShowModePicker(true);
-  };
-
-  const handleSelectControlMode = (mode) => {
-    setControlMode(mode);
-    setShowModePicker(false);
     setSettingsOpen(false);
+    setControlMode('desktop');
   };
+  const openAuthPage = useCallback(() => {
+    if (page !== 'auth') {
+      setAuthReturnPage(page);
+    }
+    setPage('auth');
+    setOpenMenuGroup(null);
+  }, [page]);
+  const handleAuthSuccess = useCallback(() => {
+    setPage(authReturnPage || 'training');
+  }, [authReturnPage]);
 
   return (
     <div
@@ -1214,12 +1128,23 @@ function App() {
         <SplashScreen splashLogoUrl={splashLogoUrl} onClose={handleSplashClose} />
       )}
 
-      {!showSplash && !isMobilePlayLocked && (
+      {!showSplash && (
         <>
           <TopBar
+            authReady={authReady}
+            currentUsername={profile?.username || null}
+            needsUsername={needsUsername}
             openMenuGroup={openMenuGroup}
+            authConfigured={hasSupabaseConfig}
+            onOpenAuth={openAuthPage}
             page={page}
+            session={session}
             setShowSplash={setShowSplash}
+            onSignOut={() => {
+              signOut().catch((error) => {
+                console.error('Failed to sign out', error);
+              });
+            }}
             onOpenMenu={(groupId) => setOpenMenuGroup(groupId)}
             onCloseMenu={() => setOpenMenuGroup(null)}
             onSelectPage={(nextPage) => {
@@ -1230,344 +1155,264 @@ function App() {
         </>
       )}
 
-      {!showSplash && showModePicker && (
-        <div className="mode-picker-overlay">
-          <div className="mode-picker-card">
-            <strong>Select Control Mode</strong>
-            <span>Choose the mode for this session.</span>
-            <div className="mode-picker-actions">
-              <button
-                type="button"
-                className="primary"
-                onClick={() => handleSelectControlMode('desktop')}
-              >
-                Desktop Mode
-              </button>
-              <button
-                type="button"
-                className="primary ghost"
-                onClick={() => handleSelectControlMode('mobile')}
-              >
-                Mobile Mode
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-
       <main>
-        {showRotateHint && (
-          <div className="rotate-hint">
-            Swipe controls work best in landscape mode. Rotate your phone.
-          </div>
-        )}
-        {page === 'training' && (
-          <TrainingPage
-            selectedIds={selectedIds}
-            allStratagems={allStratagems}
-            stratagemSections={stratagemSections}
-            onToggleAll={toggleAllSelections}
-            onToggleSection={toggleSection}
-            onToggleSelect={toggleSelect}
-            onHoverInfo={setHoverInfo}
-            onHoverPos={setHoverPos}
-            onHoverClear={() => setHoverInfo(null)}
-            getStratagemLogo={getStratagemLogo}
-            stratagemStats={stratagemStats}
-            activeStratagem={activeStratagem}
-            activeIndex={activeIndex}
-            trainingSet={trainingSet}
-            trainingDone={trainingDone}
-            setActiveIndex={setActiveIndex}
-            setInputSeq={setInputSeq}
-            setStatus={setStatus}
-            errorFlash={errorFlash}
-            inputSeq={inputSeq}
-            status={status}
-            keysPerSec={keysPerSec}
-            mobileGameplay={isTouchGameplayPage}
-            controlsLocked={showRotateHint}
-            mobileStep={isTrainingMobileSetup ? 'setup' : 'play'}
-            onEnterMobilePlay={enterTrainingMobilePlay}
-            onExitMobilePlay={exitTrainingMobilePlay}
-            onRestartTraining={refreshTrainingSet}
-            onToggleFullscreen={toggleFullscreenMode}
-            isFullscreenMode={isFullscreenMode}
-            fullscreenButtonLabel={
-              isSafariMobileBrowser && isTouchGameplayPage
-                ? isFocusMode
-                  ? 'Exit'
-                  : 'Focus'
-                : isFullscreenMode
-                ? '[]'
-                : '[ ]'
-            }
-            fullscreenAriaLabel={
-              isSafariMobileBrowser && isTouchGameplayPage
-                ? isFocusMode
-                  ? 'Exit focus mode'
-                  : 'Enter focus mode'
-                : isFullscreenMode
-                ? 'Exit fullscreen mode'
-                : 'Enter fullscreen mode'
-            }
-          />
-        )}
-
-        {page === 'random' && (
-          <RandomPage
-            randomErrorFlash={randomErrorFlash}
-            randomSequence={randomSequence}
-            randomInput={randomInput}
-            randomStatus={randomStatus}
-            randomElapsed={randomElapsed}
-            mobileGameplay={isTouchGameplayPage}
-            mobileStarted={isRandomMobilePlay}
-            onExitMobilePlay={() => {
+        <AppPageContent
+          page={page}
+          setPage={setPage}
+          authProps={{
+            authConfigured: hasSupabaseConfig,
+            needsUsername,
+            onAuthSuccess: handleAuthSuccess,
+            onSaveUsername: saveUsername,
+            onSignIn: signIn,
+            onSignUp: signUp,
+            profile,
+            session,
+          }}
+          profileProps={{
+            allStratagems,
+            authConfigured: hasSupabaseConfig,
+            globalRecords,
+            needsUsername,
+            onOpenAuth: openAuthPage,
+            onOpenHonorBoard: () => setPage('honor-board'),
+            personalCloudReady,
+            personalRecords,
+            profile,
+            session,
+          }}
+          trainingProps={{
+            selectedIds,
+            allStratagems,
+            stratagemSections,
+            onToggleAll: toggleAllSelections,
+            onToggleSection: toggleSection,
+            onToggleSelect: toggleSelect,
+            onHoverInfo: handleHoverInfo,
+            onHoverPos: setHoverPos,
+            onHoverClear: clearHoverInfo,
+            getStratagemLogo,
+            globalRecords,
+            stratagemStats,
+            activeStratagem,
+            activeIndex,
+            trainingSet,
+            trainingDone,
+            setActiveIndex,
+            setInputSeq,
+            setStatus,
+            errorFlash,
+            inputSeq,
+            status,
+            keysPerSec,
+            trainCount,
+            setTrainCount,
+            endlessMode,
+            setEndlessMode,
+            mobileGameplay: isTouchGameplayPage,
+            controlsLocked: showRotateHint,
+            mobileStep: isTrainingMobileSetup ? 'setup' : 'play',
+            onEnterMobilePlay: enterTrainingMobilePlay,
+            onExitMobilePlay: exitTrainingMobilePlay,
+            onRestartTraining: refreshTrainingSet,
+            onToggleFullscreen: toggleFullscreenMode,
+            isFullscreenMode,
+            fullscreenButtonLabel,
+            fullscreenAriaLabel,
+            globalRecord: activeStratagem ? globalRecords[activeStratagem.id] : null,
+            isAuthenticated: Boolean(session && profile),
+            needsUsername,
+            cloudSyncStatus,
+          }}
+          randomProps={{
+            randomErrorFlash,
+            randomSequence,
+            randomInput,
+            randomStatus,
+            randomElapsed,
+            mobileGameplay: isTouchGameplayPage,
+            mobileStarted: isRandomMobilePlay,
+            onExitMobilePlay: () => {
               setRandomMobileStarted(false);
               setIsFocusMode(false);
-            }}
-            onToggleFullscreen={toggleFullscreenMode}
-            isFullscreenMode={isFullscreenMode}
-            fullscreenButtonLabel={
-              isSafariMobileBrowser && isTouchGameplayPage
-                ? isFocusMode
-                  ? 'Exit'
-                  : 'Focus'
-                : isFullscreenMode
-                ? '[]'
-                : '[ ]'
-            }
-            fullscreenAriaLabel={
-              isSafariMobileBrowser && isTouchGameplayPage
-                ? isFocusMode
-                  ? 'Exit focus mode'
-                  : 'Enter focus mode'
-                : isFullscreenMode
-                ? 'Exit fullscreen mode'
-                : 'Enter fullscreen mode'
-            }
-          />
-        )}
-
-        {page === 'wiki' && (
-          <WikiPage
-            wikiQuery={wikiQuery}
-            setWikiQuery={setWikiQuery}
-            wikiSection={wikiSection}
-            setWikiSection={setWikiSection}
-            wikiSections={wikiSections}
-            wikiResults={wikiResults}
-            getStratagemLogo={getStratagemLogo}
-          />
-        )}
-
-        {page === 'loadout' && (
-          <LoadoutPage
-            selectedIds={selectedIds}
-            allStratagems={allStratagems}
-            stratagemSections={stratagemSections}
-            onToggleAll={toggleAllSelections}
-            onToggleSection={toggleSection}
-            onToggleSelect={toggleSelect}
-            onHoverInfo={setHoverInfo}
-            onHoverPos={setHoverPos}
-            onHoverClear={() => setHoverInfo(null)}
-            getStratagemLogo={getStratagemLogo}
-            loadoutCount={loadoutCount}
-            setLoadoutCount={setLoadoutCount}
-            refreshLoadoutSet={refreshLoadoutSet}
-            loadoutSet={loadoutSet}
-          />
-        )}
-
-        {page === 'challenge' && (
-          <ChallengePage
-            selectedIds={selectedIds}
-            allStratagems={allStratagems}
-            stratagemSections={stratagemSections}
-            onToggleAll={toggleAllSelections}
-            onToggleSection={toggleSection}
-            onToggleSelect={toggleSelect}
-            onHoverInfo={setHoverInfo}
-            onHoverPos={setHoverPos}
-            onHoverClear={() => setHoverInfo(null)}
-            getStratagemLogo={getStratagemLogo}
-            challengeMode={challengeMode}
-            setChallengeMode={setChallengeMode}
-            challengeLevel={challengeLevel}
-            setChallengeLevel={setChallengeLevel}
-            challengeScore={challengeScore}
-            challengeHighScore={challengeHighScore}
-            challengeTimeLeft={challengeTimeLeft}
-            challengeStreak={challengeStreak}
-            challengeBestStreak={challengeBestStreak}
-            challengeFailed={challengeFailed}
-            setChallengeScore={setChallengeScore}
-            setChallengeRetries={setChallengeRetries}
-            startChallengeLevel={startChallengeLevel}
-            getChallengeDurationMs={getChallengeDurationMs}
-            beginChallengeRun={beginChallengeRun}
-            challengeLevelComplete={challengeLevelComplete}
-            challengeRetries={challengeRetries}
-            getChallengeTargetCount={getChallengeTargetCount}
-            challengeSet={challengeSet}
-            challengeActiveIndex={challengeActiveIndex}
-            challengeStarted={challengeStarted}
-            challengeErrorFlash={challengeErrorFlash}
-            challengeInputSeq={challengeInputSeq}
-            challengeStatus={challengeStatus}
-            challengeCompleted={challengeCompleted}
-            setChallengeLevelAndStartNext={setChallengeLevelAndStartNext}
-            mobileGameplay={isTouchGameplayPage}
-            controlsLocked={showRotateHint}
-            onExitMobilePlay={() => {
+            },
+            onToggleFullscreen: toggleFullscreenMode,
+            isFullscreenMode,
+            fullscreenButtonLabel,
+            fullscreenAriaLabel,
+          }}
+          wikiProps={{
+            wikiQuery,
+            setWikiQuery,
+            wikiSection,
+            setWikiSection,
+            wikiSections,
+            wikiResults,
+            getStratagemLogo,
+          }}
+          loadoutProps={{
+            selectedIds,
+            allStratagems,
+            stratagemSections,
+            onToggleAll: toggleAllSelections,
+            onToggleSection: toggleSection,
+            onToggleSelect: toggleSelect,
+            onHoverInfo: handleHoverInfo,
+            onHoverPos: setHoverPos,
+            onHoverClear: clearHoverInfo,
+            getStratagemLogo,
+            globalRecords,
+            loadoutCount,
+            setLoadoutCount,
+            refreshLoadoutSet,
+            loadoutSet,
+          }}
+          challengeProps={{
+            selectedIds,
+            allStratagems,
+            stratagemSections,
+            onToggleAll: toggleAllSelections,
+            onToggleSection: toggleSection,
+            onToggleSelect: toggleSelect,
+            onHoverInfo: handleHoverInfo,
+            onHoverPos: setHoverPos,
+            onHoverClear: clearHoverInfo,
+            getStratagemLogo,
+            globalRecords,
+            challengeMode,
+            setChallengeMode,
+            challengeLevel,
+            setChallengeLevel,
+            challengeScore,
+            challengeHighScore,
+            challengeTimeLeft,
+            challengeStreak,
+            challengeBestStreak,
+            challengeFailed,
+            setChallengeScore,
+            setChallengeRetries,
+            startChallengeLevel,
+            getChallengeDurationMs,
+            beginChallengeRun,
+            challengeLevelComplete,
+            challengeRetries,
+            getChallengeTargetCount,
+            challengeSet,
+            challengeActiveIndex,
+            challengeStarted,
+            challengeErrorFlash,
+            challengeInputSeq,
+            challengeStatus,
+            challengeCompleted,
+            setChallengeLevelAndStartNext,
+            mobileGameplay: isTouchGameplayPage,
+            controlsLocked: showRotateHint,
+            onExitMobilePlay: () => {
               setChallengeStarted(false);
               setIsFocusMode(false);
-            }}
-            onToggleFullscreen={toggleFullscreenMode}
-            isFullscreenMode={isFullscreenMode}
-            fullscreenButtonLabel={
-              isSafariMobileBrowser && isTouchGameplayPage
-                ? isFocusMode
-                  ? 'Exit'
-                  : 'Focus'
-                : isFullscreenMode
-                ? '[]'
-                : '[ ]'
-            }
-            fullscreenAriaLabel={
-              isSafariMobileBrowser && isTouchGameplayPage
-                ? isFocusMode
-                  ? 'Exit focus mode'
-                  : 'Enter focus mode'
-                : isFullscreenMode
-                ? 'Exit fullscreen mode'
-                : 'Enter fullscreen mode'
-            }
-          />
-        )}
-
-        {page === 'challenge-interference' && (
-          <ChallengeInterferencePage
-            selectedIds={selectedIds}
-            allStratagems={allStratagems}
-            stratagemSections={stratagemSections}
-            onToggleAll={toggleAllSelections}
-            onToggleSection={toggleSection}
-            onToggleSelect={toggleSelect}
-            onHoverInfo={setHoverInfo}
-            onHoverPos={setHoverPos}
-            onHoverClear={() => setHoverInfo(null)}
-            getStratagemLogo={getStratagemLogo}
-            challengeLevel={challengeLevel}
-            setChallengeLevel={setChallengeLevel}
-            challengeScore={challengeScore}
-            challengeHighScore={challengeHighScore}
-            challengeTimeLeft={challengeTimeLeft}
-            challengeStreak={challengeStreak}
-            challengeBestStreak={challengeBestStreak}
-            challengeFailed={challengeFailed}
-            setChallengeScore={setChallengeScore}
-            setChallengeRetries={setChallengeRetries}
-            startChallengeLevel={startChallengeLevel}
-            beginChallengeRun={beginChallengeRun}
-            challengeLevelComplete={challengeLevelComplete}
-            challengeRetries={challengeRetries}
-            getChallengeTargetCount={getChallengeTargetCount}
-            challengeSet={challengeSet}
-            challengeActiveIndex={challengeActiveIndex}
-            challengeStarted={challengeStarted}
-            challengeErrorFlash={challengeErrorFlash}
-            challengeInputSeq={challengeInputSeq}
-            challengeStatus={challengeStatus}
-            challengeCompleted={challengeCompleted}
-            setChallengeLevelAndStartNext={setChallengeLevelAndStartNext}
-            challengeInterferenceMs={challengeInterferenceMs}
-            setChallengeInterferenceMs={setChallengeInterferenceMs}
-            challengeInterferenceLeftMs={challengeInterferenceLeftMs}
-            mobileGameplay={isTouchGameplayPage}
-            controlsLocked={showRotateHint}
-            onExitMobilePlay={() => {
+            },
+            onToggleFullscreen: toggleFullscreenMode,
+            isFullscreenMode,
+            fullscreenButtonLabel,
+            fullscreenAriaLabel,
+          }}
+          honorProps={{
+            allStratagems,
+            authConfigured: hasSupabaseConfig,
+            globalRecords,
+            onOpenAuth: openAuthPage,
+            personalCloudReady,
+            personalRecords,
+            profile,
+            session,
+            getStratagemLogo,
+          }}
+          challengeInterferenceProps={{
+            selectedIds,
+            allStratagems,
+            stratagemSections,
+            onToggleAll: toggleAllSelections,
+            onToggleSection: toggleSection,
+            onToggleSelect: toggleSelect,
+            onHoverInfo: handleHoverInfo,
+            onHoverPos: setHoverPos,
+            onHoverClear: clearHoverInfo,
+            getStratagemLogo,
+            globalRecords,
+            challengeLevel,
+            setChallengeLevel,
+            challengeScore,
+            challengeHighScore,
+            challengeTimeLeft,
+            challengeStreak,
+            challengeBestStreak,
+            challengeFailed,
+            setChallengeScore,
+            setChallengeRetries,
+            startChallengeLevel,
+            beginChallengeRun,
+            challengeLevelComplete,
+            challengeRetries,
+            getChallengeTargetCount,
+            challengeSet,
+            challengeActiveIndex,
+            challengeStarted,
+            challengeErrorFlash,
+            challengeInputSeq,
+            challengeStatus,
+            challengeCompleted,
+            setChallengeLevelAndStartNext,
+            challengeInterferenceMs,
+            setChallengeInterferenceMs,
+            challengeInterferenceLeftMs,
+            mobileGameplay: isTouchGameplayPage,
+            controlsLocked: showRotateHint,
+            onExitMobilePlay: () => {
               setChallengeStarted(false);
               setIsFocusMode(false);
-            }}
-            onToggleFullscreen={toggleFullscreenMode}
-            isFullscreenMode={isFullscreenMode}
-            fullscreenButtonLabel={
-              isSafariMobileBrowser && isTouchGameplayPage
-                ? isFocusMode
-                  ? 'Exit'
-                  : 'Focus'
-                : isFullscreenMode
-                ? '[]'
-                : '[ ]'
-            }
-            fullscreenAriaLabel={
-              isSafariMobileBrowser && isTouchGameplayPage
-                ? isFocusMode
-                  ? 'Exit focus mode'
-                  : 'Enter focus mode'
-                : isFullscreenMode
-                ? 'Exit fullscreen mode'
-                : 'Enter fullscreen mode'
-            }
-          />
-        )}
-
-        {page === 'signal-hijack' && <SignalHijackPage />}
-        {page === 'quiz-input' && (
-          <QuizInputPage
-            allStratagems={allStratagems}
-            getStratagemLogo={getStratagemLogo}
-            keyToDir={keyToDir}
-            controlsLocked={showRotateHint}
-          />
-        )}
-        {page === 'quiz-logo' && (
-          <QuizLogoPage
-            allStratagems={allStratagems}
-            getStratagemLogo={getStratagemLogo}
-          />
-        )}
-        {page === 'animation-test' && <AnimationTestPage />}
-        {page === 'ship-map' && <ShipMapPage onOpenPage={setPage} />}
-
-        {page === 'weapon' && (
-          <WeaponPage
-            weaponQuery={weaponQuery}
-            setWeaponQuery={setWeaponQuery}
-            weaponSlot={weaponSlot}
-            setWeaponSlot={setWeaponSlot}
-            weaponCategory={weaponCategory}
-            setWeaponCategory={setWeaponCategory}
-            weaponSlots={weaponSlots}
-            weaponCategories={weaponCategories}
-            weaponResults={weaponResults}
-            getWeaponImage={getWeaponImage}
-            getApIcon={getApIcon}
-          />
-        )}
-
-        {page === 'weapon-random' && (
-          <WeaponRandomPage
-            randomWeaponCount={randomWeaponCount}
-            setRandomWeaponCount={setRandomWeaponCount}
-            rollRandomWeapons={rollRandomWeapons}
-            randomWeaponSet={randomWeaponSet}
-            getWeaponImage={getWeaponImage}
-            getApIcon={getApIcon}
-          />
-        )}
-
-        {page === 'armor' && <ArmorPage />}
-
-        {page === 'armor-random' && <RandomArmorPage />}
+            },
+            onToggleFullscreen: toggleFullscreenMode,
+            isFullscreenMode,
+            fullscreenButtonLabel,
+            fullscreenAriaLabel,
+          }}
+          quizInputProps={{
+            allStratagems,
+            getStratagemLogo,
+            keyToDir,
+            controlsLocked: showRotateHint,
+          }}
+          quizLogoProps={{
+            allStratagems,
+            getStratagemLogo,
+          }}
+          weaponProps={{
+            weaponQuery,
+            setWeaponQuery,
+            weaponSlot,
+            setWeaponSlot,
+            weaponCategory,
+            setWeaponCategory,
+            weaponSlots,
+            weaponCategories,
+            weaponResults,
+            getWeaponImage,
+            getApIcon,
+          }}
+          weaponRandomProps={{
+            randomWeaponCount,
+            setRandomWeaponCount,
+            rollRandomWeapons,
+            randomWeaponSet,
+            getWeaponImage,
+            getApIcon,
+          }}
+        />
       </main>
 
       <HoverTooltip hoverInfo={hoverInfo} hoverPos={hoverPos} />
 
-      {!isMobilePlayLocked && (
+      {
         <SettingsDock
           page={page}
           settingsOpen={settingsOpen}
@@ -1586,8 +1431,9 @@ function App() {
           bindingTarget={bindingTarget}
           setBindingTarget={setBindingTarget}
           keyBindings={keyBindings}
+          formatKeyLabel={formatKeyLabel}
         />
-      )}
+      }
     </div>
   );
 }

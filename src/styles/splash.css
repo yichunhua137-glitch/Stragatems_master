@@ -1,0 +1,115 @@
+/* Splash */
+.splash {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  cursor: pointer;
+  overflow: hidden;
+  background: radial-gradient(circle at top, #171b20, #050607 72%);
+}
+
+.splash-backdrop {
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.03) 0,
+      rgba(255, 255, 255, 0.03) 1px,
+      transparent 1px,
+      transparent 7px
+    ),
+    linear-gradient(130deg, rgba(242, 214, 56, 0.1), transparent 45%);
+}
+
+.splash-hazard {
+  position: absolute;
+  top: -10%;
+  right: -18%;
+  width: 68%;
+  height: 136%;
+  opacity: 0.22;
+  background: repeating-linear-gradient(
+    135deg,
+    rgba(242, 214, 56, 0.35) 0,
+    rgba(242, 214, 56, 0.35) 12px,
+    rgba(0, 0, 0, 0.72) 12px,
+    rgba(0, 0, 0, 0.72) 24px
+  );
+}
+
+.splash-content {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  justify-items: center;
+  gap: 14px;
+}
+
+.splash-badge {
+  border: 1px solid var(--line);
+  padding: 7px 14px;
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-size: 12px;
+  color: var(--accent);
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%);
+}
+
+.splash-emblem {
+  width: 210px;
+  height: 210px;
+  background-color: var(--accent);
+  mask-image: var(--splash-logo);
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+  -webkit-mask-image: var(--splash-logo);
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: contain;
+  filter: drop-shadow(0 0 20px rgba(242, 214, 56, 0.35));
+}
+
+.splash-title {
+  display: grid;
+  gap: 5px;
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+  color: var(--accent);
+  letter-spacing: 0.16em;
+  font-size: 58px;
+}
+
+.splash-title-accent {
+  color: #f7f8fa;
+  font-size: 20px;
+  letter-spacing: 0.46em;
+}
+
+.splash-subtitle {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.74);
+  letter-spacing: 0.16em;
+  font-size: 15px;
+  text-transform: uppercase;
+}
+
+.splash-cta {
+  margin-top: 4px;
+  background: linear-gradient(180deg, var(--accent-2), var(--accent));
+  color: #0f1114;
+  padding: 10px 18px;
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  font-size: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%);
+}
+
+

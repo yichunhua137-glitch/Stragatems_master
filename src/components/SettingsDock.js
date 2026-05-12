@@ -20,6 +20,7 @@ function SettingsDock({
   bindingTarget,
   setBindingTarget,
   keyBindings,
+  formatKeyLabel,
 }) {
   return (
     <div className="settings-dock">
@@ -45,20 +46,6 @@ function SettingsDock({
             <h3>Settings</h3>
             <span>Keybinds, compliance knobs, and approved excuses.</span>
           </div>
-          <div className="settings-section">
-            <label htmlFor="count">Training count</label>
-            <div className="count-control">
-              <input
-                id="count"
-                type="range"
-                min="1"
-                max="20"
-                value={trainCount}
-                onChange={(event) => setTrainCount(Number(event.target.value))}
-              />
-              <span>{trainCount} items</span>
-            </div>
-          </div>
           {page === 'random' && (
             <div className="settings-section">
               <label htmlFor="random-length">Random sequence length</label>
@@ -75,18 +62,6 @@ function SettingsDock({
               </div>
             </div>
           )}
-          <div className="settings-section">
-            <label>Endless mode</label>
-            <div className="toggle-row">
-              <button
-                type="button"
-                className={`toggle-chip ${endlessMode ? 'active' : ''}`}
-                onClick={() => setEndlessMode((prev) => !prev)}
-              >
-                {endlessMode ? 'On' : 'Off'}
-              </button>
-            </div>
-          </div>
           <div className="settings-section">
             <label>Stratagem switch pause</label>
             <div className="toggle-row">
@@ -126,11 +101,11 @@ function SettingsDock({
                   }
                 >
                   <span className="bind-dir">{DIR_LABEL[dir]}</span>
-                  <span className="bind-key">{keyBindings[dir] || '-'}</span>
+                  <span className="bind-key">{formatKeyLabel(keyBindings[dir])}</span>
                 </button>
               ))}
             </div>
-            <p className="bind-hint">Click a direction, then press a new key to bind.</p>
+            <p className="bind-hint">Click a direction, then press any keyboard key to bind.</p>
           </div>
           <div className="settings-section rules">
             <label>Usage</label>

@@ -59,7 +59,6 @@ function RandomArmorPage() {
   return (
     <section className="section armor-section">
       <div className="section-title">
-        <span>10</span>
         <h2>Random Armor</h2>
         <p>Randomized picks from light/medium/heavy armor pools.</p>
       </div>

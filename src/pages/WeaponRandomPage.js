@@ -12,7 +12,6 @@ function WeaponRandomPage({
   return (
     <section className="section weapon-random-section">
       <div className="section-title">
-        <span>07</span>
         <h2>Random Weapon Loadout</h2>
         <p>Spin the armory wheel and trust destiny with your ammo economy.</p>
       </div>

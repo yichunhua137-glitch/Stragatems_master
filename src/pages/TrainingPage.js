@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import StratagemSelector from '../components/StratagemSelector';
 import { DIR_ICON } from '../constants/directions';
+
+const TRAINING_NOTICE_STORAGE_KEY = 'stragatems.trainingNoticeSeen.v1';
 
 // Core stratagem training page.
 function TrainingPage({
@@ -14,6 +16,7 @@ function TrainingPage({
   onHoverPos,
   onHoverClear,
   getStratagemLogo,
+  globalRecords,
   stratagemStats,
   activeStratagem,
   activeIndex,
@@ -26,6 +29,10 @@ function TrainingPage({
   inputSeq,
   status,
   keysPerSec,
+  trainCount,
+  setTrainCount,
+  endlessMode,
+  setEndlessMode,
   mobileGameplay,
   controlsLocked,
   mobileStep,
@@ -36,7 +43,23 @@ function TrainingPage({
   isFullscreenMode,
   fullscreenButtonLabel,
   fullscreenAriaLabel,
+  globalRecord,
+  isAuthenticated,
+  needsUsername,
+  cloudSyncStatus,
 }) {
+  const [showTrainingNotice, setShowTrainingNotice] = useState(() => {
+    if (typeof window === 'undefined') return false;
+    return window.localStorage.getItem(TRAINING_NOTICE_STORAGE_KEY) !== 'true';
+  });
+
+  const dismissTrainingNotice = () => {
+    setShowTrainingNotice(false);
+    if (typeof window !== 'undefined') {
+      window.localStorage.setItem(TRAINING_NOTICE_STORAGE_KEY, 'true');
+    }
+  };
+
   if (mobileGameplay && mobileStep === 'setup') {
     return (
       <section className="section training-section training-mobile-select">
@@ -54,9 +77,38 @@ function TrainingPage({
               onHoverPos={onHoverPos}
               onHoverClear={onHoverClear}
               getStratagemLogo={getStratagemLogo}
+              globalRecords={globalRecords}
               stratagemStats={stratagemStats}
               showBest
             />
+            <div className="training-inline-controls">
+              <div className="training-inline-control">
+                <label htmlFor="training-count-inline">Training count</label>
+                <div className="count-control">
+                  <input
+                    id="training-count-inline"
+                    type="range"
+                    min="1"
+                    max="20"
+                    value={trainCount}
+                    onChange={(event) => setTrainCount(Number(event.target.value))}
+                  />
+                  <span>{trainCount} items</span>
+                </div>
+              </div>
+              <div className="training-inline-control">
+                <label>Endless mode</label>
+                <div className="toggle-row">
+                  <button
+                    type="button"
+                    className={`toggle-chip ${endlessMode ? 'active' : ''}`}
+                    onClick={() => setEndlessMode((prev) => !prev)}
+                  >
+                    {endlessMode ? 'On' : 'Off'}
+                  </button>
+                </div>
+              </div>
+            </div>
             <div className="training-mobile-actions">
               <button
                 type="button"
@@ -79,9 +131,29 @@ function TrainingPage({
         mobileGameplay ? 'training-mobile-play' : ''
       }`}
     >
+      {!mobileGameplay && showTrainingNotice && (
+        <div className="training-notice-overlay">
+          <div className="training-notice-card">
+            <strong>Training Notice</strong>
+            <span>
+              Key bindings can be customized from the Settings panel in the bottom-right
+              corner. Login is now available from the top bar if you want to sync your
+              records.
+            </span>
+            <div className="mode-picker-actions">
+              <button
+                type="button"
+                className="primary"
+                onClick={dismissTrainingNotice}
+              >
+                Understood
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
       {!mobileGameplay && (
         <div className="section-title">
-          <span>01</span>
           <h2>Stratagem Training</h2>
           <p>Drill the basics until your fingers file their own requisition forms.</p>
         </div>
@@ -101,13 +173,44 @@ function TrainingPage({
               onHoverPos={onHoverPos}
               onHoverClear={onHoverClear}
               getStratagemLogo={getStratagemLogo}
+              globalRecords={globalRecords}
               stratagemStats={stratagemStats}
               showBest
             />
           </div>
         )}
 
-        <div className="training-panel">
+        <div className="training-panel training-panel-plain">
+          {!mobileGameplay && (
+            <div className="training-inline-controls training-inline-controls-stage">
+              <div className="training-inline-control">
+                <label htmlFor="training-count-stage">Training count</label>
+                <div className="count-control">
+                  <input
+                    id="training-count-stage"
+                    type="range"
+                    min="1"
+                    max="20"
+                    value={trainCount}
+                    onChange={(event) => setTrainCount(Number(event.target.value))}
+                  />
+                  <span>{trainCount} items</span>
+                </div>
+              </div>
+              <div className="training-inline-control">
+                <label>Endless mode</label>
+                <div className="toggle-row">
+                  <button
+                    type="button"
+                    className={`toggle-chip ${endlessMode ? 'active' : ''}`}
+                    onClick={() => setEndlessMode((prev) => !prev)}
+                  >
+                    {endlessMode ? 'On' : 'Off'}
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
           <div className="training-stage">
             {mobileGameplay && (
               <div className="mobile-top-controls">
@@ -159,6 +262,7 @@ function TrainingPage({
                           <div className="strip-icon-art">
                             {item.icon ? (
                               <img
+                                className="stratagem-logo"
                                 src={getStratagemLogo(item.icon)}
                                 alt={item.name}
                                 loading="lazy"
@@ -213,6 +317,32 @@ function TrainingPage({
                       s
                     </span>
                   </div>
+                  <div className="active-times active-times-remote">
+                    <span>
+                      World:
+                      {globalRecord?.bestMs
+                        ? (globalRecord.bestMs / 1000).toFixed(2)
+                        : '--'}
+                      s
+                    </span>
+                    <span>Held by: {globalRecord?.username || '--'}</span>
+                  </div>
+                  {!isAuthenticated && (
+                    <div className="training-cloud-note">
+                      Login is optional. Sign in if you want your best time to claim
+                      the global record.
+                    </div>
+                  )}
+                  {isAuthenticated && needsUsername && (
+                    <div className="training-cloud-note">
+                      Finish setting a username before cloud records can be claimed.
+                    </div>
+                  )}
+                  {isAuthenticated && !needsUsername && cloudSyncStatus?.text && (
+                    <div className={`training-cloud-note ${cloudSyncStatus.tone || ''}`}>
+                      {cloudSyncStatus.text}
+                    </div>
+                  )}
                   {mobileGameplay && trainingDone && (
                     <div className="training-mobile-restart">
                       <button

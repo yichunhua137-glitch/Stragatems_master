@@ -14,7 +14,6 @@ function WikiPage({
   return (
     <section className="section wiki-section">
       <div className="section-title">
-        <span>02</span>
         <h2>Stratagem Wiki</h2>
         <p>Officially approved methods for solving problems with bigger explosions.</p>
       </div>
@@ -51,6 +50,7 @@ function WikiPage({
               <div className="wiki-icon">
                 {item.icon ? (
                   <img
+                    className="stratagem-logo"
                     src={getStratagemLogo(item.icon)}
                     alt={item.name}
                     loading="lazy"

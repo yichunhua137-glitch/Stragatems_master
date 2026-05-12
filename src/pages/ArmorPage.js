@@ -44,7 +44,6 @@ function ArmorPage() {
   return (
     <section className="section armor-section">
       <div className="section-title">
-        <span>09</span>
         <h2>Armor Wiki</h2>
         <p>Browse armor sets by class, passive, and movement profile.</p>
       </div>

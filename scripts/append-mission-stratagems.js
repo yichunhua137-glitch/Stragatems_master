@@ -1,9 +1,11 @@
-const fs = require('fs');
+﻿const fs = require('fs');
 const path = require('path');
+const {
+  loadStratagemSections,
+  saveStratagemSections,
+} = require('./lib/stratagem-data');
 
-const txtPath = path.join(__dirname, '..', 'src', 'stratagems.txt');
-const dataPath = path.join(__dirname, '..', 'src', 'stratagems.js');
-
+const txtPath = path.join(__dirname, 'source', 'stratagems.txt');
 const rawTxt = fs.readFileSync(txtPath, 'utf8');
 const lines = rawTxt.split(/\r?\n/);
 
@@ -20,13 +22,13 @@ const parseCode = (text) => {
 };
 
 const stripMarkup = (text) => {
-  let t = text;
-  t = t.replace(/<small>/gi, '');
-  t = t.replace(/<\/small>/gi, '');
-  t = t.replace(/\[\[(?:[^\]|]*\|)?([^\]]+)\]\]/g, '$1');
-  t = t.replace(/\{\{[^}]+\}\}/g, '');
-  t = t.replace(/\s+/g, ' ');
-  return t.trim();
+  let value = text;
+  value = value.replace(/<small>/gi, '');
+  value = value.replace(/<\/small>/gi, '');
+  value = value.replace(/\[\[(?:[^\]|]*\|)?([^\]]+)\]\]/g, '$1');
+  value = value.replace(/\{\{[^}]+\}\}/g, '');
+  value = value.replace(/\s+/g, ' ');
+  return value.trim();
 };
 
 const parseIcon = (text) => {
@@ -48,7 +50,7 @@ let inMission = false;
 let type = null;
 const items = [];
 
-for (let i = 0; i < lines.length; i++) {
+for (let i = 0; i < lines.length; i += 1) {
   const line = lines[i].trim();
   if (line.includes('Mission Stratagems')) {
     inMission = true;
@@ -67,9 +69,9 @@ for (let i = 0; i < lines.length; i++) {
     const cells = [];
     let j = i;
     while (j < lines.length) {
-      const cl = lines[j].trim();
-      if (cl.startsWith('|-') || cl.startsWith('! rowspan=')) break;
-      if (cl.startsWith('|')) cells.push(cl.slice(1).trim());
+      const current = lines[j].trim();
+      if (current.startsWith('|-') || current.startsWith('! rowspan=')) break;
+      if (current.startsWith('|')) cells.push(current.slice(1).trim());
       j += 1;
     }
     i = j - 1;
@@ -93,21 +95,15 @@ for (let i = 0; i < lines.length; i++) {
   }
 }
 
-const rawData = fs.readFileSync(dataPath, 'utf8');
-const match = rawData.match(/const stratagemSections = (.*);\n\nconst flattenStratagems/s);
-if (!match) throw new Error('Unable to locate stratagemSections');
+let sections = loadStratagemSections();
+sections = sections.filter((section) => section.name !== 'Common' && section.name !== 'Objectives');
 
-let sections = JSON.parse(match[1]);
-sections = sections.filter((s) => s.name !== 'Common' && s.name !== 'Objectives');
-
-const missionIndex = sections.findIndex((s) => s.name === 'Mission Stratagems');
+const missionIndex = sections.findIndex((section) => section.name === 'Mission Stratagems');
 if (missionIndex >= 0) {
   sections[missionIndex].items = items;
 } else {
   sections.push({ name: 'Mission Stratagems', items });
 }
 
-const output = `const stratagemSections = ${JSON.stringify(sections, null, 2)};\n\nconst flattenStratagems = (sections) =>\n  sections.flatMap((section) =>\n    section.items.map((item) => ({\n      ...item,\n      section: section.name,\n    }))\n  );\n\nexport { stratagemSections, flattenStratagems };\n`;
-
-fs.writeFileSync(dataPath, output, 'utf8');
+saveStratagemSections(sections);
 console.log(`Mission stratagems: ${items.length}`);

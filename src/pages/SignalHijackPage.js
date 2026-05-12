@@ -25,7 +25,6 @@ function SignalHijackPage() {
   return (
     <section className="section signal-hijack-section page-shell">
       <div className="section-title">
-        <span>10</span>
         <h2>Broadcast Relay Test</h2>
         <p>Routine transmission quality check with staged feed transitions.</p>
       </div>

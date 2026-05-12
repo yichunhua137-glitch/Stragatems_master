@@ -14,6 +14,7 @@ function ChallengeInterferencePage({
   onHoverPos,
   onHoverClear,
   getStratagemLogo,
+  globalRecords,
   challengeLevel,
   setChallengeLevel,
   challengeScore,
@@ -96,7 +97,6 @@ function ChallengeInterferencePage({
       {!mobileGameplay && <div className="section-title">
         <div className="challenge-header-row">
           <div className="challenge-heading-main">
-            <span>09</span>
             <h2>Illuminate Interference</h2>
           </div>
           <div className="challenge-records">
@@ -129,82 +129,79 @@ function ChallengeInterferencePage({
             onHoverPos={onHoverPos}
             onHoverClear={onHoverClear}
             getStratagemLogo={getStratagemLogo}
+            globalRecords={globalRecords}
           />
         </div>}
 
         <div className="challenge-panel">
-          <div className="challenge-controls">
-            <div className="challenge-control-grid">
-              <div className="challenge-control-card">
-                <label>Mode</label>
-                <div className="challenge-mode-readonly">Complete N (Fixed)</div>
-              </div>
-
-              <div className="challenge-control-card">
-                <label>Level</label>
-                <div className="challenge-level-input">
-                  <div className="challenge-level">
-                    <button
-                      type="button"
-                      className="toggle-chip"
-                      onClick={() => setChallengeLevel((prev) => Math.max(1, prev - 1))}
-                      disabled={challengeLevel <= 1}
-                    >
-                      -
-                    </button>
-                    <span>Level {challengeLevel}</span>
-                    <button
-                      type="button"
-                      className="toggle-chip"
-                      onClick={() => setChallengeLevel((prev) => Math.min(99, prev + 1))}
-                    >
-                      +
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              <div className="challenge-control-card challenge-control-card-wide">
-                <label>Interference Cycle</label>
-                <div className="count-control">
-                  <input
-                    type="range"
-                    min="3000"
-                    max="12000"
-                    step="500"
-                    value={challengeInterferenceMs}
-                    onChange={(event) =>
-                      setChallengeInterferenceMs(Number(event.target.value))
-                    }
-                  />
-                  <span>{(challengeInterferenceMs / 1000).toFixed(1)}s</span>
-                </div>
-                <div className="challenge-metrics single-metric">
-                  <div className="metric-tile">
-                    <span>Code Shift</span>
-                    <strong>
-                      {challengeStarted
-                        ? `${Math.max(0, challengeInterferenceLeftMs / 1000).toFixed(
-                            1
-                          )}s`
-                        : 'Ready'}
-                    </strong>
-                  </div>
-                </div>
-              </div>
-
-              {challengeLevelComplete && !challengeFailed && (
-                <div className="challenge-control-card challenge-control-card-wide challenge-actions">
-                  <button
-                    type="button"
-                    className="primary ghost"
-                    onClick={setChallengeLevelAndStartNext}
-                  >
-                    Next Level
-                  </button>
-                </div>
-              )}
+          <div className="challenge-toolbar">
+            <div className="challenge-tool">
+              <label>Mode</label>
+              <div className="challenge-mode-readonly">Complete N (Fixed)</div>
             </div>
+
+            <div className="challenge-tool">
+              <label>Level</label>
+              <div className="challenge-level">
+                <button
+                  type="button"
+                  className="toggle-chip"
+                  onClick={() => setChallengeLevel((prev) => Math.max(1, prev - 1))}
+                  disabled={challengeLevel <= 1}
+                >
+                  -
+                </button>
+                <span>Level {challengeLevel}</span>
+                <button
+                  type="button"
+                  className="toggle-chip"
+                  onClick={() => setChallengeLevel((prev) => Math.min(99, prev + 1))}
+                >
+                  +
+                </button>
+              </div>
+            </div>
+
+            <div className="challenge-tool challenge-tool-wide">
+              <label>Interference Cycle</label>
+              <div className="count-control">
+                <input
+                  type="range"
+                  min="3000"
+                  max="12000"
+                  step="500"
+                  value={challengeInterferenceMs}
+                  onChange={(event) =>
+                    setChallengeInterferenceMs(Number(event.target.value))
+                  }
+                />
+                <span>{(challengeInterferenceMs / 1000).toFixed(1)}s</span>
+              </div>
+              <div className="challenge-metrics single-metric">
+                <div className="metric-tile">
+                  <span>Code Shift</span>
+                  <strong>
+                    {challengeStarted
+                      ? `${Math.max(0, challengeInterferenceLeftMs / 1000).toFixed(
+                          1
+                        )}s`
+                      : 'Ready'}
+                  </strong>
+                </div>
+              </div>
+            </div>
+
+            {challengeLevelComplete && !challengeFailed && (
+              <div className="challenge-tool challenge-tool-action">
+                <button
+                  type="button"
+                  className="primary ghost"
+                  onClick={setChallengeLevelAndStartNext}
+                >
+                  Next Level
+                </button>
+              </div>
+            )}
           </div>
 
           <div className="challenge-stage">

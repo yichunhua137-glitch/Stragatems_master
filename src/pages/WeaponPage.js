@@ -17,7 +17,6 @@ function WeaponPage({
   return (
     <section className="section weapon-section">
       <div className="section-title">
-        <span>06</span>
         <h2>Weapon Wiki</h2>
         <p>Browse approved tools for peaceful conflict resolution.</p>
       </div>
